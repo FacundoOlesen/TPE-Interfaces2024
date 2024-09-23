@@ -1,0 +1,58 @@
+/* Barra de navegacion */
+nav ul {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    list-style-type: none;
+    margin: 0;
+    padding: 0;
+    background-color: #240B34;
+}
+
+/* Menú hamburguesa y logo*/
+.nav-left {
+    display: flex;
+    gap: 10px;
+}
+
+/* Buscador*/
+.nav-center {
+    flex-grow: 1;
+    display: flex;
+    justify-content: center;
+}
+
+/* Carrito y usuario */
+.nav-right {
+    display: flex;
+    gap: 10px; 
+}
+
+form {
+    display: flex;
+    align-items: center;
+}
+
+form input {
+    padding: 5px;
+    border: 1px solid #ccc;
+    border-radius: 5px 0 0 5px;
+    outline: none;
+}
+
+form button {
+    background-color: #fff;
+    border: 1px solid #ccc;
+    border-left: none;
+    border-radius: 0 5px 5px 0;
+    cursor: pointer;
+    padding: 5px;
+}
+
+form button img {
+    width: 15px;
+}
+
+nav ul li a img {
+    width: 30px; 
+}
