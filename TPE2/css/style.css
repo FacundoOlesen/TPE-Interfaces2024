@@ -56,3 +56,35 @@ form button img {
 nav ul li a img {
     width: 30px; 
 }
+
+/*  mi aporte */
+
+.sesion-control{
+    position: absolute;
+    display: flex;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100vh;
+    background: rgba(255, 255, 255, 0.2); /* Transparente */
+    backdrop-filter: blur(10px); /* Efecto borroso */
+    z-index: 10;
+}
+
+.sesion-control .login-container{
+    margin: auto;
+    width: 50%;
+    height: 70%;
+    display: flex;
+    background-color: red;
+    overflow: hidden;
+    transition: transform .5s ease;
+}
+
+.sesion-control .login-container form{
+    flex: 1 0 100%;
+    display: flex;
+    flex-wrap: wrap;
+    transition: transform .5s ease;
+    
+}

@@ -4,6 +4,7 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <link rel="stylesheet" href="css/style.css">
+    <link rel="stylesheet" href="css/base.css">
     <title>Home-minijuegos</title>
 </head>
 <body>
@@ -29,6 +30,84 @@
             </ul>
         </nav>
     </header>
+    <section class="sesion-control">
+        <article class="login-container">
+            <form action="" class="login-form">
+                <h1>Inicia Sesión</h1>
+                <button><span></span>Inicia Sesión con Google</button>
+                <button><span></span>Inicia Sesión con Facebook</button>
+                <div class="separador">
+                    <span></span>
+                    <p>O</p>
+                    <span></span>
+                </div>
+                <input type="text" placeholder="Correo Electrónico">
+                <input type="text" placeholder="Contraseña">
+                <a href="#">¿Olvidaste tu contraseña?</a>
+                <button type="button">Ingresar</button>
+                <p>¿No tenés una cuenta? <a id="btn-registro" href="#">Regístrate</a></p>
+            </form>
+            <form action="" class="registro">
+                <h1>Registrarse</h1>
+                <button><span></span>Registrate con Google</button>
+                <button><span></span>Registrate con Facebook</button>
+                <div class="separador">
+                    <span></span>
+                    <p>O</p>
+                    <span></span>
+                    
+                </div>
+                <button >Crear cuenta</button>
+                <p>Al registrate, aceptas los <a href="#">Términos de servicio</a> y la <a href="#">Política de privacidad</a>, incluida la política de <a href="#">Uso de Cookies</a>.</p>
+                <p>¿Ya tenés una cuenta? <a id="btn-inicio-sesion" href="#">Inicia sesión</a></p>
+            </form>
+            <form action="" class="registro-p1">
+                <div class="retorno">
+                    <a href="#"><span></span></a>
+                    Paso 1 de 3
+                </div>
+                <h1>Crea tu cuenta</h1>
+                <label for="">Nombre</label>
+                <input type="text" placeholder="Ingresá tu nombre">
+                <label for="">Apellido</label>
+                <input type="text" placeholder="Ingresá tu apellido">
+                <p><a href="#">TUDAI Gaming</a> podrá usar tu información de contacto, como tu dirección de correo electrónico . <a href="#">Más información</a></p>
+                <button>Siguiente</button>
+            </form>
+            <form action="" class="registro-p2">
+                <div class="retorno">
+                    <a href="#"><span></span></a>
+                    Paso 2 de 3
+                </div>
+                <h1>Crea tu cuenta</h1>
+                <label for="">Nickname (opcional)</label>
+                <input type="text" placeholder="Ingresá tu nickname">
+                <label for="">Edad</label>
+                <input type="text" placeholder="Ingresá tu edad">
+                <p><a href="#">TUDAI Gaming</a> usa estos datos para personalizar tu experiencia y recomendaciones de juegos. </p>
+                <button>Siguiente</button>
+            </form>
+            <form action="" class="registro-p3">
+                <div class="retorno">
+                    <a href="#"><span></span></a>
+                    Paso 3 de 3
+                </div>
+                <h1>Ya falta poco...</h1>
+                <label for="">E-mail</label>
+                <input type="text" placeholder="Ingresá tu E-mail">
+                <label for="">Contraseña</label>
+                <input type="text" placeholder="Ingresá tu contraseña">
+                <label for="">Repetir contraseña</label>
+                <input type="text" placeholder="Ingresá tu contraseña nuevamente">
+                <div class="captcha">
+                    <input type="checkbox">
+                    <p>I'm not a robot</p>
+                    <img src="" alt="">
+                </div>
+                <button>Crear cuenta</button>
+            </form>
+        </article>
+    </section>
     <main>
         <section class="juegos-destacados">
             <h1 id="">Juegos destacados</h1>
@@ -57,8 +136,8 @@
         </section>
 
     </main>
-    <footer>
-        
+    <footer>    
     </footer>
+    <script src="css/index.js"></script>
 </body>
 </html>

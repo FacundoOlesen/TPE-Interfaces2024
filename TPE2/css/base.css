@@ -1,0 +1,110 @@
+@import url("https://fonts.googleapis.com/css2?family=Michroma&display=swap");
+
+@font-face {
+    font-family: "Nunito";
+    src: url("static/tipografia/nunito_regular.woff");
+}
+
+@font-face {
+    font-family: "Nunito bold";
+    src: url("static/tipografia/nunito_bold.woff");
+}
+
+@font-face {
+    font-family: "Nunito thin";
+    src: url("static/tipografia/nunito_thin.woff");
+}
+
+@font-face {
+    font-family: "Nunito extra thin";
+    src: url("static/tipografia/nunito_extra_thin.woff2");
+}
+
+:root {
+    --primario-w3: hsl(250, 60%, 95%);
+    --primario-w2: hsl(250, 60%, 85%);
+    --primario-w1: hsl(250, 60%, 70%);
+    --primario: hsl(250, 60%, 50%);
+    --primario-b1: hsl(250, 60%, 30%);
+    --primario-b2: hsl(250, 60%, 15%);
+    --primario-b3: hsl(250, 60%, 5%);
+
+    --secundario-w3: hsl(270, 65%, 95%);
+    --secundario-w2: hsl(270, 65%, 85%);
+    --secundario-w1: hsl(270, 65%, 70%);
+    --secundario: hsl(270, 65%, 50%);
+    --secundario-b1: hsl(270, 65%, 30%);
+    --secundario-b2: hsl(270, 65%, 15%);
+    --secundario-b3: hsl(270, 65%, 5%);
+
+    --acento-w3: hsl(40, 100%, 95%);
+    --acento-w2: hsl(40, 100%, 85%);
+    --acento-w1: hsl(40, 100%, 70%);
+    --acento: hsl(40, 100%, 50%);
+    --acento-b1: hsl(40, 100%, 30%);
+    --acento-b2: hsl(40, 100%, 15%);
+    --acento-b3: hsl(40, 100%, 5%);
+
+    --nunito: 'Nunito', sans-serif;
+    --nunito-thin: 'Nunito thin', sans-serif;
+    --nunito-bold: 'Nunito bold', sans-serif;
+    --nunito-extra-thin: 'Nunito extra thin', sans-serif;
+    --h1-size: 4rem;
+    --h2-size: 3.5rem;
+    --h3-size: 3rem;
+    --h4-size: 2rem;
+    --p1-size: 1rem;
+    --p2-size: 0.938rem;
+}
+
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+.titulo-principal,
+.titulo-secundario,
+.titulo-terciario,
+.parrafo-resaltado {
+    font-family: var(--nunito-bold);
+}
+
+.titulo-principal {
+    font-size: 56px;
+}
+
+.titulo-secundario {
+    font-size: 40px;
+}
+
+.titulo-terciario {
+    font-size: 30px;
+}
+
+.parrafo-resaltado {
+    font-size: 22px;
+}
+
+.parrafo {
+    font-family: var(--nunito);
+    font-size: 22px;
+}
+
+.texto-boton,
+.boton-primario,
+.boton-secundario,
+.boton-terciario,
+.boton-sesion {
+    font-family: var(--nunito-thin);
+    font-size: 18px;
+}
+
+.detalle {
+    font-family: var(--nunito-extra-thin);
+    font-size: 16px;
+}
+
+body {
+    background-color: var(--primario-b2);
+}
