@@ -76,7 +76,8 @@ nav ul li a img {
     width: 50%;
     height: 70%;
     display: flex;
-    background-color: red;
+    background-color: #35225E;
+    color: white;
     overflow: hidden;
     transition: transform .5s ease;
 }
@@ -86,5 +87,30 @@ nav ul li a img {
     display: flex;
     flex-wrap: wrap;
     transition: transform .5s ease;
+    flex-direction: column;
+    justify-content: space-evenly;
     
+}
+
+.sesion-control .login-container a{ 
+    color: #1D9BF0;
+}
+
+.sesion-control .login-container button, .sesion-control .login-container input{ 
+    width: 50%;
+    height: 45px;
+}
+.sesion-control .login-container p{ 
+    width: 50%;
+}
+.sesion-control .login-container button{ 
+    border-radius: 20px;
+}
+
+.sesion-control .login-container input{ 
+    border-radius: 5px;
+}
+
+.separador{
+    display: flex;
 }
