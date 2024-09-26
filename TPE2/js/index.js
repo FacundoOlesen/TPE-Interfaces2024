@@ -11,6 +11,19 @@ const btnRegistro = document.querySelector("#btn-registro").addEventListener("cl
 const btnInicioSesion = document.querySelector("#btn-inicio-sesion").addEventListener("click", ()=>{
     transladar(100);
 });
+const btnCrearCuenta = document.querySelector("#btn-crear-cuenta").addEventListener("click", ()=>{
+    transladar(-100);
+});
+const btnP1Siguiente = document.querySelector("#btn-p1-siguiente").addEventListener("click", ()=>{
+    transladar(-100);
+});
+const btnP2Siguiente = document.querySelector("#btn-p2-siguiente").addEventListener("click", ()=>{
+    transladar(-100);
+});
+// const btnP3CrearCuenta = document.querySelector("#btn-p3-crear-cuenta").addEventListener("click", ()=>{
+//     transladar(-100);
+// });
+
 
 function transladar(valor){
     translateValue += valor;

@@ -99,6 +99,7 @@ nav ul li a img {
 .sesion-control .login-container button, .sesion-control .login-container input{ 
     width: 50%;
     height: 45px;
+    font-size: 18px;  /* Ajusta el tamaño de la letra */
 }
 .sesion-control .login-container p{ 
     width: 50%;
@@ -109,6 +110,14 @@ nav ul li a img {
 
 .sesion-control .login-container input{ 
     border-radius: 5px;
+    padding: 10px;    /* Ajusta el padding del input */
+}
+
+/* Estilos específicos para el placeholder */
+.sesion-control .login-container input::placeholder {
+    font-size: 18px;   /* Ajusta el tamaño de la letra del placeholder */
+    color: #ccc;       /* Ajusta el color del placeholder si lo necesitas */
+    opacity: 1;        /* Asegúrate de que el placeholder sea visible en todos los navegadores */
 }
 
 .separador{
