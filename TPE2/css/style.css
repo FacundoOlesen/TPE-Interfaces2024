@@ -78,7 +78,7 @@ nav ul li a img {
 .sesion-control .login-container{
     margin: auto;
     width: 50%;
-    height: 70%;
+    height: 60%;
     display: flex;
     background-color: #35225E;
     color: white;
@@ -116,6 +116,7 @@ nav ul li a img {
     background-color: black;
     border-radius: 5px;
     padding: 10px;    /* Ajusta el padding del input */
+    color: #ccc;
 }
 
 /* Estilos específicos para el placeholder */
