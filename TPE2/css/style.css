@@ -71,6 +71,10 @@ nav ul li a img {
     z-index: 10;
 }
 
+.ocultar{
+    display: none;
+}
+
 .sesion-control .login-container{
     margin: auto;
     width: 50%;
@@ -109,6 +113,7 @@ nav ul li a img {
 }
 
 .sesion-control .login-container input{ 
+    background-color: black;
     border-radius: 5px;
     padding: 10px;    /* Ajusta el padding del input */
 }
@@ -122,4 +127,22 @@ nav ul li a img {
 
 .separador{
     display: flex;
+}
+
+.btn-facebook{
+    background-color: #1D9BF0;
+    color: white;
+    
+}
+button i,button img {
+    margin-right: 12px; /* Ajusta este valor para más o menos espacio */
+}
+.btn-google img {
+    width:20px; /* Ajusta este valor para más o menos espacio */
+}
+
+.btn-google img {
+    display: flex;
+    justify-content: center;
+    align-items: center;
 }

@@ -5,6 +5,8 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <link rel="stylesheet" href="css/style.css">
     <link rel="stylesheet" href="css/base.css">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.3/css/all.min.css">
+
     <title>Home-minijuegos</title>
 </head>
 <body>
@@ -30,12 +32,12 @@
             </ul>
         </nav>
     </header>
-    <section class="sesion-control">
+    <section id="registro" class="sesion-control">
         <article class="login-container">
-            <form action="" class="login-form">
+            <form  class="login-form">
                 <h1 class="titulo-terciario">Inicia Sesión</h1>
-                <button><span></span>Inicia Sesión con Google</button>
-                <button><span></span>Inicia Sesión con Facebook</button>
+                <button class="btn-google"> <img src="img/google.png" alt="Google Logo">Inicia Sesión con Google</button>
+                <button class="btn-facebook"><i class="fab fa-facebook-f"></i>Inicia Sesión con Facebook</button>
                 <div class="separador">
                     <span>------------------------</span>
                     <span>o</span>
@@ -44,13 +46,13 @@
                 <input type="text" placeholder="Correo Electrónico">
                 <input type="text" placeholder="Contraseña">
                 <p>¿Olvidaste tu contraseña?</p>
-                <button type="button">Ingresar</button>
+                <button id="btn-ingresar" type="button">Ingresar</button>
                 <p>¿No tenés una cuenta? <a id="btn-registro" href="#">Regístrate</a></p>
             </form>
-            <form action="" class="registro">
+            <form  class="registro">
                 <h1>Registrarse</h1>
                 <button><span></span>Registrate con Google</button>
-                <button><span></span>Registrate con Facebook</button>
+                <button class="btn-facebook"><span></span>Registrate con Facebook</button>
                 <div class="separador">
                     <span>------------------------</span>
                     <span>o</span>
@@ -61,7 +63,7 @@
                 <p>Al registrate, aceptas los <a href="#">Términos de servicio</a> y la <a href="#">Política de privacidad</a>, incluida la política de <a href="#">Uso de Cookies</a>.</p>
                 <p>¿Ya tenés una cuenta? <a id="btn-inicio-sesion" href="#">Inicia sesión</a></p>
             </form>
-            <form action="" class="registro-p1">
+            <form  class="registro-p1">
                 <div class="retorno">
                     <a href="#"><span></span></a>
                     Paso 1 de 3
@@ -74,7 +76,7 @@
                 <p><a href="#">TUDAI Gaming</a> podrá usar tu información de contacto, como tu dirección de correo electrónico . <a href="#">Más información</a></p>
                 <button id="btn-p1-siguiente">Siguiente</button>
             </form>
-            <form action="" class="registro-p2">
+            <form  class="registro-p2">
                 <div class="retorno">
                     <a href="#"><span></span></a>
                     Paso 2 de 3
@@ -87,7 +89,7 @@
                 <p><a href="#">TUDAI Gaming</a> usa estos datos para personalizar tu experiencia y recomendaciones de juegos. </p>
                 <button id="btn-p2-siguiente">Siguiente</button>
             </form>
-            <form action="" class="registro-p3">
+            <form class="registro-p3">
                 <div class="retorno">
                     <a href="#"><span></span></a>
                     Paso 3 de 3

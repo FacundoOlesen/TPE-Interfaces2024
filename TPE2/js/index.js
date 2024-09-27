@@ -4,7 +4,9 @@ const registroP1 = document.querySelector(".registro-p1");
 const registroP2 = document.querySelector(".registro-p2");
 const registroP3 = document.querySelector(".registro-p3");
 
+
 let translateValue = 0;
+
 const btnRegistro = document.querySelector("#btn-registro").addEventListener("click", ()=>{
     transladar(-100);
 });
@@ -20,10 +22,17 @@ const btnP1Siguiente = document.querySelector("#btn-p1-siguiente").addEventListe
 const btnP2Siguiente = document.querySelector("#btn-p2-siguiente").addEventListener("click", ()=>{
     transladar(-100);
 });
-// const btnP3CrearCuenta = document.querySelector("#btn-p3-crear-cuenta").addEventListener("click", ()=>{
-//     transladar(-100);
-// });
+ const btnP3CrearCuenta = document.querySelector("#btn-p3-crear-cuenta").addEventListener("click", ()=>{
+    agregarClase("#registro",'ocultar')
+ });
+const btnIngresar = document.querySelector("#btn-ingresar").addEventListener("click", ()=>{
+    agregarClase("#registro",'ocultar')
+});
 
+function agregarClase(elem,clase){
+    let elemento = document.querySelector(elem);
+    elemento.classList.add(clase);
+}
 
 function transladar(valor){
     translateValue += valor;
@@ -33,3 +42,4 @@ function transladar(valor){
     registroP2.style.transform=`translateX(${translateValue}%)`
     registroP3.style.transform=`translateX(${translateValue}%)`
 }
+
