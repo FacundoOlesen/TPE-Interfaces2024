@@ -40,9 +40,9 @@
                 <button class="btn-google"> <img src="img/google.png" alt="Google Logo">Inicia Sesión con Google</button>
                 <button class="btn-facebook"><i class="fab fa-facebook-f"></i>Inicia Sesión con Facebook</button>
                 <div class="separador">
-                    <span>------------------------</span>
+                    <span>-----------------------------</span>
                     <span>o</span>
-                    <span>------------------------</span>
+                    <span>-----------------------------</span>
                 </div>
                 <input type="text" placeholder="Correo Electrónico">
                 <input type="password" placeholder="Contraseña">
@@ -55,9 +55,9 @@
                 <button class="btn-google"> <img src="img/google.png" alt="Google Logo">Registrate con Google</button>
                 <button class="btn-facebook"><i class="fab fa-facebook-f"></i>Registrate con Facebook</button>
                 <div class="separador">
-                    <span>------------------------</span>
+                    <span>-----------------------------</span>
                     <span>o</span>
-                    <span>------------------------</span>
+                    <span>-----------------------------</span>
                     
                 </div>
                 <button id="btn-crear-cuenta">Crear cuenta</button>
@@ -69,11 +69,17 @@
                     <a href="#"><span></span></a>
                     Paso 1 de 3
                 </div>
-                <h1>Crea tu cuenta</h1>
-                <label for="">Nombre</label>
-                <input type="text" placeholder="Ingresá tu nombre">
-                <label for="">Apellido</label>
-                <input type="text" placeholder="Ingresá tu apellido">
+                <div>
+                    <h1 class="titulo-terciario">Crea tu cuenta</h1>
+                </div>
+                <div class="grupo-label-input">
+                    <label>Nombre</label>
+                    <input type="text" placeholder="Ingresá tu nombre">
+                </div>
+                <div class="grupo-label-input">
+                    <label>Apellido</label>
+                    <input type="text" placeholder="Ingresá tu apellido">
+                </div>
                 <p><a href="#">TUDAI Gaming</a> podrá usar tu información de contacto, como tu dirección de correo electrónico . <a href="#">Más información</a></p>
                 <button id="btn-p1-siguiente">Siguiente</button>
             </form>
@@ -82,11 +88,17 @@
                     <a href="#"><span></span></a>
                     Paso 2 de 3
                 </div>
-                <h1>Crea tu cuenta</h1>
-                <label for="">Nickname (opcional)</label>
-                <input type="text" placeholder="Ingresá tu nickname">
-                <label for="">Edad</label>
-                <input type="text" placeholder="Ingresá tu edad">
+                <div>
+                    <h1 class="titulo-terciario">Crea tu cuenta</h1>
+                </div>
+                <div class="grupo-label-input">
+                    <label>Nickname (opcional)</label>
+                    <input type="text" placeholder="Ingresá tu nickname">
+                </div>
+                <div class="grupo-label-input">
+                    <label>Edad</label>
+                    <input type="text" placeholder="Ingresá tu edad">
+                </div>
                 <p><a href="#">TUDAI Gaming</a> usa estos datos para personalizar tu experiencia y recomendaciones de juegos. </p>
                 <button id="btn-p2-siguiente">Siguiente</button>
             </form>
@@ -95,17 +107,27 @@
                     <a href="#"><span></span></a>
                     Paso 3 de 3
                 </div>
-                <h1>Ya falta poco...</h1>
-                <label for="">E-mail</label>
-                <input type="text" placeholder="Ingresá tu E-mail">
-                <label for="">Contraseña</label>
-                <input type="text" placeholder="Ingresá tu contraseña">
-                <label for="">Repetir contraseña</label>
-                <input type="text" placeholder="Ingresá tu contraseña nuevamente">
+                <div>
+                    <h1 class="titulo-terciario">Ya falta poco...</h1>
+                </div>
+                <div class="grupo-label-input">
+                    <label for="">E-mail</label>
+                    <input type="text" placeholder="Ingresá tu E-mail">
+                </div>
+                <div class="grupo-label-input">
+                    <label for="">Contraseña</label>
+                    <input type="text" placeholder="Ingresá tu contraseña">
+                </div>
+                <div class="grupo-label-input">
+                    <label for="">Repetir contraseña</label>
+                    <input type="text" placeholder="Ingresá tu contraseña nuevamente">
+                </div>
                 <div class="captcha">
-                    <input type="checkbox">
-                    <p>I'm not a robot</p>
-                    <img src="" alt="">
+                    <div>
+                        <input type="checkbox">
+                        <p>I'm not a robot</p>
+                    </div>
+                    <img src="img/lupa.png" alt="captcha">
                 </div>
                 <button id="btn-p3-crear-cuenta">Crear cuenta</button>
             </form>

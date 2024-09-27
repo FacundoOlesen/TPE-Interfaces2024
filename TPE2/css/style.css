@@ -100,13 +100,22 @@ nav ul li a img {
     color: #1D9BF0;
 }
 
-.sesion-control .login-container button, .sesion-control .login-container input{ 
+.sesion-control .login-container form > button, .sesion-control .login-container form > input{ 
     width: 50%;
     height: 45px;
     font-size: 18px;  /* Ajusta el tamaño de la letra */
 }
-.sesion-control .login-container p{ 
+.sesion-control .login-container form > div{
     width: 50%;
+}
+
+.sesion-control .login-container p{ 
+    width: 50%;  
+}
+.sesion-control .login-container label{ 
+    font-size: 18px; 
+    font-weight: bold;  
+    margin-bottom: 5px;
 }
 .sesion-control .login-container button{ 
     border-radius: 20px;
@@ -146,4 +155,44 @@ button i,button img {
     display: flex;
     justify-content: center;
     align-items: center;
+}
+
+.grupo-label-input{
+    display: flex;
+    flex-direction: column;
+}
+
+.captcha{
+    justify-content: space-between;
+    background-color: #eee;
+    display: flex;
+    align-items: center;
+    justify-content: space-evenly;
+    font-size: 18px;
+    color: black;
+    height: 45px;
+}
+
+.captcha div{
+ 
+    display: flex;
+    align-items: center;
+    justify-content: space-evenly;
+}
+
+.captcha p{
+    width: 100px;
+}
+
+.captcha img{
+    width: 30px;
+}
+
+.captcha input{
+    margin-right: 20px;
+    width: 10px;
+    height: 10px;
+    transform: scale(2.5); /* Aumenta el tamaño del checkbox */
+    -webkit-transform: scale(2.5); /* Para compatibilidad con navegadores antiguos */
+    -moz-transform: scale(2.5); /* Para navegadores antiguos de Firefox */
 }
