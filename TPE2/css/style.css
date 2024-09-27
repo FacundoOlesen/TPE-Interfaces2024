@@ -71,10 +71,14 @@ nav ul li a img {
     z-index: 10;
 }
 
+.ocultar{
+    display: none;
+}
+
 .sesion-control .login-container{
     margin: auto;
     width: 50%;
-    height: 70%;
+    height: 60%;
     display: flex;
     background-color: #35225E;
     color: white;
@@ -96,21 +100,32 @@ nav ul li a img {
     color: #1D9BF0;
 }
 
-.sesion-control .login-container button, .sesion-control .login-container input{ 
+.sesion-control .login-container form > button, .sesion-control .login-container form > input{ 
     width: 50%;
     height: 45px;
     font-size: 18px;  /* Ajusta el tamaño de la letra */
 }
-.sesion-control .login-container p{ 
+.sesion-control .login-container form > div{
     width: 50%;
+}
+
+.sesion-control .login-container p{ 
+    width: 50%;  
+}
+.sesion-control .login-container label{ 
+    font-size: 18px; 
+    font-weight: bold;  
+    margin-bottom: 5px;
 }
 .sesion-control .login-container button{ 
     border-radius: 20px;
 }
 
 .sesion-control .login-container input{ 
+    background-color: black;
     border-radius: 5px;
     padding: 10px;    /* Ajusta el padding del input */
+    color: #ccc;
 }
 
 /* Estilos específicos para el placeholder */
@@ -224,4 +239,62 @@ nav ul li a img {
 
 .carrusel-next::after {
     transform: rotate(-45deg);
+}
+
+.btn-facebook{
+    background-color: #1D9BF0;
+    color: white;
+    
+}
+button i,button img {
+    margin-right: 12px; /* Ajusta este valor para más o menos espacio */
+}
+.btn-google img {
+    width:20px; /* Ajusta este valor para más o menos espacio */
+}
+
+.btn-google {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+.grupo-label-input{
+    display: flex;
+    flex-direction: column;
+}
+
+.captcha{
+    justify-content: space-between;
+    background-color: #eee;
+    display: flex;
+    align-items: center;
+    justify-content: space-evenly;
+    font-size: 18px;
+    color: black;
+    height: 45px;
+}
+
+.captcha div{
+ 
+    display: flex;
+    align-items: center;
+    justify-content: space-evenly;
+}
+
+.captcha p{
+    width: 100px;
+}
+
+.captcha img{
+    width: 30px;
+}
+
+.captcha input{
+    margin-right: 20px;
+    width: 10px;
+    height: 10px;
+    transform: scale(2.5); /* Aumenta el tamaño del checkbox */
+    -webkit-transform: scale(2.5); /* Para compatibilidad con navegadores antiguos */
+    -moz-transform: scale(2.5); /* Para navegadores antiguos de Firefox */
 }
