@@ -141,7 +141,7 @@ button i,button img {
     width:20px; /* Ajusta este valor para más o menos espacio */
 }
 
-.btn-google img {
+.btn-google {
     display: flex;
     justify-content: center;
     align-items: center;
