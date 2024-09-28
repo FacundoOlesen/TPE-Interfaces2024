@@ -8,7 +8,6 @@ nav ul {
     padding: 0;
     background-color: #240B34;
 }
-
 /* Menú hamburguesa y logo*/
 .nav-left {
     display: flex;
@@ -142,13 +141,17 @@ nav ul li a img {
 
 
 /* Carruseles */
+.titulo-carrusel{
+    margin:2rem 0 1rem 10rem;
+    color: white;
+}
 .carrusel {
     max-width: 100%;
     width: 80%;
-    margin: 0 auto;
+    height: 18rem;
+    margin: 0 0 0 10rem;
     overflow: hidden;
     position: relative;
-    font-size: 1rem;
     border-radius: 10px;
 }
 
@@ -180,12 +183,19 @@ nav ul li a img {
 
 .juego-card h2 {
     font-size: 1.2rem;
-    margin: 10px 0;
+    margin: 0.2rem 0;
+    font-size: 1.5rem;
 }
 
 .juego-card p {
     font-size: 1rem;
     margin-bottom: 10px;
+    font-size: 0.9rem;
+
+}
+.titulo-card{
+    color: #9b9797;
+    font-size: 0.8rem;
 }
 
 .carrusel-prev,
