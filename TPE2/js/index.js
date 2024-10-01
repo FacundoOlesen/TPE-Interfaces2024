@@ -1,55 +1,40 @@
+// Selección de elementos
 const loginForm = document.querySelector(".login-form");
 const registro = document.querySelector(".registro");
-const registroP1 = document.querySelector(".registro-p1");
-const registroP2 = document.querySelector(".registro-p2");
-const registroP3 = document.querySelector(".registro-p3");
+const pasosRegistro = [document.querySelector(".registro-p1"), document.querySelector(".registro-p2"), document.querySelector(".registro-p3")];
 
-
+// Variable para la traslación
 let translateValue = 0;
 
-const btnRegistro = document.querySelector("#btn-registro").addEventListener("click", ()=>{
-    transladar(-100);
-});
-const btnInicioSesion = document.querySelector("#btn-inicio-sesion").addEventListener("click", ()=>{
-    transladar(100);
-});
-const btnCrearCuenta = document.querySelector("#btn-crear-cuenta").addEventListener("click", ()=>{
-    transladar(-100);
-});
-const btnP1Siguiente = document.querySelector("#btn-p1-siguiente").addEventListener("click", ()=>{
-    transladar(-100);
-});
-const btnP2Siguiente = document.querySelector("#btn-p2-siguiente").addEventListener("click", ()=>{
-    transladar(-100);
-});
- const btnP3CrearCuenta = document.querySelector("#btn-p3-crear-cuenta").addEventListener("click", ()=>{
-    agregarClase("#registro",'ocultar')
- });
-const btnIngresar = document.querySelector("#btn-ingresar").addEventListener("click", ()=>{
-    agregarClase("#registro",'ocultar')
-});
-const btnP1Volver = document.querySelector("#btn-p1-volver").addEventListener("click", ()=>{
-    transladar(100);
-});
-const btnP2Volver = document.querySelector("#btn-p2-volver").addEventListener("click", ()=>{
-    transladar(100);
-});
-const btnP3Volver = document.querySelector("#btn-p3-volver").addEventListener("click", ()=>{
-    transladar(100);
-});
-
-
-function agregarClase(elem,clase){
-    let elemento = document.querySelector(elem);
-    elemento.classList.add(clase);
+// Función para agregar clase a un elemento
+function agregarClase(elem, clase) {
+    document.querySelector(elem).classList.add(clase);
 }
 
-function transladar(valor){
+// Función para trasladar elementos
+function trasladar(valor) {
     translateValue += valor;
-    loginForm.style.transform=`translateX(${translateValue}%)`
-    registro.style.transform=`translateX(${translateValue}%)`
-    registroP1.style.transform=`translateX(${translateValue}%)`
-    registroP2.style.transform=`translateX(${translateValue}%)`
-    registroP3.style.transform=`translateX(${translateValue}%)`
+    const elementsToTranslate = [loginForm, registro, ...pasosRegistro];
+    elementsToTranslate.forEach(el => el.style.transform = `translateX(${translateValue}%)`);
 }
 
+// Función para asignar eventos de clic y trasladar
+function asignarEventoTrasladar(selector, valor) {
+    document.querySelector(selector).addEventListener("click", () => trasladar(valor));
+}
+
+// Asignar eventos de traslación
+asignarEventoTrasladar("#btn-registro", -100);
+asignarEventoTrasladar("#btn-inicio-sesion", 100);
+asignarEventoTrasladar("#btn-crear-cuenta", -100);
+asignarEventoTrasladar("#btn-p1-siguiente", -100);
+asignarEventoTrasladar("#btn-p2-siguiente", -100);
+asignarEventoTrasladar("#btn-p1-volver", 100);
+asignarEventoTrasladar("#btn-p2-volver", 100);
+asignarEventoTrasladar("#btn-p3-volver", 100);
+
+// Asignar eventos para agregar clase "ocultar"
+const ocultarRegistro = () => agregarClase("#registro", 'ocultar');
+
+document.querySelector("#btn-p3-crear-cuenta").addEventListener("click", ocultarRegistro);
+document.querySelector("#btn-ingresar").addEventListener("click", ocultarRegistro);
