@@ -138,7 +138,25 @@ nav ul li a img {
     display: flex;
 }
 
+span.decorador-registro{
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    width: 100%;
+}
 
+span.decorador-registro::before,
+span.decorador-registro::after{
+    content: "";
+    width: 45%;
+    height: 0px;
+    border: white 1px solid;
+}
+
+.small-circle{
+    font-size: 8px; /* Ajusta el tamaño según lo que necesites */
+    margin: 0 10px; /* Opcional, para dar espacio entre los elementos */
+}
 
 /* Carruseles */
 .titulo-carrusel{
