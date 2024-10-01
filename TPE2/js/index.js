@@ -28,6 +28,16 @@ const btnP2Siguiente = document.querySelector("#btn-p2-siguiente").addEventListe
 const btnIngresar = document.querySelector("#btn-ingresar").addEventListener("click", ()=>{
     agregarClase("#registro",'ocultar')
 });
+const btnP1Volver = document.querySelector("#btn-p1-volver").addEventListener("click", ()=>{
+    transladar(100);
+});
+const btnP2Volver = document.querySelector("#btn-p2-volver").addEventListener("click", ()=>{
+    transladar(100);
+});
+const btnP3Volver = document.querySelector("#btn-p3-volver").addEventListener("click", ()=>{
+    transladar(100);
+});
+
 
 function agregarClase(elem,clase){
     let elemento = document.querySelector(elem);

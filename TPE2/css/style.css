@@ -92,6 +92,8 @@ nav ul li a img {
     transition: transform .5s ease;
     flex-direction: column;
     justify-content: space-evenly;
+    padding-top: 50px;
+    padding-bottom: 40px;
     
 }
 
@@ -153,9 +155,23 @@ span.decorador-registro::after{
     border: white 1px solid;
 }
 
+.retorno{
+    position: absolute;
+    left: 30px;
+    top: 20px;
+    display: flex;
+    align-items: center;
+}
+
 .small-circle{
     font-size: 8px; /* Ajusta el tamaño según lo que necesites */
     margin: 0 10px; /* Opcional, para dar espacio entre los elementos */
+}
+
+.fas.fa-arrow-left {
+    font-size: 25px; /* Ajusta el tamaño según sea necesario */
+    color: #ffffff; /* Cambia el color según el que desees */
+    padding: 10px;
 }
 
 /* Carruseles */
