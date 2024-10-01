@@ -1,7 +1,7 @@
 // Selección de elementos
 const loginForm = document.querySelector(".login-form");
 const registro = document.querySelector(".registro");
-const pasosRegistro = [document.querySelector(".registro-p1"), document.querySelector(".registro-p2"), document.querySelector(".registro-p3")];
+const pasosRegistro = [document.querySelector("#registro-p1"), document.querySelector("#registro-p2"), document.querySelector("#registro-p3")];
 
 // Variable para la traslación
 let translateValue = 0;

@@ -110,6 +110,10 @@ nav ul li a img {
     width: 50%;
 }
 
+.sesion-control .login-container form.registro-pasos{
+    position: relative;
+}
+
 .sesion-control .login-container p{ 
     width: 50%;  
 }

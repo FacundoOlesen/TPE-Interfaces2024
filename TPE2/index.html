@@ -8,31 +8,9 @@
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.3/css/all.min.css">
     <link rel="icon" href="img/logo.png" type="image/png">
 
-    <title>Home-minijuegos</title>
+    <title>registro-minijuegos</title>
 </head>
 <body>
-    <header>
-        <nav>
-            <ul>
-                <div class="nav-left">
-                    <li><a href="#"><img src="img/menu-hamburguesa.png" alt="Menú"></a></li>
-                    <li><a href="index.html"><img src="img/logo.png" alt="Logo"></a></li>
-                </div>
-                <div class="nav-center">
-                    <li>
-                        <form action="">
-                            <input type="text" name="query" placeholder="Buscar juegos..." aria-label="Buscar juegos">
-                            <button type="submit"><img src="img/lupa.png" alt="Buscar"></button>
-                        </form>
-                    </li>
-                </div>
-                <div class="nav-right">
-                    <li><a href="#"><img src="img/carrito.png" alt="Carrito"></a></li>
-                    <li><a href="#"><img src="img/usuariologo.png" alt="Usuario"></a></li>
-                </div>
-            </ul>
-        </nav>
-    </header>
     <section id="registro" class="sesion-control">
         <article class="login-container">
             <form  class="login-form">
@@ -59,7 +37,7 @@
                 <p>Al registrate, aceptas los <a href="#">Términos de servicio</a> y la <a href="#">Política de privacidad</a>, incluida la política de <a href="#">Uso de Cookies</a>.</p>
                 <p>¿Ya tenés una cuenta? <a id="btn-inicio-sesion" href="#">Inicia sesión</a></p>
             </form>
-            <form  class="registro-p1">
+            <form id="registro-p1"  class="registro-pasos">
                 <div class="retorno">
                     <a href="#" id="btn-p1-volver"><span><i class="fas fa-arrow-left"></i></span></a>
                     Paso 1 de 3
@@ -78,7 +56,7 @@
                 <p><a href="#">TUDAI Gaming</a> podrá usar tu información de contacto, como tu dirección de correo electrónico . <a href="#">Más información</a></p>
                 <button id="btn-p1-siguiente">Siguiente</button>
             </form>
-            <form  class="registro-p2">
+            <form  id="registro-p2" class="registro-pasos">
                 <div class="retorno">
                     <a href="#" id="btn-p2-volver"><span><i class="fas fa-arrow-left"></i></span></a>
                     Paso 2 de 3
@@ -97,7 +75,7 @@
                 <p><a href="#">TUDAI Gaming</a> usa estos datos para personalizar tu experiencia y recomendaciones de juegos. </p>
                 <button id="btn-p2-siguiente">Siguiente</button>
             </form>
-            <form class="registro-p3">
+            <form id="registro-p3" class="registro-pasos">
                 <div class="retorno">
                     <a href="#" id="btn-p3-volver"><span><i class="fas fa-arrow-left"></i></span></a>
                     Paso 3 de 3
@@ -128,160 +106,6 @@
             </form>
         </article>
     </section>
-    <main>
-        <section class="juegos-destacados">
-            <h1 class="titulo-carrusel">Juegos destacados</h1>
-            <div class="carrusel">
-                <div class="carrusel-container">
-                    <article class="juego-card">
-                        <img class="img-juego" src="img/juego1.jpg" alt="Juego 1">
-                        <h2>4 en linea: Formula 1</h2>
-                        <p>Gratis</p>
-                    </article>
-
-                    <article class="juego-card">
-                        <img class="img-juego" src="img/ajedrez.png" alt="Juego 2">
-                        <span class="titulo-card">Electronic Arts</span>
-                        <h2>Ajedrez</h2>
-                        <p>Precio: $8.00</p>
-                    </article>
-
-                    <article class="juego-card">
-                        <img class="img-juego" src="img/mario.jpg" alt="Juego 3">
-                        <span class="titulo-card">NINTENDO</span>
-                        <h2>Mario Bros</h2>
-                        <p>Precio: $8.00</p>
-                    </article>
-
-                    <article class="juego-card">
-                        <img class="img-juego" src="img/bomberman.png" alt="Juego 4">
-                        <span class="titulo-card">NINTENDO</span>
-                        <h2>Bomberman</h2>
-                        <p>Precio: $5.00</p>
-                    </article>
-
-                    <article class="juego-card">
-                        <img class="img-juego" src="img/tetris.jpg" alt="Juego 5">
-                        <span class="titulo-card">NINTENDO</span>
-                        <h2>Tetris</h2>
-                        <p>Gratis</p>
-                    </article>
-                    <article class="juego-card"></article>
-                        <img class="img-juego" src="img/tetris.jpg" alt="Juego 5">
-                        <span class="titulo-card">NINTENDO</span>
-                        <h2>Tetris</h2>
-                        <p>Gratis</p>
-                    </article>
-                </div>
-
-                <button class="carrusel-prev" aria-label="Anterior"></button>
-                <button class="carrusel-next" aria-label="Siguiente"></button>
-            </div>
-        </section>
-        <section class="juegos-destacados"></section>
-            <h1 class="titulo-carrusel">Gratuitos</h1>
-            <div class="carrusel">
-                <div class="carrusel-container">
-                    <article class="juego-card">
-                        <img class="img-juego" src="img/juego1.jpg" alt="Juego 1">
-                        <span class="titulo-card">NINTENDO</span>
-                        <h2>Hora de aventura</h2>
-                        <p>Gratis</p>
-                    </article>
-
-                    <article class="juego-card">
-                        <img class="img-juego" src="img/homero.webp" alt="Juego 2">
-                        <span class="titulo-card">NINTENDO</span>
-                        <h2>Pinta a Homero</h2>
-                        <p>Gratis</p>
-                    </article>
-
-                    <article class="juego-card">
-                        <img class="img-juego" src="img/unshowmas.webp" alt="Juego 3">
-                        <span class="titulo-card">NINTENDO</span>
-                        <h2>Un show mas</h2>
-                        <p>Gratis</p>
-                    </article>
-
-                    <article class="juego-card">
-                        <img class="img-juego" src="img/fuegoyagua.webp" alt="Juego 4">
-                        <span class="titulo-card">NINTENDO</span>
-                        <h2>Fuego y Agua</h2>
-                        <p>Gratis</p>
-                    </article>
-
-                    <article class="juego-card">
-                        <img class="img-juego" src="img/uno.jpg" alt="Juego 5">
-                        <span class="titulo-card">NINTENDO</span>
-                        <h2>UNO</h2>
-                        <p>Gratis</p>
-                    </article>
-                    <article class="juego-card"></article>
-                        <img class="img-juego" src="img/tetris.jpg" alt="Juego 5">
-                        <span class="titulo-card">NINTENDO</span>
-                        <h2>Tetris</h2>
-                        <p>Gratis</p>
-                    </article>
-                </div>
-
-                <button class="carrusel-prev" aria-label="Anterior"></button>
-                <button class="carrusel-next" aria-label="Siguiente"></button>
-            </div>
-        </section>
-        <section class="juegos-destacados"></section>
-            <h1 class="titulo-carrusel">Gratuitos</h1>
-            <div class="carrusel">
-                <div class="carrusel-container">
-                    <article class="juego-card">
-                        <img class="img-juego" src="img/juego1.jpg" alt="Juego 1">
-                        <span class="titulo-card">NINTENDO</span>
-                        <h2>Hora de aventura</h2>
-                        <p>Gratis</p>
-                    </article>
-
-                    <article class="juego-card">
-                        <img class="img-juego" src="img/homero.webp" alt="Juego 2">
-                        <span class="titulo-card">NINTENDO</span>
-                        <h2>Pinta a Homero</h2>
-                        <p>Gratis</p>
-                    </article>
-
-                    <article class="juego-card">
-                        <img class="img-juego" src="img/unshowmas.webp" alt="Juego 3">
-                        <span class="titulo-card">NINTENDO</span>
-                        <h2>Un show mas</h2>
-                        <p>Gratis</p>
-                    </article>
-
-                    <article class="juego-card">
-                        <img class="img-juego" src="img/fuegoyagua.webp" alt="Juego 4">
-                        <span class="titulo-card">NINTENDO</span>
-                        <h2>Fuego y Agua</h2>
-                        <p>Gratis</p>
-                    </article>
-
-                    <article class="juego-card">
-                        <img class="img-juego" src="img/uno.jpg" alt="Juego 5">
-                        <span class="titulo-card">NINTENDO</span>
-                        <h2>UNO</h2>
-                        <p>Gratis</p>
-                    </article>
-                    <article class="juego-card"></article>
-                        <img class="img-juego" src="img/tetris.jpg" alt="Juego 5">
-                        <span class="titulo-card">NINTENDO</span>
-                        <h2>Tetris</h2>
-                        <p>Gratis</p>
-                    </article>
-                </div>
-
-                <button class="carrusel-prev" aria-label="Anterior"></button>
-                <button class="carrusel-next" aria-label="Siguiente"></button>
-            </div>
-        </section>
-
-    </main>
-    <footer>    
-    </footer>
     <script src="js/index.js"></script>
 </body>
 </html>
