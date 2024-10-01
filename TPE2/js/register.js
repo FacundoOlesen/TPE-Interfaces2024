@@ -39,17 +39,3 @@ const ocultarRegistro = () => agregarClase("#registro", 'ocultar');
 document.querySelector("#btn-p3-crear-cuenta").addEventListener("click", ocultarRegistro);
 document.querySelector("#btn-ingresar").addEventListener("click", ocultarRegistro);
 
-
-//Funcion para desplazamiento de titulos largos
-document.addEventListener("DOMContentLoaded", function() {
-    document.querySelectorAll('.juego-card h2').forEach((title) => {
-        const tamañoTitulo = title.scrollWidth; 
-        const tamañoContainer = title.clientWidth; 
-
-        if (tamañoTitulo > tamañoContainer) {
-            title.classList.add('scrolling'); 
-        }
-    });
-});
-
-
