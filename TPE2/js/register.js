@@ -6,9 +6,8 @@ const pasosRegistro = [document.querySelector("#registro-p1"), document.querySel
 // Variable para la traslación
 let translateValue = 0;
 
-// Función para agregar clase a un elemento
-function agregarClase(elem, clase) {
-    document.querySelector(elem).classList.add(clase);
+function redirigirPag(pag) {
+    window.location.href = `${pag}.html`;
 }
 
 // Función para trasladar elementos
@@ -33,9 +32,6 @@ asignarEventoTrasladar("#btn-p1-volver", 100);
 asignarEventoTrasladar("#btn-p2-volver", 100);
 asignarEventoTrasladar("#btn-p3-volver", 100);
 
-// Asignar eventos para agregar clase "ocultar"
-const ocultarRegistro = () => agregarClase("#registro", 'ocultar');
-
-document.querySelector("#btn-p3-crear-cuenta").addEventListener("click", ocultarRegistro);
-document.querySelector("#btn-ingresar").addEventListener("click", ocultarRegistro);
+document.querySelector("#btn-p3-crear-cuenta").addEventListener("click", redirigirPag("home"));
+document.querySelector("#btn-ingresar").addEventListener("click", redirigirPag("home"));
 
