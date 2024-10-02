@@ -1,0 +1,120 @@
+* {
+    margin: 0;
+    padding: 120;
+    box-sizing: border-box;
+    color: white;
+    font-family: 'Nunito', sans-serif;
+}
+
+header {
+    background-color: #240B34;
+}
+
+main {
+    background-color: #180D43;
+    display: flex;
+    justify-content: center;
+    padding-top: 30px;
+}
+
+
+.home-btn {
+    background-color: #5335CC;
+    border-radius: 30px;
+    border-style: none;
+    width: 129px;
+    height: 46px;
+    color: white;
+    display: flex;
+    align-items: center;
+    justify-content: space-evenly;
+    border-color: #5335CC;
+    font-weight: bold;
+    margin-bottom: 10px;
+}
+
+
+.home-btn img{
+    width: 28px;
+    height: 28px;
+}
+
+.home-btn p{
+    height: 25px;
+    font-size: 18px;
+}
+.breadcrum-title{
+    margin-bottom: 5px;
+}
+.main-img {
+    display: flex;
+    justify-content: center;
+    gap: 30px;
+}
+
+.game-img {
+    width: 800px;
+    height: 500px;
+}
+
+.examples-img {
+    display: flex;
+    flex-direction: column;
+    gap: 10%;
+}
+
+.controls,
+.game-info {
+    background-color: #652D8A;
+    width: 800px;
+}
+
+.controls {
+    padding-top: 5px;
+    display: flex;
+    justify-content: space-around;
+    gap: 285px;
+    font-size: 20px;
+}
+
+.controls-imgs {
+    display: flex;
+    gap: 10px;
+}
+.vl {
+    border-left: 2px solid #BDBECA;
+    height: 23px;
+    margin-top: 0px;
+  }
+
+.controls img {
+    width: 31px;
+    height: 25px;
+}
+
+.game-info {
+    display: flex;
+    justify-content: space-around;
+    padding-top: 10px;
+}
+
+.game-info h6 {
+    width: 52%;
+    font-size: 16px;
+    font-weight: 100;
+    padding-top: 20px;
+}
+
+.game-info h4 {
+    font-size: 20px;
+}
+
+.breadcrum{
+    height: 15px;
+}
+
+
+aside{
+    display: flex;
+    justify-content: center;
+}
