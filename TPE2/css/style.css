@@ -328,6 +328,18 @@ span.decorador-registro::after{
 .hover-button:hover{
     cursor: pointer;
 }
+#enCarrito {
+    cursor: pointer; /* Cambia el cursor al pasar el mouse */
+    transition: background-color 0.5s ease; /* Transición suave para el fondo */
+}
+#enCarrito img{
+    width: 80%;
+}
+#enCarrito:hover {
+    background-color: red; /* Fondo rojo al hacer hover */
+}
+
+
 
 .juego-card h2 {
     font-size: 1.5rem;
