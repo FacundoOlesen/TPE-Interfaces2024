@@ -32,6 +32,7 @@ asignarEventoTrasladar("#btn-p1-volver", 100);
 asignarEventoTrasladar("#btn-p2-volver", 100);
 asignarEventoTrasladar("#btn-p3-volver", 100);
 
-document.querySelector("#btn-p3-crear-cuenta").addEventListener("click", redirigirPag("home"));
-document.querySelector("#btn-ingresar").addEventListener("click", redirigirPag("home"));
+// Redirigir al hacer clic en los botones
+document.querySelector("#btn-p3-crear-cuenta").addEventListener("click", () => redirigirPag("home"));
+document.querySelector("#btn-ingresar").addEventListener("click", () => redirigirPag("home"));
 
