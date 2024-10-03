@@ -24,5 +24,46 @@ button.addEventListener('mouseleave', function() {
     img.src = originalImageSrc; // Volver a la imagen original
 });
 
+//Funcion para darle funcionalidad al carrusel
+const carruselContainer = document.querySelector('.carrusel-container');
+const anterior = document.querySelector('.carrusel-prev');
+const siguiente = document.querySelector('.carrusel-next');
+//con esto hacemos que aparezcan la cantidad justa de cards dependiendo su tamaño
+const juegoCardWidth = document.querySelector('.juego-card').offsetWidth + 20; 
+const visibleCards = Math.floor(carruselContainer.offsetWidth / juegoCardWidth);
 
+let currentIndex = 0;
+function actualizarPosicion() {
+    carruselContainer.style.transform = `translateX(-${currentIndex * juegoCardWidth}px)`;
+    if (currentIndex === 0) {//si es 0 siginifica que esta en la posicion inicial del carrusel
+        anterior.style.display = 'none';
+    } else {
+        siguiente.style.display = 'block';
+    }
 
+    if (currentIndex >= carruselContainer.children.length - visibleCards) {//si alcanza el valor maximo, es porque llego al final
+        siguiente.style.display = 'none';
+        anterior.style.display='block';
+    } else {
+        siguiente.style.display = 'block';
+    }
+}
+
+// le damos un evento click al boton de siguiente
+siguiente.addEventListener('click', () => {
+    if (currentIndex < carruselContainer.children.length - visibleCards) {
+        currentIndex++;
+        actualizarPosicion();
+    }
+});
+
+// le damos un evento click al boton de anterior
+anterior.addEventListener('click', () => {
+    if (currentIndex > 0) {
+        currentIndex--;
+        actualizarPosicion();
+    }
+});
+
+// Inicializar el carrusel
+actualizarPosicion();
