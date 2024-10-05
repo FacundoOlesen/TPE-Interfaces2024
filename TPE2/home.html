@@ -11,6 +11,35 @@
     <title>Home-minijuegos</title>
 </head>
 <body>
+    <div class="loading-page">
+        <!-- <svg xmlns="http://www.w3.org/2000/svg" style="margin: auto; background: none; display: block;" width="100px" height="100px" viewBox="0 0 100 100" preserveAspectRatio="xMidYMid">
+            <circle cx="50" cy="50" r="32" stroke-width="8" stroke="#f3a000" stroke-dasharray="50.26548245743669 50.26548245743669" fill="none" stroke-linecap="round">
+              <animateTransform attributeName="transform" type="rotate" repeatCount="indefinite" dur="4s" keyTimes="0;1" values="0 50 50;360 50 50"></animateTransform>
+            </circle>
+        </svg> -->
+        <svg id="progress-circle" width="150" height="150" viewBox="0 0 36 36" xmlns="http://www.w3.org/2000/svg">
+            <!-- Fondo del círculo (fondo del progreso) -->
+            <path class="circle-bg" stroke="#eee" stroke-width="3.8" fill="none"
+                  d="M18 2.0845
+                     a 15.9155 15.9155 0 0 1 0 31.831
+                     a 15.9155 15.9155 0 0 1 0 -31.831" />
+          
+            <!-- Círculo de progreso animado -->
+            <path id="progress-path" class="circle" stroke="#00aaff" stroke-width="3.8" fill="none"
+                  stroke-linecap="round" stroke-dasharray="0, 100"
+                  d="M18 2.0845
+                     a 15.9155 15.9155 0 0 1 0 31.831
+                     a 15.9155 15.9155 0 0 1 0 -31.831" />
+          
+            <!-- Texto del porcentaje -->
+            <text id="progress-text" x="50%" y="50%" dy=".3em" font-size="10"   fill="#ff9900" text-anchor="middle">0%</text>
+
+          </svg>
+          
+        <div class="name-container">
+            <p class="parrafo logo-name">minijuegos</p>
+        </div>
+    </div>
     <header>
         <nav>
             <ul>

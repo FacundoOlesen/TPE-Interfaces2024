@@ -67,3 +67,27 @@ anterior.addEventListener('click', () => {
 
 // Inicializar el carrusel
 actualizarPosicion();
+
+
+function setProgress(percentage) {
+    const circle = document.getElementById('progress-path');
+    const text = document.getElementById('progress-text');
+    
+    // Ajustar el círculo de progreso
+    const dashArray = `${percentage}, 100`;
+    circle.setAttribute('stroke-dasharray', dashArray);
+    
+    // Actualizar el texto del porcentaje
+    text.textContent = `${percentage}%`;
+}
+
+// Simulación de carga (ejemplo)
+let progress = 0;
+const interval = setInterval(() => {
+    if (progress <= 100) {
+        setProgress(progress);
+        progress += 5; // Incrementa el porcentaje
+    } else {
+        clearInterval(interval); // Detiene la simulación al llegar a 100%
+    }
+}, 120); // Cada 120ms
