@@ -5,11 +5,15 @@
     font-family: 'Nunito', sans-serif;
 }
 
+body {
+    background-color: #180D43;
+
+}
 
 header {
     background-color: #240B34;
     padding: 10px 0;
-    height: 70px;  
+    height: 70px;
     display: flex;
 }
 
@@ -21,9 +25,9 @@ nav {
 nav ul {
     display: flex;
     align-items: center;
-    justify-content: space-between; 
-    padding: 0 20px; 
-    gap: 20px; /
+    justify-content: space-between;
+    padding: 0 20px;
+    gap: 20px;/
 }
 
 
@@ -44,19 +48,19 @@ nav ul li {
     height: 41px;
 }
 
-::placeholder {
+.search-nav::placeholder {
     color: rgb(173, 163, 163);
     padding-left: 10px;
-    font-size:16px;
-    
+    font-size: 16px;
+
 }
 
-.li-logo{
+.li-logo {
     display: flex;
     align-items: center;
     position: absolute;
-    left: 50%; 
-    transform: translateX(-490%); 
+    left: 50%;
+    transform: translateX(-490%);
     width: 100px;
 }
 
@@ -64,8 +68,8 @@ nav ul li {
     display: flex;
     align-items: center;
     position: absolute;
-    left: 50%; 
-    transform: translateX(-50%); 
+    left: 50%;
+    transform: translateX(-50%);
 }
 
 .search-ipt img {
@@ -75,24 +79,24 @@ nav ul li {
     left: 275px;
 }
 
-.li-right{
+.li-right {
     display: flex;
     justify-content: space-evenly;
     gap: 30px;
     align-items: center;
 }
 
-.logo{
+.logo {
     width: 55px;
     height: 55px;
 }
 
-.avatar{
+.avatar {
     width: 42px;
     height: 42px;
 }
 
-.hmb{
+.hmb {
     width: 42px;
     height: 42px;
     margin-top: 5px;
@@ -103,15 +107,17 @@ header {
 }
 
 main {
-    background-color: #180D43;
     display: flex;
     justify-content: center;
+    flex-direction: column;
+    align-items: center;
     padding-top: 30px;
 }
 
 
 .home-btn {
     background-color: #5335CC;
+    border-color: #5335CC;
     border-radius: 30px;
     border-style: none;
     width: 129px;
@@ -120,7 +126,6 @@ main {
     display: flex;
     align-items: center;
     justify-content: space-evenly;
-    border-color: #5335CC;
     font-weight: bold;
     margin-bottom: 10px;
 }
@@ -208,8 +213,149 @@ main {
     height: 15px;
 }
 
+.comments {
+    background-color: #35225E;
+    width: 800px;
+    margin-top: 30px;
+    padding-left: 30px;
+    padding-top: 10px;
+}
 
-aside {
+.comments-title{
+    display: flex; 
+    gap: 10px;
+}
+
+.comments h3, p {
+    font-weight: bold;
+}
+
+.stars{
+    display: flex;
+    gap: 3px;
+}
+
+.stars svg{
+    width: 25px;
+    height: 25px;
+}
+
+.comments-title .stars svg{
+    width: 25px;
+    height: 25px;
+}
+
+.comments-title .stars svg:hover{
+    fill: #FF9200;
+    cursor: pointer;
+}
+
+.feather-star polygon {
+    stroke: white; 
+    transition: stroke 0.3s; 
+}
+
+.feather-star:hover polygon {
+    stroke: #FF9200; 
+}
+
+textarea.comment-ipt {
+    height: 180px;
+    width: 740px; 
+    margin-top: 10px; 
+    padding-left: 10px; 
+    border: 2px solid #BC80E5; 
+    outline: none; 
+    resize: none; 
+    background-color: #2B0D3F;
+}
+
+textarea.comment-ipt::placeholder {
+    color: rgb(153, 136, 136); 
+    font-size: 18px; 
+    text-align: left; 
+    padding-top: 10px;
+}
+textarea.comment-ipt:focus {
+    border-color: #a84be6; 
+    color: white; 
+    font-size: 18px; 
+    text-align: left; 
+    padding-top: 2px;
+}
+
+.comment-btn{
+    color: white;
+    background-color: #35225E;
+    border: none;
+    font-size: 16px;
+    text-transform: uppercase;
+    font-weight: 100;
+}
+
+.comment-btn div{
     display: flex;
     justify-content: center;
+    align-items: center;
+    gap: 5px;
+    margin-top: 20px;
+    margin-left: 585px;
+    width: 150px;
+    height: 50px;
+    background-color: #5335CC;
+    border-color: #5335CC;
+    border-radius: 30px;
 }
+
+.comments-list{
+    display: flex;
+    flex-direction: column;
+    gap: 25px;
+    margin-top: 10px;
+}
+
+.comment{
+    background-color: #2B0D3F;
+    width: 740px;
+    height: 139px;
+    border-radius: 5px;    
+    padding-left: 10px; 
+    padding-top: 19px;
+}
+
+.avatar-info{
+    display: flex;
+    gap: 10px;
+}
+
+.av-likes{
+    display: flex;
+    justify-content: space-between;
+}
+
+.like-comments{
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    margin-right: 15px;
+    gap: 3px;
+    font-size: 18px;
+}
+
+.like-comments img{
+    height: 22px;
+    width: 22px;
+}
+
+.sep-comments{
+    margin-top: 10px;
+    margin-bottom: 15px;
+    margin-right: 5px;
+    width: 720px;
+    border: none;
+    border-top: 2px solid #9d5bc9; 
+
+}
+
+
+
