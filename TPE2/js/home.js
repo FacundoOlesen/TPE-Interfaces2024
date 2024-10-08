@@ -25,45 +25,51 @@ button.addEventListener('mouseleave', function() {
 });
 
 //Funcion para darle funcionalidad al carrusel
-const carruselContainer = document.querySelector('.carrusel-container');
-const anterior = document.querySelector('.carrusel-prev');
-const siguiente = document.querySelector('.carrusel-next');
-//con esto hacemos que aparezcan la cantidad justa de cards dependiendo su tamaño
-const juegoCardWidth = document.querySelector('.juego-card').offsetWidth + 20; 
-const visibleCards = Math.floor(carruselContainer.offsetWidth / juegoCardWidth);
 
-let currentIndex = 0;
-function actualizarPosicion() {
-    carruselContainer.style.transform = `translateX(-${currentIndex * juegoCardWidth}px)`;
-    if (currentIndex === 0) {//si es 0 siginifica que esta en la posicion inicial del carrusel
-        anterior.style.display = 'none';
-    } else {
-        siguiente.style.display = 'block';
+const carruseles = document.querySelectorAll('.carrusel');
+
+carruseles.forEach(carrusel => {
+    const carruselContainer = carrusel.querySelector('.carrusel-container');
+    const anterior = carrusel.querySelector('.carrusel-prev');
+    const siguiente = carrusel.querySelector('.carrusel-next');
+    
+    // Determinamos el ancho de cada tarjeta
+    const juegoCardWidth = carruselContainer.querySelector('.juego-card').offsetWidth;
+    
+    // Calculamos cuántas tarjetas son visibles dependiendo del ancho del carrusel
+    const visibleCards = Math.floor(carrusel.offsetWidth / juegoCardWidth);
+    
+    let currentIndex = 0;
+
+    function actualizarPosicion() {
+        carruselContainer.style.transform = `translateX(-${currentIndex * juegoCardWidth}px)`;
+        if (currentIndex === 0) {
+            anterior.style.display = 'none';
+        } else {
+            anterior.style.display = 'block';
+        }
+
+        if (currentIndex >= carruselContainer.children.length - visibleCards) {
+            siguiente.style.display = 'none';
+        } else {
+            siguiente.style.display = 'block';
+        }
     }
 
-    if (currentIndex >= carruselContainer.children.length - visibleCards) {//si alcanza el valor maximo, es porque llego al final
-        siguiente.style.display = 'none';
-        anterior.style.display='block';
-    } else {
-        siguiente.style.display = 'block';
-    }
-}
+    siguiente.addEventListener('click', () => {
+        if (currentIndex < carruselContainer.children.length - visibleCards) {
+            currentIndex++;
+            actualizarPosicion();
+        }
+    });
 
-// le damos un evento click al boton de siguiente
-siguiente.addEventListener('click', () => {
-    if (currentIndex < carruselContainer.children.length - visibleCards) {
-        currentIndex++;
-        actualizarPosicion();
-    }
+    anterior.addEventListener('click', () => {
+        if (currentIndex > 0) {
+            currentIndex--;
+            actualizarPosicion();
+        }
+    });
+
+    actualizarPosicion();
 });
 
-// le damos un evento click al boton de anterior
-anterior.addEventListener('click', () => {
-    if (currentIndex > 0) {
-        currentIndex--;
-        actualizarPosicion();
-    }
-});
-
-// Inicializar el carrusel
-actualizarPosicion();

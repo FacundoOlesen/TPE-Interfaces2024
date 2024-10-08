@@ -110,10 +110,10 @@ body {
 }
 .juego-card h2 {
     font-family: 'Michroma', sans-serif;
-    white-space: nowrap; /* Evita que el texto se divida en múltiples líneas */
+    white-space: nowrap; 
     text-overflow: ellipsis;
-    position: relative; /* Necesario para aplicar el desplazamiento */
-    transition: transform 0.3s ease; /* Suaviza el movimiento inicial */
+    position: relative; 
+    transition: transform 0.3s ease; 
 }
 
 .juego-card:hover h2.scrolling {
@@ -122,17 +122,19 @@ body {
 
 @keyframes scroll {
     0% {
-        transform: translateX(0); /* Comienza desde el lugar original */
+        transform: translateX(0); 
     }
     100% {
-        transform: translateX(-100%); /* Se desplaza a la izquierda */
+        transform: translateX(-100%); 
     }
 }
 
 
-
+.juegos-destacados h1{
+    font-family: var(--nunito-bold);
+}
 .juego-card p {
-    font-family: var(--nunito);
+    font-family: var(--nunito-bold);
 }
 
 .juego-card .hover-button {

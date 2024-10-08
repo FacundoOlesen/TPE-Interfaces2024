@@ -1,84 +1,97 @@
-/* Barra de navegación */
+header {
+    background-color: #240B34;
+    padding: 10px 0;
+    height: 70px;  
+    display: flex;
+}
+
+nav {
+    width: 100%;
+    height: 70px;
+}
+
 nav ul {
     display: flex;
-    justify-content: space-between;
     align-items: center;
-    list-style-type: none;
-    margin: 0;
-    padding: 0;
+    justify-content: space-between; 
+    padding: 0 20px; 
+    gap: 20px; /
+}
+
+
+nav ul li {
+    list-style: none;
+}
+
+.cart {
+    width: 40px;
+    height: 40px;
+}
+
+.search-nav {
+    border-radius: 15px;
+    background-color: #511586;
+    width: 317px;
+    border-style: none;
+    height: 41px;
+}
+
+::placeholder {
+    color: rgb(173, 163, 163);
+    padding-left: 10px;
+    font-size:16px;
+    
+}
+
+.li-logo{
+    display: flex;
+    align-items: center;
+    position: absolute;
+    left: 50%; 
+    transform: translateX(-490%); 
+    width: 100px;
+}
+
+.search-ipt {
+    display: flex;
+    align-items: center;
+    position: absolute;
+    left: 50%; 
+    transform: translateX(-50%); 
+}
+
+.search-ipt img {
+    width: 33px;
+    height: 33px;
+    position: absolute;
+    left: 275px;
+}
+
+.li-right{
+    display: flex;
+    justify-content: space-evenly;
+    gap: 30px;
+    align-items: center;
+}
+
+.logo{
+    width: 55px;
+    height: 55px;
+}
+
+.avatar{
+    width: 42px;
+    height: 42px;
+}
+
+.hmb{
+    width: 42px;
+    height: 42px;
+    margin-top: 5px;
+}
+
+header {
     background-color: #240B34;
-    height: 3.5rem; 
-    padding: 0 1rem; 
-}
-
-/* Menú hamburguesa y logo */
-.nav-left {
-    display: flex;
-    margin-left: 0.3rem;
-    gap: 20px; 
-}
-
-.nav-left img {
-    width: 2rem; 
-    height: auto;
-}
-
-.nav-left .enlaces img {
-    max-width: 200px; 
-    height: auto;
-}
-
-/* Buscador */
-.nav-center {
-    flex-grow: 1;
-    display: flex;
-    justify-content: center;
-    align-items: center;
-}
-
-.nav-center form {
-    display: flex;
-}
-
-.nav-center input {
-    padding: 0.5rem;
-    border-radius: 5px;
-    border: none;
-    width: 30rem; 
-    max-width: 100%;
-}
-
-.nav-center button {
-    background-color: transparent;
-    border: none;
-    cursor: pointer;
-    padding: 0.5rem;
-}
-
-.nav-center button img {
-    width: 20px;
-    height: auto;
-}
-
-/* Carrito y usuario */
-.nav-right {
-    display: flex;
-    gap: 25px; 
-}
-
-.nav-right img {
-    width: 35px; 
-    height: auto;
-}
-
-.enlaces {
-    width: auto; 
-    height: auto;
-}
-
-.user-enlace img{
-    border-radius: 50%;
-    border:solid white 0.2rem;
 }
 
 
@@ -247,7 +260,7 @@ span.decorador-registro::after{
 .carrusel-container {
     display: flex;
     transition: transform 0.5s ease;
-    padding-right: 5%; /* Deja espacio para mostrar parte del siguiente juego */
+    padding-right: 5%; 
 }
 
 .juego-card {
@@ -318,8 +331,8 @@ span.decorador-registro::after{
 }
 
 .juego-card .hover-button img {
-    width: 80%;
-    height: 80%;
+    width: 70%;
+    height: 70%;
     object-fit: contain;
     display: block;
     margin: 0 auto; 
@@ -330,14 +343,14 @@ span.decorador-registro::after{
     box-shadow: 0px 0.8rem 4rem rgb(0, 0, 0);
 }
 #enCarrito {
-    cursor: pointer; /* Cambia el cursor al pasar el mouse */
-    transition: background-color 0.5s ease; /* Transición suave para el fondo */
+    cursor: pointer;
+    transition: background-color 0.5s ease; 
 }
 #enCarrito img{
-    width: 80%;
+    width: 70%;
 }
 #enCarrito:hover {
-    background-color: red; /* Fondo rojo al hacer hover */
+    background-color: red; 
 }
 
 
