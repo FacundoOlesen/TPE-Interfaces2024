@@ -43,21 +43,15 @@
     <header>
         <nav>
             <ul>
-                <div class="nav-left">
-                    <li class="enlaces"><a href="#"><img src="img/menu-hamburguesa.png" alt="Menú"></a></li>
-                    <li class="enlaces"><a href="home.html"><img src="img/logo.png" alt="Logo"></a></li>
-                </div>
-                <div class="nav-center">
-                    <li>
-                        <form action="">
-                            <input type="text" name="query" placeholder="Buscar juegos..." aria-label="Buscar juegos">
-                            <button type="submit"><img src="img/lupa.png" alt="Buscar"></button>
-                        </form>
-                    </li>
-                </div>
-                <div class="nav-right">
-                    <li class="enlaces"><a href="#"><img src="img/carrito.png" alt="Carrito"></a></li>
-                    <li class="enlaces"><a class="user-enlace" href=""><img src="img/cj.jpeg" alt=""></a></li>
+                <li><img class="hmb" src="img/hamburger.png" alt="Menu hamburgesa"></li>
+                <li class="li-logo"><img class="logo"
+                        src="img/logo.png" alt=""></li>
+                <li class="search-ipt"><input class="search-nav" placeholder="¿A qué jugamos hoy?" type="search" name=""
+                        id=""> <img src="img/search.png" alt=""></li>
+
+                <div class="li-right">
+                    <li><img class="cart" src="img/cart.png" alt=""></li>
+                    <li><img class="avatar" src="img/avatarcj.png" alt=""></li>
                 </div>
             </ul>
         </nav>
@@ -72,19 +66,20 @@
                         <span class="titulo-card">FIA</span>
                         <h2>4 en linea: Formula 1</h2>
                         <p>Gratis</p>
-                        <button class="hover-button">
+                        <a href="game.html" class="hover-button">
                             <img src="img/logo-jugar.png" alt="Logo">
-                        </button>
+                        </a>
                     </article>
+                    
         
                     <article class="juego-card">
                         <img class="img-juego" src="img/ajedrez.png" alt="Juego 2">
                         <span class="titulo-card">Electronic Arts</span>
                         <h2>Ajedrez</h2>
                         <p>Precio: $8.00</p>
-                        <button class="hover-button" id="enCarrito">
+                        <a class="hover-button" id="enCarrito" href="#">
                             <img src="img/encarrito.png" alt="Logo">
-                        </button>
+                        </a>
                     </article>
         
                     <article class="juego-card">
@@ -92,9 +87,9 @@
                         <span class="titulo-card">NINTENDO</span>
                         <h2>Mario Bros</h2>
                         <p>Precio: $8.00</p>
-                        <button class="hover-button">
+                        <a class="hover-button" href="#">
                             <img src="img/carrito-de-compras.png" alt="Logo">
-                        </button>
+                        </a>
                     </article>
         
                     <article class="juego-card">
@@ -102,9 +97,9 @@
                         <span class="titulo-card">Hudson Soft</span>
                         <h2>Bomberman</h2>
                         <p>Precio: $5.00</p>
-                        <button class="hover-button">
+                        <a class="hover-button" href="#">
                             <img src="img/carrito-de-compras.png" alt="Logo">
-                        </button>
+                        </a>
                     </article>
         
                     <article class="juego-card">
@@ -112,41 +107,40 @@
                         <span class="titulo-card">The Tetris Company</span>
                         <h2>Tetris</h2>
                         <p>Gratis</p>
-                        <button class="hover-button">
+                        <a href="game.html" class="hover-button">
                             <img src="img/logo-jugar.png" alt="Logo">
-                        </button>
-                    </article>
-        
-                    <article class="juego-card">
-                        <img class="img-juego" src="img/tetris.jpg" alt="Juego 5">
-                        <span class="titulo-card">The Tetris Company</span>
-                        <h2>Tetris</h2>
-                        <p>Gratis</p>
-                        <button class="hover-button">
-                            <img src="img/logo-jugar.png" alt="Logo">
-                        </button>
+                        </a>
                     </article>
                     <article class="juego-card">
-                        <img class="img-juego" src="img/mario.jpg" alt="Juego 3">
-                        <span class="titulo-card">NINTENDO</span>
-                        <h2>Mario Bros</h2>
-                        <p>Precio: $8.00</p>
-                        <button class="hover-button">
-                            <img src="img/carrito-de-compras.png" alt="Logo">
-                        </button>
-                    </article>
-        
-                    <article class="juego-card">
-                        <img class="img-juego" src="img/bomberman.png" alt="Juego 4">
-                        <span class="titulo-card">Hudson Soft</span>
-                        <h2>Bomberman</h2>
+                        <img class="img-juego" src="img/tenis.jpg" alt="Juego 5">
+                        <span class="titulo-card">SEGA</span>
+                        <h2>Virtual Tennis</h2>
                         <p>Precio: $5.00</p>
-                        <button class="hover-button">
+                        <a href="game.html" class="hover-button">
                             <img src="img/carrito-de-compras.png" alt="Logo">
-                        </button>
+                        </a>
+                    </article>
+                    
+                    <article class="juego-card">
+                        <img class="img-juego" src="img/pacman.webp" alt="Juego 3">
+                        <span class="titulo-card">Namco</span>
+                        <h2>Pac Man</h2>
+                        <p>Gratis</p>
+                        <a class="hover-button" href="#">
+                            <img src="img/carrito-de-compras.png" alt="Logo">
+                        </a>
+                    </article>
+        
+                    <article class="juego-card">
+                        <img class="img-juego" src="img/metalslug.jpg" alt="Juego 4">
+                        <span class="titulo-card">SNK</span>
+                        <h2>Metal Slug</h2>
+                        <p>Gratis</p>
+                        <a class="hover-button" href="#">
+                            <img src="img/carrito-de-compras.png" alt="Logo">
+                        </a>
                     </article>
                 </div>
-        
                 <button class="carrusel-prev" aria-label="Anterior"></button>
                 <button class="carrusel-next" aria-label="Siguiente"></button>
             </div>
@@ -161,9 +155,9 @@
                         <span class="titulo-card">Cartoon Network</span>
                         <h2>Hora de aventura</h2>
                         <p>Gratis</p>
-                        <button class="hover-button">
+                        <a href="game.html" class="hover-button">
                             <img src="img/logo-jugar.png" alt="Logo">
-                        </button>
+                        </a>
                     </article>
         
                     <article class="juego-card">
@@ -171,9 +165,9 @@
                         <span class="titulo-card">Disney</span>
                         <h2>Pinta a Homero</h2>
                         <p>Gratis</p>
-                        <button class="hover-button">
+                        <a href="game.html" class="hover-button">
                             <img src="img/logo-jugar.png" alt="Logo">
-                        </button>
+                        </a>
                     </article>
         
                     <article class="juego-card">
@@ -181,9 +175,9 @@
                         <span class="titulo-card">Cartoon Network</span>
                         <h2>Un show más</h2>
                         <p>Gratis</p>
-                        <button class="hover-button">
+                        <a href="game.html" class="hover-button">
                             <img src="img/logo-jugar.png" alt="Logo">
-                        </button>
+                        </a>
                     </article>
         
                     <article class="juego-card">
@@ -191,9 +185,9 @@
                         <span class="titulo-card">Oslo Albet</span>
                         <h2>Fuego y Agua</h2>
                         <p>Gratis</p>
-                        <button class="hover-button">
+                        <a href="game.html" class="hover-button">
                             <img src="img/logo-jugar.png" alt="Logo">
-                        </button>
+                        </a>
                     </article>
         
                     <article class="juego-card">
@@ -201,47 +195,46 @@
                         <span class="titulo-card">Mattel </span>
                         <h2>UNO</h2>
                         <p>Gratis</p>
-                        <button class="hover-button">
+                        <a href="game.html" class="hover-button">
                             <img src="img/logo-jugar.png" alt="Logo">
-                        </button>
+                        </a>
                     </article>
-        
                     <article class="juego-card">
-                        <img class="img-juego" src="img/tetris.jpg" alt="Juego 6">
-                        <span class="titulo-card">The Tetris Company</span>
-                        <h2>Tetris</h2>
+                        <img class="img-juego" src="img/supersmashbros.jpg" alt="Juego 5">
+                        <span class="titulo-card">NINTENDO </span>
+                        <h2>Super Smash Bros</h2>
                         <p>Gratis</p>
-                        <button class="hover-button">
+                        <a href="game.html" class="hover-button">
                             <img src="img/logo-jugar.png" alt="Logo">
-                        </button>
+                        </a>
                     </article>
-                    <article class="juego-card"></article>
-                        <img class="img-juego" src="img/unshowmas.webp" alt="Juego 3">
-                        <span class="titulo-card">Cartoon Network</span>
-                        <h2>Un show más</h2>
-                        <p>Gratis</p>
-                        <button class="hover-button">
-                            <img src="img/logo-jugar.png" alt="Logo">
-                        </button>
-                    </article>
-        
                     <article class="juego-card">
-                        <img class="img-juego" src="img/fuegoyagua.webp" alt="Juego 4">
-                        <span class="titulo-card">Oslo Albet</span>
-                        <h2>Fuego y Agua</h2>
+                        <img class="img-juego" src="img/ludo.jpeg" alt="Juego 5">
+                        <span class="titulo-card">MarketJS</span>
+                        <h2>Ludo Hero</h2>
                         <p>Gratis</p>
-                        <button class="hover-button">
+                        <a href="game.html" class="hover-button">
                             <img src="img/logo-jugar.png" alt="Logo">
-                        </button>
+                        </a>
                     </article>
+                    <article class="juego-card">
+                        <img class="img-juego" src="img/footballheads.png" alt="Juego 5">
+                        <span class="titulo-card">Dvadi</span>
+                        <h2>Football Heads</h2>
+                        <p>Gratis</p>
+                        <a href="game.html" class="hover-button">
+                            <img src="img/logo-jugar.png" alt="Logo">
+                        </a>
+                    </article>
+                    
                 </div>
-        
                 <button class="carrusel-prev" aria-label="Anterior"></button>
                 <button class="carrusel-next" aria-label="Siguiente"></button>
             </div>
         </section>
-        <section class="juegos-destacados"></section>
-            <h1 class="titulo-carrusel">Gratuitos</h1>
+        
+        <section class="juegos-destacados">
+            <h1 class="titulo-carrusel">Carreras</h1>
             <div class="carrusel">
                 <div class="carrusel-container">
                     <article class="juego-card">
@@ -249,9 +242,9 @@
                         <span class="titulo-card">FIA</span>
                         <h2>4 en linea: Formula 1</h2>
                         <p>Gratis</p>
-                        <button class="hover-button">
+                        <a href="game.html" class="hover-button">
                             <img src="img/logo-jugar.png" alt="Logo">
-                        </button>
+                        </a>
                     </article>
         
                     <article class="juego-card">
@@ -259,9 +252,9 @@
                         <span class="titulo-card">GT Sophy</span>
                         <h2>Gran Turismo 7</h2>
                         <p>Precio: $20.00</p>
-                        <button class="hover-button">
+                        <a class="hover-button" href="#">
                             <img src="img/carrito-de-compras.png" alt="Logo">
-                        </button>
+                        </a>
                     </article>
         
                     <article class="juego-card">
@@ -269,9 +262,9 @@
                         <span class="titulo-card">Electronic Arts</span>
                         <h2>Need for speed</h2>
                         <p>Precio: $12.00</p>
-                        <button class="hover-button">
+                        <a class="hover-button" href="#">
                             <img src="img/carrito-de-compras.png" alt="Logo">
-                        </button>
+                        </a>
                     </article>
         
                     <article class="juego-card">
@@ -279,9 +272,9 @@
                         <span class="titulo-card">Cie Games</span>
                         <h2>Car Town</h2>
                         <p>Precio: $4.00</p>
-                        <button class="hover-button">
+                        <a class="hover-button" href="#">
                             <img src="img/carrito-de-compras.png" alt="Logo">
-                        </button>
+                        </a>
                     </article>
         
                     <article class="juego-card">
@@ -289,91 +282,129 @@
                         <span class="titulo-card">Gameloft</span>
                         <h2>SpeedStorm</h2>
                         <p>Gratis</p>
-                        <button class="hover-button">
+                        <a href="game.html" class="hover-button">
                             <img src="img/logo-jugar.png" alt="Logo">
-                        </button>
+                        </a>
                     </article>
         
                     <article class="juego-card">
-                        <img class="img-juego" src="img/tetris.jpg" alt="Juego 6">
-                        <span class="titulo-card">The Tetris Company</span>
-                        <h2>Tetris</h2>
-                        <p>Gratis</p>
-                        <button class="hover-button">
-                            <img src="img/logo-jugar.png" alt="Logo">
-                        </button>
+                        <img class="img-juego" src="img/mariokart.jpg" alt="Juego 6">
+                        <span class="titulo-card">NINTENDO</span>
+                        <h2>Mario Kart</h2>
+                        <p>Precio: $7.50</p>
+                        <a href="game.html" class="hover-button">
+                            <img src="img/carrito-de-compras.png" alt="Logo">
+                        </a>
+                    </article>
+                    <article class="juego-card">
+                        <img class="img-juego" src="img/crash.jpg" alt="Juego 6">
+                        <span class="titulo-card">NINTENDO</span>
+                        <h2>Crash Team Racing</h2>
+                        <p>Precio: $3.00</p>
+                        <a href="game.html" class="hover-button">
+                            <img src="img/carrito-de-compras.png" alt="Logo">
+                        </a>
+                    </article>
+                    <article class="juego-card">
+                        <img class="img-juego" src="img/racinglimits.png" alt="Juego 5">
+                        <span class="titulo-card">Valvolex</span>
+                        <h2>Racing Limits</h2>
+                        <p>Precio: $1.00</p>
+                        <a href="game.html" class="hover-button">
+                            <img src="img/carrito-de-compras.png" alt="Logo">
+                        </a>
                     </article>
                 </div>
-        
                 <button class="carrusel-prev" aria-label="Anterior"></button>
                 <button class="carrusel-next" aria-label="Siguiente"></button>
             </div>
         </section>
-        <section class="juegos-destacados"></section>
-            <h1 class="titulo-carrusel">Gratuitos</h1>
+        
+        <section class="juegos-destacados">
+            <h1 class="titulo-carrusel">Accion</h1>
             <div class="carrusel">
                 <div class="carrusel-container">
                     <article class="juego-card">
-                        <img class="img-juego" src="img/horadeaventura.jpg" alt="Juego 1">
-                        <span class="titulo-card">Cartoon Network</span>
-                        <h2>Hora de aventura</h2>
-                        <p>Gratis</p>
-                        <button class="hover-button">
-                            <img src="img/logo-jugar.png" alt="Logo">
-                        </button>
+                        <img class="img-juego" src="img/spiderman.jpeg" alt="Juego 1">
+                        <span class="titulo-card">Marvel Studios</span>
+                        <h2>Spiderman: Epic Battles</h2>
+                        <p>Precio: $20.00</p>
+                        <a href="game.html" class="hover-button">
+                            <img src="img/carrito-de-compras.png" alt="Logo">
+                        </a>
                     </article>
         
                     <article class="juego-card">
-                        <img class="img-juego" src="img/homero.webp" alt="Juego 2">
-                        <span class="titulo-card">Disney</span>
-                        <h2>Pinta a Homero</h2>
-                        <p>Gratis</p>
-                        <button class="hover-button">
-                            <img src="img/logo-jugar.png" alt="Logo">
-                        </button>
+                        <img class="img-juego" src="img/wolverine.jpeg" alt="Juego 2">
+                        <span class="titulo-card">Marvel Studios</span>
+                        <h2>X-Men 2: Wolverine</h2>
+                        <p>Precio: $18.00</p>
+                        <a href="game.html" class="hover-button">
+                            <img src="img/carrito-de-compras.png" alt="Logo">
+                        </a>
                     </article>
         
                     <article class="juego-card">
-                        <img class="img-juego" src="img/unshowmas.webp" alt="Juego 3">
-                        <span class="titulo-card">Cartoon Network</span>
-                        <h2>Un show más</h2>
+                        <img class="img-juego" src="img/black.jpeg" alt="Juego 3">
+                        <span class="titulo-card">Criterion Games</span>
+                        <h2>BLACK</h2>
                         <p>Gratis</p>
-                        <button class="hover-button">
+                        <a href="game.html" class="hover-button">
                             <img src="img/logo-jugar.png" alt="Logo">
-                        </button>
+                        </a>
                     </article>
         
                     <article class="juego-card">
-                        <img class="img-juego" src="img/fuegoyagua.webp" alt="Juego 4">
+                        <img class="img-juego" src="img/mortalkombat.jpg" alt="Juego 4">
                         <span class="titulo-card">Oslo Albet</span>
-                        <h2>Fuego y Agua</h2>
-                        <p>Gratis</p>
-                        <button class="hover-button">
-                            <img src="img/logo-jugar.png" alt="Logo">
-                        </button>
+                        <h2>Mortal Kombat</h2>
+                        <p>Precio: $12.00</p>
+                        <a href="game.html" class="hover-button">
+                            <img src="img/carrito-de-compras.png" alt="Logo">
+                        </a>
                     </article>
         
                     <article class="juego-card">
-                        <img class="img-juego" src="img/uno.jpg" alt="Juego 5">
-                        <span class="titulo-card">Mattel </span>
-                        <h2>UNO</h2>
+                        <img class="img-juego" src="img/spaceinvaders.jpeg" alt="Space Invaders">
+                        <span class="titulo-card">Taito</span>
+                        <h2>Space Invaders</h2>
                         <p>Gratis</p>
-                        <button class="hover-button">
+                        <a href="game-spaceinvaders.html" class="hover-button">
                             <img src="img/logo-jugar.png" alt="Logo">
-                        </button>
+                        </a>
                     </article>
         
                     <article class="juego-card">
-                        <img class="img-juego" src="img/tetris.jpg" alt="Juego 6">
-                        <span class="titulo-card">The Tetris Company</span>
-                        <h2>Tetris</h2>
+                        <img class="img-juego" src="img/contra.png" alt="Contra">
+                        <span class="titulo-card">Konami</span>
+                        <h2>Contra</h2>
                         <p>Gratis</p>
-                        <button class="hover-button">
+                        <a href="game-contra.html" class="hover-button">
                             <img src="img/logo-jugar.png" alt="Logo">
-                        </button>
+                        </a>
                     </article>
+                    <article class="juego-card">
+                        <img class="img-juego" src="img/donkeykong.avif" alt="Donkey Kong">
+                        <span class="titulo-card">Nintendo</span>
+                        <h2>Donkey Kong</h2>
+                        <p>Precio: $4.00</p>
+                        <a href="game-donkeykong.html" class="hover-button">
+                            <img src="img/logo-jugar.png" alt="Logo">
+                        </a>
+                    </article>
+                    <article class="juego-card">
+                        <img class="img-juego" src="img/streetfighter.jpg" alt="Street Fighter II">
+                        <span class="titulo-card">Capcom</span>
+                        <h2>Street Fighter II</h2>
+                        <p>Precio: $10.00</p>
+                        <a href="game-streetfighter.html" class="hover-button">
+                            <img src="img/logo-jugar.png" alt="Logo">
+                        </a>
+                    </article>
+                    
+                    
+                    
                 </div>
-        
                 <button class="carrusel-prev" aria-label="Anterior"></button>
                 <button class="carrusel-next" aria-label="Siguiente"></button>
             </div>
