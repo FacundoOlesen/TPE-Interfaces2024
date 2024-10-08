@@ -481,3 +481,115 @@ button i,button img {
     -webkit-transform: scale(2.5); /* Para compatibilidad con navegadores antiguos */
     -moz-transform: scale(2.5); /* Para navegadores antiguos de Firefox */
 }
+
+
+
+/* ========================== Loader ============================= */
+
+.loading-page {
+    position: fixed;
+    background-color: hsla(270, 65%, 5%, .8);
+    backdrop-filter: blur(10px);
+    height: 100vh;
+    width: 100%;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    animation: disolve 5s forwards;
+    bottom: 0;
+    top: 0;
+    z-index: 10;
+}
+
+.loading-page svg {
+    height: 150px;
+    width: 150px;
+    stroke-dasharray: 1000;
+    animation: draw 5s ease;
+    fill: #ff9900; /* Color del texto */
+    font-size: 10px; /* Tamaño de la fuente */
+    font-weight: bold; /* Negrita */
+    text-anchor: middle; /* Centra horizontalmente el texto */
+    stroke: #000000; /* Color del borde */
+    stroke-width: 0.5px; /* Grosor del borde */
+    paint-order: stroke; /* Aplica el borde antes del relleno */
+}
+
+.name-container {
+    overflow: hidden;
+}
+
+.logo-name {
+    letter-spacing: 10px;
+    text-transform: uppercase;
+    animation: elevacion 3s;
+    color: var(--primario-w3);
+}
+
+/* ========================== Fin Loader ============================= */
+
+/* ========================== Animaciones ============================= */
+
+@keyframes draw {
+    0% {
+        fill-opacity: 0;
+        stroke-dashoffset: 1000;
+    }
+
+    50% {
+        fill-opacity: 1;
+    }
+
+    100% {
+        stroke-dashoffset: 0;
+    }
+}
+
+@keyframes disolve {
+    0% {
+        opacity: 1;
+    }
+
+    70% {
+        opacity: 1;
+    }
+
+    100% {
+        opacity: 0;
+        display: none;
+    }
+}
+
+@keyframes elevacion {
+    0% {
+        transform: translateY(50px);
+        opacity: 0;
+    }
+
+    100% {
+        transform: translateY(0);
+        opacity: 1;
+    }
+}
+
+/* ========================== Fin Animaciones ============================= */
+
+.circle-bg {
+    stroke: #ffffff;
+    stroke-width: 3.8;
+  }
+  
+  .circle {
+    stroke: #00aaff;
+    stroke-width: 3.8;
+    stroke-linecap: round;
+    transition: stroke-dasharray 0.3s ease;
+  }
+
+  #progress-text {
+    fill: #ffffff; /* Asegúrate de que el texto sea blanco para que sea visible */
+    font-size: 10px; /* Ajusta el tamaño si es necesario */
+    font-weight: bold; /* Añade grosor al texto para mayor visibilidad */
+}
+
