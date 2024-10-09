@@ -64,7 +64,6 @@
 }
 
 .titulo-principal,
-.titulo-secundario,
 .titulo-terciario,
 .parrafo-resaltado {
     font-family: var(--nunito-bold);
@@ -141,7 +140,9 @@ body {
     font-family: var(--nunito-thin);
 }
 
-.titulo-card {
+.titulo-card{
     font-family: var(--nunito-extra-thin);
 }
+
+
 
