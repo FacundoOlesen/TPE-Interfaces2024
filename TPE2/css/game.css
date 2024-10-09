@@ -159,6 +159,37 @@ main {
 .game-img {
     width: 800px;
     height: 500px;
+    opacity: 0.3;
+    z-index: 0;
+}
+
+.play-btn{
+    height: 50px;
+    width: 120px;
+    background-color: #FAFF00;
+   
+    border-radius: 15px;
+    border: none;
+    position: absolute;
+    z-index: 1;
+    margin-top: 220px;
+    margin-right: 155px;
+}
+
+.play-btn div{
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    gap: 5px;
+
+}
+
+.play-btn p{
+    color: black;   
+     font-size:18px;   
+      font-weight: bold;
+
+
 }
 
 .examples-img {
@@ -578,4 +609,9 @@ footer{
     cursor: pointer;
   }
 
-
+.pointers{
+    display: flex;
+    justify-content: center;
+    margin-top: 10px;
+    margin-right: 20px;
+}
