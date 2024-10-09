@@ -241,11 +241,153 @@ span.decorador-registro::after{
     color: #ffffff; /* Cambia el color según el que desees */
     padding: 10px;
 }
+/*Recomendaciones*/
+h1{
+    margin:2rem 0 1rem 10rem;
+    font-family: var(--nunito-extra-thin);
+    color: white;
+}
+/* Contenedor del carrusel */
+.recomendaciones {
+    display: flex;
+    aspect-ratio: 20/9; /* Mantener la relación de aspecto */
+    overflow: hidden; /* Ocultar el desbordamiento */
+    scroll-snap-type: x mandatory; /* Para el scroll snap */
+    scroll-behavior: smooth; /* Comportamiento suave del scroll */
+    box-shadow: 0 2rem 3rem -0.75rem hsla(0, 0%, 0%, 0.25);
+    border-radius: 2rem;
+    width: 80%;
+    margin: 0 0 0 10rem;
+    margin-bottom: 5rem;
+    position: relative; /* Para posicionar el overlay */
+}
+
+/* Artículo del carrusel */
+.recomendaciones article {
+    position: relative;
+    flex: 1 0 100%; /* Cada artículo ocupa el 100% del ancho */
+}
+
+/* Estilo de la imagen principal de cada artículo */
+.recomendaciones article img {
+    width: 100%;
+    object-fit: cover; /* Mantiene la proporción de la imagen */
+    scroll-snap-align: start; /* Alineación del scroll snap */
+}
+
+/* Overlay oscuro sobre la imagen de fondo */
+.recomendaciones article::before {
+    content: "";
+    position: absolute;
+    top: 0;
+    left: 0;
+    right: 0;
+    bottom: 0;
+    background: rgba(0, 0, 0, 0.63); /* Color oscuro con opacidad */
+    z-index: 1; /* Asegurarse de que esté por debajo del texto */
+}
+
+/* Información sobre cada artículo */
+.informacion {
+    font-size: 10px;
+    height: 100%;
+    max-height: 80%;
+    display: flex;
+    gap: 10px;
+    align-content: flex-end;
+    justify-content: space-between;
+    flex-wrap: wrap;
+    position: absolute;
+    bottom: 0;
+    padding: 10px 20px; /* Ajustar el padding */
+    width: 50%;
+    font-family: var(--nunito-bold);
+    color: white;
+    z-index: 2; /* Asegurarse de que esté por encima del overlay */
+}
+
+/* Estilo de las imágenes en la información */
+.informacion img {
+    width: 40%;
+    height: 60%;
+    border-radius: 1rem;
+}
+
+/* Estilos para los botones y enlaces */
+/* Estilos para el enlace del botón */
+.informacion a.boton-play, a.boton-carrito {
+    font-size: 1.5em; 
+    width: 40%; 
+    height: 15%; 
+    border-radius: 20px;
+    background-color: yellow; 
+    color: black; 
+    padding: 10px; 
+    text-decoration: none; 
+    text-align: center; 
+    display: flex; 
+    align-items: center; 
+    justify-content: center; 
+    transition: background-color 0.3s; 
+}
+
+/* Estilo de la imagen dentro del botón */
+.informacion a.boton-play img, a.boton-carrito img {
+    width: 20%; 
+    margin-right: 10px; 
+}
+
+/* Hover en el botón */
+.informacion a.boton-play:hover, a.boton-carrito:hover {
+    background-color: orange; 
+    cursor: pointer;
+}
+
+/* Hover en los botones */
+.informacion button:hover,
+.informacion a:hover {
+    background-color: orange; 
+}
+
+/* Estilos de texto en la información */
+.informacion p {
+    font-size: 1rem;
+    width: 100%;
+}
+
+.informacion h2 {
+    width: 100%;
+    font-size: 2rem;
+}
+
+/* Navegación del carrusel */
+.slider-nav {
+    display: flex;
+    column-gap: 1rem;
+    position: absolute;
+    bottom: -30px;
+    left: 45%; /* Centrando los puntos de navegación */
+}
+
+.slider-nav a {
+    width: .5rem;
+    height: .5rem;
+    border-radius: 50%;
+    background: var(--acento);
+    opacity: .75;
+    transition: opacity ease 250ms;
+}
+
+.slider-nav a:hover {
+    opacity: 1;
+}
+
 
 /* Carruseles */
 .titulo-carrusel{
     margin:2rem 0 1rem 10rem;
     color: white;
+
 }
 .carrusel {
     max-width: 100%;
