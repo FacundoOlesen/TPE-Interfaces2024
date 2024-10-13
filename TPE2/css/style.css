@@ -1,9 +1,10 @@
-*{
+* {
     margin: 0;
     box-sizing: border-box;
     color: white;
     font-family: 'Nunito', sans-serif;
 }
+
 header {
     background-color: #240B34;
     padding: 10px 0;
@@ -133,23 +134,25 @@ form button img {
 
 /*  mi aporte */
 
-.sesion-control{
+.sesion-control {
     position: absolute;
     display: flex;
     top: 0;
     left: 0;
     width: 100%;
     height: 100vh;
-    background: rgba(255, 255, 255, 0.2); /* Transparente */
-    backdrop-filter: blur(10px); /* Efecto borroso */
+    background: rgba(255, 255, 255, 0.2);
+    /* Transparente */
+    backdrop-filter: blur(10px);
+    /* Efecto borroso */
     z-index: 10;
 }
 
-.ocultar{
+.ocultar {
     display: none;
 }
 
-.sesion-control .login-container{
+.sesion-control .login-container {
     margin: auto;
     width: 50%;
     height: 60%;
@@ -160,7 +163,7 @@ form button img {
     transition: transform .5s ease;
 }
 
-.sesion-control .login-container form{
+.sesion-control .login-container form {
     flex: 1 0 100%;
     display: flex;
     flex-wrap: wrap;
@@ -169,57 +172,66 @@ form button img {
     justify-content: space-evenly;
     padding-top: 50px;
     padding-bottom: 40px;
-    
+
 }
 
-.sesion-control .login-container a{ 
+.sesion-control .login-container a {
     color: #1D9BF0;
 }
 
-.sesion-control .login-container form > button, .sesion-control .login-container form > input{ 
+.sesion-control .login-container form>button,
+.sesion-control .login-container form>input {
     width: 50%;
     height: 45px;
-    font-size: 18px;  /* Ajusta el tamaño de la letra */
+    font-size: 18px;
+    /* Ajusta el tamaño de la letra */
 }
-.sesion-control .login-container form > div{
+
+.sesion-control .login-container form>div {
     width: 50%;
 }
 
-.sesion-control .login-container form.registro-pasos{
+.sesion-control .login-container form.registro-pasos {
     position: relative;
 }
 
-.sesion-control .login-container p{ 
-    width: 50%;  
+.sesion-control .login-container p {
+    width: 50%;
 }
-.sesion-control .login-container label{ 
-    font-size: 18px; 
-    font-weight: bold;  
+
+.sesion-control .login-container label {
+    font-size: 18px;
+    font-weight: bold;
     margin-bottom: 5px;
 }
-.sesion-control .login-container button{ 
+
+.sesion-control .login-container button {
     border-radius: 20px;
 }
 
-.sesion-control .login-container input{ 
+.sesion-control .login-container input {
     background-color: black;
     border-radius: 5px;
-    padding: 10px;    /* Ajusta el padding del input */
+    padding: 10px;
+    /* Ajusta el padding del input */
     color: #ccc;
 }
 
 /* Estilos específicos para el placeholder */
 .sesion-control .login-container input::placeholder {
-    font-size: 18px;   /* Ajusta el tamaño de la letra del placeholder */
-    color: #ccc;       /* Ajusta el color del placeholder si lo necesitas */
-    opacity: 1;        /* Asegúrate de que el placeholder sea visible en todos los navegadores */
+    font-size: 18px;
+    /* Ajusta el tamaño de la letra del placeholder */
+    color: #ccc;
+    /* Ajusta el color del placeholder si lo necesitas */
+    opacity: 1;
+    /* Asegúrate de que el placeholder sea visible en todos los navegadores */
 }
 
-.separador{
+.separador {
     display: flex;
 }
 
-span.decorador-registro{
+span.decorador-registro {
     display: flex;
     justify-content: space-between;
     align-items: center;
@@ -227,14 +239,14 @@ span.decorador-registro{
 }
 
 span.decorador-registro::before,
-span.decorador-registro::after{
+span.decorador-registro::after {
     content: "";
     width: 45%;
     height: 0px;
     border: white 1px solid;
 }
 
-.retorno{
+.retorno {
     position: absolute;
     left: 30px;
     top: 20px;
@@ -242,48 +254,60 @@ span.decorador-registro::after{
     align-items: center;
 }
 
-.small-circle{
-    font-size: 8px; /* Ajusta el tamaño según lo que necesites */
-    margin: 0 10px; /* Opcional, para dar espacio entre los elementos */
+.small-circle {
+    font-size: 8px;
+    /* Ajusta el tamaño según lo que necesites */
+    margin: 0 10px;
+    /* Opcional, para dar espacio entre los elementos */
 }
 
 .fas.fa-arrow-left {
-    font-size: 25px; /* Ajusta el tamaño según sea necesario */
-    color: #ffffff; /* Cambia el color según el que desees */
+    font-size: 25px;
+    /* Ajusta el tamaño según sea necesario */
+    color: #ffffff;
+    /* Cambia el color según el que desees */
     padding: 10px;
 }
+
 /*Recomendaciones*/
-h1{
-    margin:2rem 0 1rem 10rem;
+h1 {
+    margin: 2rem 0 1rem 10rem;
     font-family: var(--nunito-extra-thin);
     color: white;
 }
+
 /* Contenedor del carrusel */
 .recomendaciones {
     display: flex;
-    aspect-ratio: 20/9; /* Mantener la relación de aspecto */
-    overflow: hidden; 
+    aspect-ratio: 20/9;
+    /* Mantener la relación de aspecto */
+    overflow: hidden;
     scroll-snap-type: x mandatory;
-    scroll-behavior: smooth; /* Comportamiento suave del scroll */
+    scroll-behavior: smooth;
+    /* Comportamiento suave del scroll */
     box-shadow: 0 2rem 3rem -0.75rem hsla(0, 0%, 0%, 0.25);
     border-radius: 2rem;
     width: 80%;
     margin: 0 0 0 10rem;
     margin-bottom: 5rem;
-    position: relative; /* Para posicionar el overlay */
+    position: relative;
+    /* Para posicionar el overlay */
 }
 
 /* Artículo del carrusel */
 .recomendaciones article {
     position: relative;
-    flex: 1 0 100%; /* Cada artículo ocupa el 100% del ancho */
+    flex: 1 0 100%;
+    /* Cada artículo ocupa el 100% del ancho */
 }
 
 /* Estilo de la imagen principal de cada artículo */
 .recomendaciones article img {
     width: 100%;
-    object-fit: cover; /* Mantiene la proporción de la imagen */
-    scroll-snap-align: start; /* Alineación del scroll snap */
+    object-fit: cover;
+    /* Mantiene la proporción de la imagen */
+    scroll-snap-align: start;
+    /* Alineación del scroll snap */
 }
 
 /* Overlay oscuro sobre la imagen de fondo */
@@ -294,8 +318,10 @@ h1{
     left: 0;
     right: 0;
     bottom: 0;
-    background: rgba(0, 0, 0, 0.63); /* Color oscuro con opacidad */
-    z-index: 1; /* Asegurarse de que esté por debajo del texto */
+    background: rgba(0, 0, 0, 0.63);
+    /* Color oscuro con opacidad */
+    z-index: 1;
+    /* Asegurarse de que esté por debajo del texto */
 }
 
 /* Información sobre cada artículo */
@@ -310,11 +336,13 @@ h1{
     flex-wrap: wrap;
     position: absolute;
     bottom: 0;
-    padding: 10px 20px; /* Ajustar el padding */
+    padding: 10px 20px;
+    /* Ajustar el padding */
     width: 50%;
     font-family: var(--nunito-bold);
     color: white;
-    z-index: 2; /* Asegurarse de que esté por encima del overlay */
+    z-index: 2;
+    /* Asegurarse de que esté por encima del overlay */
 }
 
 /* Estilo de las imágenes en la información */
@@ -327,37 +355,39 @@ h1{
 /* Estilos para los botones y enlaces */
 /* Estilos para el enlace del botón */
 .informacion a.boton-play {
-    font-size: 1.5em; 
-    width: 40%; 
-    height: 15%; 
+    font-size: 1.5em;
+    width: 40%;
+    height: 15%;
     border-radius: 20px;
-    background-color: yellow; 
-    color: black; 
-    padding: 10px; 
-    text-decoration: none; 
-    text-align: center; 
-    display: flex; 
-    align-items: center; 
-    justify-content: center; 
-    transition: background-color 0.3s; 
+    background-color: yellow;
+    color: black;
+    padding: 10px;
+    text-decoration: none;
+    text-align: center;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    transition: background-color 0.3s;
 }
 
 /* Estilo de la imagen dentro del botón */
-.informacion a.boton-play img, a.boton-carrito img {
-    width: 20%; 
-    margin-right: 10px; 
+.informacion a.boton-play img,
+a.boton-carrito img {
+    width: 20%;
+    margin-right: 10px;
 }
 
 /* Hover en el botón */
-.informacion a.boton-play:hover, a.boton-carrito:hover {
-    background-color: orange; 
+.informacion a.boton-play:hover,
+a.boton-carrito:hover {
+    background-color: orange;
     cursor: pointer;
 }
 
 /* Hover en los botones */
 .informacion button:hover,
 .informacion a:hover {
-    background-color: orange; 
+    background-color: orange;
 }
 
 /* Estilos de texto en la información */
@@ -377,7 +407,8 @@ h1{
     column-gap: 1rem;
     position: absolute;
     bottom: -30px;
-    left: 45%; /* Centrando los puntos de navegación */
+    left: 45%;
+    /* Centrando los puntos de navegación */
 }
 
 .slider-nav a {
@@ -395,11 +426,12 @@ h1{
 
 
 /* Carruseles */
-.titulo-carrusel{
-    margin:2rem 0 1rem 10rem;
+.titulo-carrusel {
+    margin: 2rem 0 1rem 10rem;
     color: white;
 
 }
+
 .carrusel {
     max-width: 100%;
     width: 80%;
@@ -413,7 +445,7 @@ h1{
 .carrusel-container {
     display: flex;
     transition: transform 0.5s ease;
-    padding-right: 5%; 
+    padding-right: 5%;
 }
 
 .juego-card {
@@ -443,11 +475,11 @@ h1{
     left: 0;
     width: 100%;
     height: 100%;
-    background-color: rgba(0, 0, 0, 0.5); 
+    background-color: rgba(0, 0, 0, 0.5);
     border-radius: 10px;
     opacity: 0;
     transition: opacity 0.3s ease;
-    z-index: 2; 
+    z-index: 2;
 }
 
 .juego-card:hover::before {
@@ -463,7 +495,7 @@ h1{
 
 .juego-card .hover-button {
     position: absolute;
-    top: 50%; 
+    top: 50%;
     left: 50%;
     transform: translate(-50%, -50%);
     background-color: #ff9900;
@@ -480,7 +512,7 @@ h1{
 }
 
 .juego-card:hover .hover-button {
-    opacity: 1; 
+    opacity: 1;
 }
 
 .juego-card .hover-button img {
@@ -488,22 +520,25 @@ h1{
     height: 70%;
     object-fit: contain;
     display: block;
-    margin: 0 auto; 
+    margin: 0 auto;
 }
 
-.hover-button:hover{
+.hover-button:hover {
     cursor: pointer;
     box-shadow: 0px 0.8rem 4rem rgb(0, 0, 0);
 }
+
 #enCarrito {
     cursor: pointer;
-    transition: background-color 0.5s ease; 
+    transition: background-color 0.5s ease;
 }
-#enCarrito img{
+
+#enCarrito img {
     width: 70%;
 }
+
 #enCarrito:hover {
-    background-color: red; 
+    background-color: red;
 }
 
 
@@ -552,7 +587,8 @@ h1{
 .carrusel-prev {
     left: 0;
     border-radius: 10px 0px 0px 10px;
-    display: none; /* Oculta el botón de anterior por defecto */
+    display: none;
+    /* Oculta el botón de anterior por defecto */
 }
 
 .carrusel-next {
@@ -579,16 +615,21 @@ h1{
     transform: rotate(-45deg);
 }
 
-.btn-facebook{
+.btn-facebook {
     background-color: #1D9BF0;
     color: white;
-    
+
 }
-button i,button img {
-    margin-right: 12px; /* Ajusta este valor para más o menos espacio */
+
+button i,
+button img {
+    margin-right: 12px;
+    /* Ajusta este valor para más o menos espacio */
 }
+
 .btn-google img {
-    width:20px; /* Ajusta este valor para más o menos espacio */
+    width: 20px;
+    /* Ajusta este valor para más o menos espacio */
 }
 
 .btn-google {
@@ -597,12 +638,12 @@ button i,button img {
     align-items: center;
 }
 
-.grupo-label-input{
+.grupo-label-input {
     display: flex;
     flex-direction: column;
 }
 
-.captcha{
+.captcha {
     justify-content: space-between;
     background-color: #eee;
     display: flex;
@@ -613,28 +654,31 @@ button i,button img {
     height: 45px;
 }
 
-.captcha div{
- 
+.captcha div {
+
     display: flex;
     align-items: center;
     justify-content: space-evenly;
 }
 
-.captcha p{
+.captcha p {
     width: 100px;
 }
 
-.captcha img{
+.captcha img {
     width: 30px;
 }
 
-.captcha input{
+.captcha input {
     margin-right: 20px;
     width: 10px;
     height: 10px;
-    transform: scale(2.5); /* Aumenta el tamaño del checkbox */
-    -webkit-transform: scale(2.5); /* Para compatibilidad con navegadores antiguos */
-    -moz-transform: scale(2.5); /* Para navegadores antiguos de Firefox */
+    transform: scale(2.5);
+    /* Aumenta el tamaño del checkbox */
+    -webkit-transform: scale(2.5);
+    /* Para compatibilidad con navegadores antiguos */
+    -moz-transform: scale(2.5);
+    /* Para navegadores antiguos de Firefox */
 }
 
 
@@ -662,13 +706,20 @@ button i,button img {
     width: 150px;
     stroke-dasharray: 1000;
     animation: draw 5s ease;
-    fill: #ff9900; /* Color del texto */
-    font-size: 10px; /* Tamaño de la fuente */
-    font-weight: bold; /* Negrita */
-    text-anchor: middle; /* Centra horizontalmente el texto */
-    stroke: #000000; /* Color del borde */
-    stroke-width: 0.5px; /* Grosor del borde */
-    paint-order: stroke; /* Aplica el borde antes del relleno */
+    fill: #ff9900;
+    /* Color del texto */
+    font-size: 10px;
+    /* Tamaño de la fuente */
+    font-weight: bold;
+    /* Negrita */
+    text-anchor: middle;
+    /* Centra horizontalmente el texto */
+    stroke: #000000;
+    /* Color del borde */
+    stroke-width: 0.5px;
+    /* Grosor del borde */
+    paint-order: stroke;
+    /* Aplica el borde antes del relleno */
 }
 
 .name-container {
@@ -733,27 +784,30 @@ button i,button img {
 .circle-bg {
     stroke: #ffffff;
     stroke-width: 3.8;
-  }
-  
-  .circle {
+}
+
+.circle {
     stroke: #00aaff;
     stroke-width: 3.8;
     stroke-linecap: round;
     transition: stroke-dasharray 0.3s ease;
-  }
+}
 
-  #progress-text {
-    fill: #ffffff; /* Asegúrate de que el texto sea blanco para que sea visible */
-    font-size: 10px; /* Ajusta el tamaño si es necesario */
-    font-weight: bold; /* Añade grosor al texto para mayor visibilidad */
+#progress-text {
+    fill: #ffffff;
+    /* Asegúrate de que el texto sea blanco para que sea visible */
+    font-size: 10px;
+    /* Ajusta el tamaño si es necesario */
+    font-weight: bold;
+    /* Añade grosor al texto para mayor visibilidad */
 }
 
 /*footer*/
-footer{
-    background-color:#240B34 ;
+footer {
+    background-color: #240B34;
     color: white;
     min-height: 450px;
-    max-height:600px;
+    max-height: 600px;
     display: flex;
     flex-direction: column;
     justify-content: center;
@@ -761,7 +815,8 @@ footer{
     font-weight: 100;
     margin-top: 30px;
 }
-.line-footer{
+
+.line-footer {
     border: solid rgb(255, 255, 255) 1px;
     border-bottom: 0px;
     border-left: 0px;
@@ -769,20 +824,22 @@ footer{
     width: 60.7%;
     margin-top: 2%;
 }
+
 .links-foot {
     display: flex;
     transform: translate(-50%, -50%);
     margin-left: 300px;
-  }
-  .links-foot  li {
+}
+
+.links-foot li {
     list-style: none;
     margin: 0 5px;
     justify-content: center;
     align-items: center;
-  }
-  
-  .links-foot  li a {
-    position: relative; 
+}
+
+.links-foot li a {
+    position: relative;
     display: block;
     width: 50px;
     height: 50px;
@@ -793,9 +850,9 @@ footer{
     font-size: 30px;
     color: #666;
     transition: .5s;
-  }
-  
-  .links-foot  li a::before {
+}
+
+.links-foot li a::before {
     content: '';
     position: absolute;
     top: -220;
@@ -807,48 +864,52 @@ footer{
     transition: .5s;
     transform: scale(.9);
     z-index: -1;
-  }
-  
-  .links-foot  li a:hover::before {
+}
+
+.links-foot li a:hover::before {
     transform: scale(1.1);
     box-shadow: 0 0 15px #ffee10;
-  }
-  
-  .links-foot  li a:hover {
+}
+
+.links-foot li a:hover {
     color: #ffee10;
     box-shadow: 0 0 5px #ffee10;
     text-shadow: 0 0 5px #ffee10;
     cursor: pointer;
-  }
-  .pointers{
+}
+
+.pointers {
     display: flex;
     justify-content: center;
     margin-top: 10px;
     margin-right: 20px;
 }
-.links{
+
+.links {
     display: flex;
     align-items: center;
-    gap:50px;
+    gap: 50px;
     text-transform: uppercase;
     font-size: 14px;
     margin-top: 50px;
 }
 
-.links-1 p{
+.links-1 p {
     text-align: left;
     font-weight: 100;
 }
-.links .links-1 p:hover{
+
+.links .links-1 p:hover {
     text-decoration: underline;
     cursor: pointer;
 }
-.logo img{
+
+.logo img {
     width: 196px;
     height: 49px;
 }
 
-.line-footer{
+.line-footer {
     border: solid rgb(255, 255, 255) 1px;
     border-bottom: 0px;
     border-left: 0px;
@@ -857,21 +918,21 @@ footer{
     margin-top: 2%;
 }
 
-.socials{
+.socials {
     display: flex;
     justify-content: center;
     margin-right: 2.4%;
     margin-bottom: -0.1%;
 }
 
-.socials ul{
+.socials ul {
     display: flex;
     list-style: none;
     margin-top: 10%;
     gap: 4px;
 }
 
-.copy{
+.copy {
     font-weight: 100;
 }
 
@@ -879,21 +940,21 @@ footer{
     display: flex;
     transform: translate(-50%, -50%);
     margin-left: 300px;
-  }
+}
 
-  .form4-cont{
+.form4-cont {
     margin-top: -10%;
-  }
-  
-  .links-foot  li {
+}
+
+.links-foot li {
     list-style: none;
     margin: 0 5px;
     justify-content: center;
     align-items: center;
-  }
-  
-  .links-foot  li a {
-    position: relative; 
+}
+
+.links-foot li a {
+    position: relative;
     display: block;
     width: 50px;
     height: 50px;
@@ -904,9 +965,9 @@ footer{
     font-size: 30px;
     color: #666;
     transition: .5s;
-  }
-  
-  .links-foot  li a::before {
+}
+
+.links-foot li a::before {
     content: '';
     position: absolute;
     top: -220;
@@ -918,21 +979,21 @@ footer{
     transition: .5s;
     transform: scale(.9);
     z-index: -1;
-  }
-  
-  .links-foot  li a:hover::before {
+}
+
+.links-foot li a:hover::before {
     transform: scale(1.1);
     box-shadow: 0 0 15px #ffee10;
-  }
-  
-  .links-foot  li a:hover {
+}
+
+.links-foot li a:hover {
     color: #ffee10;
     box-shadow: 0 0 5px #ffee10;
     text-shadow: 0 0 5px #ffee10;
     cursor: pointer;
-  }
+}
 
-  .pointers {
+.pointers {
     display: flex;
     justify-content: center;
     margin-top: 10px;
@@ -953,11 +1014,11 @@ footer{
 }
 
 
-.no-show{
+.no-show {
     display: none;
 }
 
-.show{
+.show {
     display: block;
     opacity: 1;
     position: relative;
@@ -965,6 +1026,10 @@ footer{
 
 }
 
+.main-helper2 {
+    padding-top: 0px;
+    margin-top: -952px;
+}
 
 .profile h5,
 p {
@@ -1015,7 +1080,7 @@ p {
     height: 2.5px !important;
 }
 
-.foot-profile{
+.foot-profile {
     display: grid;
     grid-template-columns: 50% 50%;
     font-size: 13px;
@@ -1023,22 +1088,22 @@ p {
     margin-top: 10px;
 }
 
-.foot-profile p{
+.foot-profile p {
     color: #878A9E;
     margin-top: 5px;
 }
 
-.profile-socials{
+.profile-socials {
     margin-left: -5px;
 }
 
-.profile-socials svg{
+.profile-socials svg {
     margin-top: 20px;
-  
+
     width: 44px;
 }
 
-.x{
+.x {
     margin-left: 250px;
     margin-top: 10px;
 }
@@ -1054,21 +1119,21 @@ p {
     width: 50px;
     gap: 15px;
     border-radius: 4px;
-    display: flex; 
-    opacity: 0; 
-    transform: translateX(-100%); 
+    display: flex;
+    opacity: 0;
+    transform: translateX(-100%);
     transition: transform 0.5s ease, opacity 0.5s ease;
-    position: absolute; 
-   
+    position: absolute;
+
 }
 
 .hide {
     display: flex;
-    opacity: 1; 
+    opacity: 1;
     position: relative;
-    z-index: 1;  
-    transform: translateX(-10%); 
-    transition: transform 0.5s ease, opacity 0.5s ease; 
+    z-index: 1;
+    transform: translateX(-10%);
+    transition: transform 0.5s ease, opacity 0.5s ease;
 }
 
 .main-helper {
@@ -1090,99 +1155,123 @@ img:hover {
     cursor: pointer;
     transition: all 0.3s ease;
     transform-origin: 0 0;
-    z-index: 1; 
-     position: relative;
+    z-index: 1;
+    position: relative;
 }
 
-main.active{
-  height: 100%;
-  filter: blur(2px);
-  transition: opacity 0.3s ease;
-  opacity: 1; 
-  z-index: 0;
+main.active {
+    height: 100%;
+    filter: blur(2px);
+    transition: opacity 0.3s ease;
+    opacity: 1;
+    z-index: 0;
 }
+
 .menu-hamburguesa span {
     width: 100%;
     height: 5px;
     background-color: rgb(255, 255, 255);
     border-radius: 2px;
     transition: all 0.3s ease;
-    transform-origin: 0 0;  z-index: 1; 
+    transform-origin: 0 0;
+    z-index: 1;
     position: relative;
 }
 
 .menu-hamburguesa span:nth-child(1) {
-    transform-origin: 5% 50%;  z-index: 1; 
+    transform-origin: 5% 50%;
+    z-index: 1;
     position: relative;
 }
 
 .menu-hamburguesa span:nth-child(3) {
-    transform-origin: 5% 50%;  z-index: 1; 
+    transform-origin: 5% 50%;
+    z-index: 1;
     position: relative;
 }
 
 .menu-hamburguesa.active span:nth-child(1) {
     transform: rotate(45deg);
-    transform-origin: 0% 30%;  z-index: 1; 
+    transform-origin: 0% 30%;
+    z-index: 1;
 }
 
 .menu-hamburguesa.active span:nth-child(2) {
-    opacity: 0;  z-index: 1; 
+    opacity: 0;
+    z-index: 1;
 }
 
 .menu-hamburguesa.active span:nth-child(3) {
     transform: rotate(-45deg);
-    transform-origin: 1% 60%;  z-index: 1; 
+    transform-origin: 1% 60%;
+    z-index: 1;
 }
 
 
-@media only screen and (max-width: 768px){
+@media only screen and (max-width: 768px) {
     .juegos-destacados {
         width: 100%;
-        margin: 0 auto; /* Centramos horizontalmente */
+        margin: 0 auto;
+        /* Centramos horizontalmente */
     }
+
     .carrusel {
         width: 90%;
         height: auto;
-        margin: 0 auto; 
+        margin: 0 auto;
     }
+
     .juego-card {
-        height: auto; /* Permitimos que la altura se ajuste al contenido */
-        width: 25%; /* Hacemos las tarjetas más grandes en pantallas más pequeñas */
-        margin: 0.5rem; /* Añadimos espacio entre las tarjetas */
+        height: auto;
+        /* Permitimos que la altura se ajuste al contenido */
+        width: 25%;
+        /* Hacemos las tarjetas más grandes en pantallas más pequeñas */
+        margin: 0.5rem;
+        /* Añadimos espacio entre las tarjetas */
     }
-    
-    .titulo-carrusel, h1{
+
+    .titulo-carrusel,
+    h1 {
         margin-left: 3rem;
     }
-    .recomendaciones{
+
+    .recomendaciones {
         width: 90%;
         margin-left: 3rem;
     }
-    .informacion{
+
+    .informacion {
         width: 100%;
         max-height: 90%;
     }
-    .informacion .imgreco{
+
+    .informacion .imgreco {
         max-width: 50%;
         height: 40%;
     }
-    .informacion .titulo-secundario, p{
+
+    .informacion .titulo-secundario,
+    p {
         font-size: 1rem;
     }
-    .informacion a.boton-play{
+
+    .informacion a.boton-play {
         width: 12rem;
-    }   
-    .informacion a.boton-play img{
+    }
+
+    .informacion a.boton-play img {
         width: 1.5rem;
     }
-    .links{
+
+    .links {
         width: 90%;
     }
-    .links-1 p{
+
+    .links-1 p {
         font-size: 0.7rem;
     }
-    .slider-nav{
+
+    .slider-nav {
         display: flex;
         column-gap: 1rem;
         position: absolute;
@@ -1190,9 +1279,9 @@ main.active{
         left: 45%;
     }
 
-    .profile-socials svg{
+    .profile-socials svg {
         margin-top: 20px;
-      
+
         width: 40px;
     }
 }
