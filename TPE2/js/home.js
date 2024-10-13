@@ -73,4 +73,20 @@ carruseles.forEach(carrusel => {
 });
 
 
+function setProgress(percentage) {
+    const circle = document.getElementById('progress-path');
+    const text = document.getElementById('progress-text');
+    
+    const dashArray = `${percentage}, 100`;
+    circle.setAttribute('stroke-dasharray', dashArray);
+    
+    text.textContent = `${percentage}%`;
+}
 
+let progress = 0;
+const interval = setInterval(() => {
+    if (progress <= 100) {
+        setProgress(progress);
+        progress += 5; 
+    }
+}, 120); 
