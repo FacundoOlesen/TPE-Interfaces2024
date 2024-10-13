@@ -1,4 +1,3 @@
-//Funcion para desplazamiento de titulos largos
 document.addEventListener("DOMContentLoaded", function() {
     document.querySelectorAll('.juego-card h2').forEach((title) => {
         const tamañoTitulo = title.scrollWidth; 
@@ -11,17 +10,17 @@ document.addEventListener("DOMContentLoaded", function() {
 });
 
 const button = document.getElementById('enCarrito');
-const originalImageSrc = 'img/encarrito.png'; // Ruta de la imagen original
-const newImageSrc = 'img/quitarcarrito.png'; // Ruta de la nueva imagen
+const primerImg = 'img/encarrito.png'; // Ruta de la imagen original
+const nuevaImg = 'img/quitarcarrito.png'; // Ruta de la nueva imagen
 
 button.addEventListener('mouseenter', function() {
     const img = button.querySelector('img');
-    img.src = newImageSrc; // Cambiar a la nueva imagen
+    img.src = nuevaImg; // Cambiar a la nueva imagen
 });
 
 button.addEventListener('mouseleave', function() {
     const img = button.querySelector('img');
-    img.src = originalImageSrc; // Volver a la imagen original
+    img.src = primerImg;
 });
 
 //Funcion para darle funcionalidad al carrusel
