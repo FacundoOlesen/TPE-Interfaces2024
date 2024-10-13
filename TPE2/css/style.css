@@ -1052,6 +1052,18 @@ p {
 
 }
 
+body.overflow {
+    overflow: hidden;
+}
+
+main-home.active {
+    height: 100%;
+    filter: blur(2px);
+    transition: opacity 0.3s ease;
+    opacity: 1;
+    z-index: 0;
+}
+
 .options p {
     display: flex;
     align-items: center;
