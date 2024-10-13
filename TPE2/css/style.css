@@ -934,6 +934,98 @@ footer{
     margin-right: 20px;
 }
 
+/*nav*/
+.menu-desp {
+    display: flex;
+    display: none;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    background-color: #080514;
+    width: 50px;
+    gap: 15px;
+    border-radius: 4px;
+    display: flex; 
+    opacity: 0; 
+    transform: translateX(-100%); 
+    transition: transform 0.5s ease, opacity 0.5s ease;
+    position: absolute; 
+   
+}
+
+.hide {
+    display: flex;
+    opacity: 1; 
+    position: relative;
+    z-index: 1;  
+    transform: translateX(-10%); 
+    transition: transform 0.5s ease, opacity 0.5s ease; 
+}
+
+.main-helper {
+    padding-top: 0px;
+    margin-top: -922px;
+}
+
+button:hover,
+img:hover {
+    cursor: pointer;
+}
+
+.menu-hamburguesa {
+    width: 35px;
+    height: 30px;
+    display: flex;
+    flex-direction: column;
+    justify-content: space-between;
+    cursor: pointer;
+    transition: all 0.3s ease;
+    transform-origin: 0 0;
+    z-index: 1; 
+     position: relative;
+}
+
+main.active{
+  height: 100%;
+  filter: blur(2px);
+  transition: opacity 0.3s ease;
+  opacity: 1; 
+  z-index: 0;
+}
+.menu-hamburguesa span {
+    width: 100%;
+    height: 5px;
+    background-color: rgb(255, 255, 255);
+    border-radius: 2px;
+    transition: all 0.3s ease;
+    transform-origin: 0 0;  z-index: 1; 
+    position: relative;
+}
+
+.menu-hamburguesa span:nth-child(1) {
+    transform-origin: 5% 50%;  z-index: 1; 
+    position: relative;
+}
+
+.menu-hamburguesa span:nth-child(3) {
+    transform-origin: 5% 50%;  z-index: 1; 
+    position: relative;
+}
+
+.menu-hamburguesa.active span:nth-child(1) {
+    transform: rotate(45deg);
+    transform-origin: 0% 30%;  z-index: 1; 
+}
+
+.menu-hamburguesa.active span:nth-child(2) {
+    opacity: 0;  z-index: 1; 
+}
+
+.menu-hamburguesa.active span:nth-child(3) {
+    transform: rotate(-45deg);
+    transform-origin: 1% 60%;  z-index: 1; 
+}
+
 
 @media only screen and (max-width: 768px){
     .juegos-destacados {
