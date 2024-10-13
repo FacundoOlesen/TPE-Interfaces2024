@@ -257,8 +257,8 @@ h1{
 .recomendaciones {
     display: flex;
     aspect-ratio: 20/9; /* Mantener la relación de aspecto */
-    overflow: hidden; /* Ocultar el desbordamiento */
-    scroll-snap-type: x mandatory; /* Para el scroll snap */
+    overflow: hidden; 
+    scroll-snap-type: x mandatory;
     scroll-behavior: smooth; /* Comportamiento suave del scroll */
     box-shadow: 0 2rem 3rem -0.75rem hsla(0, 0%, 0%, 0.25);
     border-radius: 2rem;
@@ -321,7 +321,7 @@ h1{
 
 /* Estilos para los botones y enlaces */
 /* Estilos para el enlace del botón */
-.informacion a.boton-play, a.boton-carrito {
+.informacion a.boton-play {
     font-size: 1.5em; 
     width: 40%; 
     height: 15%; 
@@ -936,40 +936,55 @@ footer{
 
 
 @media only screen and (max-width: 768px){
-    .juegos-destacados{
-        width: 85%;
-    }
-    .carrusel{
+    .juegos-destacados {
         width: 100%;
-        height: 15rem;
-        margin-left: 5rem;
+        margin: 0 auto; /* Centramos horizontalmente */
     }
-    .juego-card{
-        height: 15rem;
-        width: 22%;
+    .carrusel {
+        width: 90%;
+        height: auto;
+        margin: 0 auto; 
     }
-    .juegos-destacados h1{
-        margin-left: 5rem;
+    .juego-card {
+        height: auto; /* Permitimos que la altura se ajuste al contenido */
+        width: 25%; /* Hacemos las tarjetas más grandes en pantallas más pequeñas */
+        margin: 0.5rem; /* Añadimos espacio entre las tarjetas */
     }
-    h1{
-        margin-left: 5rem;
-    }
-    .container-reco{
-        width: 100%;
+    .titulo-carrusel, h1{
+        margin-left: 3rem;
     }
     .recomendaciones{
-        width: 85%;
-        margin: 0 0 0 5rem;
+        width: 90%;
+        margin-left: 3rem;
     }
     .informacion{
-        padding: 0;
+        width: 100%;
+        max-height: 90%;
     }
-    .informacion .titulo-secundario{
-        font-size: 20px;
+    .informacion .imgreco{
+        max-width: 50%;
+        height: 40%;
     }
-    .informacion p{
-        font-size: 10px;
+    .informacion .titulo-secundario, p{
+        font-size: 1rem;
     }
-
+    .informacion a.boton-play{
+        width: 12rem;
+    }   
+    .informacion a.boton-play img{
+        width: 1.5rem;
+    }
+    .links{
+        width: 90%;
+    }
+    .links-1 p{
+        font-size: 0.7rem;
+    }
+    .slider-nav{
+        display: flex;
+        column-gap: 1rem;
+        position: absolute;
+        bottom: 50px;
+        left: 45%;
+    }
 }
-
