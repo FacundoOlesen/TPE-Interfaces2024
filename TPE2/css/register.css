@@ -78,7 +78,7 @@ nav  {
     display: flex;
     justify-content: center;
     align-items: center;
-    background-image: url(/TPE2/img/bgform.png);
+    background-image: url('bgform.png');
     background-repeat: repeat;
 }
 
