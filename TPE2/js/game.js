@@ -32,8 +32,8 @@ avatar.addEventListener("click", () => {
     body.classList.add("overflow")
     body.classList.add("blur")
     avatar.classList.add("no-show")
-    main.classList.add("active")
     profile.classList.add("slide")
+    main.classList.add("active")
 })
 
 x.addEventListener("click", () => {
@@ -41,9 +41,8 @@ x.addEventListener("click", () => {
     avatar.classList.remove("no-show")
     body.classList.remove("overflow")
     body.classList.remove("blur")
-    main.classList.remove("active")
     profile.classList.remove("slide")
-
+    main.classList.remove("active")
 })
 
 const carrito = document.querySelector(".carrito")
@@ -53,10 +52,10 @@ let cartAbierto= false
 btncart.addEventListener("click", () => {
     carrito.classList.add("show")
     carrito.classList.add("slide")
-    main.classList.add("active")
     btncart.classList.add("no-show")
     body.classList.add("overflow")
     body.classList.add("blur")
+    main.classList.add("active")
     cartAbierto= true
 })
 
@@ -66,6 +65,18 @@ main.addEventListener("click", () => {
         carrito.classList.remove("show")
         carrito.classList.remove("slide")
         main.classList.remove("active")
+        body.classList.remove("overflow")
+        btncart.classList.remove("no-show")
+        cartAbierto=false
+    }
+})
+
+
+mainhome.addEventListener("click", () => {
+    if(cartAbierto){
+        carrito.classList.remove("show")
+        carrito.classList.remove("slide")
+        mainhome.classList.remove("active")
         body.classList.remove("overflow")
         btncart.classList.remove("no-show")
         cartAbierto=false

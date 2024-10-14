@@ -90,3 +90,40 @@ const interval = setInterval(() => {
         progress += 5; 
     }
 }, 120); 
+
+const btncarth = document.querySelector(".cart-home")
+
+
+const carthome = document.querySelector(".cart-home")
+let cartAbiertoh= false
+btncarth.addEventListener("click", () => {
+    carrito.classList.add("show")
+    carrito.classList.add("slide")
+    btncarth.classList.add("no-show")
+    body.classList.add("overflow")
+    body.classList.add("blur")
+    mainhomeH.classList.add("active")
+    cartAbiertoh= true
+})
+
+const mainhomeH = document.querySelector(".main-home")
+mainhomeH.addEventListener("click", () => {
+    if(cartAbiertoh){
+        carrito.classList.remove("show")
+        carrito.classList.remove("slide")
+        mainhomeH.classList.remove("active")
+        body.classList.remove("overflow")
+        btncarth.classList.remove("no-show")
+        cartAbiertoh=false
+    }
+})
+
+const av = document.querySelector(".avatar")
+av.addEventListener("click", () => {
+    mainhomeH.classList.add("active")
+})
+
+const cl = document.querySelector(".x")
+cl.addEventListener("click", () => {
+    mainhomeH.classList.remove("active")
+})
