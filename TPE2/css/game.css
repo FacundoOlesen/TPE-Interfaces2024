@@ -5,13 +5,8 @@
     font-family: 'Nunito', sans-serif;
 }
 
-body {
-    background-color: #180D43;
-
-}
-
 header {
-    background-color: #240B34;
+    background-color: var(--primario-w2);
     padding: 10px 0;
     height: 70px;
     display: flex;
@@ -42,7 +37,7 @@ nav ul li {
 
 .search-nav {
     border-radius: 15px;
-    background-color: #511586;
+    background-color: var(--secundario);
     width: 317px;
     border-style: none;
     height: 41px;
@@ -106,11 +101,6 @@ a {
     height: 42px;
     margin-top: 5px;
 }
-
-header {
-    background-color: #240B34;
-}
-
 main {
     display: flex;
     justify-content: center;
@@ -122,8 +112,8 @@ main {
 
 
 .home-btn {
-    background-color: #5335CC;
-    border-color: #5335CC;
+    background-color: var(--secundario-w1);
+    border-color: var(--secundario-w1);
     border-radius: 30px;
     border-style: none;
     width: 129px;
@@ -181,7 +171,7 @@ main {
 .play-btn {
     height: 50px;
     width: 120px;
-    background-color: #FAFF00;
+    background-color: var(--acento);
 
     border-radius: 15px;
     border: none;
@@ -215,7 +205,7 @@ main {
 
 .controls,
 .game-info {
-    background-color: #652D8A;
+    background-color: var(--secundario-b1);
     width: 800px;
 }
 
@@ -265,7 +255,7 @@ main {
 }
 
 .comments {
-    background-color: #35225E;
+    background-color: var(--secundario-b2);
     width: 800px;
     margin-top: 30px;
     padding-left: 30px;
@@ -340,7 +330,7 @@ textarea.comment-ipt:focus {
 
 .comment-btn {
     color: white;
-    background-color: #35225E;
+    background-color: var(--secundario-b2);
     border: none;
     font-size: 16px;
     text-transform: uppercase;
@@ -356,8 +346,8 @@ textarea.comment-ipt:focus {
     margin-left: 585px;
     width: 150px;
     height: 50px;
-    background-color: #5335CC;
-    border-color: #5335CC;
+    background-color: var(--secundario-w1);
+    border-color: var(--secundario-w1);
     border-radius: 30px;
 }
 
@@ -409,7 +399,7 @@ textarea.comment-ipt:focus {
 }
 
 .comment {
-    background-color: #2B0D3F;
+    background-color: var(--secundario-b3);
     width: 740px;
     height: 139px;
     border-radius: 5px;
@@ -552,7 +542,7 @@ body.overflow {
 }
 
 footer {
-    background-color: #240B34;
+    background-color: var(--primario-w2);
     color: white;
     min-height: 450px;
     max-height: 600px;
@@ -654,7 +644,7 @@ footer {
     width: 100%;
     height: 100%;
     border-radius: 50%;
-    background: #ffee10;
+    background: var(--acento-b3);
     transition: .5s;
     transform: scale(.9);
     z-index: -1;
@@ -662,13 +652,13 @@ footer {
 
 .links-foot li a:hover::before {
     transform: scale(1.1);
-    box-shadow: 0 0 15px #ffee10;
+    box-shadow: 0 0 15px var(--acento-b3);
 }
 
 .links-foot li a:hover {
-    color: #ffee10;
-    box-shadow: 0 0 5px #ffee10;
-    text-shadow: 0 0 5px #ffee10;
+    color: var(--acento-b3);
+    box-shadow: 0 0 5px var(--acento-b3);
+    text-shadow: 0 0 5px var(--acento-b3);
     cursor: pointer;
 }
 
