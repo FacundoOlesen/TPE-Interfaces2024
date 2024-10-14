@@ -33,6 +33,7 @@ avatar.addEventListener("click", () => {
     body.classList.add("blur")
     avatar.classList.add("no-show")
     main.classList.add("active")
+    profile.classList.add("slide")
 })
 
 x.addEventListener("click", () => {
@@ -41,6 +42,34 @@ x.addEventListener("click", () => {
     body.classList.remove("overflow")
     body.classList.remove("blur")
     main.classList.remove("active")
+    profile.classList.remove("slide")
+
+})
+
+const carrito = document.querySelector(".carrito")
+const btncart = document.querySelector(".cart")
+
+let cartAbierto= false
+btncart.addEventListener("click", () => {
+    carrito.classList.add("show")
+    carrito.classList.add("slide")
+    main.classList.add("active")
+    btncart.classList.add("no-show")
+    body.classList.add("overflow")
+    body.classList.add("blur")
+    cartAbierto= true
+})
+
+
+main.addEventListener("click", () => {
+    if(cartAbierto){
+        carrito.classList.remove("show")
+        carrito.classList.remove("slide")
+        main.classList.remove("active")
+        body.classList.remove("overflow")
+        btncart.classList.remove("no-show")
+        cartAbierto=false
+    }
 })
 
 
