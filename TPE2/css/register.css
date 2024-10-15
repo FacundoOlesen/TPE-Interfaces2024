@@ -78,8 +78,9 @@ nav  {
     display: flex;
     justify-content: center;
     align-items: center;
-    background-image: url('image\ \(2\).png');
-    background-position: center;
+    background-image: url('bgform.png');
+    background-size: cover;
+    
 }
 
 .form-container{
