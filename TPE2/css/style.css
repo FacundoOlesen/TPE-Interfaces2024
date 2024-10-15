@@ -299,6 +299,8 @@ h1 {
     position: relative;
     flex: 1 0 100%;
     /* Cada artículo ocupa el 100% del ancho */
+    transition: transform 0.5s ease-in-out, opacity 0.5s ease-in-out;
+    /* Transición suave para el cambio de artículos */
 }
 
 /* Estilo de la imagen principal de cada artículo */
@@ -308,6 +310,11 @@ h1 {
     /* Mantiene la proporción de la imagen */
     scroll-snap-align: start;
     /* Alineación del scroll snap */
+    transition: transform 0.5s ease-in-out;
+    /* Transición para hacer un zoom en hover */
+}
+.recomendaciones article:hover img {
+    transform: scale(1.05);
 }
 
 /* Overlay oscuro sobre la imagen de fondo */
@@ -344,6 +351,72 @@ h1 {
     z-index: 2;
     /* Asegurarse de que esté por encima del overlay */
 }
+/* Botón con borde resplandeciente */
+.boton-play {
+    padding: 15px 30px;
+    font-size: 1.5em;
+    text-transform: uppercase;
+    background-color: yellow;
+    color: black;
+    border: 2px solid transparent;
+    border-radius: 20px;
+    position: relative;
+    cursor: pointer;
+    overflow: hidden;
+    z-index: 1;
+    transition: background-color 0.3s ease;
+}
+
+/* Botón con borde animado */
+.boton-play {
+    position: relative;
+    display: inline-block;
+    padding: 15px 30px;
+    font-size: 1.5em;
+    text-transform: uppercase;
+    background-color: yellow;
+    color: black;
+    border: 5px solid transparent;
+    background-clip: padding-box;
+    cursor: pointer;
+    overflow: hidden;
+    z-index: 1;
+}
+
+/* Borde animado con movimiento */
+.boton-play::before {
+    content: '';
+    position: absolute;
+    top: -2px;
+    left: -2px;
+    right: -2px;
+    bottom: -2px;
+    border: 3px solid orange;
+    z-index: -1;
+    background: linear-gradient(90deg, orange, yellow, orange, yellow);
+    background-size: 400%;
+    animation: animate-border 5s linear infinite;
+    border-radius: 10px;
+}
+
+@keyframes animate-border {
+    0% {
+        background-position: 0%;
+    }
+    100% {
+        background-position: 400%;
+    }
+}
+
+/* Efecto hover para cambiar el color del botón */
+.boton-play:hover {
+    background-color: orange;
+    color: white;
+}
+.boton-play img{
+    object-fit: contain;
+}
+
 
 /* Estilo de las imágenes en la información */
 .informacion img {
@@ -407,22 +480,26 @@ a.boton-carrito:hover {
     column-gap: 1rem;
     position: absolute;
     bottom: -30px;
-    left: 45%;
+    left: 50%;
+    transform: translateX(-50%);
     /* Centrando los puntos de navegación */
 }
 
 .slider-nav a {
-    width: .5rem;
-    height: .5rem;
+    width: .75rem;
+    height: .75rem;
     border-radius: 50%;
     background: var(--acento);
     opacity: .75;
-    transition: opacity ease 250ms;
+    transition: opacity 0.3s ease, transform 0.3s ease;
 }
 
+/* Hover en los puntos de navegación */
 .slider-nav a:hover {
     opacity: 1;
+    transform: scale(1.1);
 }
+
 
 
 /* Carruseles */
