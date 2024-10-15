@@ -54,18 +54,27 @@ carruseles.forEach(carrusel => {
             siguiente.style.display = 'block';
         }
     }
+    function activarDesenfoque() {
+        carruselContainer.classList.add('blur');
+        
+        carruselContainer.addEventListener('animationend', () => {
+            carruselContainer.classList.remove('blur');
+        }, { once: true });
+    }
 
     siguiente.addEventListener('click', () => {
         if (currentIndex < carruselContainer.children.length - visibleCards) {
             currentIndex++;
             actualizarPosicion();
+            activarDesenfoque(); 
         }
     });
-
+    
     anterior.addEventListener('click', () => {
         if (currentIndex > 0) {
             currentIndex--;
             actualizarPosicion();
+            activarDesenfoque(); 
         }
     });
 

@@ -486,6 +486,31 @@ a.boton-carrito:hover {
     opacity: 1;
 }
 
+/* Animación de desenfoque */
+@keyframes blurMove {
+    0% {
+        filter: blur(0px);
+    }
+    25% {
+        filter: blur(2px); /* Menos desenfoque al principio */
+    }
+    50% {
+        filter: blur(5px); /* Aumenta el desenfoque a la mitad */
+    }
+    75% {
+        filter: blur(2px); /* Disminuye el desenfoque antes de volver */
+    }
+    100% {
+        filter: blur(0px); /* Regresa a la claridad */
+    }
+}
+
+/* Aplicar el desenfoque al contenedor del carrusel */
+.carrusel-container.blur {
+    animation: blurMove 0.4s ease; /* Suavidad en la animación */
+}
+
+
 .juego-card img {
     width: 100%;
     height: 80%;
