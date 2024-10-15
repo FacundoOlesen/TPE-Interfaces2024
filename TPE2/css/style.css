@@ -6,7 +6,7 @@
 }
 
 header {
-    background-color: #240B34;
+    background-color: var(--primario-w2);
     padding: 10px 0;
     height: 70px;
     display: flex;
@@ -37,7 +37,7 @@ nav ul li {
 
 .search-nav {
     border-radius: 15px;
-    background-color: #511586;
+    background-color: var(--secundario);
     width: 317px;
     border-style: none;
     height: 41px;
@@ -103,7 +103,7 @@ a {
 }
 
 header {
-    background-color: #240B34;
+    background-color: var(--primario-w2);
 }
 
 
@@ -157,7 +157,7 @@ form button img {
     width: 50%;
     height: 60%;
     display: flex;
-    background-color: #35225E;
+    background-color: var(--primario-w1);
     color: white;
     overflow: hidden;
     transition: transform .5s ease;
@@ -356,7 +356,7 @@ h1 {
     padding: 15px 30px;
     font-size: 1.5em;
     text-transform: uppercase;
-    background-color: yellow;
+    background-color:var(--acento);
     color: black;
     border: 2px solid transparent;
     border-radius: 20px;
@@ -374,7 +374,7 @@ h1 {
     padding: 15px 30px;
     font-size: 1.5em;
     text-transform: uppercase;
-    background-color: yellow;
+    background-color: var(--acento);
     color: black;
     border: 5px solid transparent;
     background-clip: padding-box;
@@ -391,7 +391,7 @@ h1 {
     left: -2px;
     right: -2px;
     bottom: -2px;
-    border: 3px solid orange;
+    border: 3px solid var(--acento-b4);
     z-index: -1;
     background: linear-gradient(90deg, orange, yellow, orange, yellow);
     background-size: 400%;
@@ -410,7 +410,7 @@ h1 {
 
 /* Efecto hover para cambiar el color del botón */
 .boton-play:hover {
-    background-color: orange;
+    background-color: var(--acento-b4);
     color: white;
 }
 .boton-play img{
@@ -432,7 +432,7 @@ h1 {
     width: 40%;
     height: 15%;
     border-radius: 20px;
-    background-color: yellow;
+    background-color: var(--acento);
     color: black;
     padding: 10px;
     text-decoration: none;
@@ -453,14 +453,14 @@ a.boton-carrito img {
 /* Hover en el botón */
 .informacion a.boton-play:hover,
 a.boton-carrito:hover {
-    background-color: orange;
+    background-color: var(--acento-b4);
     cursor: pointer;
 }
 
 /* Hover en los botones */
 .informacion button:hover,
 .informacion a:hover {
-    background-color: orange;
+    background-color: var(--acento-b4);
 }
 
 /* Estilos de texto en la información */
@@ -600,7 +600,7 @@ a.boton-carrito:hover {
     top: 50%;
     left: 50%;
     transform: translate(-50%, -50%);
-    background-color: #ff9900;
+    background-color: var(--acento-b4);
     border: none;
     border-radius: 50%;
     width: 50px;
@@ -808,7 +808,7 @@ button img {
     width: 150px;
     stroke-dasharray: 1000;
     animation: draw 5s ease;
-    fill: #ff9900;
+    fill: var(--acento-b4);
     /* Color del texto */
     font-size: 10px;
     /* Tamaño de la fuente */
@@ -906,7 +906,7 @@ button img {
 
 /*footer*/
 footer {
-    background-color: #240B34;
+    background-color: var(--primario-w2);
     color: white;
     min-height: 450px;
     max-height: 600px;
@@ -962,7 +962,7 @@ footer {
     width: 100%;
     height: 100%;
     border-radius: 50%;
-    background: #ffee10;
+    background: var(--acento-b3);
     transition: .5s;
     transform: scale(.9);
     z-index: -1;
@@ -970,13 +970,13 @@ footer {
 
 .links-foot li a:hover::before {
     transform: scale(1.1);
-    box-shadow: 0 0 15px #ffee10;
+    box-shadow: 0 0 15pxvar(--acento-b3);
 }
 
 .links-foot li a:hover {
-    color: #ffee10;
-    box-shadow: 0 0 5px #ffee10;
-    text-shadow: 0 0 5px #ffee10;
+    color: var(--acento-b3);
+    box-shadow: 0 0 5px var(--acento-b3);
+    text-shadow: 0 0 5px var(--acento-b3);
     cursor: pointer;
 }
 
@@ -1077,7 +1077,7 @@ footer {
     width: 100%;
     height: 100%;
     border-radius: 50%;
-    background: #ffee10;
+    background: var(--acento-b3);
     transition: .5s;
     transform: scale(.9);
     z-index: -1;
@@ -1085,13 +1085,13 @@ footer {
 
 .links-foot li a:hover::before {
     transform: scale(1.1);
-    box-shadow: 0 0 15px #ffee10;
+    box-shadow: 0 0 15px var(--acento-b3);
 }
 
 .links-foot li a:hover {
-    color: #ffee10;
-    box-shadow: 0 0 5px #ffee10;
-    text-shadow: 0 0 5px #ffee10;
+    color: var(--acento-b3);
+    box-shadow: 0 0 5px var(--acento-b3);
+    text-shadow: 0 0 5px var(--acento-b3);
     cursor: pointer;
 }
 
