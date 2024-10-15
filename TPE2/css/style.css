@@ -6,7 +6,7 @@
 }
 
 header {
-    background-color: var(--primario-w2);
+    background-color: #240B34;
     padding: 10px 0;
     height: 70px;
     display: flex;
@@ -37,7 +37,7 @@ nav ul li {
 
 .search-nav {
     border-radius: 15px;
-    background-color: var(--secundario);
+    background-color: #511586;
     width: 317px;
     border-style: none;
     height: 41px;
@@ -103,7 +103,7 @@ a {
 }
 
 header {
-    background-color: var(--primario-w2);
+    background-color: #240B34;
 }
 
 
@@ -157,7 +157,7 @@ form button img {
     width: 50%;
     height: 60%;
     display: flex;
-    background-color: var(--primario-w1);
+    background-color: #35225E;
     color: white;
     overflow: hidden;
     transition: transform .5s ease;
@@ -356,7 +356,7 @@ h1 {
     padding: 15px 30px;
     font-size: 1.5em;
     text-transform: uppercase;
-    background-color:var(--acento);
+    background-color: yellow;
     color: black;
     border: 2px solid transparent;
     border-radius: 20px;
@@ -374,7 +374,7 @@ h1 {
     padding: 15px 30px;
     font-size: 1.5em;
     text-transform: uppercase;
-    background-color: var(--acento);
+    background-color: yellow;
     color: black;
     border: 5px solid transparent;
     background-clip: padding-box;
@@ -391,7 +391,7 @@ h1 {
     left: -2px;
     right: -2px;
     bottom: -2px;
-    border: 3px solid var(--acento-b4);
+    border: 3px solid orange;
     z-index: -1;
     background: linear-gradient(90deg, orange, yellow, orange, yellow);
     background-size: 400%;
@@ -410,11 +410,13 @@ h1 {
 
 /* Efecto hover para cambiar el color del botón */
 .boton-play:hover {
-    background-color: var(--acento-b4);
+    background-color: orange;
     color: white;
 }
 .boton-play img{
     object-fit: contain;
+    width: 62px !important;
+    height: 62PX !important;
 }
 
 
@@ -432,7 +434,7 @@ h1 {
     width: 40%;
     height: 15%;
     border-radius: 20px;
-    background-color: var(--acento);
+    background-color: yellow;
     color: black;
     padding: 10px;
     text-decoration: none;
@@ -453,14 +455,14 @@ a.boton-carrito img {
 /* Hover en el botón */
 .informacion a.boton-play:hover,
 a.boton-carrito:hover {
-    background-color: var(--acento-b4);
+    background-color: orange;
     cursor: pointer;
 }
 
 /* Hover en los botones */
 .informacion button:hover,
 .informacion a:hover {
-    background-color: var(--acento-b4);
+    background-color: orange;
 }
 
 /* Estilos de texto en la información */
@@ -600,7 +602,7 @@ a.boton-carrito:hover {
     top: 50%;
     left: 50%;
     transform: translate(-50%, -50%);
-    background-color: var(--acento-b4);
+    background-color: #ff9900;
     border: none;
     border-radius: 50%;
     width: 50px;
@@ -808,7 +810,7 @@ button img {
     width: 150px;
     stroke-dasharray: 1000;
     animation: draw 5s ease;
-    fill: var(--acento-b4);
+    fill: #ff9900;
     /* Color del texto */
     font-size: 10px;
     /* Tamaño de la fuente */
@@ -906,7 +908,7 @@ button img {
 
 /*footer*/
 footer {
-    background-color: var(--primario-w2);
+    background-color: #240B34;
     color: white;
     min-height: 450px;
     max-height: 600px;
@@ -962,7 +964,7 @@ footer {
     width: 100%;
     height: 100%;
     border-radius: 50%;
-    background: var(--acento-b3);
+    background: #ffee10;
     transition: .5s;
     transform: scale(.9);
     z-index: -1;
@@ -970,13 +972,13 @@ footer {
 
 .links-foot li a:hover::before {
     transform: scale(1.1);
-    box-shadow: 0 0 15pxvar(--acento-b3);
+    box-shadow: 0 0 15px #ffee10;
 }
 
 .links-foot li a:hover {
-    color: var(--acento-b3);
-    box-shadow: 0 0 5px var(--acento-b3);
-    text-shadow: 0 0 5px var(--acento-b3);
+    color: #ffee10;
+    box-shadow: 0 0 5px #ffee10;
+    text-shadow: 0 0 5px #ffee10;
     cursor: pointer;
 }
 
@@ -1077,7 +1079,7 @@ footer {
     width: 100%;
     height: 100%;
     border-radius: 50%;
-    background: var(--acento-b3);
+    background: #ffee10;
     transition: .5s;
     transform: scale(.9);
     z-index: -1;
@@ -1085,13 +1087,13 @@ footer {
 
 .links-foot li a:hover::before {
     transform: scale(1.1);
-    box-shadow: 0 0 15px var(--acento-b3);
+    box-shadow: 0 0 15px #ffee10;
 }
 
 .links-foot li a:hover {
-    color: var(--acento-b3);
-    box-shadow: 0 0 5px var(--acento-b3);
-    text-shadow: 0 0 5px var(--acento-b3);
+    color: #ffee10;
+    box-shadow: 0 0 5px #ffee10;
+    text-shadow: 0 0 5px #ffee10;
     cursor: pointer;
 }
 
@@ -1530,7 +1532,13 @@ main.active {
 }
 
 
+
 @media only screen and (max-width: 768px) {
+    .boton-play img{
+        object-fit: contain;
+        width: 42px !important;
+        height: 22px  !important;
+    }
     .juegos-destacados {
         width: 100%;
         margin: 0 auto;
@@ -1581,9 +1589,7 @@ main.active {
         width: 12rem;
     }
 
-    .informacion a.boton-play img {
-        width: 1.5rem;
-    }
+  
 
     .links {
         width: 90%;
