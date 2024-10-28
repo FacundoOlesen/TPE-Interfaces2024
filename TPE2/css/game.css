@@ -893,3 +893,12 @@ p {
     cursor: pointer;
 }
 
+/*CANVAS*/
+.hidden {
+    display: none;
+}
+
+.show {
+    display: block;
+}
+
