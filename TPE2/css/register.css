@@ -78,8 +78,9 @@ nav  {
     display: flex;
     justify-content: center;
     align-items: center;
-    background-image: url('bgform.png');
-    background-repeat: repeat;
+    
+    background: linear-gradient(180deg, rgba(2,0,36,1) 4%, rgba(93,9,152,1) 36%, rgba(108,15,213,1) 50%, rgba(36,11,52,1) 95%);
+
 }
 
 .form-container{
@@ -192,7 +193,7 @@ form span{
 }
 
 .lines div{
-    border: solid rgb(51, 54, 57) 0.1px;
+    border: solid #9199a1 0.1px;
     border-bottom: 0px;
     border-left: 0px;
     border-right: 0px;
