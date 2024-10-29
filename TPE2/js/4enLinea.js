@@ -29,6 +29,10 @@ for (let i = 0; i < filas; i++) {
         tablero[i][j] = null; 
     }
 }
+
+const fichaRojaImg = 'img/ferrari.png';
+const fichaAzulImg = 'img/williams.png';
+
 function dibujarTablero() {
     ctx.clearRect(0, 0, gameCanvas.width, gameCanvas.height);
     
@@ -51,4 +55,50 @@ function dibujarTablero() {
 
 function iniciarTablero() {
     dibujarTablero();
+    const columnaExtra = columnas; 
+
+    dibujarFichas(columnaExtra, 0, 'red', fichaRojaImg, 'darkred');
+    dibujarFichas(columnaExtra, 1, 'red', fichaRojaImg, 'darkred');
+    dibujarFichas(columnaExtra, 2, 'red', fichaRojaImg, 'darkred');
+
+    dibujarFichas(columnaExtra + 1, 0, 'blue', fichaAzulImg, 'darkblue');
+    dibujarFichas(columnaExtra + 1, 1, 'blue', fichaAzulImg, 'darkblue');
+    dibujarFichas(columnaExtra + 1, 2, 'blue', fichaAzulImg, 'darkblue');
 }
+
+function dibujarFichas(col, fila, color, imgSrc, borderColor) {
+    const imgSize = 60;
+    const x = offsetX + col * espColumnas + espColumnas / 2; 
+    const y = offsetY + fila * espFilas + espFilas / 2; 
+
+    // Circulo
+    ctx.beginPath();
+    ctx.arc(x, y, fichaRadio, 0, 2 * Math.PI);
+    ctx.fillStyle = color;
+    ctx.fill();
+    ctx.closePath();
+
+    // Borde
+    ctx.beginPath();
+    ctx.arc(x, y, fichaRadio, 0, 2 * Math.PI);
+    ctx.strokeStyle = borderColor;
+    ctx.lineWidth = 5;
+    ctx.stroke();
+    ctx.closePath();
+
+    const fichaImg = new Image();
+    fichaImg.src = imgSrc;
+
+    fichaImg.onload = () => {
+        const size = imgSize * 0.7; 
+        ctx.save();
+        ctx.beginPath();
+        ctx.arc(x, y, fichaRadio, 0, 2 * Math.PI);
+        ctx.clip();
+        
+        ctx.drawImage(fichaImg, x - size / 2, y - size / 2, size, size);
+        ctx.restore();
+    };
+    
+}
+
