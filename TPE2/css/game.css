@@ -894,11 +894,8 @@ p {
 }
 
 /*CANVAS*/
-.hidden {
-    display: none;
+canvas {
+    border: 1px solid #000; /* Opcional: Para visualizar el borde del canvas */
 }
 
-.show {
-    display: block;
-}
 
