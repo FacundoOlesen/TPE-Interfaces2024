@@ -8,10 +8,6 @@ document.addEventListener('DOMContentLoaded', () => {
 
     let tablero;
     let arrFichas = [];
-    let arrastre = false;
-    let ultimaFiguraClickeada = null;
-    let fondoJuego = new Image();
-    fondoJuego.src = "./img/tablero.png";
     let cellSize = 60;
 
     playButton.addEventListener('click', () => {
@@ -20,28 +16,41 @@ document.addEventListener('DOMContentLoaded', () => {
 
         const canvas = document.createElement('canvas');
         canvas.id = 'gameCanvas';
-        canvas.width = 800;
-        canvas.height = 500;
+        canvas.width = 800; 
+        canvas.height = 500; 
         contenedorJuego.appendChild(canvas);
 
         const ctx = canvas.getContext('2d');
         tablero = new Tablero(ctx, 7, 6);
 
-        cargarFichas(ctx);
+        let fondoJuego = new Image();
+        fondoJuego.src = "./img/tablero.png";
+        fondoJuego.onload = function() {
+            const anchoTablero = 10 * cellSize;
+
+            // Dibuja el fondo
+            ctx.drawImage(fondoJuego, 0, 0, anchoTablero, canvas.height); 
+
+            // Dibuja el tablero
+            tablero.dibujarTablero(); 
+
+            // Carga y dibuja fichas
+            cargarFichas(ctx); 
+        };
     });
 
     function cargarFichas(ctx) {
         let fichasImg = [new Image(), new Image()];
         fichasImg[0].src = "./img/ferrari.png"; // Logo de Ferrari
         fichasImg[1].src = "./img/williams.png"; // Logo de Williams
-    
+
         let loadedCount = 0;
         fichasImg.forEach((img, index) => {
             img.onload = function () {
                 loadedCount++;
                 if (loadedCount === fichasImg.length) {
                     fichas(ctx, arrFichas, fichasImg[0], 'red', 0); 
-                    fichas(ctx, arrFichas, fichasImg[1], 'blue', 1); // Fichas azules (Williams)
+                    fichas(ctx, arrFichas, fichasImg[1], 'blue', 1); 
                 }
             };
         });
@@ -49,11 +58,11 @@ document.addEventListener('DOMContentLoaded', () => {
 
     function fichas(ctx, arrFichas, img, color, n) {
         let margin = 10;
-        let startX = 600; 
-        let startY = 20;
+        let startX = 630; 
+        let startY = 250;
         let rows = 3; 
         let cols = 1; 
-    
+
         for (let row = 0; row < rows; row++) {
             let posX = startX + n * (cellSize + margin) + cellSize / 2;
             let posY = startY + row * (cellSize + margin) + cellSize / 2;
