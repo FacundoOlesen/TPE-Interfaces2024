@@ -28,11 +28,6 @@ document.addEventListener('DOMContentLoaded', () => {
         tablero = new Tablero(ctx, 7, 6);
 
         cargarFichas(ctx);
-
-        // Eventos de interacción
-        canvas.addEventListener("mousedown", iniciarArrastre, false);
-        canvas.addEventListener("mouseup", detenerArrastre, false);
-        canvas.addEventListener("mousemove", arrastreActivo, false);
     });
 
     function cargarFichas(ctx) {
@@ -45,8 +40,7 @@ document.addEventListener('DOMContentLoaded', () => {
             img.onload = function () {
                 loadedCount++;
                 if (loadedCount === fichasImg.length) {
-                    // Aquí agregamos las fichas al array y las dibujamos
-                    fichas(ctx, arrFichas, fichasImg[0], 'red', 0); // Fichas rojas (Ferrari)
+                    fichas(ctx, arrFichas, fichasImg[0], 'red', 0); 
                     fichas(ctx, arrFichas, fichasImg[1], 'blue', 1); // Fichas azules (Williams)
                 }
             };
