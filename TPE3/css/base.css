@@ -1,0 +1,96 @@
+@import url("https://fonts.googleapis.com/css2?family=Michroma&display=swap");
+
+@font-face {
+    font-family: "Nunito";
+    src: url("static/tipografia/nunito_regular.woff");
+}
+
+@font-face {
+    font-family: "Nunito bold";
+    src: url("static/tipografia/nunito_bold.woff");
+}
+
+@font-face {
+    font-family: "Nunito thin";
+    src: url("static/tipografia/nunito_thin.woff");
+}
+
+@font-face {
+    font-family: "Nunito extra thin";
+    src: url("static/tipografia/nunito_extra_thin.woff2");
+}
+
+:root {
+    --primario-w2:  #240B34;
+    --primario-w1: #35225E;
+    --primario: #D9D9D9;
+    --primario-b2: #170f3d;
+
+    --secundario-w1: #5335CC;
+    --secundario: #511586;
+    --secundario-b1:#652D8A;
+    --secundario-b2:#35225E;
+    --secundario-b3:#2B0D3F;
+
+    --acento-w3: hsl(40, 100%, 95%);
+    --acento: rgb(255, 255, 0);
+    --acento-b1:  rgb(255, 166, 0);
+    --acento-b2: #333;
+    --acento-b3: #ffee10;
+    --acento-b4: #ff9900;
+
+    --nunito: 'Nunito', sans-serif;
+    --nunito-thin: 'Nunito thin', sans-serif;
+    --nunito-bold: 'Nunito bold', sans-serif;
+    --nunito-extra-thin: 'Nunito extra thin', sans-serif;
+
+}
+
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+body {
+    background-color: var(--primario-b2);
+}
+.juego-card h2 {
+    font-family: 'Michroma', sans-serif;
+    white-space: nowrap; 
+    text-overflow: ellipsis;
+    position: relative; 
+    transition: transform 0.3s ease; 
+}
+
+.juego-card:hover h2.scrolling {
+    animation: scroll 10s linear infinite; 
+}
+
+@keyframes scroll {
+    0% {
+        transform: translateX(0); 
+    }
+    100% {
+        transform: translateX(-100%); 
+    }
+}
+
+
+.juegos-destacados h1{
+    font-family: var(--nunito-bold);
+}
+.juego-card p {
+    font-family: var(--nunito-bold);
+}
+
+.juego-card .hover-button {
+    font-family: var(--nunito-thin);
+}
+
+.titulo-card{
+    font-family: var(--nunito-extra-thin);
+}
+
+
+
