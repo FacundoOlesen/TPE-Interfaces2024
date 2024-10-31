@@ -1,5 +1,4 @@
 import { Tablero } from './tablero.js';
-import { Circulo } from './circulo.js';
 
 document.addEventListener('DOMContentLoaded', () => {
     const playButton = document.getElementById('playButton');
@@ -7,11 +6,9 @@ document.addEventListener('DOMContentLoaded', () => {
     const contenedorJuego = document.querySelector('.contenedorJuego');
 
     let tablero;
-    let arrFichas = [];
-
+    let arrFichas=[]
     let fondoJuego = new Image();
     fondoJuego.src = "./img/tablero.png";
-    let cellSize = 60;
     let isMouseDown = false;
     let lastClickedFigure = null;
 
@@ -27,7 +24,7 @@ document.addEventListener('DOMContentLoaded', () => {
 
 
         const ctx = canvas.getContext('2d');
-        tablero = new Tablero(ctx, 7, 6);
+        tablero = new Tablero(ctx, 7, 6, arrFichas);
         const createdCanvas = document.querySelector("#gameCanvas")
 
 
@@ -41,7 +38,6 @@ document.addEventListener('DOMContentLoaded', () => {
             e.preventDefault(); 
 
             isMouseDown = true
-
             if (lastClickedFigure != null)
                 lastClickedFigure = null
 
@@ -49,9 +45,6 @@ document.addEventListener('DOMContentLoaded', () => {
             let clickFig = findClickedFigure(e.clientX, e.clientY)
             if (clickFig != null) 
                 lastClickedFigure = clickFig
-           
-
-                
         }
 
         function onMouseMove(e) {
@@ -72,7 +65,6 @@ document.addEventListener('DOMContentLoaded', () => {
                 tablero.dibujarTablero();
         
                 drawFigures()
-        
             }
         }
 
@@ -97,44 +89,7 @@ document.addEventListener('DOMContentLoaded', () => {
         createdCanvas.addEventListener('mouseup', onMouseUp, false)
 
 
-        cargarFichas(ctx);
+        tablero.cargarFichas(ctx);
     });
-
-    function cargarFichas(ctx) {
-        let fichasImg = [new Image(), new Image()];
-        fichasImg[0].src = "./img/ferrari.png"; 
-        fichasImg[1].src = "./img/williams.png"; 
-
-        let loadedCount = 0;
-        fichasImg.forEach((img, index) => {
-            img.onload = function () {
-                loadedCount++;
-                if (loadedCount === fichasImg.length) {
-                    fichas(ctx, arrFichas, fichasImg[0], 'red', 0); 
-                    fichas(ctx, arrFichas, fichasImg[1], 'lightblue', 1); 
-                }
-            };
-        });
-    }
-
-    function fichas(ctx, arrFichas, img, color, n) {
-        let margin = 10;
-        let startX = 630; 
-        let startY = 250;
-        let rows = 3; 
-        let cols = 1; 
-
-        for (let row = 0; row < rows; row++) {
-            let posX = startX + n * (cellSize + margin) + cellSize / 2;
-            let posY = startY + row * (cellSize + margin) + cellSize / 2;
-            let circle = new Circulo(ctx, posX, posY, cellSize / 2, color); 
-            circle.setImage(img.src); 
-            arrFichas.push(circle);
-            circle.draw(); 
-        }
-    }
-
-
-
 
 });

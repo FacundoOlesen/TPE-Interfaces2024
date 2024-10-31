@@ -1,5 +1,3 @@
-// Circulo.js
-
 export class Circulo {
     constructor(ctx, x, y, radius, color) {
         this.ctx = ctx;
