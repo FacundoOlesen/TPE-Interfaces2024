@@ -1,4 +1,3 @@
-// Circulo.js
 export class Circulo {
     constructor(ctx, x, y, radius, color) {
         this.ctx = ctx;
@@ -19,21 +18,34 @@ export class Circulo {
     draw() {
         const ctx = this.ctx;
 
+        let borderColor;
+        if (this.color === 'red') {
+            borderColor = 'darkred';
+        } else if (this.color === 'lightblue') {
+            borderColor = 'darkblue';
+        }
+        else {
+            borderColor = this.color;
+        }
+
         ctx.beginPath();
         ctx.arc(this.x, this.y, this.radius, 0, Math.PI * 2);
+        ctx.strokeStyle = borderColor;
+        ctx.lineWidth = 10;
+        ctx.stroke();
+
         ctx.fillStyle = this.color;
         ctx.fill();
-        ctx.closePath();
 
         if (this.image && this.image.complete) {
-            ctx.save(); 
+            ctx.save();
             ctx.beginPath();
             ctx.arc(this.x, this.y, this.radius, 0, Math.PI * 2);
-            ctx.closePath();
-            ctx.clip(); 
+            ctx.clip();
 
-            ctx.drawImage(this.image, this.x - this.radius, this.y - this.radius, this.radius * 2, this.radius * 2);
-            ctx.restore(); 
+            const imageSize = this.radius * 0.8 +20;
+            ctx.drawImage(this.image, this.x - imageSize / 2, this.y - imageSize / 2, imageSize, imageSize);
+            ctx.restore();
         }
     }
 

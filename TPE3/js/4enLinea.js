@@ -28,21 +28,18 @@ document.addEventListener('DOMContentLoaded', () => {
         fondoJuego.onload = function() {
             const anchoTablero = 10 * cellSize;
 
-            // Dibuja el fondo
             ctx.drawImage(fondoJuego, 0, 0, anchoTablero, canvas.height); 
 
-            // Dibuja el tablero
             tablero.dibujarTablero(); 
 
-            // Carga y dibuja fichas
             cargarFichas(ctx); 
         };
     });
 
     function cargarFichas(ctx) {
         let fichasImg = [new Image(), new Image()];
-        fichasImg[0].src = "./img/ferrari.png"; // Logo de Ferrari
-        fichasImg[1].src = "./img/williams.png"; // Logo de Williams
+        fichasImg[0].src = "./img/ferrari.png"; 
+        fichasImg[1].src = "./img/williams.png"; 
 
         let loadedCount = 0;
         fichasImg.forEach((img, index) => {
@@ -50,7 +47,7 @@ document.addEventListener('DOMContentLoaded', () => {
                 loadedCount++;
                 if (loadedCount === fichasImg.length) {
                     fichas(ctx, arrFichas, fichasImg[0], 'red', 0); 
-                    fichas(ctx, arrFichas, fichasImg[1], 'blue', 1); 
+                    fichas(ctx, arrFichas, fichasImg[1], 'lightblue', 1); 
                 }
             };
         });

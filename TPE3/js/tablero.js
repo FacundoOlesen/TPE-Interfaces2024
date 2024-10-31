@@ -5,11 +5,11 @@ export class Tablero {
         this.ctx = ctx;
         this.columnas = columnas;
         this.filas = filas;
-        this.fichaRadio = 40; 
+        this.fichaRadio = 30; 
         this.espColumnas = 83.5; 
         this.espFilas = 80.5; 
-        this.offsetX = 50; // Ajusta si es necesario
-        this.offsetY = 50; // Ajusta si es necesario
+        this.offsetX = 50; 
+        this.offsetY = 50; 
         this.tablero = Array.from({ length: filas }, () => Array(columnas).fill(null));
     }
 
