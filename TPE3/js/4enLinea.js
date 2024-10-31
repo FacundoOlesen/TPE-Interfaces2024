@@ -1,5 +1,4 @@
 import { Tablero } from './tablero.js';
-import { Circulo } from './circulo.js';
 
 document.addEventListener('DOMContentLoaded', () => {
     //elementos de la presentación
@@ -9,8 +8,11 @@ document.addEventListener('DOMContentLoaded', () => {
     const contenedorJuego = document.querySelector('.contenedorJuego');
 
     let tablero;
-    let arrFichas = [];
-    let cellSize = 60;
+    let arrFichas=[]
+    let fondoJuego = new Image();
+    fondoJuego.src = "./img/tablero.png";
+    let isMouseDown = false;
+    let lastClickedFigure = null;
 
     playButton.addEventListener('click', () => {
         //ocultar elementos de la presentación
@@ -20,52 +22,77 @@ document.addEventListener('DOMContentLoaded', () => {
         //creación del canvas
         const canvas = document.createElement('canvas');
         canvas.id = 'gameCanvas';
-        canvas.width = 800; 
-        canvas.height = 500; 
+        canvas.width = 800;
+        canvas.height = 500;
         contenedorJuego.appendChild(canvas);
 
+
         const ctx = canvas.getContext('2d');
-        tablero = new Tablero(ctx, 7, 6);
+        tablero = new Tablero(ctx, 7, 6, arrFichas);
+        const createdCanvas = document.querySelector("#gameCanvas")
 
-        let fondoJuego = new Image();
-        fondoJuego.src = "./img/tablero.png";
-        fondoJuego.onload = function() {
-            const anchoTablero = 10 * cellSize;
 
-            ctx.drawImage(fondoJuego, 0, 0, anchoTablero, canvas.height); 
-
-            tablero.dibujarTablero(); 
-
-            cargarFichas(ctx); 
-        };
-    });
-
-    function cargarFichas(ctx) {
-        let fichasImg = ["./img/ferrari.png", "./img/williams.png"].map(src => {
-            let img = new Image();
-            img.src = src;
-            return new Promise(resolve => (img.onload = () => resolve(img)));
-        });
-    
-        Promise.all(fichasImg).then(([ferrariImg, williamsImg]) => {
-            fichas(ctx, arrFichas, ferrariImg, 'red', 0);
-            fichas(ctx, arrFichas, williamsImg, 'lightblue', 1);
-        });
-    }
-
-    function fichas(ctx, arrFichas, img, color, n) {
-        let margin = 10;
-        let startX = 630; 
-        let startY = 250;
-        let rows = 3;
-
-        for (let row = 0; row < rows; row++) {
-            let posX = startX + n * (cellSize + margin) + cellSize / 2;
-            let posY = startY + row * (cellSize + margin) + cellSize / 2;
-            let circle = new Circulo(ctx, posX, posY, cellSize / 2, color); 
-            circle.setImage(img.src); 
-            arrFichas.push(circle);
-            circle.draw(); 
+        function drawFigures(){
+            for (let i = 0; i < arrFichas.length; i++) {
+                arrFichas[i].draw();
+            }
         }
-    }
+
+        function onMouseDown(e) {
+            e.preventDefault(); 
+
+            isMouseDown = true
+            if (lastClickedFigure != null)
+                lastClickedFigure = null
+
+
+            let clickFig = findClickedFigure(e.clientX, e.clientY)
+            if (clickFig != null) 
+                lastClickedFigure = clickFig
+        }
+
+        function onMouseMove(e) {
+            e.preventDefault(); 
+
+            if (isMouseDown && lastClickedFigure != null) {
+                // Obtén el desplazamiento del canvas respecto a la ventana
+                let rect = tablero.ctx.canvas.getBoundingClientRect();
+        
+                // Ajusta las coordenadas del clic en función de la posición del canvas
+                let canvasX = e.clientX - rect.left;
+                let canvasY = e.clientY - rect.top;
+        
+                // Actualiza la posición del círculo en función de las coordenadas ajustadas
+                lastClickedFigure.setPos(canvasX, canvasY);
+        
+                // Redibuja el tablero y todos los círculos
+                tablero.dibujarTablero();
+        
+                drawFigures()
+            }
+        }
+
+
+        function onMouseUp(e) {
+            e.preventDefault(); 
+
+            isMouseDown = false
+        }
+
+        function findClickedFigure(x, y) {
+            for (let i = 0; i < arrFichas.length; i++) {
+                const element = arrFichas[i]
+                if (element.isPointInside(x, y))
+                    return element
+            }
+        }
+
+
+        createdCanvas.addEventListener('mousedown', onMouseDown, false)
+        createdCanvas.addEventListener('mousemove', onMouseMove, false)
+        createdCanvas.addEventListener('mouseup', onMouseUp, false)
+
+
+        tablero.cargarFichas(ctx);
+    });
 });

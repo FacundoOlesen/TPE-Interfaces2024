@@ -15,7 +15,14 @@ export class Circulo {
         this.image.src = src;
     }
 
+    clearCanvas() {
+        this.ctx.fillStyle = 'green';
+        this.ctx.fillRect(0, 1220, this.ctx.canvas.width, this.ctx.canvas.height);
+    }
+    
+
     draw() {
+        this.clearCanvas()
         const ctx = this.ctx;
 
         let borderColor;
@@ -49,12 +56,37 @@ export class Circulo {
         }
     }
 
-    setPosition(x, y) {
+    getPos() {
+        return {
+            x: this.getPosX(),
+            y: this.getPosY()
+        }
+    }
+
+    getPosX() {
+        return this.x
+    }
+
+    getPosY() {
+        return this.y
+    }
+
+    setPos(x, y) {
         this.x = x;
         this.y = y;
     }
 
-    isPointInside(px, py) {
-        return Math.sqrt((px - this.x) ** 2 + (py - this.y) ** 2) < this.radius;
+    isPointInside(x, y) {
+        let rect = this.ctx.canvas.getBoundingClientRect();
+    
+        let canvasX = x - rect.left;
+        let canvasY = y - rect.top;
+    
+        let _x = this.x - canvasX;
+        let _y = this.y - canvasY;
+        
+        return Math.sqrt(_x * _x + _y * _y) < this.radius;
     }
+    
+    
 }
