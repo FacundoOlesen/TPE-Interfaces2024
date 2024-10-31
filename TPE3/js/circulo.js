@@ -79,16 +79,13 @@ export class Circulo {
     }
 
     isPointInside(x, y) {
-        // Obtén la posición del canvas en la pantalla
-        const rect = this.ctx.canvas.getBoundingClientRect();
+        let rect = this.ctx.canvas.getBoundingClientRect();
     
-        // Ajusta las coordenadas x e y del cursor al sistema de coordenadas del canvas
-        const canvasX = x - rect.left;
-        const canvasY = y - rect.top;
+        let canvasX = x - rect.left;
+        let canvasY = y - rect.top;
     
-        // Calcula la distancia al centro del círculo
-        const _x = this.x - canvasX;
-        const _y = this.y - canvasY;
+        let _x = this.x - canvasX;
+        let _y = this.y - canvasY;
         
         return Math.sqrt(_x * _x + _y * _y) < this.radius;
     }

@@ -32,6 +32,8 @@ document.addEventListener('DOMContentLoaded', () => {
 
 
         function onMouseDown(e) {
+            e.preventDefault(); 
+
             isMouseDown = true
 
             if (lastClickedFigure != null)
@@ -54,13 +56,15 @@ document.addEventListener('DOMContentLoaded', () => {
         }
 
         function onMouseMove(e) {
+            e.preventDefault(); 
+
             if (isMouseDown && lastClickedFigure != null) {
                 // Obtén el desplazamiento del canvas respecto a la ventana
-                const rect = tablero.ctx.canvas.getBoundingClientRect();
+                let rect = tablero.ctx.canvas.getBoundingClientRect();
         
                 // Ajusta las coordenadas del clic en función de la posición del canvas
-                const canvasX = e.clientX - rect.left;
-                const canvasY = e.clientY - rect.top;
+                let canvasX = e.clientX - rect.left;
+                let canvasY = e.clientY - rect.top;
         
                 // Actualiza la posición del círculo en función de las coordenadas ajustadas
                 lastClickedFigure.setPos(canvasX, canvasY);
@@ -81,6 +85,8 @@ document.addEventListener('DOMContentLoaded', () => {
         
 
         function onMouseUp(e) {
+            e.preventDefault(); 
+
             isMouseDown = false
         }
 
