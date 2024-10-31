@@ -2,8 +2,10 @@ import { Tablero } from './tablero.js';
 import { Circulo } from './circulo.js';
 
 document.addEventListener('DOMContentLoaded', () => {
+    //elementos de la presentación
     const playButton = document.getElementById('playButton');
     const gameImage = document.getElementById('gameImage');
+    //contenedor del juego
     const contenedorJuego = document.querySelector('.contenedorJuego');
 
     let tablero;
@@ -11,9 +13,11 @@ document.addEventListener('DOMContentLoaded', () => {
     let cellSize = 60;
 
     playButton.addEventListener('click', () => {
+        //ocultar elementos de la presentación
         playButton.style.display = 'none';
         gameImage.style.display = 'none';
 
+        //creación del canvas
         const canvas = document.createElement('canvas');
         canvas.id = 'gameCanvas';
         canvas.width = 800; 
@@ -37,19 +41,15 @@ document.addEventListener('DOMContentLoaded', () => {
     });
 
     function cargarFichas(ctx) {
-        let fichasImg = [new Image(), new Image()];
-        fichasImg[0].src = "./img/ferrari.png"; 
-        fichasImg[1].src = "./img/williams.png"; 
-
-        let loadedCount = 0;
-        fichasImg.forEach((img, index) => {
-            img.onload = function () {
-                loadedCount++;
-                if (loadedCount === fichasImg.length) {
-                    fichas(ctx, arrFichas, fichasImg[0], 'red', 0); 
-                    fichas(ctx, arrFichas, fichasImg[1], 'lightblue', 1); 
-                }
-            };
+        let fichasImg = ["./img/ferrari.png", "./img/williams.png"].map(src => {
+            let img = new Image();
+            img.src = src;
+            return new Promise(resolve => (img.onload = () => resolve(img)));
+        });
+    
+        Promise.all(fichasImg).then(([ferrariImg, williamsImg]) => {
+            fichas(ctx, arrFichas, ferrariImg, 'red', 0);
+            fichas(ctx, arrFichas, williamsImg, 'lightblue', 1);
         });
     }
 
@@ -57,8 +57,7 @@ document.addEventListener('DOMContentLoaded', () => {
         let margin = 10;
         let startX = 630; 
         let startY = 250;
-        let rows = 3; 
-        let cols = 1; 
+        let rows = 3;
 
         for (let row = 0; row < rows; row++) {
             let posX = startX + n * (cellSize + margin) + cellSize / 2;
