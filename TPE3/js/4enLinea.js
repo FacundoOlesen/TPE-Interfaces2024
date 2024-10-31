@@ -31,6 +31,12 @@ document.addEventListener('DOMContentLoaded', () => {
         const createdCanvas = document.querySelector("#gameCanvas")
 
 
+        function drawFigures(){
+            for (let i = 0; i < arrFichas.length; i++) {
+                arrFichas[i].draw();
+            }
+        }
+
         function onMouseDown(e) {
             e.preventDefault(); 
 
@@ -41,16 +47,9 @@ document.addEventListener('DOMContentLoaded', () => {
 
 
             let clickFig = findClickedFigure(e.clientX, e.clientY)
-            if (clickFig != null) {
+            if (clickFig != null) 
                 lastClickedFigure = clickFig
-            }
-            console.log(lastClickedFigure)
-
-            console.log(e.clientX)
-            console.log(e.clientY)
-
-            if (lastClickedFigure != null)
-                lastClickedFigure.draw()
+           
 
                 
         }
@@ -72,17 +71,11 @@ document.addEventListener('DOMContentLoaded', () => {
                 // Redibuja el tablero y todos los círculos
                 tablero.dibujarTablero();
         
-                for (let i = 0; i < arrFichas.length; i++) {
-                    if (arrFichas[i] !== lastClickedFigure) {
-                        arrFichas[i].draw();
-                    }
-                }
+                drawFigures()
         
-                // Redibuja el círculo movido
-                lastClickedFigure.draw();
             }
         }
-        
+
 
         function onMouseUp(e) {
             e.preventDefault(); 
