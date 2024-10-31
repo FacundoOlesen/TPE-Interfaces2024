@@ -50,20 +50,21 @@ document.addEventListener('DOMContentLoaded', () => {
 
                 ctx.drawImage(fondoJuego, 0, 0, ctx.canvas.width, ctx.canvas.height);
                 ctx.textAlign = 'center'
+                ctx.textBaseline = 'center'
 
-                let btn4Enlinea = new Boton(ctx, 300, 40, "4 en línea", 200, 60, 200 / 4, 60 / 1.5)
+                let btn4Enlinea = new Boton(ctx, 300, 40, "4 en línea", 200, 60)
                 btn4Enlinea.dibujar()
                 btns.push(btn4Enlinea)
 
-                let btn5Enlinea = new Boton(ctx, 300, 140, "5 en línea", 200, 60, 200 / 4, 60 / 1.5)
+                let btn5Enlinea = new Boton(ctx, 300, 140, "5 en línea", 200, 60)
                 btn5Enlinea.dibujar()
                 btns.push(btn5Enlinea)
 
-                let btn6Enlinea = new Boton(ctx, 300, 240, "6 en línea", 200, 60, 200 / 4, 60 / 1.5)
+                let btn6Enlinea = new Boton(ctx, 300, 240, "6 en línea", 200, 60)
                 btn6Enlinea.dibujar()
                 btns.push(btn6Enlinea)
 
-                let btn7Enlinea = new Boton(ctx, 300, 340, "7 en línea", 200, 60, 200 / 4, 60 / 1.5)
+                let btn7Enlinea = new Boton(ctx, 300, 340, "7 en línea", 200, 60)
                 btn7Enlinea.dibujar()
                 btns.push(btn7Enlinea)
             };
