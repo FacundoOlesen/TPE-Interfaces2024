@@ -10,9 +10,22 @@ document.addEventListener('DOMContentLoaded', () => {
     let isMouseDown = false;
     let lastClickedFigure = null;
 
+
+    let modo = 4    
+    let columnas = 7
+    let filas = 6
+    let fichaRadio = 28
+    let espFilas = 80.5
+    let espColumnas = 79.5
+    let offsetX = 158;
+    let offsetY = 55;
+
     playButton.addEventListener('click', () => {
         playButton.style.display = 'none';
         gameImage.style.display = 'none';
+
+
+        
 
         const canvas = document.createElement('canvas');
         canvas.id = 'gameCanvas';
@@ -21,7 +34,44 @@ document.addEventListener('DOMContentLoaded', () => {
         contenedorJuego.appendChild(canvas);
 
         const ctx = canvas.getContext('2d');
-        tablero = new Tablero(ctx, 7, 6, arrFichas);
+
+        switch (modo) {
+            case 5:
+                columnas = 8;
+                filas = 7;
+                fichaRadio = 24;
+                espColumnas = 68.5;
+                espFilas = 74.5;
+                offsetX = 138;
+                offsetY = 46;
+                break;
+
+            case 6:
+                columnas = 9;
+                filas = 8;
+                fichaRadio = 22;
+                espColumnas = 61.5;
+                espFilas = 63.5;
+                offsetX = 146;
+                offsetY = 37;
+                break;
+
+            case 7:
+                columnas = 10;
+                filas = 7;
+                fichaRadio = 20.5;
+                espColumnas = 65.5;
+                espFilas = 62.5;
+                offsetX = 120;
+                offsetY = 53;
+                break;
+
+            default:
+                console.log("Modo no válido");
+                break;
+        }
+
+        tablero = new Tablero(ctx, columnas, filas, arrFichas, fichaRadio, espFilas, espColumnas, offsetX, offsetY);
 
         function drawFigures() {
             for (let i = 0; i < arrFichas.length; i++) {

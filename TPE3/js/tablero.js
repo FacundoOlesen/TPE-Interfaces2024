@@ -3,16 +3,16 @@ import { Circulo } from './circulo.js';
 let cellSize = 60;
 
 export class Tablero {
-    constructor(ctx, columnas, filas, arrFichas) {
+    constructor(ctx, columnas, filas, arrFichas , fichaRadio, espColumnas, espFilas, offsetX, offsetY) {
         this.ctx = ctx;
         this.columnas = columnas;
         this.filas = filas;
         this.arrFichas = arrFichas;
-        this.fichaRadio = 25;
-        this.espColumnas = 73.5;
-        this.espFilas = 70.5;
-        this.offsetX = 180;
-        this.offsetY = 80;
+        this.fichaRadio = fichaRadio;
+        this.espColumnas =espColumnas;
+        this.espFilas = espFilas;
+        this.offsetX = offsetX;
+        this.offsetY = offsetY;
 
         this.fondoJuego = new Image();
         this.fondoJuego.src = "./img/fondotablero.jpg";
@@ -62,7 +62,7 @@ export class Tablero {
         for (let row = 0; row < rows; row++) {
             let posX = startX + cellSize / 2;
             let posY = startY + row * (cellSize + margin) + cellSize / 2;
-            let circle = new Circulo(ctx, posX, posY, cellSize / 2, color);
+            let circle = new Circulo(ctx, posX, posY, this.fichaRadio, color);
             circle.setImage(img.src);
             this.arrFichas.push(circle);
             circle.draw();
