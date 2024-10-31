@@ -1,3 +1,5 @@
+// Circulo.js
+
 export class Circulo {
     constructor(ctx, x, y, radius, color) {
         this.ctx = ctx;
@@ -15,7 +17,14 @@ export class Circulo {
         this.image.src = src;
     }
 
+    clearCanvas() {
+        this.ctx.fillStyle = 'green';
+        this.ctx.fillRect(0, 1220, this.ctx.canvas.width, this.ctx.canvas.height);
+    }
+    
+
     draw() {
+        this.clearCanvas()
         const ctx = this.ctx;
 
         let borderColor;
@@ -49,12 +58,40 @@ export class Circulo {
         }
     }
 
-    setPosition(x, y) {
+    getPos() {
+        return {
+            x: this.getPosX(),
+            y: this.getPosY()
+        }
+    }
+
+    getPosX() {
+        return this.x
+    }
+
+    getPosY() {
+        return this.y
+    }
+
+    setPos(x, y) {
         this.x = x;
         this.y = y;
     }
 
-    isPointInside(px, py) {
-        return Math.sqrt((px - this.x) ** 2 + (py - this.y) ** 2) < this.radius;
+    isPointInside(x, y) {
+        // Obtén la posición del canvas en la pantalla
+        const rect = this.ctx.canvas.getBoundingClientRect();
+    
+        // Ajusta las coordenadas x e y del cursor al sistema de coordenadas del canvas
+        const canvasX = x - rect.left;
+        const canvasY = y - rect.top;
+    
+        // Calcula la distancia al centro del círculo
+        const _x = this.x - canvasX;
+        const _y = this.y - canvasY;
+        
+        return Math.sqrt(_x * _x + _y * _y) < this.radius;
     }
+    
+    
 }
