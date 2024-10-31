@@ -3,11 +3,11 @@ import { Circulo } from './circulo.js';
 let cellSize = 60;
 
 export class Tablero {
-    constructor(ctx, columnas, filas, arrFichas , fichaRadio, espColumnas, espFilas, offsetX, offsetY) {
+    constructor(ctx, columnas, filas , fichaRadio, espColumnas, espFilas, offsetX, offsetY) {
         this.ctx = ctx;
         this.columnas = columnas;
         this.filas = filas;
-        this.arrFichas = arrFichas;
+        this.arrFichas = [];
         this.fichaRadio = fichaRadio;
         this.espColumnas =espColumnas;
         this.espFilas = espFilas;
