@@ -13,11 +13,11 @@ document.addEventListener('DOMContentLoaded', () => {
 
     let columnas = 7
     let filas = 6
-    let fichaRadio = 28
+    let fichaRadio = 20
     let espFilas = 80.5
-    let espColumnas = 79.5
-    let offsetX = 158;
-    let offsetY = 55;
+    let espColumnas = 60
+    let offsetX = 165;
+    let offsetY = 95;
 
     let inGame = false
 
@@ -139,31 +139,31 @@ document.addEventListener('DOMContentLoaded', () => {
                 case '5':
                     columnas = 8;
                     filas = 7;
-                    fichaRadio = 24;
-                    espColumnas = 68.5;
-                    espFilas = 74.5;
-                    offsetX = 138;
-                    offsetY = 46;
+                    fichaRadio = 20;
+                    espColumnas = 55;
+                    espFilas = 65;
+                    offsetX = 180;
+                    offsetY = 75;
                     break;
 
                 case '6':
                     columnas = 9;
                     filas = 8;
-                    fichaRadio = 22;
-                    espColumnas = 61.5;
-                    espFilas = 63.5;
-                    offsetX = 146;
-                    offsetY = 37;
+                    fichaRadio = 18;
+                    espColumnas = 50;
+                    espFilas = 62;
+                    offsetX = 160;
+                    offsetY = 75;
                     break;
 
                 case '7':
                     columnas = 10;
                     filas = 7;
-                    fichaRadio = 20.5;
-                    espColumnas = 65.5;
-                    espFilas = 62.5;
-                    offsetX = 120;
-                    offsetY = 53;
+                    fichaRadio = 17;
+                    espColumnas = 50;
+                    espFilas = 55;
+                    offsetX = 160;
+                    offsetY = 100;
                     break;
 
                 default:
