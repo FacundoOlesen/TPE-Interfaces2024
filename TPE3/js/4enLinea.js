@@ -79,32 +79,33 @@ document.addEventListener('DOMContentLoaded', () => {
         }
 
         function onMouseDown(e) {
+            let rect = ctx.canvas.getBoundingClientRect();
+            let canvasX = e.clientX - rect.left;
+            let canvasY = e.clientY - rect.top;
+
+
+            //Si todavia no empecé un juego: 
             if (!inGame) {
-                    let rect = ctx.canvas.getBoundingClientRect();
-                    let canvasX = e.clientX - rect.left;
-                    let canvasY = e.clientY - rect.top;
-                    let clickedMode = findClickedFigure(canvasX, canvasY, btns)
-                    if (clickedMode) {
-                        let modo = clickedMode.getTextoBoton()[0]
-                        elegirModo(modo)
-                        tablero = new Tablero(ctx, columnas, filas, fichaRadio, espFilas, espColumnas, offsetX, offsetY);
-                        tablero.cargarFichas(ctx);
-                        inGame = true
-                    }
-               
+                let clickedMode = findClickedFigure(canvasX, canvasY, btns)
+                if (clickedMode)
+                    elegirModo(clickedMode.getTextoBoton()[0])
             }
 
 
+            //Si ya estoy en juego y quiero arrastrar una ficha:
             else {
                 e.preventDefault();
                 isMouseDown = true;
                 if (lastClickedFigure) lastClickedFigure = null;
 
                 let clickFig = findClickedFigure(e.clientX, e.clientY, tablero.arrFichas);
-                if (clickFig) 
+                if (clickFig)
                     lastClickedFigure = clickFig;
             }
         }
+
+
+
 
         function onMouseMove(e) {
             e.preventDefault();
@@ -128,11 +129,11 @@ document.addEventListener('DOMContentLoaded', () => {
             for (let i = 0; i < arr.length; i++) {
                 const element = arr[i];
                 if (element.isPointInside(x, y))
-                     return element;
+                    return element;
             }
         }
 
-        function elegirModo(modo){
+        function elegirModo(modo) {
             switch (modo) {
                 case '5':
                     columnas = 8;
@@ -167,7 +168,12 @@ document.addEventListener('DOMContentLoaded', () => {
                 default:
                     console.log("Modo no válido");
                     break;
+
             }
+
+            tablero = new Tablero(ctx, columnas, filas, fichaRadio, espFilas, espColumnas, offsetX, offsetY);
+            tablero.cargarFichas(ctx);
+            inGame = true
         }
 
         canvas.addEventListener('mousedown', onMouseDown, false);
