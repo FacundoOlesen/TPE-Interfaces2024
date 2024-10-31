@@ -893,9 +893,20 @@ p {
     cursor: pointer;
 }
 
-/*CANVAS*/
 canvas {
-    border: 1px solid #000; /* Opcional: Para visualizar el borde del canvas */
+    border: 1px solid #000;
 }
+
+.contenedorJuego {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+
+#gameCanvas {
+    border-radius: 8px;
+    box-shadow: 0px 4px 8px rgba(0, 0, 0, 0.3);
+}
+
 
 

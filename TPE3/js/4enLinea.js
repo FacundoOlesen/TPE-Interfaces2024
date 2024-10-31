@@ -1,38 +1,29 @@
 import { Tablero } from './tablero.js';
 
 document.addEventListener('DOMContentLoaded', () => {
-    //elementos de la presentación
     const playButton = document.getElementById('playButton');
     const gameImage = document.getElementById('gameImage');
-    //contenedor del juego
     const contenedorJuego = document.querySelector('.contenedorJuego');
 
     let tablero;
-    let arrFichas=[]
-    let fondoJuego = new Image();
-    fondoJuego.src = "./img/tablero.png";
+    let arrFichas = [];
     let isMouseDown = false;
     let lastClickedFigure = null;
 
     playButton.addEventListener('click', () => {
-        //ocultar elementos de la presentación
         playButton.style.display = 'none';
         gameImage.style.display = 'none';
 
-        //creación del canvas
         const canvas = document.createElement('canvas');
         canvas.id = 'gameCanvas';
         canvas.width = 800;
         canvas.height = 500;
         contenedorJuego.appendChild(canvas);
 
-
         const ctx = canvas.getContext('2d');
         tablero = new Tablero(ctx, 7, 6, arrFichas);
-        const createdCanvas = document.querySelector("#gameCanvas")
 
-
-        function drawFigures(){
+        function drawFigures() {
             for (let i = 0; i < arrFichas.length; i++) {
                 arrFichas[i].draw();
             }
@@ -40,58 +31,41 @@ document.addEventListener('DOMContentLoaded', () => {
 
         function onMouseDown(e) {
             e.preventDefault(); 
+            isMouseDown = true;
+            if (lastClickedFigure) lastClickedFigure = null;
 
-            isMouseDown = true
-            if (lastClickedFigure != null)
-                lastClickedFigure = null
-
-
-            let clickFig = findClickedFigure(e.clientX, e.clientY)
-            if (clickFig != null) 
-                lastClickedFigure = clickFig
+            let clickFig = findClickedFigure(e.clientX, e.clientY);
+            if (clickFig) lastClickedFigure = clickFig;
         }
 
         function onMouseMove(e) {
-            e.preventDefault(); 
-
-            if (isMouseDown && lastClickedFigure != null) {
-                // Obtén el desplazamiento del canvas respecto a la ventana
+            e.preventDefault();
+            if (isMouseDown && lastClickedFigure) {
                 let rect = tablero.ctx.canvas.getBoundingClientRect();
-        
-                // Ajusta las coordenadas del clic en función de la posición del canvas
                 let canvasX = e.clientX - rect.left;
                 let canvasY = e.clientY - rect.top;
-        
-                // Actualiza la posición del círculo en función de las coordenadas ajustadas
+
                 lastClickedFigure.setPos(canvasX, canvasY);
-        
-                // Redibuja el tablero y todos los círculos
                 tablero.dibujarTablero();
-        
-                drawFigures()
+                drawFigures();
             }
         }
 
-
         function onMouseUp(e) {
             e.preventDefault(); 
-
-            isMouseDown = false
+            isMouseDown = false;
         }
 
         function findClickedFigure(x, y) {
             for (let i = 0; i < arrFichas.length; i++) {
-                const element = arrFichas[i]
-                if (element.isPointInside(x, y))
-                    return element
+                const element = arrFichas[i];
+                if (element.isPointInside(x, y)) return element;
             }
         }
 
-
-        createdCanvas.addEventListener('mousedown', onMouseDown, false)
-        createdCanvas.addEventListener('mousemove', onMouseMove, false)
-        createdCanvas.addEventListener('mouseup', onMouseUp, false)
-
+        canvas.addEventListener('mousedown', onMouseDown, false);
+        canvas.addEventListener('mousemove', onMouseMove, false);
+        canvas.addEventListener('mouseup', onMouseUp, false);
 
         tablero.cargarFichas(ctx);
     });
