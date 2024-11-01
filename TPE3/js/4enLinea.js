@@ -86,7 +86,6 @@ document.addEventListener('DOMContentLoaded', () => {
                     elegirModo(clickedMode.getTextoBoton()[0])
             }
 
-
             //Si ya estoy en juego y quiero arrastrar una ficha:
             else {
                 e.preventDefault();
@@ -95,7 +94,7 @@ document.addEventListener('DOMContentLoaded', () => {
                     lastClickedFigure = null;
 
                 clickFig = findClickedFigure(e.clientX, e.clientY, tablero.arrFichas);
-                if (clickFig && !clickFig.ubicada) {
+                if (clickFig && !clickFig.ubicada && tablero.esTuTurno(clickFig) ) {
                     lastClickedFigure = clickFig;
                 }
             }
@@ -105,9 +104,10 @@ document.addEventListener('DOMContentLoaded', () => {
 
 
 
-        function onMouseMove(e) {
+
+        function onMouseMove(e) {          
             e.preventDefault();
-            if (isMouseDown && lastClickedFigure) {
+            if (isMouseDown && lastClickedFigure ) {
                 let rect = tablero.ctx.canvas.getBoundingClientRect();
                 let canvasX = e.clientX - rect.left;
                 let canvasY = e.clientY - rect.top;

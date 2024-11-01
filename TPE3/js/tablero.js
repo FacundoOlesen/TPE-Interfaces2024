@@ -15,48 +15,51 @@ export class Tablero {
         this.espFilas = espFilas;
         this.offsetX = offsetX;
         this.offsetY = offsetY;
-    
+
         this.fondoJuego = new Image();
         this.fondoJuego.src = "./img/fondocasillero.jpg";
-    
+
         // img para cada casillero
         this.fondoCasillero = new Image();
         this.fondoCasillero.src = "./img/fondotablero.jpg";
-    
+
         this.fondoJuego.onload = this.fondoCasillero.onload = () => {
             if (this.fondoJuego.complete && this.fondoCasillero.complete) {
                 this.dibujarTablero();
             }
         };
-    
+
         this.addCasilleros();
+        this.turno = 0
+        this.turnos = {};
+
     }
 
 
     dibujarTablero() {
         this.ctx.clearRect(0, 0, this.ctx.canvas.width, this.ctx.canvas.height);
-    
+
         this.ctx.drawImage(this.fondoJuego, 0, 0, this.ctx.canvas.width, this.ctx.canvas.height);
-    
-        
-    
+
+
+
         const tableroAncho = this.columnas * this.espColumnas;
         const tableroAlto = this.filas * this.espFilas;
-        const tableroX = this.offsetX-40;
-        const tableroY = this.offsetY-30;
-    
+        const tableroX = this.offsetX - 40;
+        const tableroY = this.offsetY - 30;
+
         this.ctx.drawImage(this.fondoCasillero, tableroX, tableroY, tableroAncho, tableroAlto);
-        this.ctx.fillStyle = 'rgba(0, 0, 0, 0.5)'; 
+        this.ctx.fillStyle = 'rgba(0, 0, 0, 0.5)';
         this.ctx.fillRect(0, 0, this.ctx.canvas.width, this.ctx.canvas.height);
-    
+
         for (let i = 0; i < this.casilleros.length; i++) {
             this.casilleros[i].draw();
         }
-    
+
         this.dibujarCuadroGrupo(20 + cellSize / 2, 230, '1');
         this.dibujarCuadroGrupo(720 + cellSize / 2, 230, '2');
     }
-    
+
 
     addCasilleros() {
         for (let fila = 0; fila < this.filas; fila++) {
@@ -79,19 +82,23 @@ export class Tablero {
         Promise.all(fichasImg).then(([ferrariImg, williamsImg]) => {
             this.crearFichaGrupo(ferrariImg, 'red', 20);
             this.crearFichaGrupo(williamsImg, 'lightblue', 720);
+            this.cargarTurnos()
         });
+
     }
 
 
 
     ponerFicha(ficha, x) {
+        this.turnos[ficha.getColor()]
         for (let i = this.casilleros.length - 1; i >= 0; i--) {
             let c = this.casilleros[i]
-            if (x > c.x - c.radius   && x < c.x + c.radius && !c.ocupado) {
+            if (x > c.x - c.radius && x < c.x + c.radius && !c.ocupado) {
                 ficha.setPos(c.x, c.y)
+                ficha.ubicada = true
                 c.setOcupado(true)
                 this.dibujarTablero();
-                ficha.ubicada = true
+                this.turno == 0 ? this.turno = 1 : this.turno = 0
                 break;
             }
         }
@@ -107,6 +114,8 @@ export class Tablero {
         for (let i = 1; i <= 5; i++) {
             this.crearFichaEnPila(posX, posY + 30 + i * 10, img, color, false);
         }
+
+
     }
 
     dibujarCuadroGrupo(posX, posY, playerNumber) {
@@ -148,5 +157,15 @@ export class Tablero {
         ficha.opacity = isDraggable ? 1 : 0.3;
         this.arrFichas.push(ficha);
         ficha.draw();
+    }
+
+
+    cargarTurnos() {
+        this.turnos[this.arrFichas[0].getColor()] = 0;
+        this.turnos[this.arrFichas[this.arrFichas.length-1].getColor()] = 1;
+    }
+
+    esTuTurno(ficha){
+       return this.turno == this.turnos[ficha.getColor()]
     }
 }

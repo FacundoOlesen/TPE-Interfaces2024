@@ -81,6 +81,10 @@ export class Circulo {
         this.ubicada=bool
     }
 
+    getColor(){
+        return this.color
+    }
+
     isPointInside(x, y) {
         let rect = this.ctx.canvas.getBoundingClientRect();
     
