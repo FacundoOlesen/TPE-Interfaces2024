@@ -8,6 +8,7 @@ export class Circulo {
         this.image = null;
         this.xInicial = x;
         this.yInicial = y;
+        this.ubicada=false
     }
 
     setImage(src) {
@@ -74,6 +75,10 @@ export class Circulo {
     setPos(x, y) {
         this.x = x;
         this.y = y;
+    }
+
+    setUbicada(bool){
+        this.ubicada=bool
     }
 
     isPointInside(x, y) {

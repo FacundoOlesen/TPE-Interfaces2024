@@ -49,9 +49,6 @@ document.addEventListener('DOMContentLoaded', () => {
                 ctx.clearRect(0, 0, ctx.canvas.width, ctx.canvas.height);
 
                 ctx.drawImage(fondoJuego, 0, 0, ctx.canvas.width, ctx.canvas.height);
-                ctx.fillStyle = "rgba(0, 0, 0, 0.8)"; // Color blanco con opacidad
-                ctx.fillRect(0, 0, ctx.canvas.width, ctx.canvas.height);
-
                 ctx.textAlign = 'center'
                 ctx.textBaseline = 'center'
 
@@ -82,6 +79,7 @@ document.addEventListener('DOMContentLoaded', () => {
             }
         }
 
+        let clickFig
         function onMouseDown(e) {
             let rect = ctx.canvas.getBoundingClientRect();
             let canvasX = e.clientX - rect.left;
@@ -100,12 +98,15 @@ document.addEventListener('DOMContentLoaded', () => {
             else {
                 e.preventDefault();
                 isMouseDown = true;
-                if (lastClickedFigure) lastClickedFigure = null;
+                if (lastClickedFigure)
+                    lastClickedFigure = null;
 
-                let clickFig = findClickedFigure(e.clientX, e.clientY, tablero.arrFichas);
-                if (clickFig)
+                clickFig = findClickedFigure(e.clientX, e.clientY, tablero.arrFichas);
+                if (clickFig && !clickFig.ubicada) {
                     lastClickedFigure = clickFig;
+                }
             }
+            return clickFig
         }
 
 
@@ -125,7 +126,15 @@ document.addEventListener('DOMContentLoaded', () => {
         }
 
         function onMouseUp(e) {
+            let rect = ctx.canvas.getBoundingClientRect();
+            let canvasX = e.clientX - rect.left;
+
             e.preventDefault();
+            if (lastClickedFigure != undefined) {
+
+                tablero.ponerFicha(lastClickedFigure, canvasX)
+                drawFigures()
+            }
             isMouseDown = false;
         }
 
@@ -174,8 +183,7 @@ document.addEventListener('DOMContentLoaded', () => {
                     break;
 
             }
-
-            tablero = new Tablero(ctx, columnas, filas, fichaRadio, espFilas, espColumnas, offsetX, offsetY);
+            tablero = new Tablero(ctx, filas, columnas, fichaRadio, espColumnas, espFilas, offsetX, offsetY);
             tablero.cargarFichas(ctx);
             inGame = true
         }
