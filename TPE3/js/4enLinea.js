@@ -16,7 +16,7 @@ document.addEventListener('DOMContentLoaded', () => {
     let fichaRadio = 20
     let espFilas = 80.5
     let espColumnas = 60
-    let offsetX = 165;
+    let offsetX = 158;
     let offsetY = 95;
 
     let inGame = false
