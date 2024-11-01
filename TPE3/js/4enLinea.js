@@ -11,16 +11,7 @@ document.addEventListener('DOMContentLoaded', () => {
     let lastClickedFigure = null;
 
 
-    let columnas = 7
-    let filas = 6
-    let fichaRadio = 20
-    let espFilas = 80.5
-    let espColumnas = 60
-    let offsetX = 158;
-    let offsetY = 95;
-
     let inGame = false
-
     let btns = []
 
     playButton.addEventListener('click', () => {
@@ -81,8 +72,8 @@ document.addEventListener('DOMContentLoaded', () => {
             }
         }
 
-        let clickFig
         function onMouseDown(e) {
+            let clickFig
             let rect = ctx.canvas.getBoundingClientRect();
             let canvasX = e.clientX - rect.left;
             let canvasY = e.clientY - rect.top;
@@ -150,34 +141,19 @@ document.addEventListener('DOMContentLoaded', () => {
 
         function elegirModo(modo) {
             switch (modo) {
+                case '4':
+                    tablero = new Tablero(ctx, 6, 7, 20, 60, 80.5, 158, 95);
+                    break;
                 case '5':
-                    columnas = 8;
-                    filas = 7;
-                    fichaRadio = 20;
-                    espColumnas = 55;
-                    espFilas = 65;
-                    offsetX = 180;
-                    offsetY = 75;
+                    tablero = new Tablero(ctx, 7, 8, 20, 55, 65, 180, 75);
                     break;
 
                 case '6':
-                    columnas = 9;
-                    filas = 8;
-                    fichaRadio = 18;
-                    espColumnas = 50;
-                    espFilas = 62;
-                    offsetX = 160;
-                    offsetY = 75;
+                    tablero = new Tablero(ctx, 8, 9, 18, 50, 62, 160, 75);
                     break;
 
                 case '7':
-                    columnas = 10;
-                    filas = 7;
-                    fichaRadio = 17;
-                    espColumnas = 50;
-                    espFilas = 55;
-                    offsetX = 160;
-                    offsetY = 100;
+                    tablero = new Tablero(ctx, 7, 10, 17, 50, 55, 160, 100);
                     break;
 
                 default:
@@ -185,7 +161,6 @@ document.addEventListener('DOMContentLoaded', () => {
                     break;
 
             }
-            tablero = new Tablero(ctx, filas, columnas, fichaRadio, espColumnas, espFilas, offsetX, offsetY);
             tablero.cargarFichas(ctx);
             inGame = true
         }
