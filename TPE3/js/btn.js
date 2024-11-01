@@ -6,16 +6,30 @@ export class Boton {
         this.posY = y;
         this.ancho = ancho;
         this.alto = alto;
-    
+        this.radius = 12; 
+        this.color = '#5535f7'; 
+        this.colorTexto = 'white'; 
     }
 
     dibujar() {
-        this.ctx.fillStyle = "white";
-        this.ctx.fillRect(this.posX, this.posY, this.ancho, this.alto);
-        this.ctx.fillStyle = "black";
+        this.ctx.fillStyle = this.color;
+        this.ctx.beginPath();
+        this.ctx.moveTo(this.posX + this.radius, this.posY);
+        this.ctx.lineTo(this.posX + this.ancho - this.radius, this.posY);
+        this.ctx.quadraticCurveTo(this.posX + this.ancho, this.posY, this.posX + this.ancho, this.posY + this.radius);
+        this.ctx.lineTo(this.posX + this.ancho, this.posY + this.alto - this.radius);
+        this.ctx.quadraticCurveTo(this.posX + this.ancho, this.posY + this.alto, this.posX + this.ancho - this.radius, this.posY + this.alto);
+        this.ctx.lineTo(this.posX + this.radius, this.posY + this.alto);
+        this.ctx.quadraticCurveTo(this.posX, this.posY + this.alto, this.posX, this.posY + this.alto - this.radius);
+        this.ctx.lineTo(this.posX, this.posY + this.radius);
+        this.ctx.quadraticCurveTo(this.posX, this.posY, this.posX + this.radius, this.posY);
+        this.ctx.closePath();
+        this.ctx.fill();
+
+        this.ctx.fillStyle = this.colorTexto;
+        this.ctx.font = "bold 20px 'Nunito', sans-serif"; 
         this.ctx.textAlign = "center";
         this.ctx.textBaseline = "middle";
-        this.ctx.font = "25px Sans-Serif";
         this.ctx.fillText(
             this.textoBoton,
             this.posX + this.ancho / 2,
@@ -24,7 +38,7 @@ export class Boton {
     }
 
     getTextoBoton() {
-        return this.textoBoton
+        return this.textoBoton;
     }
 
     isPointInside(x, y) {

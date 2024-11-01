@@ -49,6 +49,9 @@ document.addEventListener('DOMContentLoaded', () => {
                 ctx.clearRect(0, 0, ctx.canvas.width, ctx.canvas.height);
 
                 ctx.drawImage(fondoJuego, 0, 0, ctx.canvas.width, ctx.canvas.height);
+                ctx.fillStyle = "rgba(0, 0, 0, 0.8)"; // Color blanco con opacidad
+                ctx.fillRect(0, 0, ctx.canvas.width, ctx.canvas.height);
+
                 ctx.textAlign = 'center'
                 ctx.textBaseline = 'center'
 
