@@ -15,33 +15,48 @@ export class Tablero {
         this.espFilas = espFilas;
         this.offsetX = offsetX;
         this.offsetY = offsetY;
-
+    
         this.fondoJuego = new Image();
-        this.fondoJuego.src = "./img/fondotablero.jpg";
-        this.fondoJuego.onload = () => {
-            this.dibujarTablero();
+        this.fondoJuego.src = "./img/fondocasillero.jpg";
+    
+        // img para cada casillero
+        this.fondoCasillero = new Image();
+        this.fondoCasillero.src = "./img/fondotablero.jpg";
+    
+        this.fondoJuego.onload = this.fondoCasillero.onload = () => {
+            if (this.fondoJuego.complete && this.fondoCasillero.complete) {
+                this.dibujarTablero();
+            }
         };
-
-        this.addCasilleros()
+    
+        this.addCasilleros();
     }
 
 
     dibujarTablero() {
         this.ctx.clearRect(0, 0, this.ctx.canvas.width, this.ctx.canvas.height);
-
-        // Dibujar imagen de fondo
+    
         this.ctx.drawImage(this.fondoJuego, 0, 0, this.ctx.canvas.width, this.ctx.canvas.height);
-
-        this.ctx.fillStyle = 'rgba(0, 0, 0, 0.8)'; // le damos opacidad a la imagen de fondo
+    
+        
+    
+        const tableroAncho = this.columnas * this.espColumnas;
+        const tableroAlto = this.filas * this.espFilas;
+        const tableroX = this.offsetX-40;
+        const tableroY = this.offsetY-30;
+    
+        this.ctx.drawImage(this.fondoCasillero, tableroX, tableroY, tableroAncho, tableroAlto);
+        this.ctx.fillStyle = 'rgba(0, 0, 0, 0.5)'; 
         this.ctx.fillRect(0, 0, this.ctx.canvas.width, this.ctx.canvas.height);
-
-        // Dibujar las casillas del tablero encima del fondo oscuro
+    
         for (let i = 0; i < this.casilleros.length; i++) {
-            this.casilleros[i].draw()
+            this.casilleros[i].draw();
         }
-        this.dibujarCuadroGrupo(20 +cellSize/2, 230, '1');
-        this.dibujarCuadroGrupo(720+cellSize/2, 230, '2');
+    
+        this.dibujarCuadroGrupo(20 + cellSize / 2, 230, '1');
+        this.dibujarCuadroGrupo(720 + cellSize / 2, 230, '2');
     }
+    
 
     addCasilleros() {
         for (let fila = 0; fila < this.filas; fila++) {
@@ -86,12 +101,6 @@ export class Tablero {
     crearFichaGrupo(img, color, startX) {
         let posX = startX + cellSize / 2;
         let posY = 200;
-        let posXMenuJugador = posX;
-        let posYMenuJugador = 230;
-
-        // dibujamos la "carta" del jugador
-       //this.dibujarCuadroGrupo(posXMenuJugador, posYMenuJugador, playerNumber);
-
         // creamos ficha principal
         this.crearFichaEnPila(posX, posY + 30, img, color, true);
 
