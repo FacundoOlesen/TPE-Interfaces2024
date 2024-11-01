@@ -32,7 +32,7 @@ export class Tablero {
         this.addCasilleros();
         this.turno = 0
         this.turnos = {};
-
+     
     }
 
 
@@ -56,8 +56,7 @@ export class Tablero {
             this.casilleros[i].draw();
         }
 
-        this.dibujarCuadroGrupo(20 + cellSize / 2, 230, '1');
-        this.dibujarCuadroGrupo(720 + cellSize / 2, 230, '2');
+        this.toggleCuadroTurno()
     }
 
 
@@ -97,8 +96,8 @@ export class Tablero {
                 ficha.setPos(c.x, c.y)
                 ficha.ubicada = true
                 c.setOcupado(true)
-                this.dibujarTablero();
                 this.turno == 0 ? this.turno = 1 : this.turno = 0
+                this.dibujarTablero();
                 break;
             }
         }
@@ -118,14 +117,14 @@ export class Tablero {
 
     }
 
-    dibujarCuadroGrupo(posX, posY, playerNumber) {
+    dibujarCuadroGrupo(posX, posY, playerNumber, colour) {
         const squareWidth = cellSize + 50;
         const squareHeight = 180;
         const squareX = posX - squareWidth / 2;
         const squareY = posY - squareHeight / 2;
 
         // fondo de fichas (cuadrado)
-        this.ctx.fillStyle = 'rgba(0, 0, 0, 0.4)';
+        this.ctx.fillStyle = colour;
         this.roundRect(this.ctx, squareX, squareY, squareWidth, squareHeight, 15);
 
         // nombre de jugador
@@ -134,6 +133,8 @@ export class Tablero {
         this.ctx.textAlign = 'center';
         this.ctx.fillText(`Jugador ${playerNumber}`, squareX + squareWidth / 2, squareY + 30);
     }
+
+    
 
     roundRect(ctx, x, y, width, height, radius) {
         ctx.beginPath();
@@ -163,6 +164,18 @@ export class Tablero {
     cargarTurnos() {
         this.turnos[this.arrFichas[0].getColor()] = 0;
         this.turnos[this.arrFichas[this.arrFichas.length-1].getColor()] = 1;
+    }
+
+    toggleCuadroTurno(){
+        let colorTurno = 'rgba(66, 16, 244, 0.8)'
+        if(this.turno == 0){
+            this.dibujarCuadroGrupo(720 + cellSize / 2, 230, '2', 'rgba(0, 0, 0, 0.4)');
+            this.dibujarCuadroGrupo(20 + cellSize / 2, 230, '1' , colorTurno);
+        }
+        else{
+            this.dibujarCuadroGrupo(720 + cellSize / 2, 230, '2' , colorTurno);       
+            this.dibujarCuadroGrupo(20 + cellSize / 2, 230, '1', 'rgba(0, 0, 0, 0.4)');
+        }
     }
 
     esTuTurno(ficha){
