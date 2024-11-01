@@ -39,6 +39,8 @@ export class Tablero {
         for (let i = 0; i < this.casilleros.length; i++) {
             this.casilleros[i].draw()
         }
+        this.dibujarCuadroGrupo(20 +cellSize/2, 230, '1');
+        this.dibujarCuadroGrupo(720+cellSize/2, 230, '2');
     }
 
     addCasilleros() {
@@ -60,8 +62,8 @@ export class Tablero {
         });
 
         Promise.all(fichasImg).then(([ferrariImg, williamsImg]) => {
-            this.crearFichaGrupo(ferrariImg, 'red', 20, 1);
-            this.crearFichaGrupo(williamsImg, 'lightblue', 720, 2);
+            this.crearFichaGrupo(ferrariImg, 'red', 20);
+            this.crearFichaGrupo(williamsImg, 'lightblue', 720);
         });
     }
 
@@ -80,14 +82,14 @@ export class Tablero {
         }
     }
 
-    crearFichaGrupo(img, color, startX, playerNumber) {
+    crearFichaGrupo(img, color, startX) {
         let posX = startX + cellSize / 2;
         let posY = 200;
         let posXMenuJugador = posX;
         let posYMenuJugador = 230;
 
         // dibujamos la "carta" del jugador
-        this.dibujarCuadroGrupo(posXMenuJugador, posYMenuJugador, playerNumber);
+       //this.dibujarCuadroGrupo(posXMenuJugador, posYMenuJugador, playerNumber);
 
         // creamos ficha principal
         this.crearFichaEnPila(posX, posY + 30, img, color, true);
