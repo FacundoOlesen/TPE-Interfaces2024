@@ -153,7 +153,7 @@ document.addEventListener('DOMContentLoaded', () => {
                     break;
 
                 case '7':
-                    tablero = new Tablero(ctx, 7, 10, 17, 50, 55, 160, 100);
+                    tablero = new Tablero(ctx, 9, 10, 17, 50, 55, 160, 100);
                     break;
 
                 default:

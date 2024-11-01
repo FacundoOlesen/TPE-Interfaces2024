@@ -106,14 +106,12 @@ export class Tablero {
     crearFichaGrupo(img, color, startX) {
         let posX = startX + cellSize / 2;
         let posY = 200;
-        // creamos ficha principal
-        this.crearFichaEnPila(posX, posY + 30, img, color, true);
+        let cantFichas= (this.filas*this.columnas) /2 // Habria que usar esta variable en el for asi tenemos todas las fichas
 
         // creamos fichas adicionales para simular la pila
-        for (let i = 1; i <= 5; i++) {
+        for (let i = 0; i <6 ; i++) {
             this.crearFichaEnPila(posX, posY + 30 + i * 10, img, color, false);
         }
-
 
     }
 
@@ -179,6 +177,8 @@ export class Tablero {
     }
 
     esTuTurno(ficha){
-       return this.turno == this.turnos[ficha.getColor()]
+        console.log(this.arrFichas)
+       return this.turno == this.turnos[ficha.getColor()]  
+
     }
 }
