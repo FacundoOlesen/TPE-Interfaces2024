@@ -77,6 +77,7 @@ export class Tablero {
                 c.setOcupado(true)
                 this.dibujarTablero();
                 ficha.ubicada = true
+                this.cargarFichas()
                 break;
             }
         }
