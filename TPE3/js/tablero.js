@@ -70,7 +70,7 @@ export class Tablero {
     ponerFicha(ficha, x) {
         for (let i = this.casilleros.length - 1; i >= 0; i--) {
             let c = this.casilleros[i]
-            if (x > c.x - c.radius - this.espFilas  && x < c.x + c.radius + this.espFilas && !c.ocupado) {
+            if (x > c.x - c.radius   && x < c.x + c.radius && !c.ocupado) {
                 ficha.setPos(c.x, c.y)
                 c.setOcupado(true)
                 this.dibujarTablero();
