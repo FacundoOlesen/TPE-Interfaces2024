@@ -4,7 +4,7 @@ import { Casillero } from './casillero.js';
 let cellSize = 60; // Tamaño de cada celda en el tablero
 
 export class Tablero {
-    constructor(ctx, filas, columnas, fichaRadio, espFilas, espColumnas, offsetX, offsetY) { //tablero = new Tablero(ctx, 6, 7, 20, 60, 80.5, 158, 95);
+    constructor(ctx, filas, columnas, fichaRadio, espFilas, espColumnas, offsetX, offsetY, cantFichasWin) {
         // Inicializa las propiedades del tablero
         this.ctx = ctx; // Contexto del canvas para dibujar
         this.columnas = columnas; // Número de columnas en el tablero
@@ -16,8 +16,7 @@ export class Tablero {
         this.espFilas = espFilas; // Espacio entre filas
         this.offsetX = offsetX; // Desplazamiento en el eje X
         this.offsetY = offsetY; // Desplazamiento en el eje Y
-
-        // Carga de las imágenes de fondo
+        this.cantFichasWin=cantFichasWin
         this.fondoJuego = new Image();
         this.fondoJuego.src = "./img/fondocasillero.jpg"; // Imagen de fondo del juego
 
@@ -71,35 +70,49 @@ export class Tablero {
         
         // Recorta y dibuja la imagen dentro del área redondeada
         this.ctx.save();
-        this.ctx.clip(); // Recorta el área
-        this.ctx.drawImage(this.fondoCasillero, tableroX, tableroY, tableroAncho, tableroAlto); // Dibuja el fondo del casillero
-        this.ctx.restore(); // Restaura el contexto original
-
-        // Dibuja el borde del fondo de los casilleros
-        this.ctx.lineWidth = 2; // Ancho de la línea del borde
-        this.ctx.strokeStyle = 'rgba(66, 16, 244, 0.8)'; // Color del borde
-        this.ctx.stroke(); // Dibuja el borde
-
-        // Dibuja un rectángulo oscuro sobre el fondo
-        this.ctx.fillStyle = 'rgba(0, 0, 0, 0.7)'; // Color del rectángulo
-        this.ctx.fillRect(0, 0, this.ctx.canvas.width, this.ctx.canvas.height); // Rellena el rectángulo
-        
-        // Dibuja todos los casilleros en el tablero
-        for (let i = 0; i < this.casilleros.length; i++) {
-            this.casilleros[i].draw(); // Dibuja cada casillero
+        this.ctx.clip();
+        this.ctx.drawImage(this.fondoCasillero, tableroX, tableroY, tableroAncho, tableroAlto);
+        this.ctx.restore();
+    
+        // borde del fondo de los casilleros
+        this.ctx.lineWidth = 2;
+        this.ctx.strokeStyle = 'rgba(66, 16, 244, 0.8)';
+        this.ctx.stroke();
+    
+        this.ctx.fillStyle = 'rgba(0, 0, 0, 0.7)';
+        this.ctx.fillRect(0, 0, this.ctx.canvas.width, this.ctx.canvas.height);
+    
+        for (let fila = 0; fila < this.filas; fila++) {
+            for (let col = 0; col < this.columnas; col++) {
+                this.casilleros[fila][col].draw()
+            }
         }
 
         this.toggleCuadroTurno(); // Dibuja el cuadro del turno actual
     }
     
     dibujarTemporizador() {
-        // Borramos el área donde se dibuja el temporizador
-        this.ctx.clearRect(0, 0, this.ctx.canvas.width, 60); // Asumiendo que el temporizador se dibuja en la parte superior
+        const text = `Tiempo restante: ${this.tiempoRestante}s`;
+        const padding = 10;
+        const rectWidth = 300;
+        const rectHeight = 40;
+        const xPos = (this.ctx.canvas.width - rectWidth) / 2;
+        const yPos = 10;
+        
+        // obtenemos la imagen del fondo del canvas en el area del temporizador
+        const fondoTemporal = this.ctx.getImageData(xPos - padding, yPos - padding, rectWidth + padding * 2, rectHeight + padding * 2);
+        this.ctx.putImageData(fondoTemporal, xPos - padding, yPos - padding);
     
-        this.ctx.fillStyle = 'white'; // Establecemos el color del texto
-        this.ctx.font = "bold 24px 'Nunito', sans-serif"; // Definimos la fuente
-        this.ctx.textAlign = 'center'; // Centramos el texto
-        this.ctx.fillText(`Tiempo restante: ${this.tiempoRestante}s`, this.ctx.canvas.width / 2, 40); // Dibujamos el texto
+        this.ctx.fillStyle = 'black';
+        this.ctx.beginPath();
+        this.ctx.roundRect(xPos, yPos, rectWidth, rectHeight, 10);
+        this.ctx.fill();
+    
+        // cuando queden 5 segundos, ponemos el texto en rojo
+        this.ctx.fillStyle = this.tiempoRestante <= 5 ? 'red' : 'white';
+        this.ctx.font = "bold 24px 'Nunito', sans-serif";
+        this.ctx.textAlign = 'center';
+        this.ctx.fillText(text, this.ctx.canvas.width / 2, yPos + rectHeight / 1.5);
     }
     
     iniciarTemporizador() {
@@ -109,27 +122,30 @@ export class Tablero {
             this.tiempoRestante--;
             if (this.tiempoRestante <= 0) {
                 this.cambiarTurno();
+                this.cargarFichas();
             } else {
-                this.dibujarTemporizador(); // Solo redibuja el temporizador
+                this.dibujarTemporizador(); 
             }
         }, 1000);
     }
+    
     cambiarTurno() {
         clearInterval(this.intervaloTemporizador);
         this.turno = this.turno === 0 ? 1 : 0;
         this.iniciarTemporizador();
         
-        // Redibuja el tablero ya que hay un cambio de turno
-        this.dibujarTablero();
+        // redibuja el tablero cuando hay un cambio de turno
+        this.dibujarTablero(true);
     }
 
     addCasilleros() {
         for (let fila = 0; fila < this.filas; fila++) {
+            this.casilleros[fila] = []
             for (let col = 0; col < this.columnas; col++) {
                 const x = this.offsetX + col * this.espColumnas;
                 const y = this.offsetY + fila * this.espFilas;
-                const casillero = new Casillero(this.ctx, x, y, this.fichaRadio, 'white');
-                this.casilleros.push(casillero)
+                const casillero = new Casillero(this.ctx, x, y, this.fichaRadio, 'white', fila, col);
+                this.casilleros[fila][col] = casillero
             }
         }
     }
@@ -152,20 +168,103 @@ export class Tablero {
 
 
     ponerFicha(ficha, x) {
-        for (let i = this.casilleros.length - 1; i >= 0; i--) {
-            let c = this.casilleros[i];
-            if (x > c.x - c.radius && x < c.x + c.radius && !c.ocupado) {
-                ficha.setPos(c.x, c.y);
-                ficha.ubicada = true;
-                c.setOcupado(true);
-                // Cambia el turno y reinicia el temporizador
-                this.turno = this.turno === 0 ? 1 : 0;
-                this.iniciarTemporizador(); // Reinicia el temporizador
-                this.dibujarTablero();
-                break;
+        for (let fila = this.filas - 1; fila >= 0; fila--) {
+            for (let col = this.columnas - 1; col >= 0; col--) {
+                let c = this.casilleros[fila][col]
+                if (x > c.x - c.radius && x < c.x + c.radius && !c.ocupado) {
+                    ficha.setPos(c.x, c.y)
+                    ficha.ubicada = true
+                    c.setOcupado(true)
+                    c.setJugador(ficha)
+
+                    this.turno == 0 ? this.turno = 1 : this.turno = 0
+                    this.dibujarTablero();
+                    this.checkDiagonal(ficha, c)
+                    this.checkDiagonalInvertida(ficha, c)
+                    this.checkVertical(ficha, c)
+                    this.checkHorizontal(ficha, c)
+                    this.iniciarTemporizador(); 
+                    this.dibujarTablero();
+                    return;
+                }
             }
         }
     }
+
+    checkVertical(ficha, casillero) {
+        let c = 0
+        for (let filas = this.filas - 1; filas >= 0; filas--) {
+            if (this.esIgual(this.casilleros[filas][casillero.col], ficha))
+                c++
+            else c = 0
+            if (c == this.cantFichasWin) {
+                alert(this.cantFichasWin +" en línea (En vertical)")
+                return
+            }
+        }
+    }
+
+    checkHorizontal(ficha, casillero) {
+        let c = 0
+        for (let col = this.columnas - 1; col >= 0; col--) {
+            if (this.esIgual(this.casilleros[casillero.fila][col], ficha))
+                c++
+            else c = 0
+            if (c == this.cantFichasWin) {
+                alert(this.cantFichasWin +" en línea (En horizontal)")
+                return
+            }
+        }
+    }
+
+    checkDiagonal(ficha, casillero) {
+        let col = casillero.col
+        let c =-1
+        if (casillero.fila != this.filas - 1) {
+            let fila = casillero.fila
+            for (let column = casillero.col; column >= 0 && fila < this.filas; column--, fila++) {
+                col = this.casilleros[fila][column].col
+                if (this.esIgual(this.casilleros[fila][col], ficha))
+                    c++
+            }
+        }
+
+        let aux  = casillero.col
+        for (let fila = casillero.fila; fila >= 0 && aux < this.columnas; fila--, aux++) {
+            if (this.esIgual(this.casilleros[fila][aux], ficha))
+                c++
+        }
+
+        if (c==this.cantFichasWin)
+            alert(this.cantFichasWin +" en línea (En diagonal)")
+    }
+
+    checkDiagonalInvertida(ficha, casillero) {
+        let col = casillero.col
+        let c =-1
+        if (casillero.fila != this.filas - 1) {
+            let fila = casillero.fila
+            for (let column= casillero.col; column <this.columnas && fila < this.filas; column++, fila++) {
+                col = this.casilleros[fila][column].col
+                if (this.esIgual(this.casilleros[fila][col], ficha))
+                    c++
+            }
+        }
+
+        let aux  = casillero.col
+        for (let fila = casillero.fila; fila >= 0 && aux >=0; fila--, aux--) {
+            if (this.esIgual(this.casilleros[fila][aux], ficha))
+                c++
+        }
+
+        if (c==this.cantFichasWin)
+            alert(this.cantFichasWin +" en línea (En diagonal invertida)")
+    }
+
+    esIgual(sigCasillero, fichaAPoner) {
+        return sigCasillero.getJugador().getColor() == fichaAPoner.getColor()
+    }
+
     
 
     crearFichaGrupo(img, color, startX) {
@@ -242,8 +341,15 @@ export class Tablero {
     }
 
     esTuTurno(ficha){
-        console.log(this.arrFichas)
        return this.turno == this.turnos[ficha.getColor()]  
 
+    }
+    dibujarFichas() {
+        // Recorre todas las fichas en arrFichas y las dibuja en sus posiciones actuales
+        this.arrFichas.forEach(ficha => {
+            if (ficha.ubicada) {  
+                ficha.draw();
+            }
+        });
     }
 }
