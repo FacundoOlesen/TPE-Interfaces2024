@@ -88,13 +88,12 @@ export class Tablero {
     }
     
     dibujarTemporizador() {
-        // Borramos el área donde se dibuja el temporizador
-        this.ctx.clearRect(0, 0, this.ctx.canvas.width, 60); // Asumiendo que el temporizador se dibuja en la parte superior
+        this.ctx.clearRect(0, 0, this.ctx.canvas.width, 60); 
     
-        this.ctx.fillStyle = 'white'; // Establecemos el color del texto
-        this.ctx.font = "bold 24px 'Nunito', sans-serif"; // Definimos la fuente
-        this.ctx.textAlign = 'center'; // Centramos el texto
-        this.ctx.fillText(`Tiempo restante: ${this.tiempoRestante}s`, this.ctx.canvas.width / 2, 40); // Dibujamos el texto
+        this.ctx.fillStyle = 'white'; 
+        this.ctx.font = "bold 24px 'Nunito', sans-serif"; 
+        this.ctx.textAlign = 'center'; 
+        this.ctx.fillText(`Tiempo restante: ${this.tiempoRestante}s`, this.ctx.canvas.width / 2, 40); 
     }
     
     iniciarTemporizador() {
@@ -104,8 +103,9 @@ export class Tablero {
             this.tiempoRestante--;
             if (this.tiempoRestante <= 0) {
                 this.cambiarTurno();
+                this.cargarFichas()
             } else {
-                this.dibujarTemporizador(); // Solo redibuja el temporizador
+                this.dibujarTemporizador(); 
             }
         }, 1000);
     }
@@ -114,7 +114,7 @@ export class Tablero {
         this.turno = this.turno === 0 ? 1 : 0;
         this.iniciarTemporizador();
         
-        // Redibuja el tablero ya que hay un cambio de turno
+        // redibuja el tablero cuando hay un cambio de turno
         this.dibujarTablero(true);
     }
 
@@ -240,5 +240,13 @@ export class Tablero {
         console.log(this.arrFichas)
        return this.turno == this.turnos[ficha.getColor()]  
 
+    }
+    dibujarFichas() {
+        // Recorre todas las fichas en arrFichas y las dibuja en sus posiciones actuales
+        this.arrFichas.forEach(ficha => {
+            if (ficha.ubicada) {  // Solo dibuja las fichas que ya están ubicadas
+                ficha.draw();
+            }
+        });
     }
 }
