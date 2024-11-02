@@ -88,12 +88,27 @@ export class Tablero {
     }
     
     dibujarTemporizador() {
-        this.ctx.clearRect(0, 0, this.ctx.canvas.width, 60); 
+        const text = `Tiempo restante: ${this.tiempoRestante}s`;
+        const padding = 10;
+        const rectWidth = 300;
+        const rectHeight = 40;
+        const xPos = (this.ctx.canvas.width - rectWidth) / 2;
+        const yPos = 10;
+        
+        // obtenemos la imagen del fondo del canvas en el area del temporizador
+        const fondoTemporal = this.ctx.getImageData(xPos - padding, yPos - padding, rectWidth + padding * 2, rectHeight + padding * 2);
+        this.ctx.putImageData(fondoTemporal, xPos - padding, yPos - padding);
     
-        this.ctx.fillStyle = 'white'; 
-        this.ctx.font = "bold 24px 'Nunito', sans-serif"; 
-        this.ctx.textAlign = 'center'; 
-        this.ctx.fillText(`Tiempo restante: ${this.tiempoRestante}s`, this.ctx.canvas.width / 2, 40); 
+        this.ctx.fillStyle = 'black';
+        this.ctx.beginPath();
+        this.ctx.roundRect(xPos, yPos, rectWidth, rectHeight, 10);
+        this.ctx.fill();
+    
+        // cuando queden 5 segundos, ponemos el texto en rojo
+        this.ctx.fillStyle = this.tiempoRestante <= 5 ? 'red' : 'white';
+        this.ctx.font = "bold 24px 'Nunito', sans-serif";
+        this.ctx.textAlign = 'center';
+        this.ctx.fillText(text, this.ctx.canvas.width / 2, yPos + rectHeight / 1.5);
     }
     
     iniciarTemporizador() {
@@ -103,12 +118,13 @@ export class Tablero {
             this.tiempoRestante--;
             if (this.tiempoRestante <= 0) {
                 this.cambiarTurno();
-                this.cargarFichas()
+                this.cargarFichas();
             } else {
                 this.dibujarTemporizador(); 
             }
         }, 1000);
     }
+    
     cambiarTurno() {
         clearInterval(this.intervaloTemporizador);
         this.turno = this.turno === 0 ? 1 : 0;
