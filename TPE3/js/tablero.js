@@ -32,6 +32,13 @@ export class Tablero {
         this.addCasilleros();
         this.turno = 0
         this.turnos = {};
+
+        //temporizador
+        this.tiempoMaximoTurno=20;
+        this.tiempoRestente=this.tiempoMaximoTurno;
+        this.intervaloTemporizador=null;
+
+        this.iniciarTemporizador();
      
     }
 
@@ -42,6 +49,8 @@ export class Tablero {
         // dibujamos la imagen de fondo
         this.ctx.drawImage(this.fondoJuego, 0, 0, this.ctx.canvas.width, this.ctx.canvas.height);
         
+        this.dibujarTemporizador();
+
         const tableroAncho = this.columnas * this.espColumnas;
         const tableroAlto = this.filas * this.espFilas;
         const tableroX = this.offsetX - 40;
@@ -63,7 +72,7 @@ export class Tablero {
         this.ctx.drawImage(this.fondoCasillero, tableroX, tableroY, tableroAncho, tableroAlto);
         this.ctx.restore();
     
-        // Dibujar el borde alrededor de la imagen de fondo de los casilleros
+        // borde del fondo de los casilleros
         this.ctx.lineWidth = 2;
         this.ctx.strokeStyle = 'rgba(66, 16, 244, 0.8)';
         this.ctx.stroke();
@@ -78,8 +87,36 @@ export class Tablero {
         this.toggleCuadroTurno();
     }
     
+    dibujarTemporizador() {
+        // Borramos el área donde se dibuja el temporizador
+        this.ctx.clearRect(0, 0, this.ctx.canvas.width, 60); // Asumiendo que el temporizador se dibuja en la parte superior
     
-
+        this.ctx.fillStyle = 'white'; // Establecemos el color del texto
+        this.ctx.font = "bold 24px 'Nunito', sans-serif"; // Definimos la fuente
+        this.ctx.textAlign = 'center'; // Centramos el texto
+        this.ctx.fillText(`Tiempo restante: ${this.tiempoRestante}s`, this.ctx.canvas.width / 2, 40); // Dibujamos el texto
+    }
+    
+    iniciarTemporizador() {
+        clearInterval(this.intervaloTemporizador);
+        this.tiempoRestante = this.tiempoMaximoTurno;
+        this.intervaloTemporizador = setInterval(() => {
+            this.tiempoRestante--;
+            if (this.tiempoRestante <= 0) {
+                this.cambiarTurno();
+            } else {
+                this.dibujarTemporizador(); // Solo redibuja el temporizador
+            }
+        }, 1000);
+    }
+    cambiarTurno() {
+        clearInterval(this.intervaloTemporizador);
+        this.turno = this.turno === 0 ? 1 : 0;
+        this.iniciarTemporizador();
+        
+        // Redibuja el tablero ya que hay un cambio de turno
+        this.dibujarTablero(true);
+    }
 
     addCasilleros() {
         for (let fila = 0; fila < this.filas; fila++) {
@@ -110,19 +147,21 @@ export class Tablero {
 
 
     ponerFicha(ficha, x) {
-        this.turnos[ficha.getColor()]
         for (let i = this.casilleros.length - 1; i >= 0; i--) {
-            let c = this.casilleros[i]
+            let c = this.casilleros[i];
             if (x > c.x - c.radius && x < c.x + c.radius && !c.ocupado) {
-                ficha.setPos(c.x, c.y)
-                ficha.ubicada = true
-                c.setOcupado(true)
-                this.turno == 0 ? this.turno = 1 : this.turno = 0
+                ficha.setPos(c.x, c.y);
+                ficha.ubicada = true;
+                c.setOcupado(true);
+                // Cambia el turno y reinicia el temporizador
+                this.turno = this.turno === 0 ? 1 : 0;
+                this.iniciarTemporizador(); // Reinicia el temporizador
                 this.dibujarTablero();
                 break;
             }
         }
     }
+    
 
     crearFichaGrupo(img, color, startX) {
         let posX = startX + cellSize / 2;
