@@ -38,26 +38,47 @@ export class Tablero {
 
     dibujarTablero() {
         this.ctx.clearRect(0, 0, this.ctx.canvas.width, this.ctx.canvas.height);
-
+        
+        // dibujamos la imagen de fondo
         this.ctx.drawImage(this.fondoJuego, 0, 0, this.ctx.canvas.width, this.ctx.canvas.height);
-
-
-
+        
         const tableroAncho = this.columnas * this.espColumnas;
         const tableroAlto = this.filas * this.espFilas;
         const tableroX = this.offsetX - 40;
         const tableroY = this.offsetY - 30;
-
+        const borderRadius = 20; 
+    
+        // creamos un borde redondeado
+        this.ctx.beginPath();
+        this.ctx.moveTo(tableroX + borderRadius, tableroY);
+        this.ctx.arcTo(tableroX + tableroAncho, tableroY, tableroX + tableroAncho, tableroY + borderRadius, borderRadius);
+        this.ctx.arcTo(tableroX + tableroAncho, tableroY + tableroAlto, tableroX + tableroAncho - borderRadius, tableroY + tableroAlto, borderRadius);
+        this.ctx.arcTo(tableroX, tableroY + tableroAlto, tableroX, tableroY + tableroAlto - borderRadius, borderRadius);
+        this.ctx.arcTo(tableroX, tableroY, tableroX + borderRadius, tableroY, borderRadius);
+        this.ctx.closePath();
+    
+        //recortamos y dibujamos la imagen dentro del área redondeada
+        this.ctx.save();
+        this.ctx.clip();
         this.ctx.drawImage(this.fondoCasillero, tableroX, tableroY, tableroAncho, tableroAlto);
-        this.ctx.fillStyle = 'rgba(0, 0, 0, 0.5)';
+        this.ctx.restore();
+    
+        // Dibujar el borde alrededor de la imagen de fondo de los casilleros
+        this.ctx.lineWidth = 2;
+        this.ctx.strokeStyle = 'rgba(66, 16, 244, 0.8)';
+        this.ctx.stroke();
+    
+        this.ctx.fillStyle = 'rgba(0, 0, 0, 0.7)';
         this.ctx.fillRect(0, 0, this.ctx.canvas.width, this.ctx.canvas.height);
-
+    
         for (let i = 0; i < this.casilleros.length; i++) {
             this.casilleros[i].draw();
         }
-
-        this.toggleCuadroTurno()
+    
+        this.toggleCuadroTurno();
     }
+    
+    
 
 
     addCasilleros() {
@@ -167,12 +188,12 @@ export class Tablero {
     toggleCuadroTurno(){
         let colorTurno = 'rgba(66, 16, 244, 0.8)'
         if(this.turno == 0){
-            this.dibujarCuadroGrupo(720 + cellSize / 2, 230, '2', 'rgba(0, 0, 0, 0.4)');
+            this.dibujarCuadroGrupo(720 + cellSize / 2, 230, '2', 'rgba(0, 0, 0, 0.8)');
             this.dibujarCuadroGrupo(20 + cellSize / 2, 230, '1' , colorTurno);
         }
         else{
             this.dibujarCuadroGrupo(720 + cellSize / 2, 230, '2' , colorTurno);       
-            this.dibujarCuadroGrupo(20 + cellSize / 2, 230, '1', 'rgba(0, 0, 0, 0.4)');
+            this.dibujarCuadroGrupo(20 + cellSize / 2, 230, '1', 'rgba(0, 0, 0, 0.8)');
         }
     }
 

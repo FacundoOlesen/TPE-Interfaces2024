@@ -34,7 +34,7 @@ document.addEventListener('DOMContentLoaded', () => {
         dibujarBienvenidaJuego()
         function dibujarBienvenidaJuego() {
             let fondoJuego = new Image();
-            fondoJuego.src = "./img/fondotablero.jpg";
+            fondoJuego.src = "./img/fondocasillero.jpg";
 
             fondoJuego.onload = function () {
                 ctx.clearRect(0, 0, ctx.canvas.width, ctx.canvas.height);
