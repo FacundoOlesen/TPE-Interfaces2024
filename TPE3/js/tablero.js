@@ -1,65 +1,63 @@
 import { Circulo } from './circulo.js';
 import { Casillero } from './casillero.js';
 
-let cellSize = 60; // Tamaño de cada celda en el tablero
+let cellSize = 60;
 
 export class Tablero {
     constructor(ctx, filas, columnas, fichaRadio, espFilas, espColumnas, offsetX, offsetY, cantFichasWin) {
-        // Inicializa las propiedades del tablero
-        this.ctx = ctx; // Contexto del canvas para dibujar
-        this.columnas = columnas; // Número de columnas en el tablero
-        this.filas = filas; // Número de filas en el tablero
-        this.arrFichas = []; // Arreglo para almacenar las fichas
-        this.casilleros = []; // Arreglo para almacenar los casilleros
-        this.fichaRadio = fichaRadio; // Radio de las fichas
-        this.espColumnas = espColumnas; // Espacio entre columnas
-        this.espFilas = espFilas; // Espacio entre filas
-        this.offsetX = offsetX; // Desplazamiento en el eje X
-        this.offsetY = offsetY; // Desplazamiento en el eje Y
-        this.cantFichasWin=cantFichasWin
+        this.ctx = ctx;
+        this.columnas = columnas;
+        this.filas = filas;
+        this.arrFichas = [];
+        this.casilleros = [];
+        this.fichaRadio = fichaRadio;
+        this.espColumnas = espColumnas;
+        this.espFilas = espFilas;
+        this.offsetX = offsetX;
+        this.offsetY = offsetY;
+        this.cantFichasWin = cantFichasWin
         this.fondoJuego = new Image();
-        this.fondoJuego.src = "./img/fondocasillero.jpg"; // Imagen de fondo del juego
+        this.fondoJuego.src = "./img/fondocasillero.jpg";
 
+        // img para cada casillero
         this.fondoCasillero = new Image();
-        this.fondoCasillero.src = "./img/fondotablero.jpg"; // Imagen de fondo del tablero
+        this.fondoCasillero.src = "./img/fondotablero.jpg";
 
-        // Dibuja el tablero una vez que ambas imágenes estén cargadas
         this.fondoJuego.onload = this.fondoCasillero.onload = () => {
             if (this.fondoJuego.complete && this.fondoCasillero.complete) {
                 this.dibujarTablero();
             }
         };
 
-        this.addCasilleros(); // Inicializa los casilleros en el tablero
-        this.turno = 0; // Indica el turno actual (0 o 1)
-        this.turnos = {}; // Objeto para almacenar los turnos de los jugadores
+        this.addCasilleros();
+        this.turno = 0
+        this.turnos = {};
 
-        // Temporizador
-        this.tiempoMaximoTurno = 60; // Tiempo máximo por turno en segundos
-        this.tiempoRestente = this.tiempoMaximoTurno; // Tiempo restante en el turno
-        this.intervaloTemporizador = null; // Almacena el intervalo del temporizador
+        //temporizador
+        this.tiempoMaximoTurno = 20;
+        this.tiempoRestente = this.tiempoMaximoTurno;
+        this.intervaloTemporizador = null;
 
-        this.iniciarTemporizador(); // Inicia el temporizador
+        this.iniciarTemporizador();
+
     }
 
 
     dibujarTablero() {
-        // Limpia el canvas antes de redibujar
         this.ctx.clearRect(0, 0, this.ctx.canvas.width, this.ctx.canvas.height);
-        
-        // Dibuja la imagen de fondo del juego
-        this.ctx.drawImage(this.fondoJuego, 0, 0, this.ctx.canvas.width, this.ctx.canvas.height);
-        
-        this.dibujarTemporizador(); // Dibuja el temporizador en el tablero
 
-        // Calcula las dimensiones y posición del tablero
+        // dibujamos la imagen de fondo
+        this.ctx.drawImage(this.fondoJuego, 0, 0, this.ctx.canvas.width, this.ctx.canvas.height);
+
+        this.dibujarTemporizador();
+
         const tableroAncho = this.columnas * this.espColumnas;
         const tableroAlto = this.filas * this.espFilas;
-        const tableroX = this.offsetX - 40; // Posición X del tablero
-        const tableroY = this.offsetY - 30; // Posición Y del tablero
-        const borderRadius = 20; // Radio para esquinas redondeadas
-        
-        // Crea un borde redondeado para el área del tablero
+        const tableroX = this.offsetX - 40;
+        const tableroY = this.offsetY - 30;
+        const borderRadius = 20;
+
+        // creamos un borde redondeado
         this.ctx.beginPath();
         this.ctx.moveTo(tableroX + borderRadius, tableroY);
         this.ctx.arcTo(tableroX + tableroAncho, tableroY, tableroX + tableroAncho, tableroY + borderRadius, borderRadius);
@@ -67,30 +65,30 @@ export class Tablero {
         this.ctx.arcTo(tableroX, tableroY + tableroAlto, tableroX, tableroY + tableroAlto - borderRadius, borderRadius);
         this.ctx.arcTo(tableroX, tableroY, tableroX + borderRadius, tableroY, borderRadius);
         this.ctx.closePath();
-        
-        // Recorta y dibuja la imagen dentro del área redondeada
+
+        //recortamos y dibujamos la imagen dentro del área redondeada
         this.ctx.save();
         this.ctx.clip();
         this.ctx.drawImage(this.fondoCasillero, tableroX, tableroY, tableroAncho, tableroAlto);
         this.ctx.restore();
-    
+
         // borde del fondo de los casilleros
         this.ctx.lineWidth = 2;
         this.ctx.strokeStyle = 'rgba(66, 16, 244, 0.8)';
         this.ctx.stroke();
-    
+
         this.ctx.fillStyle = 'rgba(0, 0, 0, 0.7)';
         this.ctx.fillRect(0, 0, this.ctx.canvas.width, this.ctx.canvas.height);
-    
+
         for (let fila = 0; fila < this.filas; fila++) {
             for (let col = 0; col < this.columnas; col++) {
                 this.casilleros[fila][col].draw()
             }
         }
 
-        this.toggleCuadroTurno(); // Dibuja el cuadro del turno actual
+        this.toggleCuadroTurno();
     }
-    
+
     dibujarTemporizador() {
         const text = `Tiempo restante: ${this.tiempoRestante}s`;
         const padding = 10;
@@ -98,23 +96,23 @@ export class Tablero {
         const rectHeight = 40;
         const xPos = (this.ctx.canvas.width - rectWidth) / 2;
         const yPos = 10;
-        
+
         // obtenemos la imagen del fondo del canvas en el area del temporizador
         const fondoTemporal = this.ctx.getImageData(xPos - padding, yPos - padding, rectWidth + padding * 2, rectHeight + padding * 2);
         this.ctx.putImageData(fondoTemporal, xPos - padding, yPos - padding);
-    
+
         this.ctx.fillStyle = 'black';
         this.ctx.beginPath();
         this.ctx.roundRect(xPos, yPos, rectWidth, rectHeight, 10);
         this.ctx.fill();
-    
+
         // cuando queden 5 segundos, ponemos el texto en rojo
         this.ctx.fillStyle = this.tiempoRestante <= 5 ? 'red' : 'white';
         this.ctx.font = "bold 24px 'Nunito', sans-serif";
         this.ctx.textAlign = 'center';
         this.ctx.fillText(text, this.ctx.canvas.width / 2, yPos + rectHeight / 1.5);
     }
-    
+
     iniciarTemporizador() {
         clearInterval(this.intervaloTemporizador);
         this.tiempoRestante = this.tiempoMaximoTurno;
@@ -124,16 +122,16 @@ export class Tablero {
                 this.cambiarTurno();
                 this.cargarFichas();
             } else {
-                this.dibujarTemporizador(); 
+                this.dibujarTemporizador();
             }
         }, 1000);
     }
-    
+
     cambiarTurno() {
         clearInterval(this.intervaloTemporizador);
         this.turno = this.turno === 0 ? 1 : 0;
         this.iniciarTemporizador();
-        
+
         // redibuja el tablero cuando hay un cambio de turno
         this.dibujarTablero(true);
     }
@@ -165,31 +163,29 @@ export class Tablero {
 
     }
 
-
-
-    ponerFicha(ficha, x) {
+    ponerFicha(ficha, x, y) {
         for (let fila = this.filas - 1; fila >= 0; fila--) {
             for (let col = this.columnas - 1; col >= 0; col--) {
                 let c = this.casilleros[fila][col]
-                if (x > c.x - c.radius && x < c.x + c.radius && !c.ocupado) {
+                if (x > c.x - c.radius && x < c.x + c.radius && y <= 90 && !c.ocupado) {
                     ficha.setPos(c.x, c.y)
                     ficha.ubicada = true
                     c.setOcupado(true)
                     c.setJugador(ficha)
-
                     this.turno == 0 ? this.turno = 1 : this.turno = 0
-                    this.dibujarTablero();
-                    this.checkDiagonal(ficha, c)
+                    this.dibujarTablero(); this.checkDiagonal(ficha, c)
                     this.checkDiagonalInvertida(ficha, c)
                     this.checkVertical(ficha, c)
                     this.checkHorizontal(ficha, c)
-                    this.iniciarTemporizador(); 
+                    this.iniciarTemporizador();
                     this.dibujarTablero();
                     return;
                 }
             }
         }
     }
+
+
 
     checkVertical(ficha, casillero) {
         let c = 0
@@ -198,7 +194,7 @@ export class Tablero {
                 c++
             else c = 0
             if (c == this.cantFichasWin) {
-                alert(this.cantFichasWin +" en línea (En vertical)")
+                alert(this.cantFichasWin + " en línea (En vertical)")
                 return
             }
         }
@@ -211,7 +207,7 @@ export class Tablero {
                 c++
             else c = 0
             if (c == this.cantFichasWin) {
-                alert(this.cantFichasWin +" en línea (En horizontal)")
+                alert(this.cantFichasWin + " en línea (En horizontal)")
                 return
             }
         }
@@ -219,7 +215,7 @@ export class Tablero {
 
     checkDiagonal(ficha, casillero) {
         let col = casillero.col
-        let c =-1
+        let c = -1
         if (casillero.fila != this.filas - 1) {
             let fila = casillero.fila
             for (let column = casillero.col; column >= 0 && fila < this.filas; column--, fila++) {
@@ -229,51 +225,51 @@ export class Tablero {
             }
         }
 
-        let aux  = casillero.col
+        let aux = casillero.col
         for (let fila = casillero.fila; fila >= 0 && aux < this.columnas; fila--, aux++) {
             if (this.esIgual(this.casilleros[fila][aux], ficha))
                 c++
         }
 
-        if (c==this.cantFichasWin)
-            alert(this.cantFichasWin +" en línea (En diagonal)")
+        if (c == this.cantFichasWin)
+            alert(this.cantFichasWin + " en línea (En diagonal)")
     }
 
     checkDiagonalInvertida(ficha, casillero) {
         let col = casillero.col
-        let c =-1
+        let c = -1
         if (casillero.fila != this.filas - 1) {
             let fila = casillero.fila
-            for (let column= casillero.col; column <this.columnas && fila < this.filas; column++, fila++) {
+            for (let column = casillero.col; column < this.columnas && fila < this.filas; column++, fila++) {
                 col = this.casilleros[fila][column].col
                 if (this.esIgual(this.casilleros[fila][col], ficha))
                     c++
             }
         }
 
-        let aux  = casillero.col
-        for (let fila = casillero.fila; fila >= 0 && aux >=0; fila--, aux--) {
+        let aux = casillero.col
+        for (let fila = casillero.fila; fila >= 0 && aux >= 0; fila--, aux--) {
             if (this.esIgual(this.casilleros[fila][aux], ficha))
                 c++
         }
 
-        if (c==this.cantFichasWin)
-            alert(this.cantFichasWin +" en línea (En diagonal invertida)")
+        if (c == this.cantFichasWin)
+            alert(this.cantFichasWin + " en línea (En diagonal invertida)")
     }
 
     esIgual(sigCasillero, fichaAPoner) {
         return sigCasillero.getJugador().getColor() == fichaAPoner.getColor()
     }
 
-    
+
 
     crearFichaGrupo(img, color, startX) {
         let posX = startX + cellSize / 2;
         let posY = 200;
-        let cantFichas= (this.filas*this.columnas) /2 // Habria que usar esta variable en el for asi tenemos todas las fichas
+        let cantFichas = (this.filas * this.columnas) / 2 // Habria que usar esta variable en el for asi tenemos todas las fichas
 
         // creamos fichas adicionales para simular la pila
-        for (let i = 0; i <6 ; i++) {
+        for (let i = 0; i < 6; i++) {
             this.crearFichaEnPila(posX, posY + 30 + i * 10, img, color, false);
         }
 
@@ -296,7 +292,7 @@ export class Tablero {
         this.ctx.fillText(`Jugador ${playerNumber}`, squareX + squareWidth / 2, squareY + 30);
     }
 
-    
+
 
     roundRect(ctx, x, y, width, height, radius) {
         ctx.beginPath();
@@ -325,29 +321,29 @@ export class Tablero {
 
     cargarTurnos() {
         this.turnos[this.arrFichas[0].getColor()] = 0;
-        this.turnos[this.arrFichas[this.arrFichas.length-1].getColor()] = 1;
+        this.turnos[this.arrFichas[this.arrFichas.length - 1].getColor()] = 1;
     }
 
-    toggleCuadroTurno(){
+    toggleCuadroTurno() {
         let colorTurno = 'rgba(66, 16, 244, 0.8)'
-        if(this.turno == 0){
+        if (this.turno == 0) {
             this.dibujarCuadroGrupo(720 + cellSize / 2, 230, '2', 'rgba(0, 0, 0, 0.8)');
-            this.dibujarCuadroGrupo(20 + cellSize / 2, 230, '1' , colorTurno);
+            this.dibujarCuadroGrupo(20 + cellSize / 2, 230, '1', colorTurno);
         }
-        else{
-            this.dibujarCuadroGrupo(720 + cellSize / 2, 230, '2' , colorTurno);       
+        else {
+            this.dibujarCuadroGrupo(720 + cellSize / 2, 230, '2', colorTurno);
             this.dibujarCuadroGrupo(20 + cellSize / 2, 230, '1', 'rgba(0, 0, 0, 0.8)');
         }
     }
 
-    esTuTurno(ficha){
-       return this.turno == this.turnos[ficha.getColor()]  
+    esTuTurno(ficha) {
+        return this.turno == this.turnos[ficha.getColor()]
 
     }
     dibujarFichas() {
         // Recorre todas las fichas en arrFichas y las dibuja en sus posiciones actuales
         this.arrFichas.forEach(ficha => {
-            if (ficha.ubicada) {  
+            if (ficha.ubicada) {
                 ficha.draw();
             }
         });

@@ -16,6 +16,7 @@ document.addEventListener('DOMContentLoaded', () => {
     let inGame = false
     let btns = []
 
+    let helperPos
     playButton.addEventListener('click', () => {
         //ocultar elementos de la presentación
         playButton.style.display = 'none';
@@ -47,7 +48,7 @@ document.addEventListener('DOMContentLoaded', () => {
 
                 // Dibuja la imagen de fondo en todo el área del canvas
                 ctx.drawImage(fondoJuego, 0, 0, ctx.canvas.width, ctx.canvas.height);
-                
+
                 // Dibuja una capa semitransparente sobre el fondo para resaltar el texto y los botones
                 ctx.fillStyle = "rgba(0, 0, 0, 0.8)";
                 ctx.fillRect(0, 0, ctx.canvas.width, ctx.canvas.height);
@@ -83,7 +84,7 @@ document.addEventListener('DOMContentLoaded', () => {
         }
 
         // Función para manejar el evento de "mouse down" (clic del ratón)
-        function onMouseDown(e) { 
+        function onMouseDown(e) {
             let clickFig;
             let rect = ctx.canvas.getBoundingClientRect(); // Obtenemos las coordenadas del canvas
             let canvasX = e.clientX - rect.left; // Coordenada X del clic en el canvas
@@ -112,14 +113,16 @@ document.addEventListener('DOMContentLoaded', () => {
                 clickFig = findClickedFigure(e.clientX, e.clientY, tablero.arrFichas);
                 // Si se ha seleccionado una ficha, no está ubicada y es el turno correspondiente
                 if (clickFig && !clickFig.ubicada && tablero.esTuTurno(clickFig)) {
-                    lastClickedFigure = clickFig; // Marca la ficha seleccionada como la última
+                    lastClickedFigure = clickFig;
+                    helperPos = lastClickedFigure.getPos()
+                    // Marca la ficha seleccionada como la última
                 }
             }
             return clickFig; // Retorna la figura seleccionada (si la hay)
         }
 
         // Función para manejar el evento de "mouse move" (movimiento del ratón)
-        function onMouseMove(e) {          
+        function onMouseMove(e) {
             e.preventDefault();
             // Si el ratón está presionado y hay una figura seleccionada
             if (isMouseDown && lastClickedFigure) {
@@ -136,22 +139,24 @@ document.addEventListener('DOMContentLoaded', () => {
             }
         }
 
-        // Función para manejar el evento de "mouse up" (cuando se suelta el ratón)
         function onMouseUp(e) {
-            let rect = ctx.canvas.getBoundingClientRect(); // Obtenemos las coordenadas del canvas
-            let canvasX = e.clientX - rect.left; // Coordenada X del ratón en el canvas
+            let rect = ctx.canvas.getBoundingClientRect();
+            let canvasX = e.clientX - rect.left;
+            let canvasY = e.clientY - rect.top;
 
             e.preventDefault();
-            // Si hay una figura seleccionada
             if (lastClickedFigure != undefined) {
-                // Intenta colocar la ficha en el tablero en la posición actual
-                tablero.ponerFicha(lastClickedFigure, canvasX);
-                drawFigures(); // Redibuja las figuras
+                tablero.ponerFicha(lastClickedFigure, canvasX, canvasY)
+                if (!lastClickedFigure.ubicada) {
+                    lastClickedFigure.setPos(helperPos.x, helperPos.y)
+                    tablero.dibujarTablero()
+                }
+                drawFigures()
             }
-            isMouseDown = false; // Marca que el ratón ya no está presionado
+            isMouseDown = false;
         }
 
-        
+
 
         function findClickedFigure(x, y, arr) {
             // Busca si se ha hecho clic en alguna figura dentro del array
@@ -168,15 +173,15 @@ document.addEventListener('DOMContentLoaded', () => {
                     tablero = new Tablero(ctx, 6, 7, 20, 60, 80.5, 158, 95, 4);
                     break;
                 case '5':
-                    tablero = new Tablero(ctx, 7, 8, 20, 55, 65, 180, 75,5);
+                    tablero = new Tablero(ctx, 7, 8, 20, 55, 65, 180, 75, 5);
                     break;
 
                 case '6':
-                    tablero = new Tablero(ctx, 8, 9, 18, 50, 62, 160, 75,6);
+                    tablero = new Tablero(ctx, 8, 9, 18, 50, 62, 160, 75, 6);
                     break;
 
                 case '7':
-                    tablero = new Tablero(ctx, 9, 10, 17, 50, 55, 160, 100,7);
+                    tablero = new Tablero(ctx, 9, 10, 17, 50, 55, 160, 100, 7);
                     break;
 
                 default:
