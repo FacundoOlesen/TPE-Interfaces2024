@@ -1,63 +1,66 @@
 import { Circulo } from './circulo.js';
 import { Casillero } from './casillero.js';
 
-let cellSize = 60;
+let cellSize = 60; // Tamaño de cada celda en el tablero
 
 export class Tablero {
-    constructor(ctx, filas, columnas, fichaRadio, espFilas, espColumnas, offsetX, offsetY) {
-        this.ctx = ctx;
-        this.columnas = columnas;
-        this.filas = filas;
-        this.arrFichas = [];
-        this.casilleros = [];
-        this.fichaRadio = fichaRadio;
-        this.espColumnas = espColumnas;
-        this.espFilas = espFilas;
-        this.offsetX = offsetX;
-        this.offsetY = offsetY;
+    constructor(ctx, filas, columnas, fichaRadio, espFilas, espColumnas, offsetX, offsetY) { //tablero = new Tablero(ctx, 6, 7, 20, 60, 80.5, 158, 95);
+        // Inicializa las propiedades del tablero
+        this.ctx = ctx; // Contexto del canvas para dibujar
+        this.columnas = columnas; // Número de columnas en el tablero
+        this.filas = filas; // Número de filas en el tablero
+        this.arrFichas = []; // Arreglo para almacenar las fichas
+        this.casilleros = []; // Arreglo para almacenar los casilleros
+        this.fichaRadio = fichaRadio; // Radio de las fichas
+        this.espColumnas = espColumnas; // Espacio entre columnas
+        this.espFilas = espFilas; // Espacio entre filas
+        this.offsetX = offsetX; // Desplazamiento en el eje X
+        this.offsetY = offsetY; // Desplazamiento en el eje Y
 
+        // Carga de las imágenes de fondo
         this.fondoJuego = new Image();
-        this.fondoJuego.src = "./img/fondocasillero.jpg";
+        this.fondoJuego.src = "./img/fondocasillero.jpg"; // Imagen de fondo del juego
 
-        // img para cada casillero
         this.fondoCasillero = new Image();
-        this.fondoCasillero.src = "./img/fondotablero.jpg";
+        this.fondoCasillero.src = "./img/fondotablero.jpg"; // Imagen de fondo del tablero
 
+        // Dibuja el tablero una vez que ambas imágenes estén cargadas
         this.fondoJuego.onload = this.fondoCasillero.onload = () => {
             if (this.fondoJuego.complete && this.fondoCasillero.complete) {
                 this.dibujarTablero();
             }
         };
 
-        this.addCasilleros();
-        this.turno = 0
-        this.turnos = {};
+        this.addCasilleros(); // Inicializa los casilleros en el tablero
+        this.turno = 0; // Indica el turno actual (0 o 1)
+        this.turnos = {}; // Objeto para almacenar los turnos de los jugadores
 
-        //temporizador
-        this.tiempoMaximoTurno=20;
-        this.tiempoRestente=this.tiempoMaximoTurno;
-        this.intervaloTemporizador=null;
+        // Temporizador
+        this.tiempoMaximoTurno = 60; // Tiempo máximo por turno en segundos
+        this.tiempoRestente = this.tiempoMaximoTurno; // Tiempo restante en el turno
+        this.intervaloTemporizador = null; // Almacena el intervalo del temporizador
 
-        this.iniciarTemporizador();
-     
+        this.iniciarTemporizador(); // Inicia el temporizador
     }
 
 
     dibujarTablero() {
+        // Limpia el canvas antes de redibujar
         this.ctx.clearRect(0, 0, this.ctx.canvas.width, this.ctx.canvas.height);
         
-        // dibujamos la imagen de fondo
+        // Dibuja la imagen de fondo del juego
         this.ctx.drawImage(this.fondoJuego, 0, 0, this.ctx.canvas.width, this.ctx.canvas.height);
         
-        this.dibujarTemporizador();
+        this.dibujarTemporizador(); // Dibuja el temporizador en el tablero
 
+        // Calcula las dimensiones y posición del tablero
         const tableroAncho = this.columnas * this.espColumnas;
         const tableroAlto = this.filas * this.espFilas;
-        const tableroX = this.offsetX - 40;
-        const tableroY = this.offsetY - 30;
-        const borderRadius = 20; 
-    
-        // creamos un borde redondeado
+        const tableroX = this.offsetX - 40; // Posición X del tablero
+        const tableroY = this.offsetY - 30; // Posición Y del tablero
+        const borderRadius = 20; // Radio para esquinas redondeadas
+        
+        // Crea un borde redondeado para el área del tablero
         this.ctx.beginPath();
         this.ctx.moveTo(tableroX + borderRadius, tableroY);
         this.ctx.arcTo(tableroX + tableroAncho, tableroY, tableroX + tableroAncho, tableroY + borderRadius, borderRadius);
@@ -65,26 +68,28 @@ export class Tablero {
         this.ctx.arcTo(tableroX, tableroY + tableroAlto, tableroX, tableroY + tableroAlto - borderRadius, borderRadius);
         this.ctx.arcTo(tableroX, tableroY, tableroX + borderRadius, tableroY, borderRadius);
         this.ctx.closePath();
-    
-        //recortamos y dibujamos la imagen dentro del área redondeada
+        
+        // Recorta y dibuja la imagen dentro del área redondeada
         this.ctx.save();
-        this.ctx.clip();
-        this.ctx.drawImage(this.fondoCasillero, tableroX, tableroY, tableroAncho, tableroAlto);
-        this.ctx.restore();
-    
-        // borde del fondo de los casilleros
-        this.ctx.lineWidth = 2;
-        this.ctx.strokeStyle = 'rgba(66, 16, 244, 0.8)';
-        this.ctx.stroke();
-    
-        this.ctx.fillStyle = 'rgba(0, 0, 0, 0.7)';
-        this.ctx.fillRect(0, 0, this.ctx.canvas.width, this.ctx.canvas.height);
-    
+        this.ctx.clip(); // Recorta el área
+        this.ctx.drawImage(this.fondoCasillero, tableroX, tableroY, tableroAncho, tableroAlto); // Dibuja el fondo del casillero
+        this.ctx.restore(); // Restaura el contexto original
+
+        // Dibuja el borde del fondo de los casilleros
+        this.ctx.lineWidth = 2; // Ancho de la línea del borde
+        this.ctx.strokeStyle = 'rgba(66, 16, 244, 0.8)'; // Color del borde
+        this.ctx.stroke(); // Dibuja el borde
+
+        // Dibuja un rectángulo oscuro sobre el fondo
+        this.ctx.fillStyle = 'rgba(0, 0, 0, 0.7)'; // Color del rectángulo
+        this.ctx.fillRect(0, 0, this.ctx.canvas.width, this.ctx.canvas.height); // Rellena el rectángulo
+        
+        // Dibuja todos los casilleros en el tablero
         for (let i = 0; i < this.casilleros.length; i++) {
-            this.casilleros[i].draw();
+            this.casilleros[i].draw(); // Dibuja cada casillero
         }
-    
-        this.toggleCuadroTurno();
+
+        this.toggleCuadroTurno(); // Dibuja el cuadro del turno actual
     }
     
     dibujarTemporizador() {
@@ -115,7 +120,7 @@ export class Tablero {
         this.iniciarTemporizador();
         
         // Redibuja el tablero ya que hay un cambio de turno
-        this.dibujarTablero(true);
+        this.dibujarTablero();
     }
 
     addCasilleros() {
