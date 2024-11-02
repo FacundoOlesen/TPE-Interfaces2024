@@ -4,7 +4,7 @@ import { Casillero } from './casillero.js';
 let cellSize = 60;
 
 export class Tablero {
-    constructor(ctx, filas, columnas, fichaRadio, espFilas, espColumnas, offsetX, offsetY) {
+    constructor(ctx, filas, columnas, fichaRadio, espFilas, espColumnas, offsetX, offsetY, cantFichasWin) {
         this.ctx = ctx;
         this.columnas = columnas;
         this.filas = filas;
@@ -15,7 +15,7 @@ export class Tablero {
         this.espFilas = espFilas;
         this.offsetX = offsetX;
         this.offsetY = offsetY;
-
+        this.cantFichasWin=cantFichasWin
         this.fondoJuego = new Image();
         this.fondoJuego.src = "./img/fondocasillero.jpg";
 
@@ -80,8 +80,10 @@ export class Tablero {
         this.ctx.fillStyle = 'rgba(0, 0, 0, 0.7)';
         this.ctx.fillRect(0, 0, this.ctx.canvas.width, this.ctx.canvas.height);
     
-        for (let i = 0; i < this.casilleros.length; i++) {
-            this.casilleros[i].draw();
+        for (let fila = 0; fila < this.filas; fila++) {
+            for (let col = 0; col < this.columnas; col++) {
+                this.casilleros[fila][col].draw()
+            }
         }
     
         this.toggleCuadroTurno();
@@ -136,11 +138,12 @@ export class Tablero {
 
     addCasilleros() {
         for (let fila = 0; fila < this.filas; fila++) {
+            this.casilleros[fila] = []
             for (let col = 0; col < this.columnas; col++) {
                 const x = this.offsetX + col * this.espColumnas;
                 const y = this.offsetY + fila * this.espFilas;
-                const casillero = new Casillero(this.ctx, x, y, this.fichaRadio, 'white');
-                this.casilleros.push(casillero)
+                const casillero = new Casillero(this.ctx, x, y, this.fichaRadio, 'white', fila, col);
+                this.casilleros[fila][col] = casillero
             }
         }
     }
@@ -163,20 +166,103 @@ export class Tablero {
 
 
     ponerFicha(ficha, x) {
-        for (let i = this.casilleros.length - 1; i >= 0; i--) {
-            let c = this.casilleros[i];
-            if (x > c.x - c.radius && x < c.x + c.radius && !c.ocupado) {
-                ficha.setPos(c.x, c.y);
-                ficha.ubicada = true;
-                c.setOcupado(true);
-                // Cambia el turno y reinicia el temporizador
-                this.turno = this.turno === 0 ? 1 : 0;
-                this.iniciarTemporizador(); // Reinicia el temporizador
-                this.dibujarTablero();
-                break;
+        for (let fila = this.filas - 1; fila >= 0; fila--) {
+            for (let col = this.columnas - 1; col >= 0; col--) {
+                let c = this.casilleros[fila][col]
+                if (x > c.x - c.radius && x < c.x + c.radius && !c.ocupado) {
+                    ficha.setPos(c.x, c.y)
+                    ficha.ubicada = true
+                    c.setOcupado(true)
+                    c.setJugador(ficha)
+
+                    this.turno == 0 ? this.turno = 1 : this.turno = 0
+                    this.dibujarTablero();
+                    this.checkDiagonal(ficha, c)
+                    this.checkDiagonalInvertida(ficha, c)
+                    this.checkVertical(ficha, c)
+                    this.checkHorizontal(ficha, c)
+                    this.iniciarTemporizador(); 
+                    this.dibujarTablero();
+                    return;
+                }
             }
         }
     }
+
+    checkVertical(ficha, casillero) {
+        let c = 0
+        for (let filas = this.filas - 1; filas >= 0; filas--) {
+            if (this.esIgual(this.casilleros[filas][casillero.col], ficha))
+                c++
+            else c = 0
+            if (c == this.cantFichasWin) {
+                alert(this.cantFichasWin +" en línea (En vertical)")
+                return
+            }
+        }
+    }
+
+    checkHorizontal(ficha, casillero) {
+        let c = 0
+        for (let col = this.columnas - 1; col >= 0; col--) {
+            if (this.esIgual(this.casilleros[casillero.fila][col], ficha))
+                c++
+            else c = 0
+            if (c == this.cantFichasWin) {
+                alert(this.cantFichasWin +" en línea (En horizontal)")
+                return
+            }
+        }
+    }
+
+    checkDiagonal(ficha, casillero) {
+        let col = casillero.col
+        let c =-1
+        if (casillero.fila != this.filas - 1) {
+            let fila = casillero.fila
+            for (let column = casillero.col; column >= 0 && fila < this.filas; column--, fila++) {
+                col = this.casilleros[fila][column].col
+                if (this.esIgual(this.casilleros[fila][col], ficha))
+                    c++
+            }
+        }
+
+        let aux  = casillero.col
+        for (let fila = casillero.fila; fila >= 0 && aux < this.columnas; fila--, aux++) {
+            if (this.esIgual(this.casilleros[fila][aux], ficha))
+                c++
+        }
+
+        if (c==this.cantFichasWin)
+            alert(this.cantFichasWin +" en línea (En diagonal)")
+    }
+
+    checkDiagonalInvertida(ficha, casillero) {
+        let col = casillero.col
+        let c =-1
+        if (casillero.fila != this.filas - 1) {
+            let fila = casillero.fila
+            for (let column= casillero.col; column <this.columnas && fila < this.filas; column++, fila++) {
+                col = this.casilleros[fila][column].col
+                if (this.esIgual(this.casilleros[fila][col], ficha))
+                    c++
+            }
+        }
+
+        let aux  = casillero.col
+        for (let fila = casillero.fila; fila >= 0 && aux >=0; fila--, aux--) {
+            if (this.esIgual(this.casilleros[fila][aux], ficha))
+                c++
+        }
+
+        if (c==this.cantFichasWin)
+            alert(this.cantFichasWin +" en línea (En diagonal invertida)")
+    }
+
+    esIgual(sigCasillero, fichaAPoner) {
+        return sigCasillero.getJugador().getColor() == fichaAPoner.getColor()
+    }
+
     
 
     crearFichaGrupo(img, color, startX) {
@@ -253,14 +339,13 @@ export class Tablero {
     }
 
     esTuTurno(ficha){
-        console.log(this.arrFichas)
        return this.turno == this.turnos[ficha.getColor()]  
 
     }
     dibujarFichas() {
         // Recorre todas las fichas en arrFichas y las dibuja en sus posiciones actuales
         this.arrFichas.forEach(ficha => {
-            if (ficha.ubicada) {  // Solo dibuja las fichas que ya están ubicadas
+            if (ficha.ubicada) {  
                 ficha.draw();
             }
         });

@@ -87,82 +87,58 @@ document.addEventListener('DOMContentLoaded', () => {
         }
 
         function onMouseDown(e) {
-            // Inicializa la variable para la figura que se ha clickeado
-            let clickFig;
-            
-            // Obtiene las coordenadas del canvas en relación con la ventana del navegador
+            let clickFig
             let rect = ctx.canvas.getBoundingClientRect();
-            // Calcula la posición del clic en el canvas restando las coordenadas del canvas a las del clic
             let canvasX = e.clientX - rect.left;
             let canvasY = e.clientY - rect.top;
-        
-            // Verifica si el juego no ha comenzado; si es así, permite seleccionar un modo de juego
+
+
+            //Si todavia no empecé un juego: 
             if (!inGame) {
-                // Llama a la función findClickedFigure para determinar si se ha hecho clic en un botón de modo
-                let clickedMode = findClickedFigure(canvasX, canvasY, btns);
-                
-                // Si se ha clickeado en un modo de juego, se selecciona el modo correspondiente
-                if (clickedMode) elegirModo(clickedMode.getTextoBoton()[0]);
-            } 
-            // Si el juego ya ha comenzado, se habilita la funcionalidad de arrastre de fichas
+                let clickedMode = findClickedFigure(canvasX, canvasY, btns)
+                if (clickedMode)
+                    elegirModo(clickedMode.getTextoBoton()[0])
+            }
+
+            //Si ya estoy en juego y quiero arrastrar una ficha:
             else {
-                // Previene el comportamiento predeterminado del evento
                 e.preventDefault();
-                // Indica que el botón del ratón está presionado
                 isMouseDown = true;
-                // Reinicia la variable para la última figura clickeada a null
-                lastClickedFigure = null;
-        
-                // Busca la figura que se ha clickeado en el tablero
+                if (lastClickedFigure)
+                    lastClickedFigure = null;
+
                 clickFig = findClickedFigure(e.clientX, e.clientY, tablero.arrFichas);
-                
-                // Verifica si se ha clickeado en una figura que no está ubicada y si es el turno del jugador
-                if (clickFig && !clickFig.ubicada && tablero.esTuTurno(clickFig)) {
-                    // Almacena la figura clickeada como la última figura clickeada
+                if (clickFig && !clickFig.ubicada && tablero.esTuTurno(clickFig) ) {
                     lastClickedFigure = clickFig;
                 }
             }
-            // Devuelve la figura clickeada (puede ser undefined si no hay figura)
-            return clickFig;
-        }        
+            return clickFig
+        }
 
-        function onMouseMove(e) {    
-            e.preventDefault(); // Previene el comportamiento predeterminado del evento
-            
-            // Verifica si el botón del ratón está presionado y hay una figura seleccionada
-            if (isMouseDown && lastClickedFigure) {
-                // Obtiene las coordenadas del canvas en relación con la ventana del navegador
+
+        function onMouseMove(e) {          
+            e.preventDefault();
+            if (isMouseDown && lastClickedFigure ) {
                 let rect = tablero.ctx.canvas.getBoundingClientRect();
-                // Calcula la nueva posición del ratón en el canvas restando las coordenadas del canvas a las del clic
                 let canvasX = e.clientX - rect.left;
                 let canvasY = e.clientY - rect.top;
-        
-                // Establece la nueva posición de la figura seleccionada en las coordenadas del ratón
+
                 lastClickedFigure.setPos(canvasX, canvasY);
-                // Redibuja el tablero para reflejar la nueva posición de las fichas
                 tablero.dibujarTablero();
-                // Dibuja las figuras en su nueva posición
                 drawFigures();
             }
         }
-        
 
         function onMouseUp(e) {
-            // Obtiene las coordenadas del canvas en relación con la ventana del navegador
             let rect = ctx.canvas.getBoundingClientRect();
-            // Calcula la posición final en el canvas donde se suelta el mouse
             let canvasX = e.clientX - rect.left;
-        
-            e.preventDefault(); // Previene el comportamiento predeterminado del evento
-        
-            // Verifica si hay una figura seleccionada que se ha clickeado anteriormente
+
+            e.preventDefault();
             if (lastClickedFigure != undefined) {
-                // Coloca la ficha en la posición final en el tablero utilizando la figura clickeada
-                tablero.ponerFicha(lastClickedFigure, canvasX);
-                // Dibuja las figuras en el tablero después de haber colocado la ficha
-                drawFigures();
+
+                tablero.ponerFicha(lastClickedFigure, canvasX)
+                drawFigures()
             }
-            // Indica que el botón del ratón ha sido soltado, finalizando la acción de arrastre
             isMouseDown = false;
         }
         
@@ -177,25 +153,23 @@ document.addEventListener('DOMContentLoaded', () => {
         }
 
         function elegirModo(modo) {
-             // Configura el tablero según el modo de juego seleccionado
             switch (modo) {
                 case '4':
-                    tablero = new Tablero(ctx, 6, 7, 20, 60, 80.5, 158, 95);
+                    tablero = new Tablero(ctx, 6, 7, 20, 60, 80.5, 158, 95, 4);
                     break;
                 case '5':
-                    tablero = new Tablero(ctx, 7, 8, 20, 55, 65, 180, 75);
+                    tablero = new Tablero(ctx, 7, 8, 20, 55, 65, 180, 75,5);
                     break;
 
                 case '6':
-                    tablero = new Tablero(ctx, 8, 9, 18, 50, 62, 160, 75);
+                    tablero = new Tablero(ctx, 8, 9, 18, 50, 62, 160, 75,6);
                     break;
 
                 case '7':
-                    tablero = new Tablero(ctx, 9, 10, 17, 50, 55, 160, 100);
+                    tablero = new Tablero(ctx, 9, 10, 17, 50, 55, 160, 100,7);
                     break;
 
                 default:
-                    console.log("Modo no válido");
                     break;
 
             }
