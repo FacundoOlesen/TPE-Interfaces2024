@@ -33,34 +33,26 @@ document.addEventListener('DOMContentLoaded', () => {
 
 
 
-        // Llama a la función que dibuja la pantalla de bienvenida del juego
         dibujarBienvenidaJuego();
 
         function dibujarBienvenidaJuego() {
-            // Crea una nueva imagen para usar como fondo de la pantalla de bienvenida
             let fondoJuego = new Image();
             fondoJuego.src = "./img/fondocasillero.jpg";
 
-            // Ejecuta esta función una vez que la imagen de fondo se ha cargado completamente
             fondoJuego.onload = function () {
-                // Limpia el canvas antes de dibujar
                 ctx.clearRect(0, 0, ctx.canvas.width, ctx.canvas.height);
 
-                // Dibuja la imagen de fondo en todo el área del canvas
                 ctx.drawImage(fondoJuego, 0, 0, ctx.canvas.width, ctx.canvas.height);
 
-                // Dibuja una capa semitransparente sobre el fondo para resaltar el texto y los botones
                 ctx.fillStyle = "rgba(0, 0, 0, 0.8)";
                 ctx.fillRect(0, 0, ctx.canvas.width, ctx.canvas.height);
 
-                // Configura la alineación y posición del texto
                 ctx.textAlign = 'center';
                 ctx.textBaseline = 'center';
 
-                // Crea y dibuja los botones de selección de modo de juego y los agrega a la lista btns
                 let btn4Enlinea = new Boton(ctx, 300, 60, "4 en línea", 200, 60);
                 btn4Enlinea.dibujar();
-                btns.push(btn4Enlinea); // Agrega el botón a la lista de botones
+                btns.push(btn4Enlinea);
 
                 let btn5Enlinea = new Boton(ctx, 300, 160, "5 en línea", 200, 60);
                 btn5Enlinea.dibujar();
@@ -77,63 +69,48 @@ document.addEventListener('DOMContentLoaded', () => {
         }
 
         function drawFigures() {
-            // Dibuja todas las figuras en el tablero
             for (let i = 0; i < tablero.arrFichas.length; i++) {
                 tablero.arrFichas[i].draw();
             }
         }
 
-        // Función para manejar el evento de "mouse down" (clic del ratón)
         function onMouseDown(e) {
             let clickFig;
-            let rect = ctx.canvas.getBoundingClientRect(); // Obtenemos las coordenadas del canvas
-            let canvasX = e.clientX - rect.left; // Coordenada X del clic en el canvas
-            let canvasY = e.clientY - rect.top; // Coordenada Y del clic en el canvas
+            let rect = ctx.canvas.getBoundingClientRect();
+            let canvasX = e.clientX - rect.left;
+            let canvasY = e.clientY - rect.top;
 
-            // Si el juego aún no ha empezado
             if (!inGame) {
-                // Detecta si se ha hecho clic en algún botón de modo de juego
                 let clickedMode = findClickedFigure(canvasX, canvasY, btns);
                 if (clickedMode) {
-                    // Si se ha clickeado en un botón, selecciona el modo de juego
                     elegirModo(clickedMode.getTextoBoton()[0]);
                 }
             }
-            // Si el juego ya ha comenzado y se desea arrastrar una ficha
             else {
                 e.preventDefault();
-                isMouseDown = true; // Marcamos que se está manteniendo presionado el ratón
+                isMouseDown = true;
 
-                // Restablece la última figura seleccionada
-                if (lastClickedFigure) {
+                if (lastClickedFigure)
                     lastClickedFigure = null;
-                }
 
-                // Detecta si se ha hecho clic en alguna ficha
                 clickFig = findClickedFigure(e.clientX, e.clientY, tablero.arrFichas);
-                // Si se ha seleccionado una ficha, no está ubicada y es el turno correspondiente
                 if (clickFig && !clickFig.ubicada && tablero.esTuTurno(clickFig)) {
                     lastClickedFigure = clickFig;
                     helperPos = lastClickedFigure.getPos()
-                    // Marca la ficha seleccionada como la última
                 }
             }
-            return clickFig; // Retorna la figura seleccionada (si la hay)
+            return clickFig;
         }
 
-        // Función para manejar el evento de "mouse move" (movimiento del ratón)
         function onMouseMove(e) {
             e.preventDefault();
-            // Si el ratón está presionado y hay una figura seleccionada
             if (isMouseDown && lastClickedFigure) {
-                let rect = tablero.ctx.canvas.getBoundingClientRect(); // Obtenemos las coordenadas del canvas
-                let canvasX = e.clientX - rect.left; // Coordenada X del ratón en el canvas
-                let canvasY = e.clientY - rect.top; // Coordenada Y del ratón en el canvas
+                let rect = tablero.ctx.canvas.getBoundingClientRect();
+                let canvasX = e.clientX - rect.left;
+                let canvasY = e.clientY - rect.top;
 
-                // Actualiza la posición de la figura seleccionada
                 lastClickedFigure.setPos(canvasX, canvasY);
 
-                // Redibuja el tablero y las figuras para mostrar la nueva posición
                 tablero.dibujarTablero();
                 drawFigures();
             }
@@ -192,13 +169,10 @@ document.addEventListener('DOMContentLoaded', () => {
             inGame = true
         }
 
-        // Activa la función onMouseDown al presionar el ratón sobre el canvas
         canvas.addEventListener('mousedown', onMouseDown, false);
 
-        // Activa onMouseMove al mover el ratón mientras está presionado
         canvas.addEventListener('mousemove', onMouseMove, false);
 
-        // Activa onMouseUp al soltar el botón del ratón
         canvas.addEventListener('mouseup', onMouseUp, false);
     });
 });

@@ -173,7 +173,7 @@ export class Tablero {
                     c.setOcupado(true)
                     c.setJugador(ficha)
                     this.turno == 0 ? this.turno = 1 : this.turno = 0
-                    this.dibujarTablero(); this.checkDiagonal(ficha, c)
+                    this.checkDiagonal(ficha, c)
                     this.checkDiagonalInvertida(ficha, c)
                     this.checkVertical(ficha, c)
                     this.checkHorizontal(ficha, c)
