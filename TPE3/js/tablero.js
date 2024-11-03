@@ -99,15 +99,16 @@ export class Tablero {
     }
 
     reiniciarTablero(){
+        this.arrFichas = [];
         this.dibujarTablero();
         this.addCasilleros();
         this.turno = 0
         this.turnos = {};
-
+        clearInterval(this.intervaloTemporizador);
         //temporizador
         this.tiempoMaximoTurno = 20;
         this.tiempoRestente = this.tiempoMaximoTurno;
-        this.intervaloTemporizador = null;
+        
 
         this.iniciarTemporizador();
     }
