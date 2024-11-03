@@ -1,5 +1,6 @@
 import { Circulo } from './circulo.js';
 import { Casillero } from './casillero.js';
+import { Boton } from './btn.js';
 
 let cellSize = 60;
 
@@ -18,7 +19,8 @@ export class Tablero {
         this.cantFichasWin = cantFichasWin
         this.fondoJuego = new Image();
         this.fondoJuego.src = "./img/fondocasillero.jpg";
-
+        this.botonDeReinicio;
+        
         // img para cada casillero
         this.fondoCasillero = new Image();
         this.fondoCasillero.src = "./img/fondotablero.jpg";
@@ -86,7 +88,28 @@ export class Tablero {
             }
         }
 
+        this.botonDeReinicio = new Boton(this.ctx, 710, 10, "Reinicio", 80, 50);
+        this.botonDeReinicio.dibujar();
+
         this.toggleCuadroTurno();
+    }
+
+    clicEnReinicio(x, y){
+        return this.botonDeReinicio.isPointInside(x, y);
+    }
+
+    reiniciarTablero(){
+        this.dibujarTablero();
+        this.addCasilleros();
+        this.turno = 0
+        this.turnos = {};
+
+        //temporizador
+        this.tiempoMaximoTurno = 20;
+        this.tiempoRestente = this.tiempoMaximoTurno;
+        this.intervaloTemporizador = null;
+
+        this.iniciarTemporizador();
     }
 
     dibujarTemporizador() {

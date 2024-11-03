@@ -98,6 +98,11 @@ document.addEventListener('DOMContentLoaded', () => {
                     lastClickedFigure = clickFig;
                     helperPos = lastClickedFigure.getPos()
                 }
+
+                if(tablero.clicEnReinicio(canvasX, canvasY)){
+                    tablero.reiniciarTablero();
+                    tablero.cargarFichas(ctx);
+                }
             }
             return clickFig;
         }
