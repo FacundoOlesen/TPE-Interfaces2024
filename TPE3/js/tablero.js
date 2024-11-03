@@ -166,25 +166,33 @@ export class Tablero {
     ponerFicha(ficha, x, y) {
         for (let fila = this.filas - 1; fila >= 0; fila--) {
             for (let col = this.columnas - 1; col >= 0; col--) {
-                let c = this.casilleros[fila][col]
+                let c = this.casilleros[fila][col];
                 if (x > c.x - c.radius && x < c.x + c.radius && y <= 90 && !c.ocupado) {
-                    ficha.setPos(c.x, c.y)
-                    ficha.ubicada = true
-                    c.setOcupado(true)
-                    c.setJugador(ficha)
-                    this.turno == 0 ? this.turno = 1 : this.turno = 0
-                    this.checkDiagonal(ficha, c)
-                    this.checkDiagonalInvertida(ficha, c)
-                    this.checkVertical(ficha, c)
-                    this.checkHorizontal(ficha, c)
-                    this.iniciarTemporizador();
+                    // Colocamos la ficha y actualizamos su estado
+                    ficha.setPos(c.x, c.y);
+                    ficha.ubicada = true;
+                    c.setOcupado(true);
+                    c.setJugador(ficha);
+                    
+                    // Dibujar la ficha en el tablero antes de verificar la victoria
                     this.dibujarTablero();
+    
+                    // Cambiar el turno antes de verificar la victoria
+                    this.turno = this.turno === 0 ? 1 : 0;
+                    this.iniciarTemporizador();
+    
+                    // Ahora verificamos si esta jugada causa una victoria
+                    this.checkDiagonal(ficha, c);
+                    this.checkDiagonalInvertida(ficha, c);
+                    this.checkVertical(ficha, c);
+                    this.checkHorizontal(ficha, c);
+    
                     return;
                 }
             }
         }
     }
-
+    
 
 
     checkVertical(ficha, casillero) {
@@ -194,9 +202,10 @@ export class Tablero {
                 c++
             else c = 0
             if (c == this.cantFichasWin) {
-                alert(this.cantFichasWin + " en línea (En vertical)")
-                return
+                this.mostrarGanador(this.turno);
+                return;
             }
+            
         }
     }
 
@@ -207,9 +216,12 @@ export class Tablero {
                 c++
             else c = 0
             if (c == this.cantFichasWin) {
-                alert(this.cantFichasWin + " en línea (En horizontal)")
-                return
+                this.mostrarGanador(this.turno);
+                return;
             }
+            
+            
+            
         }
     }
 
@@ -231,8 +243,11 @@ export class Tablero {
                 c++
         }
 
-        if (c == this.cantFichasWin)
-            alert(this.cantFichasWin + " en línea (En diagonal)")
+        if (c == this.cantFichasWin) {
+            this.mostrarGanador(this.turno);
+            return;
+        }
+        
     }
 
     checkDiagonalInvertida(ficha, casillero) {
@@ -253,14 +268,31 @@ export class Tablero {
                 c++
         }
 
-        if (c == this.cantFichasWin)
-            alert(this.cantFichasWin + " en línea (En diagonal invertida)")
-    }
+        if (c == this.cantFichasWin) {
+            this.mostrarGanador(this.turno);
+            return;
+        }}
+        
 
     esIgual(sigCasillero, fichaAPoner) {
         return sigCasillero.getJugador().getColor() == fichaAPoner.getColor()
     }
+    mostrarGanador(jugador) {
+        // hacemos que el fondo se haga oscuro
+        this.ctx.fillStyle = 'rgba(0, 0, 0, 0.8)';
+        this.ctx.fillRect(0, 0, this.ctx.canvas.width, this.ctx.canvas.height);
 
+        this.ctx.fillStyle = 'white';
+        this.ctx.font = "bold 38px 'Nunito', sans-serif";
+        this.ctx.textAlign = 'center';
+    
+        const mensaje = `¡Jugador ${jugador + 1} ha ganado!`;
+        this.ctx.fillText(mensaje, this.ctx.canvas.width / 2, this.ctx.canvas.height / 2);
+    
+        clearInterval(this.intervaloTemporizador);
+    }
+    
+    
 
 
     crearFichaGrupo(img, color, startX) {
