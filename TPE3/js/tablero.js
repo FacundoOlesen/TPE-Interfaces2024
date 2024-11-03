@@ -143,7 +143,7 @@ export class Tablero {
                 const x = this.offsetX + col * this.espColumnas;
                 const y = this.offsetY + fila * this.espFilas;
                 const casillero = new Casillero(this.ctx, x, y, this.fichaRadio, 'white', fila, col);
-                this.casilleros[fila][col] = casillero
+                this.casilleros[fila][col] = casillero;
             }
         }
     }
@@ -158,7 +158,7 @@ export class Tablero {
         Promise.all(fichasImg).then(([ferrariImg, williamsImg]) => {
             this.crearFichaGrupo(ferrariImg, 'red', 20);
             this.crearFichaGrupo(williamsImg, 'lightblue', 720);
-            this.cargarTurnos()
+            this.cargarTurnos();
         });
 
     }
@@ -166,17 +166,17 @@ export class Tablero {
     ponerFicha(ficha, x, y) {
         for (let fila = this.filas - 1; fila >= 0; fila--) {
             for (let col = this.columnas - 1; col >= 0; col--) {
-                let c = this.casilleros[fila][col]
+                let c = this.casilleros[fila][col];
                 if (x > c.x - c.radius && x < c.x + c.radius && y <= 90 && !c.ocupado) {
-                    ficha.setPos(c.x, c.y)
-                    ficha.ubicada = true
-                    c.setOcupado(true)
-                    c.setJugador(ficha)
-                    this.turno == 0 ? this.turno = 1 : this.turno = 0
-                    this.checkDiagonal(ficha, c)
-                    this.checkDiagonalInvertida(ficha, c)
-                    this.checkVertical(ficha, c)
-                    this.checkHorizontal(ficha, c)
+                    ficha.setPos(c.x, c.y);
+                    ficha.ubicada = true;
+                    c.setOcupado(true);
+                    c.setJugador(ficha);
+                    this.turno == 0 ? this.turno = 1 : this.turno = 0;
+                    this.checkDiagonal(ficha, c);
+                    this.checkDiagonalInvertida(ficha, c);
+                    this.checkVertical(ficha, c);
+                    this.checkHorizontal(ficha, c);
                     this.iniciarTemporizador();
                     this.dibujarTablero();
                     return;
@@ -191,74 +191,74 @@ export class Tablero {
         let c = 0
         for (let filas = this.filas - 1; filas >= 0; filas--) {
             if (this.esIgual(this.casilleros[filas][casillero.col], ficha))
-                c++
+                c++;
             else c = 0
             if (c == this.cantFichasWin) {
-                alert(this.cantFichasWin + " en línea (En vertical)")
-                return
+                alert(this.cantFichasWin + " en línea (En vertical)");
+                return;
             }
         }
     }
 
     checkHorizontal(ficha, casillero) {
-        let c = 0
+        let c = 0;
         for (let col = this.columnas - 1; col >= 0; col--) {
             if (this.esIgual(this.casilleros[casillero.fila][col], ficha))
-                c++
+                c++;
             else c = 0
             if (c == this.cantFichasWin) {
-                alert(this.cantFichasWin + " en línea (En horizontal)")
-                return
+                alert(this.cantFichasWin + " en línea (En horizontal)");
+                return;
             }
         }
     }
 
     checkDiagonal(ficha, casillero) {
-        let col = casillero.col
-        let c = -1
+        let col = casillero.col;
+        let c = -1;
         if (casillero.fila != this.filas - 1) {
-            let fila = casillero.fila
+            let fila = casillero.fila;
             for (let column = casillero.col; column >= 0 && fila < this.filas; column--, fila++) {
-                col = this.casilleros[fila][column].col
+                col = this.casilleros[fila][column].col;
                 if (this.esIgual(this.casilleros[fila][col], ficha))
-                    c++
+                    c++;
             }
         }
 
         let aux = casillero.col
         for (let fila = casillero.fila; fila >= 0 && aux < this.columnas; fila--, aux++) {
             if (this.esIgual(this.casilleros[fila][aux], ficha))
-                c++
+                c++;
         }
 
         if (c == this.cantFichasWin)
-            alert(this.cantFichasWin + " en línea (En diagonal)")
+            alert(this.cantFichasWin + " en línea (En diagonal)");
     }
 
     checkDiagonalInvertida(ficha, casillero) {
-        let col = casillero.col
-        let c = -1
+        let col = casillero.col;
+        let c = -1;
         if (casillero.fila != this.filas - 1) {
-            let fila = casillero.fila
+            let fila = casillero.fila;
             for (let column = casillero.col; column < this.columnas && fila < this.filas; column++, fila++) {
-                col = this.casilleros[fila][column].col
+                col = this.casilleros[fila][column].col;
                 if (this.esIgual(this.casilleros[fila][col], ficha))
-                    c++
+                    c++;
             }
         }
 
         let aux = casillero.col
         for (let fila = casillero.fila; fila >= 0 && aux >= 0; fila--, aux--) {
             if (this.esIgual(this.casilleros[fila][aux], ficha))
-                c++
+                c++;
         }
 
         if (c == this.cantFichasWin)
-            alert(this.cantFichasWin + " en línea (En diagonal invertida)")
+            alert(this.cantFichasWin + " en línea (En diagonal invertida)");
     }
 
     esIgual(sigCasillero, fichaAPoner) {
-        return sigCasillero.getJugador().getColor() == fichaAPoner.getColor()
+        return sigCasillero.getJugador().getColor() == fichaAPoner.getColor();
     }
 
 
@@ -337,7 +337,7 @@ export class Tablero {
     }
 
     esTuTurno(ficha) {
-        return this.turno == this.turnos[ficha.getColor()]
+        return this.turno == this.turnos[ficha.getColor()];
 
     }
     dibujarFichas() {

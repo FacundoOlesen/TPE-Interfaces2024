@@ -96,7 +96,7 @@ document.addEventListener('DOMContentLoaded', () => {
                 clickFig = findClickedFigure(e.clientX, e.clientY, tablero.arrFichas);
                 if (clickFig && !clickFig.ubicada && tablero.esTuTurno(clickFig)) {
                     lastClickedFigure = clickFig;
-                    helperPos = lastClickedFigure.getPos()
+                    helperPos = lastClickedFigure.getPos();
                 }
             }
             return clickFig;
@@ -125,10 +125,10 @@ document.addEventListener('DOMContentLoaded', () => {
             if (lastClickedFigure != undefined) {
                 tablero.ponerFicha(lastClickedFigure, canvasX, canvasY)
                 if (!lastClickedFigure.ubicada) {
-                    lastClickedFigure.setPos(helperPos.x, helperPos.y)
-                    tablero.dibujarTablero()
+                    lastClickedFigure.setPos(helperPos.x, helperPos.y);
+                    tablero.dibujarTablero();
                 }
-                drawFigures()
+                drawFigures();
             }
             isMouseDown = false;
         }
