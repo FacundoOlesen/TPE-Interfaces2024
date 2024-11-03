@@ -225,7 +225,7 @@ export class Tablero {
                 c++
             else c = 0
             if (c == this.cantFichasWin) {
-                this.mostrarGanador(this.turno);//mostramos ganador
+                this.mostrarGanador(this.turno ? 1 : 2);//mostramos ganador
                 return;
             }
             
@@ -239,7 +239,7 @@ export class Tablero {
                 c++
             else c = 0
             if (c == this.cantFichasWin) {
-                this.mostrarGanador(this.turno);
+                this.mostrarGanador(this.turno ? 1 : 2);
                 return;
             }
             
@@ -267,7 +267,7 @@ export class Tablero {
         }
 
         if (c == this.cantFichasWin) {
-            this.mostrarGanador(this.turno);
+            this.mostrarGanador(this.turno ? 1 : 2);
             return;
         }
         
@@ -292,7 +292,7 @@ export class Tablero {
         }
 
         if (c == this.cantFichasWin) {
-            this.mostrarGanador(this.turno);
+            this.mostrarGanador(this.turno ? 1 : 2);
             return;
         }}
         
