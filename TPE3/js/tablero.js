@@ -20,6 +20,7 @@ export class Tablero {
         this.fondoJuego = new Image();
         this.fondoJuego.src = "./img/fondocasillero.jpg";
         this.botonDeReinicio;
+        this.ganadorMostrado = false;
         
         // img para cada casillero
         this.fondoCasillero = new Image();
@@ -108,7 +109,7 @@ export class Tablero {
         //temporizador
         this.tiempoMaximoTurno = 20;
         this.tiempoRestente = this.tiempoMaximoTurno;
-        
+        this.ganadorMostrado = false;
 
         this.iniciarTemporizador();
     }
@@ -217,8 +218,6 @@ export class Tablero {
         }
     }
     
-
-
     checkVertical(ficha, casillero) {
         let c = 0
         for (let filas = this.filas - 1; filas >= 0; filas--) {
@@ -302,23 +301,28 @@ export class Tablero {
         return sigCasillero.getJugador().getColor() == fichaAPoner.getColor()
     }
     mostrarGanador(jugador) {
-        // hacemos que el fondo se haga oscuro
-        this.ctx.fillStyle = 'rgba(0, 0, 0, 0.8)';
-        this.ctx.fillRect(0, 0, this.ctx.canvas.width, this.ctx.canvas.height);
-
+        if (this.ganadorMostrado) return; 
+    
+        const x = this.offsetX - 40; 
+        const y = this.offsetY - 30; 
+        const anchoCasilleros = this.columnas * this.espColumnas; 
+        const altoCasilleros = this.filas * this.espFilas; 
+    
+        this.ctx.fillStyle = 'rgba(0, 0, 0, 0.9)';
+        this.ctx.fillRect(x, y, anchoCasilleros, altoCasilleros);
+    
         this.ctx.fillStyle = 'white';
         this.ctx.font = "bold 38px 'Nunito', sans-serif";
         this.ctx.textAlign = 'center';
     
-        const mensaje = `¡Jugador ${jugador + 1} ha ganado!`;
-        this.ctx.fillText(mensaje, this.ctx.canvas.width / 2, this.ctx.canvas.height / 2);
+        const yTexto = y + altoCasilleros + 40; 
+    
+        const mensaje = `¡Jugador ${jugador} ha ganado!`;
+        this.ctx.fillText(mensaje, x + anchoCasilleros / 2, yTexto);
     
         clearInterval(this.intervaloTemporizador);
+        this.ganadorMostrado = true; 
     }
-    
-    
-
-
     crearFichaGrupo(img, color, startX) {
         let posX = startX + cellSize / 2;
         let posY = 200;
