@@ -82,7 +82,7 @@ export class Tablero {
 
         for (let fila = 0; fila < this.filas; fila++) {
             for (let col = 0; col < this.columnas; col++) {
-                this.casilleros[fila][col].draw()
+                this.casilleros[fila][col].draw();
             }
         }
 
@@ -205,7 +205,7 @@ export class Tablero {
         for (let col = this.columnas - 1; col >= 0; col--) {
             if (this.esIgual(this.casilleros[casillero.fila][col], ficha))
                 c++;
-            else c = 0
+            else c = 0;
             if (c == this.cantFichasWin) {
                 alert(this.cantFichasWin + " en línea (En horizontal)");
                 return;
@@ -325,7 +325,7 @@ export class Tablero {
     }
 
     toggleCuadroTurno() {
-        let colorTurno = 'rgba(66, 16, 244, 0.8)'
+        let colorTurno = 'rgba(66, 16, 244, 0.8)';
         if (this.turno == 0) {
             this.dibujarCuadroGrupo(720 + cellSize / 2, 230, '2', 'rgba(0, 0, 0, 0.8)');
             this.dibujarCuadroGrupo(20 + cellSize / 2, 230, '1', colorTurno);
