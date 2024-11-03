@@ -10,19 +10,19 @@ export class Casillero extends Circulo {
     }
 
     setOcupado(bool) {
-        this.ocupado = bool
+        this.ocupado = bool;
     }
 
     setJugador(jugador){
-        this.jugador=jugador
+        this.jugador=jugador;
     }
 
     getJugador(){
-        return this.jugador
+        return this.jugador;
     }
 
     getColor(){
-        return this.color
+        return this.color;
     }
 
 }
