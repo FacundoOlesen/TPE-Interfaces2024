@@ -202,7 +202,7 @@ export class Tablero {
                 c++
             else c = 0
             if (c == this.cantFichasWin) {
-                this.mostrarGanador(this.turno);
+                this.mostrarGanador(this.turno);//mostramos ganador
                 return;
             }
             
