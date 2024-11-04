@@ -76,7 +76,7 @@ document.addEventListener('DOMContentLoaded', () => {
                 ctx.textAlign = 'left';
                 ctx.fillText("Ficha jugador 1:", 50, 400);
 
-                const fichasImg = ["./img/ferrari.png", "./img/williams.png", "./img/mercedes.png", "./img/redbull.png","./img/renault.png","./img/alfaromeo.png"].map(src => {
+                const fichasImg = ["./img/ferrari.png", "./img/williams.png", "./img/ferrari2.png", "./img/williams2.png","./img/williams3.png","./img/ferrari3.png"].map(src => {
                     const img = new Image();
                     img.src = src;
                     return new Promise(resolve => (img.onload = () => resolve(img)));
