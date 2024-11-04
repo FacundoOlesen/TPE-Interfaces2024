@@ -32,6 +32,7 @@ export class Tablero {
         this.fondoJuego.onload = this.fondoCasillero.onload = () => {
             if (this.fondoJuego.complete && this.fondoCasillero.complete) {
                 this.dibujarTablero();
+                this.cargarFichas(this.ctx);
             }
         };
 
@@ -103,7 +104,6 @@ export class Tablero {
         this.botonDeReinicio.dibujar();
 
         this.toggleCuadroTurno();
-        this.cargarFichas(this.ctx);
     }
 
     clicEnReinicio(x, y){
