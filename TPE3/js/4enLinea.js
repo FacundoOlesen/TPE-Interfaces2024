@@ -232,15 +232,15 @@ document.addEventListener('DOMContentLoaded', () => {
                     tablero = new Tablero(ctx, 6, 7, 20, 60, 80.5, 158, 95, 4);
                     break;
                 case '5':
-                    tablero = new Tablero(ctx, 7, 8, 20, 55, 65, 180, 75, 5);
+                    tablero = new Tablero(ctx, 7, 8, 18, 50, 70, 158, 95, 5);
                     break;
 
                 case '6':
-                    tablero = new Tablero(ctx, 8, 9, 18, 50, 62, 160, 75, 6);
+                    tablero = new Tablero(ctx, 8, 9, 16, 43, 60, 160, 75, 6);
                     break;
 
                 case '7':
-                    tablero = new Tablero(ctx, 9, 10, 15, 45, 55, 160, 75, 7);
+                    tablero = new Tablero(ctx, 9, 10, 14, 38.5, 53, 160, 75, 7);
                     break;
 
                 default:
