@@ -411,6 +411,8 @@ export class Tablero {
     
         clearInterval(this.intervaloTemporizador);
         this.ganadorMostrado = true; 
+        this.toggleCuadroTurno('rgba(0, 0, 0, 120)')
+        this.turno = -1
     }
     crearFichaGrupo(img, color, startX) {
         let posX = startX + cellSize / 2;
@@ -474,8 +476,7 @@ export class Tablero {
         this.turnos[this.arrFichas[this.arrFichas.length - 1].getColor()] = 1;
     }
 
-    toggleCuadroTurno() {
-        let colorTurno = 'rgba(66, 16, 244, 0.8)'
+    toggleCuadroTurno(colorTurno = 'rgba(66, 16, 244, 0.8)') {
         if (this.turno == 0) {
             this.dibujarCuadroGrupo(720 + cellSize / 2, 230, '2', 'rgba(0, 0, 0, 0.8)');
             this.dibujarCuadroGrupo(20 + cellSize / 2, 230, '1', colorTurno);
