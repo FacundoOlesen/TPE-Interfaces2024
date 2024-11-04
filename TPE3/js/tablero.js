@@ -71,6 +71,7 @@ export class Tablero {
         const tableroY = this.offsetY - 30;
         const borderRadius = 20;
 
+
         // creamos un borde redondeado
         this.ctx.beginPath();
         this.ctx.moveTo(tableroX + borderRadius, tableroY);
@@ -100,11 +101,11 @@ export class Tablero {
             }
         }
         this.dibujarHints();
-
-
+        
+        
         this.botonDeReinicio = new Boton(this.ctx, 710, 10, "Reinicio", 80, 50);
         this.botonDeReinicio.dibujar();
-
+        
         this.toggleCuadroTurno();
     }
     dibujarHints() {
@@ -190,9 +191,11 @@ export class Tablero {
         clearInterval(this.intervaloTemporizador);
         this.turno = this.turno === 0 ? 1 : 0;
         this.iniciarTemporizador();
-
+        
         // redibuja el tablero cuando hay un cambio de turno
         this.dibujarTablero(true);
+        this.dibujarFichas()
+       
     }
 
     addCasilleros() {
