@@ -56,7 +56,7 @@ document.addEventListener('DOMContentLoaded', () => {
                 ctx.font = "bold 30px Arial"; // Configura el tamaño y estilo del título
                 ctx.fillStyle = "white"; // Color del título
                 ctx.fillText("Bienvenido al Juego", ctx.canvas.width / 2, 50); // Posición centrada
-
+                //creamos botones para elegir el modo de juego
                 let btn4Enlinea = new Boton(ctx, 300, 70, "4 en línea", 200, 60);
                 btn4Enlinea.dibujar();
                 btns.push(btn4Enlinea);
@@ -82,13 +82,13 @@ document.addEventListener('DOMContentLoaded', () => {
                     return new Promise(resolve => (img.onload = () => resolve(img)));
                 });
             
-                Promise.all(fichasImg).then(([ferrariImg, williamsImg, mercedesImg, redbullImg, renaultImg, alfaromeoImg]) => {
+                Promise.all(fichasImg).then(([ferrariImg, williamsImg, ferrari2, williams2, williams3, ferrari3]) => {
                     crearFichaJug(ctx,ferrariImg, 'red',300, 400,true);
                     crearFichaJug(ctx,williamsImg, 'lightblue',300, 455,true);
-                    crearFichaJug(ctx,mercedesImg, 'red',360, 400,false);
-                    crearFichaJug(ctx,redbullImg, 'lightblue',360, 455,false);
-                    crearFichaJug(ctx,renaultImg, 'lightblue',420, 455,false);
-                    crearFichaJug(ctx,alfaromeoImg, 'red',420, 400,false);
+                    crearFichaJug(ctx,ferrari2, 'red',360, 400,false);
+                    crearFichaJug(ctx,williams2, 'lightblue',360, 455,false);
+                    crearFichaJug(ctx,williams3, 'lightblue',420, 455,false);
+                    crearFichaJug(ctx,ferrari3, 'red',420, 400,false);
                 });
 
                 ctx.font = "bold 25px Arial";
