@@ -234,10 +234,9 @@ export class Tablero {
                     c.setJugador(ficha);
                     
                     // Dibujar la ficha en el tablero antes de verificar la victoria
-                    this.dibujarTablero();
     
                     // Cambiar el turno antes de verificar la victoria
-                    this.turno = this.turno === 0 ? 1 : 0;
+                    this.turno = this.turno == 0 ? 1 : 0;
                     this.iniciarTemporizador();
     
                     // Ahora verificamos si esta jugada causa una victoria
@@ -245,7 +244,8 @@ export class Tablero {
                     this.checkDiagonalInvertida(ficha, c);
                     this.checkVertical(ficha, c);
                     this.checkHorizontal(ficha, c);
-    
+                    this.dibujarTablero();
+
                     return;
                 }
             }
