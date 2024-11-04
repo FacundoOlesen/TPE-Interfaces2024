@@ -20,6 +20,7 @@ export class Tablero {
         this.fondoJuego = new Image();
         this.fondoJuego.src = "./img/fondocasillero.jpg";
         this.botonDeReinicio;
+        this.botonDeMenu;
         this.ganadorMostrado = false;
         this.imagenFicha1 = "./img/ferrari.png"; 
         this.imagenFicha2 = "./img/williams.png";
@@ -102,7 +103,9 @@ export class Tablero {
             }
         }
         
-        
+        this.botonDeMenu=new Boton(this.ctx, 710, 70, "Menú",80, 50);
+        this.botonDeMenu.dibujar();
+
         this.botonDeReinicio = new Boton(this.ctx, 710, 10, "Reinicio", 80, 50);
         this.botonDeReinicio.dibujar();
         
@@ -184,7 +187,9 @@ export class Tablero {
     
     
 
-    
+    clickEnMenu(x,y){
+        return this.botonDeMenu.isPointInside(x, y);
+    }
     
     clicEnReinicio(x, y){
         return this.botonDeReinicio.isPointInside(x, y);
