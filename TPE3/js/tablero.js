@@ -21,6 +21,9 @@ export class Tablero {
         this.fondoJuego.src = "./img/fondocasillero.jpg";
         this.botonDeReinicio;
         this.ganadorMostrado = false;
+        this.imagenFicha1 = "./img/ferrari.png"; 
+        this.imagenFicha2 = "./img/williams.png";
+
         
         // img para cada casillero
         this.fondoCasillero = new Image();
@@ -45,6 +48,13 @@ export class Tablero {
 
     }
 
+    setImagenFicha1(imagenFicha1){
+        this.imagenFicha1 = imagenFicha1;
+    }
+
+    setImagenFicha2(imagenFicha2){
+        this.imagenFicha2 = imagenFicha2;
+    }
 
     dibujarTablero() {
         this.ctx.clearRect(0, 0, this.ctx.canvas.width, this.ctx.canvas.height);
@@ -174,7 +184,7 @@ export class Tablero {
     }
 
     cargarFichas() {
-        const fichasImg = ["./img/ferrari.png", "./img/williams.png"].map(src => {
+        const fichasImg = [this.imagenFicha1, this.imagenFicha2].map(src => {
             const img = new Image();
             img.src = src;
             return new Promise(resolve => (img.onload = () => resolve(img)));

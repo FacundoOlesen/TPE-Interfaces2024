@@ -1,5 +1,6 @@
 import { Tablero } from './tablero.js';
 import { Boton } from './btn.js';
+import { Circulo } from './circulo.js';
 
 document.addEventListener('DOMContentLoaded', () => {
     //elementos de la presentación
@@ -11,10 +12,12 @@ document.addEventListener('DOMContentLoaded', () => {
     let tablero;
     let isMouseDown = false;
     let lastClickedFigure = null;
-
-
-    let inGame = false
-    let btns = []
+    let inGame = false;
+    let btns = [];
+    let fichasJug1 = [];
+    let fichasJug2 = [];
+    let fichaSelecJug1;
+    let fichaSelecJug2;
 
     let helperPos
     playButton.addEventListener('click', () => {
@@ -50,22 +53,68 @@ document.addEventListener('DOMContentLoaded', () => {
                 ctx.textAlign = 'center';
                 ctx.textBaseline = 'center';
 
-                let btn4Enlinea = new Boton(ctx, 300, 60, "4 en línea", 200, 60);
+                ctx.font = "bold 30px Arial"; // Configura el tamaño y estilo del título
+                ctx.fillStyle = "white"; // Color del título
+                ctx.fillText("Bienvenido al Juego", ctx.canvas.width / 2, 50); // Posición centrada
+
+                let btn4Enlinea = new Boton(ctx, 300, 70, "4 en línea", 200, 60);
                 btn4Enlinea.dibujar();
                 btns.push(btn4Enlinea);
 
-                let btn5Enlinea = new Boton(ctx, 300, 160, "5 en línea", 200, 60);
+                let btn5Enlinea = new Boton(ctx, 300, 140, "5 en línea", 200, 60);
                 btn5Enlinea.dibujar();
                 btns.push(btn5Enlinea);
 
-                let btn6Enlinea = new Boton(ctx, 300, 260, "6 en línea", 200, 60);
+                let btn6Enlinea = new Boton(ctx, 300, 210, "6 en línea", 200, 60);
                 btn6Enlinea.dibujar();
                 btns.push(btn6Enlinea);
-
-                let btn7Enlinea = new Boton(ctx, 300, 360, "7 en línea", 200, 60);
+                let btn7Enlinea = new Boton(ctx, 300, 280, "7 en línea", 200, 60);
                 btn7Enlinea.dibujar();
                 btns.push(btn7Enlinea);
+
+                ctx.font = "bold 25px Arial";
+                ctx.textAlign = 'left';
+                ctx.fillText("Ficha jugador 1:", 50, 400);
+
+                const fichasImg = ["./img/ferrari.png", "./img/williams.png", "./img/mercedes.png", "./img/redbull.png","./img/renault.png","./img/alfaromeo.png"].map(src => {
+                    const img = new Image();
+                    img.src = src;
+                    return new Promise(resolve => (img.onload = () => resolve(img)));
+                });
+            
+                Promise.all(fichasImg).then(([ferrariImg, williamsImg, mercedesImg, redbullImg, renaultImg, alfaromeoImg]) => {
+                    crearFichaJug(ctx,ferrariImg, 'red',300, 400,true);
+                    crearFichaJug(ctx,williamsImg, 'lightblue',300, 455,true);
+                    crearFichaJug(ctx,mercedesImg, 'red',360, 400,false);
+                    crearFichaJug(ctx,redbullImg, 'lightblue',360, 455,false);
+                    crearFichaJug(ctx,renaultImg, 'lightblue',420, 455,false);
+                    crearFichaJug(ctx,alfaromeoImg, 'red',420, 400,false);
+                });
+
+                ctx.font = "bold 25px Arial";
+                ctx.textAlign = 'left';
+                ctx.fillText("Ficha jugador 2:", 50, 455);
+
             };
+        }
+
+        function crearFichaJug(ctx,img, color,ejeX, ejeY,seleccionada){
+            const ficha = new Circulo(ctx, ejeX, ejeY, 20, color);
+            ficha.setImage(img.src);
+            ficha.setSeleccionada(seleccionada);
+            if(color=='red'){
+                fichasJug1.push(ficha);
+                if(seleccionada){
+                    fichaSelecJug1 = ficha.getRelativeSrc();
+                }
+            }
+            else{
+                fichasJug2.push(ficha);
+                if(seleccionada){
+                    fichaSelecJug2 = ficha.getRelativeSrc();
+                }
+            }
+            ficha.draw();
         }
 
         function drawFigures() {
@@ -84,6 +133,34 @@ document.addEventListener('DOMContentLoaded', () => {
                 let clickedMode = findClickedFigure(canvasX, canvasY, btns);
                 if (clickedMode) {
                     elegirModo(clickedMode.getTextoBoton()[0]);
+                }
+                else{
+                    let clickedfichaJug1 = findClickedFigure(e.clientX, e.clientY, fichasJug1);
+                    if (clickedfichaJug1) {
+                        fichasJug1.forEach(element => {
+                            if(element.getImage()==clickedfichaJug1.getImage()){
+                                element.setSeleccionada(true);
+                                fichaSelecJug1 = element.getRelativeSrc();
+                            }
+                            else
+                                element.setSeleccionada(false);
+                            element.draw();
+                        });
+                    }
+                    else{
+                        let clickedfichaJug2 = findClickedFigure(e.clientX, e.clientY, fichasJug2);
+                        if (clickedfichaJug2) {
+                            fichasJug2.forEach(element => {
+                                if(element.getImage()==clickedfichaJug2.getImage()){
+                                    element.setSeleccionada(true);
+                                    fichaSelecJug2 = element.getRelativeSrc();
+                                }
+                                else
+                                    element.setSeleccionada(false);
+                                element.draw();
+                            });
+                        }
+                    }
                 }
             }
             else {
@@ -170,6 +247,8 @@ document.addEventListener('DOMContentLoaded', () => {
                     break;
 
             }
+            tablero.setImagenFicha1(fichaSelecJug1);
+            tablero.setImagenFicha2(fichaSelecJug2);
             tablero.cargarFichas(ctx);
             inGame = true
         }

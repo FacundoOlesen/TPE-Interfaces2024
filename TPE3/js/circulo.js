@@ -6,14 +6,25 @@ export class Circulo {
         this.radius = radius;
         this.color = color;
         this.image = null;
+        this.relativeSrc=null;
         this.xInicial = x;
         this.yInicial = y;
-        this.ubicada=false
+        this.ubicada=false;
+        this.seleccionada=false;
     }
 
     setImage(src) {
         this.image = new Image();
         this.image.src = src;
+        this.relativeSrc = src; // Guarda la ruta relativa
+    }
+
+    getImage(){
+        return this.image.src;
+    }
+
+    getRelativeSrc(){
+        return this.relativeSrc;
     }
 
     clearCanvas() {
@@ -35,14 +46,16 @@ export class Circulo {
         else {
             borderColor = this.color;
         }
+        
+
 
         ctx.beginPath();
         ctx.arc(this.x, this.y, this.radius, 0, Math.PI * 2);
-        ctx.strokeStyle = borderColor;
+        ctx.strokeStyle = this.seleccionada ? '#bf930d' : borderColor;
         ctx.lineWidth = 10;
         ctx.stroke();
 
-        ctx.fillStyle = this.color;
+        ctx.fillStyle = this.seleccionada ? '#D4AF37' : this.color;
         ctx.fill();
 
         if (this.image && this.image.complete) {
@@ -97,5 +110,11 @@ export class Circulo {
         return Math.sqrt(_x * _x + _y * _y) < this.radius;
     }
     
-    
+    getSeleccionada(){
+        return this.seleccionada;
+    }
+
+    setSeleccionada(bool){
+        this.seleccionada=bool;
+    }
 }
