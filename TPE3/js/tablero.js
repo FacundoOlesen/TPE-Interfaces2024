@@ -293,7 +293,7 @@ export class Tablero {
                 let c = this.casilleros[fila][col];
                 if (x > c.x - c.radius && x < c.x + c.radius && y <= 90 && !c.ocupado) {
                     // Colocamos la ficha y actualizamos su estado
-                    this.efectoGravedad(ficha, c.x, c.y)
+                    this.efectoGravedad(ficha, c.x, c.y , c)
                     ficha.ubicada = true;
                     c.setOcupado(true);
                     c.setJugador(ficha);
@@ -306,10 +306,6 @@ export class Tablero {
                     this.dibujarTablero();
 
                     // Ahora verificamos si esta jugada causa una victoria
-                    this.checkDiagonal(ficha, c);
-                    this.checkDiagonalInvertida(ficha, c);
-                    this.checkVertical(ficha, c);
-                    this.checkHorizontal(ficha, c);
 
                     return;
                 }
@@ -317,9 +313,15 @@ export class Tablero {
         }
     }
 
+    winChecks(ficha, c){
+                    this.checkDiagonal(ficha, c);
+                    this.checkDiagonalInvertida(ficha, c);
+                    this.checkVertical(ficha, c);
+                    this.checkHorizontal(ficha, c);
+    }
    
 
-    efectoGravedad(ficha, x, y) {
+    efectoGravedad(ficha, x, y ,c) {
         const velocidadCaida = 5;
         const gravityEffect = () => {
             if (ficha.y < y) {
@@ -329,8 +331,12 @@ export class Tablero {
                 requestAnimationFrame(gravityEffect);
             }
 
-            else
+            else{
                 ficha.setPos(x, y)
+                this.drawFigures()
+                this.winChecks(ficha, c)
+
+            }
             
         };
         gravityEffect();
