@@ -112,7 +112,7 @@ export class Tablero {
 
     reiniciarTablero(){
         this.arrFichas = [];
-        this.dibujarTablero();
+        
         this.addCasilleros();
         this.turno = 0
         this.turnos = {};
@@ -123,6 +123,7 @@ export class Tablero {
         this.ganadorMostrado = false;
 
         this.iniciarTemporizador();
+        this.dibujarTablero();
     }
 
     dibujarTemporizador() {
