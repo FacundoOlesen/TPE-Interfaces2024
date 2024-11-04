@@ -241,13 +241,13 @@ export class Tablero {
                     // Cambiar el turno antes de verificar la victoria
                     this.turno = this.turno == 0 ? 1 : 0;
                     this.iniciarTemporizador();
-    
+                    this.dibujarTablero();
+
                     // Ahora verificamos si esta jugada causa una victoria
                     this.checkDiagonal(ficha, c);
                     this.checkDiagonalInvertida(ficha, c);
                     this.checkVertical(ficha, c);
                     this.checkHorizontal(ficha, c);
-                    this.dibujarTablero();
 
                     return;
                 }
