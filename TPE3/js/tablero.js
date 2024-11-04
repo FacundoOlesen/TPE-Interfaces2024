@@ -27,7 +27,7 @@ export class Tablero {
         
         // img para cada casillero
         this.fondoCasillero = new Image();
-        this.fondoCasillero.src = "./img/fondotablero.jpg";
+        this.fondoCasillero.src = "./img/fondotablero2.jpg";
 
         this.fondoJuego.onload = this.fondoCasillero.onload = () => {
             if (this.fondoJuego.complete && this.fondoCasillero.complete) {
@@ -62,8 +62,9 @@ export class Tablero {
 
         // dibujamos la imagen de fondo
         this.ctx.drawImage(this.fondoJuego, 0, 0, this.ctx.canvas.width, this.ctx.canvas.height);
-
         this.dibujarTemporizador();
+        this.dibujarHints();
+
 
         const tableroAncho = 560;
         const tableroAlto = 360;
@@ -100,7 +101,6 @@ export class Tablero {
                 this.casilleros[fila][col].draw()
             }
         }
-        this.dibujarHints();
         
         
         this.botonDeReinicio = new Boton(this.ctx, 710, 10, "Reinicio", 80, 50);
@@ -109,26 +109,78 @@ export class Tablero {
         this.toggleCuadroTurno();
     }
     dibujarHints() {
-        const hintColor = 'yellow'; 
+        const hintColor = 'yellow';
         const arrowHeight = 10;
-        const arrowWidth = 15; 
+        const arrowWidth = 15;
     
-        for (let col = 0; col < this.columnas; col++) {
-            // calculamos la posicion de las flechitas
-            const x = this.offsetX- 40 + col * this.espColumnas + this.espColumnas / 2; 
-            const y = this.offsetY - arrowHeight - 25; 
+        let opacity = 1; // Opacidad inicial para el parpadeo
+        let decreasing = true; // Controla el aumento/disminución de la opacidad
     
-            // dibujamos la flecha
-            this.ctx.fillStyle = hintColor;
+        const animateHints = () => {    
+            const hintWidth = 558; // Mantenemos el ancho del hint
+            const hintHeight = 20; // Altura del hint
+            const borderRadius = 20; // Radio de los bordes
+    
+            // Coordenadas del rectángulo de hints
+            const hintX = this.offsetX - 38;
+            const hintY = this.offsetY - 30;
+    
+            // Creando un fondo redondeado para el hint
             this.ctx.beginPath();
-
-            this.ctx.moveTo(x - arrowWidth / 2, y); //  izquierda
-            this.ctx.lineTo(x + arrowWidth / 2, y); //  derecha
-            this.ctx.lineTo(x, y + arrowHeight); // hacemos que la punta sea abajo
+            this.ctx.moveTo(hintX + borderRadius, hintY); // Esquina superior izquierda
+            this.ctx.lineTo(hintX + hintWidth - borderRadius, hintY); // Línea horizontal superior
+            this.ctx.arcTo(hintX + hintWidth, hintY, hintX + hintWidth, hintY + borderRadius, borderRadius); // Esquina superior derecha
+            this.ctx.lineTo(hintX + hintWidth, hintY + hintHeight); // Línea vertical derecha
+            this.ctx.arc(borderRadius + hintX, borderRadius + hintY, borderRadius, Math.PI, Math.PI * 1.5); // Esquina superior izquierda
             this.ctx.closePath();
+    
+            // Llenamos el fondo del hint
+            this.ctx.fillStyle = 'rgba(0, 0, 0, 0.8)';
             this.ctx.fill();
-        }
+    
+            // Dibuja el borde
+            this.ctx.lineWidth = 2;
+            this.ctx.strokeStyle = 'rgba(66, 16, 244, 0.1)'; // Color del borde
+            this.ctx.stroke();
+    
+            // Dibujar flechas
+            for (let col = 0; col < this.columnas; col++) {
+                const x = hintX + col * this.espColumnas + this.espColumnas / 2;
+                const y = this.offsetY - arrowHeight - 14;
+    
+                this.ctx.globalAlpha = opacity;
+                this.ctx.fillStyle = hintColor;
+    
+                // Dibujamos la flecha
+                this.ctx.beginPath();
+                this.ctx.moveTo(x - arrowWidth / 2, y);
+                this.ctx.lineTo(x + arrowWidth / 2, y);
+                this.ctx.lineTo(x, y + arrowHeight);
+                this.ctx.closePath();
+                this.ctx.fill();
+            }
+    
+            // Ajustamos la opacidad para la animación
+            if (decreasing) {
+                opacity -= 0.05;
+                if (opacity <= 0.3) decreasing = false;
+            } else {
+                opacity += 0.05;
+                if (opacity >= 1) decreasing = true;
+            }
+    
+            this.ctx.globalAlpha = 1; // Restauramos la opacidad
+    
+            requestAnimationFrame(animateHints);
+        };
+    
+        animateHints(); // Inicia la animación
     }
+    
+    
+
+    
+    
     clicEnReinicio(x, y){
         return this.botonDeReinicio.isPointInside(x, y);
     }
@@ -203,7 +255,7 @@ export class Tablero {
             this.casilleros[fila] = []
             for (let col = 0; col < this.columnas; col++) {
                 const x = this.offsetX + col * this.espColumnas;
-                const y = this.offsetY + fila * this.espFilas;
+                const y = this.offsetY + fila * this.espFilas+18;
                 const casillero = new Casillero(this.ctx, x, y, this.fichaRadio, 'white', fila, col);
                 this.casilleros[fila][col] = casillero
             }

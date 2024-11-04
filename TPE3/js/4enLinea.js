@@ -229,7 +229,7 @@ document.addEventListener('DOMContentLoaded', () => {
         function elegirModo(modo) {
             switch (modo) {
                 case '4':
-                    tablero = new Tablero(ctx, 6, 7, 20, 60, 80.5, 158, 95, 4);
+                    tablero = new Tablero(ctx, 6, 7, 19, 55, 80.5, 158, 95, 4);
                     break;
                 case '5':
                     tablero = new Tablero(ctx, 7, 8, 18, 50, 70, 158, 95, 5);
