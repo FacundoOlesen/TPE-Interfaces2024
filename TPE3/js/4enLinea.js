@@ -20,6 +20,7 @@ document.addEventListener('DOMContentLoaded', () => {
     let fichaSelecJug2;
 
     let helperPos
+    //cuando se hace click en playButton inicia el juego
     playButton.addEventListener('click', () => {
         //ocultar elementos de la presentación
         playButton.style.display = 'none';
@@ -52,10 +53,12 @@ document.addEventListener('DOMContentLoaded', () => {
 
                 ctx.textAlign = 'center';
                 ctx.textBaseline = 'center';
-
-                ctx.font = "bold 30px Arial"; // Configura el tamaño y estilo del título
-                ctx.fillStyle = "white"; // Color del título
-                ctx.fillText("Bienvenido al Juego", ctx.canvas.width / 2, 50); // Posición centrada
+                // Configura el tamaño y estilo del título
+                ctx.font = "bold 30px Arial"; 
+                // Color del título
+                tx.fillStyle = "white"; 
+                // Posición centrada
+                ctx.fillText("Bienvenido al Juego", ctx.canvas.width / 2, 50); 
                 //creamos botones para elegir el modo de juego
                 let btn4Enlinea = new Boton(ctx, 300, 70, "4 en línea", 200, 60);
                 btn4Enlinea.dibujar();
@@ -81,7 +84,8 @@ document.addEventListener('DOMContentLoaded', () => {
                     img.src = src;
                     return new Promise(resolve => (img.onload = () => resolve(img)));
                 });
-            
+                //esperamos a que se carguen todas las img antes de crear las fichas,
+                //una vez cargadas, se crean las fichas 
                 Promise.all(fichasImg).then(([ferrariImg, williamsImg, ferrari2, williams2, williams3, ferrari3]) => {
                     crearFichaJug(ctx,ferrariImg, 'red',300, 400,true);
                     crearFichaJug(ctx,williamsImg, 'lightblue',300, 455,true);
@@ -97,7 +101,8 @@ document.addEventListener('DOMContentLoaded', () => {
 
             };
         }
-
+        //creamos y agregamos el array de fichas de cada jugador
+        //si la ficha esta seleccionada actualizamos la referencia con la ruta relativa de su imagen
         function crearFichaJug(ctx,img, color,ejeX, ejeY,seleccionada){
             const ficha = new Circulo(ctx, ejeX, ejeY, 20, color);
             ficha.setImage(img.src);
@@ -116,13 +121,13 @@ document.addEventListener('DOMContentLoaded', () => {
             }
             ficha.draw();
         }
-
+        //dibuja todas la fichas que estan en el tablero
         function drawFigures() {
             for (let i = 0; i < tablero.arrFichas.length; i++) {
                 tablero.arrFichas[i].draw();
             }
         }
-
+        //maneja el evento click en el canvas
         function onMouseDown(e) {
             let clickFig;
             let rect = ctx.canvas.getBoundingClientRect();
@@ -130,11 +135,13 @@ document.addEventListener('DOMContentLoaded', () => {
             let canvasY = e.clientY - rect.top;
 
             if (!inGame) {
+                //detecta si se hizo click en alguno de los botones de modo de juego
                 let clickedMode = findClickedFigure(canvasX, canvasY, btns);
                 if (clickedMode) {
                     elegirModo(clickedMode.getTextoBoton()[0]);
                 }
                 else{
+                    //detecta si se eligio una ficha el jugador 1
                     let clickedfichaJug1 = findClickedFigure(e.clientX, e.clientY, fichasJug1);
                     if (clickedfichaJug1) {
                         fichasJug1.forEach(element => {
@@ -148,6 +155,7 @@ document.addEventListener('DOMContentLoaded', () => {
                         });
                     }
                     else{
+                        //detecta si se eligio una ficha el jugador 2
                         let clickedfichaJug2 = findClickedFigure(e.clientX, e.clientY, fichasJug2);
                         if (clickedfichaJug2) {
                             fichasJug2.forEach(element => {
@@ -163,19 +171,21 @@ document.addEventListener('DOMContentLoaded', () => {
                     }
                 }
             }
-            else {
+            else {//si el juego comenzo
                 e.preventDefault();
                 isMouseDown = true;
 
                 if (lastClickedFigure)
                     lastClickedFigure = null;
-
+                //verificamos si se hizo click en alguna ficha
+                //si se clickeo seleccionamos la ficha y su posicion
                 clickFig = findClickedFigure(e.clientX, e.clientY, tablero.arrFichas);
                 if (clickFig && !clickFig.ubicada && tablero.esTuTurno(clickFig)) {
                     lastClickedFigure = clickFig;
                     helperPos = lastClickedFigure.getPos()
                 }
-
+                //verificamos si se clickeo en el boton de reinicio
+                //si se clickeo reiniciamos el tablero y recargamos las fichas
                 if(tablero.clicEnReinicio(canvasX, canvasY)){
                     tablero.reiniciarTablero();
                     tablero.cargarFichas(ctx);
@@ -183,7 +193,11 @@ document.addEventListener('DOMContentLoaded', () => {
             }
             return clickFig;
         }
-
+        /**manejamos el movimiento del mouse cuando se mantiene presionado
+        si esta presionado el mouse y hay una ficha seleccionada, calculamos 
+        las coordenadas del mouse en el canvas, actualizamos la posicion de
+        la figura seleccionada (fichas) y redibujamos el tablero
+        **/
         function onMouseMove(e) {
             e.preventDefault();
             if (isMouseDown && lastClickedFigure) {
@@ -197,7 +211,11 @@ document.addEventListener('DOMContentLoaded', () => {
                 drawFigures();
             }
         }
-
+        /** manejamos la accion de soltar el click
+            calculamos las coordenadas, si hay una figura seleccionada
+            intentamos colocarla en el tablero, si la figura no se pudo colocar la
+            devolvemos a su posicion original 
+        * */
         function onMouseUp(e) {
             let rect = ctx.canvas.getBoundingClientRect();
             let canvasX = e.clientX - rect.left;
@@ -225,7 +243,7 @@ document.addEventListener('DOMContentLoaded', () => {
                     return element;
             }
         }
-
+        //elegimos el modo de juego
         function elegirModo(modo) {
             switch (modo) {
                 case '4':
