@@ -103,6 +103,7 @@ export class Tablero {
         this.botonDeReinicio.dibujar();
 
         this.toggleCuadroTurno();
+        this.cargarFichas(this.ctx);
     }
 
     clicEnReinicio(x, y){
@@ -360,6 +361,7 @@ export class Tablero {
         this.ctx.font = "bold 15px 'Nunito', sans-serif";
         this.ctx.textAlign = 'center';
         this.ctx.fillText(`Jugador ${playerNumber}`, squareX + squareWidth / 2, squareY + 30);
+
     }
 
 

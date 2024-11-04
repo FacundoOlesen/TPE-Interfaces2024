@@ -247,6 +247,7 @@ document.addEventListener('DOMContentLoaded', () => {
                     break;
 
             }
+            
             tablero.setImagenFicha1(fichaSelecJug1);
             tablero.setImagenFicha2(fichaSelecJug2);
             tablero.cargarFichas(ctx);
