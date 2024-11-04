@@ -116,7 +116,7 @@ export class Tablero {
         let opacity = 1; // Opacidad inicial para el parpadeo
         let decreasing = true; // Controla el aumento/disminución de la opacidad
     
-        const animateHints = () => {    
+        const animateHints = () => {
             const hintWidth = 558; // Mantenemos el ancho del hint
             const hintHeight = 20; // Altura del hint
             const borderRadius = 20; // Radio de los bordes
@@ -143,9 +143,13 @@ export class Tablero {
             this.ctx.strokeStyle = 'rgba(66, 16, 244, 0.1)'; // Color del borde
             this.ctx.stroke();
     
+            // Calcular el espacio entre flechas
+            const totalHintsWidth = this.columnas * this.espColumnas; // Ancho total ocupado por las flechas
+            const startX = hintX + (hintWidth - totalHintsWidth) / 2; // Ajustar el inicio para centrar
+    
             // Dibujar flechas
             for (let col = 0; col < this.columnas; col++) {
-                const x = hintX + col * this.espColumnas + this.espColumnas / 2;
+                const x = startX + col * this.espColumnas + this.espColumnas / 2; // Posición centrada
                 const y = this.offsetY - arrowHeight - 14;
     
                 this.ctx.globalAlpha = opacity;
@@ -176,6 +180,7 @@ export class Tablero {
     
         animateHints(); // Inicia la animación
     }
+    
     
     
 
