@@ -212,10 +212,10 @@ export class Tablero {
                     c.setJugador(ficha);
                     
                     // Dibujar la ficha en el tablero antes de verificar la victoria
-                    this.dibujarTablero();
-    
+                    
                     // Cambiar el turno antes de verificar la victoria
                     this.turno = this.turno === 0 ? 1 : 0;
+                    this.dibujarTablero();
                     this.iniciarTemporizador();
     
                     // Ahora verificamos si esta jugada causa una victoria
