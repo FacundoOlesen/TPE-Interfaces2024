@@ -211,31 +211,42 @@ export class Tablero {
         this.dibujarTablero();
     }
 
+
+    
     dibujarTemporizador() {
-        const text = `Tiempo restante: ${this.tiempoRestante}s`;
+        const text = `${this.tiempoRestante}`;
         const padding = 10;
-        const rectWidth = 300;
+        const rectWidth = 60;
         const rectHeight = 40;
-        const xPos = (this.ctx.canvas.width - rectWidth) / 2;
+        const xPos = 375;
         const yPos = 10;
-
-        // obtenemos la imagen del fondo del canvas en el area del temporizador
+    
+        // Guardamos la sección del fondo antes de dibujar el temporizador
         const fondoTemporal = this.ctx.getImageData(xPos - padding, yPos - padding, rectWidth + padding * 2, rectHeight + padding * 2);
+    
+        // Borramos cualquier trazo anterior y restauramos el fondo guardado
         this.ctx.putImageData(fondoTemporal, xPos - padding, yPos - padding);
-
+    
+        // Dibujamos el rectángulo del temporizador
         this.ctx.fillStyle = 'black';
         this.ctx.beginPath();
         this.ctx.roundRect(xPos, yPos, rectWidth, rectHeight, 10);
         this.ctx.fill();
-
-        // cuando queden 5 segundos, ponemos el texto en rojo
+    
+        // Cambiamos el color del texto a rojo si el tiempo restante es menor o igual a 5
         this.ctx.fillStyle = this.tiempoRestante <= 5 ? 'red' : 'white';
-        this.ctx.font = "bold 24px 'Nunito', sans-serif";
-        this.ctx.textAlign = 'center';
-        this.ctx.fillText(text, this.ctx.canvas.width / 2, yPos + rectHeight / 1.5);
+        this.ctx.font = "38px 'Digital-7'";
+        this.ctx.textAlign = "center";
+        this.ctx.textBaseline = "middle";
+    
+        // Colocamos el texto del temporizador en el centro del rectángulo
+        this.ctx.fillText(text, xPos + rectWidth / 2, yPos + rectHeight / 2);
     }
-
+    
+    
     iniciarTemporizador() {
+        this.dibujarTemporizador();
+
         clearInterval(this.intervaloTemporizador);
         this.tiempoRestante = this.tiempoMaximoTurno;
         this.intervaloTemporizador = setInterval(() => {
@@ -244,6 +255,7 @@ export class Tablero {
                 this.cambiarTurno();
                 this.cargarFichas();
             } else {
+                
                 this.dibujarTemporizador();
             }
         }, 1000);
@@ -425,42 +437,30 @@ export class Tablero {
         return sigCasillero.getJugador().getColor() == fichaAPoner.getColor()
     }
     mostrarGanador(jugador) {
-        if (this.ganadorMostrado) return;
+        if (this.ganadorMostrado) return; 
     
-        const x = this.offsetX - 40;
-        const y = this.offsetY - 30;
-        const anchoCasilleros = 560;
-        const altoCasilleros = 360;
-        const radio = 20; // Radio para las esquinas redondeadas
+        const x = this.offsetX - 40; 
+        const y = this.offsetY - 30; 
+        const anchoCasilleros = 560; 
+        const altoCasilleros = 360; 
     
         this.ctx.fillStyle = 'rgba(0, 0, 0, 0.9)';
-        this.ctx.beginPath();
-        this.ctx.moveTo(x + radio, y);
-        this.ctx.lineTo(x + anchoCasilleros - radio, y);
-        this.ctx.quadraticCurveTo(x + anchoCasilleros, y, x + anchoCasilleros, y + radio);
-        this.ctx.lineTo(x + anchoCasilleros, y + altoCasilleros - radio);
-        this.ctx.quadraticCurveTo(x + anchoCasilleros, y + altoCasilleros, x + anchoCasilleros - radio, y + altoCasilleros);
-        this.ctx.lineTo(x + radio, y + altoCasilleros);
-        this.ctx.quadraticCurveTo(x, y + altoCasilleros, x, y + altoCasilleros - radio);
-        this.ctx.lineTo(x, y + radio);
-        this.ctx.quadraticCurveTo(x, y, x + radio, y);
-        this.ctx.closePath();
-        this.ctx.fill();
+        this.ctx.fillRect(x, y, anchoCasilleros, altoCasilleros);
     
         this.ctx.fillStyle = 'white';
         this.ctx.font = "bold 38px 'Nunito', sans-serif";
         this.ctx.textAlign = 'center';
     
-        const yTexto = y + altoCasilleros + 40;
+        const yTexto = y + altoCasilleros + 40; 
+    
         const mensaje = `¡Jugador ${jugador} ha ganado!`;
         this.ctx.fillText(mensaje, x + anchoCasilleros / 2, yTexto);
     
         clearInterval(this.intervaloTemporizador);
-        this.ganadorMostrado = true;
-        this.toggleCuadroTurno('rgba(0, 0, 0, 120)');
-        this.turno = -1;
+        this.ganadorMostrado = true; 
+        this.toggleCuadroTurno('rgba(0, 0, 0, 120)')
+        this.turno = -1
     }
-    
     crearFichaGrupo(img, color, startX) {
         let posX = startX + cellSize / 2;
         let posY = 200;

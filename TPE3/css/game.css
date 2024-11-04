@@ -4,6 +4,10 @@
     color: white;
     font-family: 'Nunito', sans-serif;
 }
+@font-face {
+    font-family: 'Digital-7';
+    src: url('../fonts/digital-7.ttf') format('truetype');
+}
 
 header {
     background-color: var(--primario-w2);
