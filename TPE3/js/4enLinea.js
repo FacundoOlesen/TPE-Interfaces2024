@@ -236,11 +236,11 @@ document.addEventListener('DOMContentLoaded', () => {
                     break;
 
                 case '6':
-                    tablero = new Tablero(ctx, 8, 9, 16, 43, 60, 160, 75, 6);
+                    tablero = new Tablero(ctx, 8, 9, 16, 43, 60, 158, 95, 6);
                     break;
 
                 case '7':
-                    tablero = new Tablero(ctx, 9, 10, 14, 38.5, 53, 160, 75, 7);
+                    tablero = new Tablero(ctx, 9, 10, 14, 38.5, 53, 158, 95, 7);
                     break;
 
                 default:
