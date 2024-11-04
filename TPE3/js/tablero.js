@@ -64,8 +64,8 @@ export class Tablero {
 
         this.dibujarTemporizador();
 
-        const tableroAncho = this.columnas * this.espColumnas;
-        const tableroAlto = this.filas * this.espFilas;
+        const tableroAncho = 560;
+        const tableroAlto = 360;
         const tableroX = this.offsetX - 40;
         const tableroY = this.offsetY - 30;
         const borderRadius = 20;
@@ -316,8 +316,8 @@ export class Tablero {
     
         const x = this.offsetX - 40; 
         const y = this.offsetY - 30; 
-        const anchoCasilleros = this.columnas * this.espColumnas; 
-        const altoCasilleros = this.filas * this.espFilas; 
+        const anchoCasilleros = 560; 
+        const altoCasilleros = 360; 
     
         this.ctx.fillStyle = 'rgba(0, 0, 0, 0.9)';
         this.ctx.fillRect(x, y, anchoCasilleros, altoCasilleros);
