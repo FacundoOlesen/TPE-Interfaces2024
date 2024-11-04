@@ -103,7 +103,7 @@ export class Tablero {
             }
         }
         
-        this.botonDeMenu=new Boton(this.ctx, 710, 70, "Menú",80, 50);
+        this.botonDeMenu=new Boton(this.ctx, 10, 10, "Menú",80, 50);
         this.botonDeMenu.dibujar();
 
         this.botonDeReinicio = new Boton(this.ctx, 710, 10, "Reinicio", 80, 50);
@@ -293,7 +293,7 @@ export class Tablero {
                 let c = this.casilleros[fila][col];
                 if (x > c.x - c.radius && x < c.x + c.radius && y <= 90 && !c.ocupado) {
                     // Colocamos la ficha y actualizamos su estado
-                    ficha.setPos(c.x, c.y);
+                    this.efectoGravedad(ficha, c.x, c.y)
                     ficha.ubicada = true;
                     c.setOcupado(true);
                     c.setJugador(ficha);
@@ -315,6 +315,25 @@ export class Tablero {
                 }
             }
         }
+    }
+
+   
+
+    efectoGravedad(ficha, x, y) {
+        const velocidadCaida = 5;
+        const gravityEffect = () => {
+            if (ficha.y < y) {
+                ficha.setPos(x, ficha.y + velocidadCaida)
+                this.dibujarTablero()
+                this.drawFigures()
+                requestAnimationFrame(gravityEffect);
+            }
+
+            else
+                ficha.setPos(x, y)
+            
+        };
+        gravityEffect();
     }
     
     checkVertical(ficha, casillero) {
@@ -500,6 +519,12 @@ export class Tablero {
     esTuTurno(ficha) {
         return this.turno == this.turnos[ficha.getColor()]
 
+    }
+
+    drawFigures() {
+        for (let i = 0; i < this.arrFichas.length; i++) {
+            this.arrFichas[i].draw();
+        }
     }
     dibujarFichas() {
         // Recorre todas las fichas en arrFichas y las dibuja en sus posiciones actuales
