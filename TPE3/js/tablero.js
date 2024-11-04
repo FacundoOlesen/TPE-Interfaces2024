@@ -99,13 +99,35 @@ export class Tablero {
                 this.casilleros[fila][col].draw()
             }
         }
+        this.dibujarHints();
+
 
         this.botonDeReinicio = new Boton(this.ctx, 710, 10, "Reinicio", 80, 50);
         this.botonDeReinicio.dibujar();
 
         this.toggleCuadroTurno();
     }
+    dibujarHints() {
+        const hintColor = 'yellow'; 
+        const arrowHeight = 10;
+        const arrowWidth = 15; 
+    
+        for (let col = 0; col < this.columnas; col++) {
+            // calculamos la posicion de las flechitas
+            const x = this.offsetX- 40 + col * this.espColumnas + this.espColumnas / 2; 
+            const y = this.offsetY - arrowHeight - 25; 
+    
+            // dibujamos la flecha
+            this.ctx.fillStyle = hintColor;
+            this.ctx.beginPath();
 
+            this.ctx.moveTo(x - arrowWidth / 2, y); //  izquierda
+            this.ctx.lineTo(x + arrowWidth / 2, y); //  derecha
+            this.ctx.lineTo(x, y + arrowHeight); // hacemos que la punta sea abajo
+            this.ctx.closePath();
+            this.ctx.fill();
+        }
+    }
     clicEnReinicio(x, y){
         return this.botonDeReinicio.isPointInside(x, y);
     }
@@ -212,10 +234,10 @@ export class Tablero {
                     c.setJugador(ficha);
                     
                     // Dibujar la ficha en el tablero antes de verificar la victoria
-                    
+                    this.dibujarTablero();
+    
                     // Cambiar el turno antes de verificar la victoria
                     this.turno = this.turno === 0 ? 1 : 0;
-                    this.dibujarTablero();
                     this.iniciarTemporizador();
     
                     // Ahora verificamos si esta jugada causa una victoria
