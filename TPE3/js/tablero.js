@@ -25,7 +25,7 @@ export class Tablero {
         this.imagenFicha1 = "./img/ferrari.png"; 
         this.imagenFicha2 = "./img/williams.png";
         this.mostrarHints = true; 
-
+        this.fichaencaida = false;
 
         
         // img para cada casillero
@@ -195,7 +195,7 @@ export class Tablero {
     
 
     clickEnMenu(x,y){
-        return this.botonDeMenu.isPointInside(x, y);
+        return !this.fichaencaida && this.botonDeMenu.isPointInside(x, y);
     }
     
     clicEnReinicio(x, y){
@@ -322,6 +322,7 @@ export class Tablero {
                 let c = this.casilleros[fila][col];
                 if (x > c.x - c.radius && x < c.x + c.radius && y <= 90 && !c.ocupado) {
                     // Colocamos la ficha y actualizamos su estado
+                    this.fichaencaida = true;
                     this.efectoGravedad(ficha, c.x, c.y , c)
                     ficha.ubicada = true;
                     c.setOcupado(true);
@@ -358,12 +359,13 @@ export class Tablero {
             if (ficha.y < y) {
                 ficha.setPos(x, ficha.y + velocidadCaida);
                 this.dibujarTablero()
-                this.drawFigures(); 
+                this.drawFigures();
             } else {
                 ficha.setPos(x, y); 
                 this.drawFigures(); 
                 this.winChecks(ficha, c); 
                 clearInterval(gravityInterval); 
+                this.fichaencaida = false;
             }
         }, intervalo); 
     }
