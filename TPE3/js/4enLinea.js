@@ -56,7 +56,7 @@ document.addEventListener('DOMContentLoaded', () => {
                 // Configura el tamaño y estilo del título
                 ctx.font = "bold 30px Arial"; 
                 // Color del título
-                tx.fillStyle = "white"; 
+                ctx.fillStyle = "white"; 
                 // Posición centrada
                 ctx.fillText("Bienvenido al Juego", ctx.canvas.width / 2, 50); 
                 //creamos botones para elegir el modo de juego
