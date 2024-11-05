@@ -102,7 +102,7 @@ export class Tablero {
                 this.casilleros[fila][col].draw()
             }
         }
-        
+        //creamos los botones de menu y reinicio
         this.botonDeMenu=new Boton(this.ctx, 10, 10, "Menú",80, 50);
         this.botonDeMenu.dibujar();
 
@@ -111,54 +111,54 @@ export class Tablero {
         
         this.toggleCuadroTurno();
     }
+    //dibujamos los hints animados para indicar donde tirar las fichas
     dibujarHints() {
         const hintColor = 'yellow';
         const arrowHeight = 10;
         const arrowWidth = 15;
     
-        let opacity = 1; // Opacidad inicial para el parpadeo
-        let decreasing = true; // Controla el aumento/disminución de la opacidad
+        let opacity = 1; // le damos una opacidad inicial para el efecto de parpadeo
+        let decreasing = true; // controlamos el aumento y disminucion de la opacidad durante la animacion
     
         const animateHints = () => {
-            const hintWidth = 558; // Mantenemos el ancho del hint
-            const hintHeight = 20; // Altura del hint
-            const borderRadius = 20; // Radio de los bordes
+            //definimos el tamaño de los hints
+            const hintWidth = 558; 
+            const hintHeight = 20; 
+            const borderRadius = 20; 
     
-            // Coordenadas del rectángulo de hints
+            //posicionamos el rectangulo de fondo a los hints
             const hintX = this.offsetX - 38;
             const hintY = this.offsetY - 30;
     
-            // Creando un fondo redondeado para el hint
+            // creamos el rectangulo redondeado para el fondo de los hints
             this.ctx.beginPath();
-            this.ctx.moveTo(hintX + borderRadius, hintY); // Esquina superior izquierda
-            this.ctx.lineTo(hintX + hintWidth - borderRadius, hintY); // Línea horizontal superior
-            this.ctx.arcTo(hintX + hintWidth, hintY, hintX + hintWidth, hintY + borderRadius, borderRadius); // Esquina superior derecha
-            this.ctx.lineTo(hintX + hintWidth, hintY + hintHeight); // Línea vertical derecha
-            this.ctx.arc(borderRadius + hintX, borderRadius + hintY, borderRadius, Math.PI, Math.PI * 1.5); // Esquina superior izquierda
+            this.ctx.moveTo(hintX + borderRadius, hintY); 
+            this.ctx.lineTo(hintX + hintWidth - borderRadius, hintY); 
+            this.ctx.arcTo(hintX + hintWidth, hintY, hintX + hintWidth, hintY + borderRadius, borderRadius); 
+            this.ctx.lineTo(hintX + hintWidth, hintY + hintHeight); 
+            this.ctx.arc(borderRadius + hintX, borderRadius + hintY, borderRadius, Math.PI, Math.PI * 1.5); 
             this.ctx.closePath();
     
-            // Llenamos el fondo del hint
             this.ctx.fillStyle = 'rgba(0, 0, 0, 0.8)';
             this.ctx.fill();
-    
-            // Dibuja el borde
+            
+            //propiedades del borde
             this.ctx.lineWidth = 2;
-            this.ctx.strokeStyle = 'rgba(66, 16, 244, 0.1)'; // Color del borde
+            this.ctx.strokeStyle = 'rgba(66, 16, 244, 0.1)'; 
             this.ctx.stroke();
     
-            // Calcular el espacio entre flechas
-            const totalHintsWidth = this.columnas * this.espColumnas; // Ancho total ocupado por las flechas
-            const startX = hintX + (hintWidth - totalHintsWidth) / 2; // Ajustar el inicio para centrar
+            // espacio entre filas
+            const totalHintsWidth = this.columnas * this.espColumnas; 
+            const startX = hintX + (hintWidth - totalHintsWidth) / 2; 
     
-            // Dibujar flechas
+            //dibujamos flechas
             for (let col = 0; col < this.columnas; col++) {
-                const x = startX + col * this.espColumnas + this.espColumnas / 2; // Posición centrada
+                const x = startX + col * this.espColumnas + this.espColumnas / 2; // centramos 
                 const y = this.offsetY - arrowHeight - 14;
     
                 this.ctx.globalAlpha = opacity;
                 this.ctx.fillStyle = hintColor;
     
-                // Dibujamos la flecha
                 this.ctx.beginPath();
                 this.ctx.moveTo(x - arrowWidth / 2, y);
                 this.ctx.lineTo(x + arrowWidth / 2, y);
@@ -167,7 +167,7 @@ export class Tablero {
                 this.ctx.fill();
             }
     
-            // Ajustamos la opacidad para la animación
+            // ajustamos la opacidad para la animación
             if (decreasing) {
                 opacity -= 0.05;
                 if (opacity <= 0.3) decreasing = false;
@@ -176,12 +176,12 @@ export class Tablero {
                 if (opacity >= 1) decreasing = true;
             }
     
-            this.ctx.globalAlpha = 1; // Restauramos la opacidad
+            this.ctx.globalAlpha = 1; 
     
             requestAnimationFrame(animateHints);
         };
     
-        animateHints(); // Inicia la animación
+        animateHints(); //iniciamos la animacion
     }
     
     
@@ -194,7 +194,7 @@ export class Tablero {
     clicEnReinicio(x, y){
         return this.botonDeReinicio.isPointInside(x, y);
     }
-
+    //reiniciamos el tablero
     reiniciarTablero(){
         this.arrFichas = [];
         
@@ -283,7 +283,7 @@ export class Tablero {
             }
         }
     }
-
+    //manejamos la carga de fichas
     cargarFichas() {
         const fichasImg = [this.imagenFicha1, this.imagenFicha2].map(src => {
             const img = new Image();
@@ -309,16 +309,9 @@ export class Tablero {
                     ficha.ubicada = true;
                     c.setOcupado(true);
                     c.setJugador(ficha);
-                    
-                    // Dibujar la ficha en el tablero antes de verificar la victoria
-    
-                    // Cambiar el turno antes de verificar la victoria
                     this.turno = this.turno == 0 ? 1 : 0;
                     this.iniciarTemporizador();
                     this.dibujarTablero();
-
-                    // Ahora verificamos si esta jugada causa una victoria
-
                     return;
                 }
             }
