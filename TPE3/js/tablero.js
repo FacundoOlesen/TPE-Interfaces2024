@@ -326,7 +326,6 @@ export class Tablero {
                     ficha.ubicada = true;
                     c.setOcupado(true);
                     c.setJugador(ficha);
-                    //ficha.setPos(cx, y)
 
                     // Dibujar la ficha en el tablero antes de verificar la victoria
     
