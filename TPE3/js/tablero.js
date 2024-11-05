@@ -430,30 +430,42 @@ export class Tablero {
         return sigCasillero.getJugador().getColor() == fichaAPoner.getColor()
     }
     mostrarGanador(jugador) {
-        if (this.ganadorMostrado) return; 
+        if (this.ganadorMostrado) return;
     
-        const x = this.offsetX - 40; 
-        const y = this.offsetY - 30; 
-        const anchoCasilleros = 560; 
-        const altoCasilleros = 360; 
+        const x = this.offsetX - 40;
+        const y = this.offsetY - 30;
+        const anchoCasilleros = 560;
+        const altoCasilleros = 360;
+        const radio = 20; // Radio para las esquinas redondeadas
     
         this.ctx.fillStyle = 'rgba(0, 0, 0, 0.9)';
-        this.ctx.fillRect(x, y, anchoCasilleros, altoCasilleros);
+        this.ctx.beginPath();
+        this.ctx.moveTo(x + radio, y);
+        this.ctx.lineTo(x + anchoCasilleros - radio, y);
+        this.ctx.quadraticCurveTo(x + anchoCasilleros, y, x + anchoCasilleros, y + radio);
+        this.ctx.lineTo(x + anchoCasilleros, y + altoCasilleros - radio);
+        this.ctx.quadraticCurveTo(x + anchoCasilleros, y + altoCasilleros, x + anchoCasilleros - radio, y + altoCasilleros);
+        this.ctx.lineTo(x + radio, y + altoCasilleros);
+        this.ctx.quadraticCurveTo(x, y + altoCasilleros, x, y + altoCasilleros - radio);
+        this.ctx.lineTo(x, y + radio);
+        this.ctx.quadraticCurveTo(x, y, x + radio, y);
+        this.ctx.closePath();
+        this.ctx.fill();
     
         this.ctx.fillStyle = 'white';
         this.ctx.font = "bold 38px 'Nunito', sans-serif";
         this.ctx.textAlign = 'center';
     
-        const yTexto = y + altoCasilleros + 40; 
-    
+        const yTexto = y + altoCasilleros + 40;
         const mensaje = `¡Jugador ${jugador} ha ganado!`;
         this.ctx.fillText(mensaje, x + anchoCasilleros / 2, yTexto);
     
         clearInterval(this.intervaloTemporizador);
-        this.ganadorMostrado = true; 
-        this.toggleCuadroTurno('rgba(0, 0, 0, 120)')
-        this.turno = -1
+        this.ganadorMostrado = true;
+        this.toggleCuadroTurno('rgba(0, 0, 0, 120)');
+        this.turno = -1;
     }
+    
     crearFichaGrupo(img, color, startX) {
         let posX = startX + cellSize / 2;
         let posY = 200;
