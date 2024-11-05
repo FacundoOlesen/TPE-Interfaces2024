@@ -40,6 +40,8 @@ document.addEventListener('DOMContentLoaded', () => {
         dibujarBienvenidaJuego();
 
         function dibujarBienvenidaJuego() {
+            ctx.clearRect(0, 0, ctx.canvas.width, ctx.canvas.height);
+
             let fondoJuego = new Image();
             fondoJuego.src = "./img/fondocasillero.jpg";
 
@@ -189,6 +191,14 @@ document.addEventListener('DOMContentLoaded', () => {
                 if(tablero.clicEnReinicio(canvasX, canvasY)){
                     tablero.reiniciarTablero();
                     tablero.cargarFichas(ctx);
+                }
+
+                if(tablero.clickEnMenu(canvasX, canvasY)){
+                    console.log("menu")
+                    dibujarBienvenidaJuego()
+                    inGame=false
+                    tablero.detenerTemporizador()
+                    tablero.detenerHints()
                 }
             }
             return clickFig;

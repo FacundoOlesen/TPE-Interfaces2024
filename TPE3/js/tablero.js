@@ -5,7 +5,7 @@ import { Boton } from './btn.js';
 let cellSize = 60;
 
 export class Tablero {
-    constructor(ctx, filas, columnas, fichaRadio, espFilas, espColumnas, offsetX, offsetY, cantFichasWin) {
+    constructor(ctx, filas, columnas, fichaRadio, espFilas, espColumnas, offsetX, offsetY, cantFichasWin, mostrarHints) {
         this.ctx = ctx;
         this.columnas = columnas;
         this.filas = filas;
@@ -24,6 +24,8 @@ export class Tablero {
         this.ganadorMostrado = false;
         this.imagenFicha1 = "./img/ferrari.png"; 
         this.imagenFicha2 = "./img/williams.png";
+        this.mostrarHints = true; 
+
 
         
         // img para cada casillero
@@ -111,6 +113,10 @@ export class Tablero {
         
         this.toggleCuadroTurno();
     }
+
+    detenerHints() {
+        this.mostrarHints = false; // Cambia el flag a false para detener la animación
+    }
     dibujarHints() {
         const hintColor = 'yellow';
         const arrowHeight = 10;
@@ -120,6 +126,7 @@ export class Tablero {
         let decreasing = true; // Controla el aumento/disminución de la opacidad
     
         const animateHints = () => {
+            if (!this.mostrarHints) return;
             const hintWidth = 558; // Mantenemos el ancho del hint
             const hintHeight = 20; // Altura del hint
             const borderRadius = 20; // Radio de los bordes
@@ -241,6 +248,16 @@ export class Tablero {
     
         // Colocamos el texto del temporizador en el centro del rectángulo
         this.ctx.fillText(text, xPos + rectWidth / 2, yPos + rectHeight / 2);
+    }
+
+    detenerTemporizador() {
+        // Detiene el intervalo si está corriendo
+        if (this.intervaloTemporizador) {
+            clearInterval(this.intervaloTemporizador);
+            this.intervaloTemporizador = null; // Resetea la variable para evitar errores
+        }
+        // Si deseas restablecer el tiempo restante o realizar otras acciones
+        this.tiempoRestante = this.tiempoMaximoTurno; // Restablece el tiempo restante si es necesario
     }
     
     
