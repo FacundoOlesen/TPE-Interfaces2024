@@ -480,21 +480,21 @@ export class Tablero {
     }
     crearFichaGrupo(img, color, startX) {
         let posX = startX + cellSize / 2;
-        let posY = 200;
+        let posY = 150;
         let cantFichas = (this.filas * this.columnas) / 2 // Habria que usar esta variable en el for asi tenemos todas las fichas
 
         // creamos fichas adicionales para simular la pila
-        for (let i = 0; i < 6; i++) {
-            this.crearFichaEnPila(posX, posY + 30 + i * 10, img, color, false);
+        for (let i = 0; i < cantFichas; i++) {
+            this.crearFichaEnPila(posX, posY + 10 + i * 6, img, color, false);
         }
 
     }
 
     dibujarCuadroGrupo(posX, posY, playerNumber, colour) {
         const squareWidth = cellSize + 50;
-        const squareHeight = 180;
+        const squareHeight = 370;
         const squareX = posX - squareWidth / 2;
-        const squareY = posY - squareHeight / 2;
+        const squareY = 80;
 
         // fondo de fichas (cuadrado)
         this.ctx.fillStyle = colour;
