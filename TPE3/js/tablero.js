@@ -326,7 +326,8 @@ export class Tablero {
                     ficha.ubicada = true;
                     c.setOcupado(true);
                     c.setJugador(ficha);
-                    
+                    //ficha.setPos(cx, y)
+
                     // Dibujar la ficha en el tablero antes de verificar la victoria
     
                     // Cambiar el turno antes de verificar la victoria
@@ -350,26 +351,24 @@ export class Tablero {
     }
    
 
-    efectoGravedad(ficha, x, y ,c) {
-        const velocidadCaida = 5;
-        const gravityEffect = () => {
+    efectoGravedad(ficha, x, y, c) {
+        const velocidadCaida = 5; 
+        const intervalo = 6; 
+    
+        const gravityInterval = setInterval(() => {
             if (ficha.y < y) {
-                ficha.setPos(x, ficha.y + velocidadCaida)
+                ficha.setPos(x, ficha.y + velocidadCaida);
                 this.dibujarTablero()
-                this.drawFigures()
-                requestAnimationFrame(gravityEffect);
+                this.drawFigures(); 
+            } else {
+                ficha.setPos(x, y); 
+                this.drawFigures(); 
+                this.winChecks(ficha, c); 
+                clearInterval(gravityInterval); 
             }
-
-            else{
-                ficha.setPos(x, y)
-                this.drawFigures()
-                this.winChecks(ficha, c)
-
-            }
-            
-        };
-        gravityEffect();
+        }, intervalo); 
     }
+    
     
     checkVertical(ficha, casillero) {
         let c = 0

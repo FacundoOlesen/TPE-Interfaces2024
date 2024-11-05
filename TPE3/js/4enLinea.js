@@ -194,7 +194,6 @@ document.addEventListener('DOMContentLoaded', () => {
                 }
 
                 if(tablero.clickEnMenu(canvasX, canvasY)){
-                    console.log("menu")
                     dibujarBienvenidaJuego()
                     inGame=false
                     tablero.detenerTemporizador()
