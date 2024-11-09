@@ -1,0 +1,56 @@
+* {
+    max-width: 1080px;
+}
+@media (max-width: 1080px) {
+    body{
+        background-image: url('/TPE-EntregaFinal/img/fondo.png');
+        background-size: cover; 
+        background-repeat: no-repeat; 
+        background-position: center; 
+    }
+    header{
+        width: 100%;
+    }
+    nav{
+        display: flex;
+        justify-content: space-between;
+        align-items: center;
+        padding: 10 20px;
+    }
+    ul{
+        display: flex;
+        width: 100%;
+        list-style: none;
+        margin: 0;
+        padding: 0;
+    }
+    li{
+        display: flex;
+        align-items: center;
+    }
+    li:first-child{
+        margin-right: auto;
+    }
+    li:nth-child(2){
+        margin: auto 0;
+    }
+    li:last-child{
+        margin-left: auto;
+    }
+    img{
+        height: 50px;
+    }
+    .btn-comprar {
+        text-decoration: none;
+        background-color: #83C252;
+        color: white;
+        width: 100px;
+        height: 50px;
+        border-radius: 30px;
+        border: solid white 10px;
+        display: flex;               
+        align-items: center;         
+        justify-content: center;    
+        text-align: center;
+    }
+}
