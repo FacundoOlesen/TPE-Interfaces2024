@@ -53,4 +53,18 @@
         justify-content: center;    
         text-align: center;
     }
+    .seccion-inicio{
+        display: flex;
+        justify-content: center;
+        align-items: center;
+        height: 50rem;
+        margin-top: -20rem;
+    }
+    .logo-inicio{
+        max-width: 100%;
+        height: auto;
+    }
+    .logo-nav{
+        display: none;
+    }
 }
