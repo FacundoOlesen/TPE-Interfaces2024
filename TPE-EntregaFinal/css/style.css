@@ -35,7 +35,7 @@ html, body {
 
     .container-menu-hamburguesa , .container-btn-comprar{
         margin: 10px 0px;
-        z-index: 1;
+        z-index: 2;
     }
 
     .container-menu-hamburguesa img{
@@ -79,7 +79,7 @@ html, body {
         position: absolute;
         top: -80px; /* Ajusta el valor según cuánto quieres que sobresalga */
         left: -100px; /* Puedes moverla también horizontalmente */
-        z-index: 0;
+        z-index: 1;
     }
 
     .seccion-arbol-der{
@@ -96,6 +96,25 @@ html, body {
         z-index: 0;
     }
 
+
+    .arbusto1{
+        position: absolute;
+        bottom: 50px; /* Ajusta el valor según cuánto quieres que sobresalga */
+        left: 100px; /* Puedes moverla también horizontalmente */
+        z-index: 3;
+    }
+    .arbusto2{
+        position: absolute;
+        bottom: 140px; /* Ajusta el valor según cuánto quieres que sobresalga */
+        left: 60px; /* Puedes moverla también horizontalmente */
+        z-index: 0;
+    }
+    .piedra1{
+        position: absolute;
+        bottom: 100px; /* Ajusta el valor según cuánto quieres que sobresalga */
+        left: 30px; /* Puedes moverla también horizontalmente */
+        z-index: 2;
+    }
 
     /*Seccion de presentacion*/
     h1{
