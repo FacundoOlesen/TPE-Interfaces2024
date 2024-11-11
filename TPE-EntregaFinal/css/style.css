@@ -1,6 +1,8 @@
 * {
-    max-width: 1080px;
+    margin: 0px;
+    padding: 0px;
 }
+
 @media (max-width: 1080px) {
     body {
         background-image: url('/img/fondo.png');
@@ -10,65 +12,48 @@
         max-width: 1279px;
         max-height: 959px;
     }
-    
-    /*Barra de navegacion*/
-    header {
-    width: 100%;
-    }
 
-    nav {
+    /*/////////////////////////// COMIENZO HEADER ///////////////////////////*/
+
+    header{
         display: flex;
         justify-content: space-between;
         align-items: center;
-        padding: 0px 20px;
+    }
+    
+    .container-menu-hamburguesa , .container-btn-comprar{
+        margin: 10px 40px;
+    }
+    
+    .container-menu-hamburguesa img{
+        width: 40px;
+        height: 30px;
     }
 
-    ul {
-        display: flex;
-        list-style: none;
-        margin: 0;
-        padding: 0;
-        gap: 150px;
+    .container-logo{
+        display: none;
     }
 
-    li {
-        display: flex;
-        align-items: center;
-    }
-
-    li:first-child {
-        justify-content: flex-start;
-    }
-
-    li:nth-child(2) {
-        justify-content: center;
-        flex-grow: 1;
-    }
-
-    li:last-child {
-        justify-content: flex-end;
-    }
-    .menu-hamburguesa{
-        width: 34px;
-        height: 26px;
-    }
-    img{
-        width: 150px;
-        height: 86px;
-    }
     .btn-comprar {
         text-decoration: none;
         background-color: #83C252;
         color: white;
         width: 150px;
-        height: 40px;
+        height: 50px;
         border-radius: 30px;
-        border: solid white 10px;
-        display: flex;               
-        align-items: center;         
-        justify-content: center;    
+        border: solid white 7px;
+        display: flex;
+        align-items: center;
+        justify-content: center;
         text-align: center;
+        font-weight: 900;
+        box-shadow: 3px 4px 0px #02187E; /* Sombra azul debajo del botón */
+        font-size: 16px;
     }
+    /*/////////////////////////// FINALIZA HEADER /////////////////////////////////////*/
+
+
+
     /*Seccion de inicio con logo que interactua con la barra nav*/
     .seccion-inicio{
         display: flex;
@@ -82,7 +67,7 @@
         width: 30rem;
         height: auto;
     }
-    
+
     /*Seccion de presentacion*/
     h1{
         max-width: 508px;
@@ -105,7 +90,7 @@
         height: 324.35px;
         margin-left: 180px;
         border-radius: 77px;
-        border: solid #1B5F99 29px; 
+        border: solid #1B5F99 29px;
     }
     .video{
         width: 100%;
