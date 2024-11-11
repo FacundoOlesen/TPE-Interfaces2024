@@ -3,14 +3,26 @@
     padding: 0px;
 }
 
-@media (max-width: 1080px) {
+html, body {
+    width: 100%;
+}
+
+
+@media (max-width: 1280px) {
+    
     body {
-        background-image: url('/img/fondo.png');
-        background-size: cover;
+        background-image: 
+            url('/img/fondo.png'), 
+            url('/img/fondo2.png');
+        background-size: 100% auto, 100% auto; /* Ajusta para que ambas imágenes se extiendan al 100% del ancho */
         background-repeat: no-repeat;
-        background-position: center;
-        max-width: 1279px;
-        max-height: 959px;
+        background-position: top, bottom; /* Posiciona cada fondo adecuadamente */
+        display: flex;
+        justify-content: center;
+    }
+    
+    .container-main{
+        width: 1080px;
     }
 
     /*/////////////////////////// COMIENZO HEADER ///////////////////////////*/
@@ -22,7 +34,7 @@
     }
     
     .container-menu-hamburguesa , .container-btn-comprar{
-        margin: 10px 70px;
+        margin: 10px 0px;
     }
     
     .container-menu-hamburguesa img{
@@ -98,9 +110,9 @@
         height: 100%;
         border-radius:47px ;
     }
-    .seccion-presentacion{
+    /* .seccion-presentacion{
         background: linear-gradient(180deg, #88DE7F,#A8EBEC);
-    }
+    } */
 
     /*Seccion galeria horizontal*/
     .seccion-galeria{
