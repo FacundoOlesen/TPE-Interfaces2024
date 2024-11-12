@@ -77,41 +77,41 @@ html, body {
 
     .seccion-arbol-izq{
         position: absolute;
-        top: -80px; /* Ajusta el valor según cuánto quieres que sobresalga */
-        left: -100px; /* Puedes moverla también horizontalmente */
+        top: -80px; 
+        left: -100px; 
         z-index: 1;
     }
 
     .seccion-arbol-der{
         position: absolute;
-        top: 20px; /* Ajusta el valor según cuánto quieres que sobresalga */
-        right: -100px; /* Puedes moverla también horizontalmente */
+        top: 20px; 
+        right: -100px; 
         z-index: 1;
     }
 
     .seccion-arbol-der-chico{
         position: absolute;
-        top: 208.38px; /* Ajusta el valor según cuánto quieres que sobresalga */
-        right: -100px; /* Puedes moverla también horizontalmente */
+        top: 208.38px; 
+        right: -100px; 
         z-index: 0;
     }
 
     .arbusto1{
         position: absolute;
-        bottom: 50px; /* Ajusta el valor según cuánto quieres que sobresalga */
-        left: 100px; /* Puedes moverla también horizontalmente */
+        bottom: 50px; 
+        left: 100px; 
         z-index: 3;
     }
     .arbusto2{
         position: absolute;
-        bottom: 140px; /* Ajusta el valor según cuánto quieres que sobresalga */
-        left: 60px; /* Puedes moverla también horizontalmente */
+        bottom: 140px; 
+        left: 60px; 
         z-index: 0;
     }
     .piedra1{
         position: absolute;
-        bottom: 100px; /* Ajusta el valor según cuánto quieres que sobresalga */
-        left: 30px; /* Puedes moverla también horizontalmente */
+        bottom: 100px; 
+        left: 30px; 
         z-index: 2;
     }
 
