@@ -222,12 +222,13 @@ html, body {
 
     .seccion-presentacion p{
         position: relative;
-        max-width: 704px;
+        max-width: 654px;
         max-height: 154px;
         font-size: 20px;
         left: 100px;
         top: 170px;
         color: #1B428F;
+        text-align: justify;
     }
     .video-trailer{
         position: relative;
