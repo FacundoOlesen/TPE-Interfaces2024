@@ -274,9 +274,6 @@ html, body {
         width: 601.64px;
         height: 543.24px;
     }
-    /* .seccion-presentacion{
-        background: linear-gradient(180deg, #88DE7F,#A8EBEC);
-    } */
 
     /*Seccion galeria horizontal*/
     .seccion-galeria{
@@ -285,7 +282,11 @@ html, body {
         top: 683px;
         justify-content: center;
         align-items: center;
-        gap: 20px;
+        gap: 30px;
+        height: 500px;
+        width: 100vw;
+        left: -100px;
+        top: -71px;
     }
 
     .card-galeria{
@@ -306,7 +307,7 @@ html, body {
         position: relative;
         width: 100vw;
         left: -100px;
-        top: 874px;
+        /* top: 874px; */
         background-image: url('/img/fondoSeccionDescarga.png');
         background-size: cover;
         background-repeat: no-repeat;
@@ -405,7 +406,7 @@ html, body {
     /*Seccion modos de juegos*/
     .seccion-modos{
         position: relative;
-        top: 941px;
+        /* top: 941px; */
     }
 
 
