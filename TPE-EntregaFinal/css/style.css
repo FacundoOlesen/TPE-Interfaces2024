@@ -64,9 +64,10 @@ html, body {
         box-shadow: 3px 4px 0px #02187E; /* Sombra azul debajo del botón */
         font-size: 16px;
     }
-    /*/////////////////////////// FINALIZA HEADER /////////////////////////////////////*/
+    /*/////////////////////////// FINALIZA HEADER ///////////////////////////*/
 
-    /*Seccion de inicio con logo que interactua con la barra nav*/
+    /*/////////////////////////// COMIENZO PRIMERA SECCIÓN PORTADA ///////////////////////////*/
+
      .seccion-inicio{
         height: 889px;
         display: flex;
@@ -120,30 +121,36 @@ html, body {
         right: -100px; 
         z-index: 2;
     }
+    
     .arbusto4{
         position: absolute;
         bottom: 275px; 
         right: -40px; 
         z-index: 0;
     }
+    
     .piedra2{
         position: absolute;
         bottom: 160px; 
         right: 70px; 
         z-index: 6;
     }
+    
     .piedra3{
         position: absolute;
         bottom: 170px; 
         right: -10px; 
         z-index: 5;
     }
+
     .piedra4{
         position: absolute;
         bottom: 180px;
         right: 70px; 
         z-index: 4;
     }
+
+    /*/////////////////////////// FINALIZA PRIMERA SECCIÓN PORTADA ///////////////////////////*/
 
     /*Seccion de presentacion*/
     h1{
