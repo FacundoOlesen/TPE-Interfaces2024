@@ -150,6 +150,48 @@ html, body {
         z-index: 4;
     }
 
+    .block-rojo-1{
+        position: absolute;
+        bottom: 130px;
+        right: 480px; 
+        z-index: 6;
+    }
+
+    .block-naranja-2{
+        position: absolute;
+        bottom: 275px;
+        right: 400px; 
+        z-index: 5;
+    }
+
+    .block-amarillo-3{
+        position: absolute;
+        top: 253px;
+        left: 610.25px;  
+        z-index: 4;
+    }
+
+    .elipse1{
+        position: absolute;
+        bottom: 150px;
+        right: 500px; 
+        z-index: 3; 
+    }
+
+    .elipse2{
+        position: absolute;
+        bottom: 176px;
+        right: 390px; 
+        z-index: 2;
+    }
+
+    .elipse3{
+        position: absolute;
+        bottom: 208px;
+        right: 280px;
+        z-index: 1;
+    }
+
     /*/////////////////////////// FINALIZA PRIMERA SECCIÓN PORTADA ///////////////////////////*/
 
     /*Seccion de presentacion*/
