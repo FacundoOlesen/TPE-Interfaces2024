@@ -19,7 +19,8 @@ html, body {
         background-position: top, 0px 959px;
         display: flex;
         justify-content: center;
-        overflow: hidden;
+        /* overflow: hidden; */
+        overflow-x : hidden;
     }
 
     .container-main{
@@ -236,12 +237,12 @@ html, body {
         position: absolute;
         top: -70px; 
         right: -170px; 
-        z-index: 1;
+        
     }
-    .seccion-figura5 img{
+    /* .seccion-figura5 img{
         width: 572;
         height: 1259px;
-    }
+    } */
     
     .seccion-figura4{
         position: absolute;
