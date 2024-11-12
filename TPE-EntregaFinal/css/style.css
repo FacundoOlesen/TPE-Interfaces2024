@@ -13,12 +13,6 @@ html, body {
     body {
         position: absolute;
         top: 0;
-        background-image:
-            url('/img/fondo.png'),
-            url('/img/fondo2.png');
-        background-size: 100% auto, 100% auto; /* Ajusta para que ambas imágenes se extiendan al 100% del ancho */
-        background-repeat: no-repeat;
-        background-position: top, 0px 959px;
         display: flex;
         justify-content: center;
     }
@@ -75,7 +69,7 @@ html, body {
         height: 889px;
         display: flex;
         justify-content: center;
-        position: relative; 
+        position: relative;
         width: 100vw;
         left: -100px;
         top: -70px;
@@ -86,111 +80,111 @@ html, body {
 
     .seccion-arbol-izq{
         position: absolute;
-        top: -10px; 
-        left: 0px; 
+        top: -10px;
+        left: 0px;
         z-index: 1;
     }
 
     .seccion-arbol-der{
         position: absolute;
-        top: 90px; 
-        right: 0px; 
+        top: 90px;
+        right: 0px;
         z-index: 3;
     }
 
     .seccion-arbol-der-chico{
         position: absolute;
-        top: 278.38px; 
-        right: 0px; 
+        top: 278.38px;
+        right: 0px;
         z-index: 1;
     }
 
     .arbusto1{
         position: absolute;
-        bottom: -20px; 
-        left: 200px; 
+        bottom: -20px;
+        left: 200px;
         z-index: 3;
     }
     .arbusto2{
         position: absolute;
-        bottom: 70px; 
-        left: 160px; 
+        bottom: 70px;
+        left: 160px;
         z-index: 0;
     }
     .piedra1{
         position: absolute;
-        bottom: 30px; 
-        left: 130px; 
+        bottom: 30px;
+        left: 130px;
         z-index: 2;
     }
 
     .arbusto3{
         position: absolute;
-        bottom: 130px; 
-        right: 0px; 
+        bottom: 130px;
+        right: 0px;
         z-index: 2;
     }
-    
+
     .arbusto4{
         position: absolute;
-        bottom: 205px; 
-        right: 60px; 
+        bottom: 205px;
+        right: 60px;
         z-index: 0;
     }
-    
+
     .piedra2{
         position: absolute;
-        bottom: 90px; 
-        right: 170px; 
+        bottom: 90px;
+        right: 170px;
         z-index: 6;
     }
-    
+
     .piedra3{
         position: absolute;
-        bottom: 100px; 
-        right: 90px; 
+        bottom: 100px;
+        right: 90px;
         z-index: 5;
     }
 
     .piedra4{
         position: absolute;
         bottom: 110px;
-        right: 170px; 
+        right: 170px;
         z-index: 4;
     }
 
     .block-rojo-1{
         position: absolute;
         bottom: 60px;
-        right: 580px; 
+        right: 580px;
         z-index: 6;
     }
 
     .block-naranja-2{
         position: absolute;
         bottom: 205px;
-        right: 500px; 
+        right: 500px;
         z-index: 5;
     }
 
     .block-amarillo-3{
         position: absolute;
         top:323px;
-        left: 710.25px;  
+        left: 710.25px;
         z-index: 4;
     }
 
     .elipse1{
         position: absolute;
         bottom: 80px;
-        right: 600px; 
-        z-index: 3; 
+        right: 600px;
+        z-index: 3;
     }
 
     .elipse2{
         position: absolute;
         bottom: 106px;
-        right: 490px; 
+        right: 490px;
         z-index: 2;
     }
 
@@ -215,7 +209,14 @@ html, body {
     }
 
     .seccion-presentacion{
+        height: 894px;
         position: relative;
+        width: 100vw;
+        left: -100px;
+        top: -70px;
+        background-image: url('/img/fondo2.png');
+        /* background-size: cover;
+        background-repeat: no-repeat; */
     }
 
     .seccion-presentacion p{
@@ -243,19 +244,19 @@ html, body {
     }
     .seccion-figura5{
         position: absolute;
-        top: -70px; 
-        right: -170px; 
-        
+        top: 0px;
+        right: -70px;
+
     }
     /* .seccion-figura5 img{
         width: 572;
         height: 1259px;
     } */
-    
+
     .seccion-figura4{
         position: absolute;
-        top: 580px; 
-        left: 20px; 
+        top: 650px;
+        left: 120px;
         z-index: 1;
     }
     .seccion-figura4 img{
@@ -312,7 +313,7 @@ html, body {
         height: 767px;
         object-fit: cover;
     }
-    
+
     .seccion-descarga h2 {
         max-width: 950px;
         max-height: 153px;
@@ -323,7 +324,7 @@ html, body {
         font-size: 61.14px;
         text-align: center;
     }
-    
+
     .seccion-descarga button {
         width: 540px;
         height: 66px;
@@ -398,5 +399,5 @@ html, body {
 
 
 
-    
+
 }
