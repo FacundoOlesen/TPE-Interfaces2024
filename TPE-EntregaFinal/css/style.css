@@ -85,14 +85,14 @@ html, body {
         position: absolute;
         top: 20px; 
         right: -100px; 
-        z-index: 1;
+        z-index: 3;
     }
 
     .seccion-arbol-der-chico{
         position: absolute;
         top: 208.38px; 
         right: -100px; 
-        z-index: 0;
+        z-index: 1;
     }
 
     .arbusto1{
@@ -114,6 +114,37 @@ html, body {
         z-index: 2;
     }
 
+    .arbusto3{
+        position: absolute;
+        top: 20px; 
+        right: -100px; 
+        z-index: 2;
+    }
+    .arbusto4{
+        position: absolute;
+        top: 20px; 
+        right: -100px; 
+        z-index: 6;
+    }
+    .piedra2{
+        position: absolute;
+        top: 20px; 
+        right: -100px; 
+        z-index: 5;
+    }
+    .piedra3{
+        position: absolute;
+        top: 20px; 
+        right: -100px; 
+        z-index: 4;
+    }
+    .piedra4{
+        position: absolute;
+        top: 20px; 
+        right: -100px; 
+        z-index: 1;
+    }
+
     /*Seccion de presentacion*/
     h1{
         position: relative;
@@ -124,6 +155,11 @@ html, body {
         left: 100px;
         color: #1B428F;
     }
+
+    .seccion-presentacion{
+        position: relative;
+    }
+
     .seccion-presentacion p{
         position: relative;
         max-width: 704px;
@@ -149,18 +185,19 @@ html, body {
     }
     .seccion-figura5{
         position: absolute;
-        top: 867px; 
-        left: 867px; 
+        top: -70px; 
+        right: -170px; 
         z-index: 1;
     }
     .seccion-figura5 img{
         width: 572;
         height: 1259px;
     }
+    
     .seccion-figura4{
         position: absolute;
-        top: 1491px; 
-        left: 48px; 
+        top: 580px; 
+        left: 20px; 
         z-index: 1;
     }
     .seccion-figura4 img{
