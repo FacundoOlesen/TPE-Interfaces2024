@@ -19,6 +19,7 @@ html, body {
         background-position: top, 0px 959px;
         display: flex;
         justify-content: center;
+        overflow: hidden;
     }
 
     .container-main{
@@ -65,8 +66,6 @@ html, body {
     }
     /*/////////////////////////// FINALIZA HEADER /////////////////////////////////////*/
 
-
-
     /*Seccion de inicio con logo que interactua con la barra nav*/
      .seccion-inicio{
         height: 889px;
@@ -95,7 +94,6 @@ html, body {
         right: -100px; 
         z-index: 0;
     }
-
 
     .arbusto1{
         position: absolute;
