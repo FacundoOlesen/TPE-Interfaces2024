@@ -69,7 +69,7 @@ html, body {
     /*/////////////////////////// COMIENZO PRIMERA SECCIÓN PORTADA ///////////////////////////*/
 
      .seccion-inicio{
-        height: 889px;
+        height: 959px;
         display: flex;
         justify-content: center;
         position: relative;
@@ -104,68 +104,68 @@ html, body {
 
     .arbusto1{
         position: absolute;
-        bottom: -20px;
+        bottom: 50px;
         left: 200px;
         z-index: 3;
     }
     .arbusto2{
         position: absolute;
-        bottom: 70px;
+        bottom: 140px;
         left: 160px;
         z-index: 0;
     }
     .piedra1{
         position: absolute;
-        bottom: 30px;
+        bottom: 100px;
         left: 130px;
         z-index: 2;
     }
 
     .arbusto3{
         position: absolute;
-        bottom: 130px;
+        bottom: 200px;
         right: 0px;
         z-index: 2;
     }
 
     .arbusto4{
         position: absolute;
-        bottom: 205px;
+        bottom: 275px;
         right: 60px;
         z-index: 0;
     }
 
     .piedra2{
         position: absolute;
-        bottom: 90px;
+        bottom: 160px;
         right: 170px;
         z-index: 6;
     }
 
     .piedra3{
         position: absolute;
-        bottom: 100px;
+        bottom: 170px;
         right: 90px;
         z-index: 5;
     }
 
     .piedra4{
         position: absolute;
-        bottom: 110px;
+        bottom: 180px;
         right: 170px;
         z-index: 4;
     }
 
     .block-rojo-1{
         position: absolute;
-        bottom: 60px;
+        bottom: 130px;
         right: 580px;
         z-index: 6;
     }
 
     .block-naranja-2{
         position: absolute;
-        bottom: 205px;
+        bottom: 275px;
         right: 500px;
         z-index: 5;
     }
@@ -179,21 +179,21 @@ html, body {
 
     .elipse1{
         position: absolute;
-        bottom: 80px;
+        bottom: 150px;
         right: 600px;
         z-index: 3;
     }
 
     .elipse2{
         position: absolute;
-        bottom: 106px;
+        bottom: 176px;
         right: 490px;
         z-index: 2;
     }
 
     .elipse3{
         position: absolute;
-        bottom: 138px;
+        bottom: 208px;
         right: 380px;
         z-index: 1;
     }
@@ -203,14 +203,14 @@ html, body {
     /*Seccion de presentacion*/
 
     .seccion-presentacion{
-        height: 894px;
+        height: 1294px;
         position: relative;
         width: 100vw;
         left: -100px;
-        top: -70px;
+        top: -71px;
         background-image: url('/img/fondo2.png');
-        /* background-size: cover;
-        background-repeat: no-repeat; */
+        
+        background-repeat: no-repeat; 
     }
 
     h1{
@@ -218,9 +218,12 @@ html, body {
         max-width: 508px;
         height: 132px;
         font-size: 47px;
-        top: 125px;
+        top: 55px;
         left: 100px;
         color: #1B428F;
+        font-weight: 600;
+        size: 47px;
+        line-height: 44.41px;
     }
 
     .seccion-presentacion p{
@@ -229,7 +232,7 @@ html, body {
         max-height: 154px;
         font-size: 20px;
         left: 100px;
-        top: 170px;
+        top: 100px;
         color: #1B428F;
         text-align: justify;
     }
@@ -238,7 +241,7 @@ html, body {
         width: 576.38px;
         height: 324.35px;
         left: 206px;
-        top: 192px;
+        top: 122px;
         /* border-radius: 77px;
         border: solid #1B5F99 29px; */
     }
@@ -249,18 +252,18 @@ html, body {
     }
     .seccion-figura5{
         position: absolute;
-        top: 0px;
-        right: -70px;
+        top: -85px;
+        right: -79px;
 
     }
      .seccion-figura5 img{
-        width: 572;
+        width: 572px;
         height: 1259px;
     }
 
     .seccion-figura4{
         position: absolute;
-        top: 650px;
+        top: 560px;
         left: 48px;
         z-index: 1;
     }
