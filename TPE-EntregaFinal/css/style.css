@@ -234,10 +234,10 @@ html, body {
         position: relative;
         width: 576.38px;
         height: 324.35px;
-        left: 136px;
+        left: 206px;
         top: 192px;
-        border-radius: 77px;
-        border: solid #1B5F99 29px;
+        /* border-radius: 77px;
+        border: solid #1B5F99 29px; */
     }
     .video{
         width: 100%;
@@ -253,7 +253,7 @@ html, body {
      .seccion-figura5 img{
         width: 572;
         height: 1259px;
-    } 
+    }
 
     .seccion-figura4{
         position: absolute;
