@@ -260,13 +260,14 @@ html, body {
 
     /*Seccion galeria horizontal*/
     .seccion-galeria{
-        position: absolute;
+        position: relative;
         display: flex;
-        top: 2174px;
+        top: 683px;
         justify-content: center;
         align-items: center;
         gap: 20px;
     }
+
     .card-galeria{
         margin: 0;
         width: 303px;
@@ -282,10 +283,10 @@ html, body {
     }
     /*Seccion de compra*/
     .seccion-descarga {
-        position: absolute;
-        top: 2830px;
-        left: 0;
-        right: 0;
+        position: relative;
+        width: 100vw;
+        left: -100px;
+        top: 874px;
         background-image: url('/img/fondoSeccionDescarga.png');
         background-size: cover;
         background-repeat: no-repeat;
@@ -295,6 +296,7 @@ html, body {
         height: 1157px;
         overflow: hidden;
     }
+
     .figuras-descarga img{
         position: relative;
         top: 215px;
@@ -326,5 +328,67 @@ html, body {
         color: #fff;
         border-radius: 111px;
     }
+    /*A consultar, supongo que van las img individuales
+    de cada figura, hay que consultar porque no son las mismas*/
+    .figura1-descarga{
+        position: absolute;
+        bottom: -170px;
+        left: 52px;
+        rotate: 8deg;
+        z-index: 1;
+    }
+    .figura1-descarga img{
+        width: 420px;
+        height: 509px;
+    }
+    .figura3-descarga{
+        position: absolute;
+        left: -185px;
+        rotate: 74deg;
+        top: 235px;
+    }
+    .figura5-descarga{
+        position: absolute;
+        bottom: 10px;
+        left: 350px;
+        z-index: 0;
+    }
+    .figura5-descarga img{
+        width: 261px;
+        height: 470px;
+    }
+    .figura9-descarga{
+        position: absolute;
+        left: 500px;
+        bottom: 0px;
+    }
+    .figura9-descarga img{
+        width: 325px;
+        height: 375px;
+    }
+    .figura2-descarga{
+        position: absolute;
+        bottom: -495px;
+        rotate: -9deg;
+        left: 820px;
+    }
+    .figura4-descarga{
+        position: absolute;
+        right: -150px;
+        top: 320px;
+        rotate: -70deg;
+    }
+    .figura4-descarga img{
+        width: 400px;
+        height: 700px;
+    }
+    /*Seccion modos de juegos*/
+    .seccion-modos{
+        position: relative;
+        top: 941px;
+    }
+
+
+
     
 }
