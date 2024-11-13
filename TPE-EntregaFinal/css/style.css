@@ -409,7 +409,65 @@ html, body {
         /* top: 941px; */
     }
 
+    /*/////////////////////////// COMIENZO LOADER ///////////////////////////*/
+    
+    /* Estilos para el Loader */
+    #loader {
+        position: fixed;
+        top: 0;
+        left: 0;
+        width: 100%;
+        height: 100%;
+        background: linear-gradient(180deg, #88DE7F,#A8EBEC);
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        z-index: 1000; /* Asegura que el loader esté al frente */
+    }
 
+    .loader-circle {
+        width: 200px;
+        height: 200px;
+        border-radius: 50%;
+        border: 20px solid #83C252; /* Color de borde verde */
+        border-top: 20px solid #1B428F; /* Color azul en la parte superior */
+        animation: spin 15s cubic-bezier(0.25, 1, 0.5, 1) infinite;
+    }
 
+    .loader-text {
+        position: absolute;
+        top: 50%;
+        left: 50%;
+        font-family: 'Lato', sans-serif;
+        color: #1B428F;
+        animation: fadeIn 1.2s ease-in-out infinite alternate;
+        will-change: opacity;  /* Mejora el rendimiento de la animación */
+    }
+
+    .loader-text-numero{
+        transform: translate(-50%, -100%); 
+        font-size: 50px;
+        font-weight: bolder;
+    }
+
+    .loader-text-cargando{
+        transform: translate(-50%, 0%);
+        font-size: 30px;
+        font-weight: bold;
+    }
+
+    /* Animación de rotación */
+    @keyframes spin {
+        0% { transform: rotate(0deg); }
+        100% { transform: rotate(2520deg); }
+    }
+
+    /* Animación de parpadeo */
+    @keyframes fadeIn {
+        0% { opacity: 0.3; }
+        100% { opacity: 1; }
+    }
+
+    /*/////////////////////////// FINALIZO LOADER ///////////////////////////*/
 
 }
