@@ -654,4 +654,31 @@ html, body {
         height: 700px;
     }
 
+    /*Seccion 3d*/
+    .seccion-3d{
+        display: flex;
+    }
+    .text-3d{
+        display: block;
+        position: relative;
+        top: 667px;
+    }
+    .text-3d h2{
+        font-size: 60px;
+        width: 746px;
+    }
+    .text-3d p{
+        width: 467px;
+        height: 190px;
+    }
+    .figura3d{
+        position: absolute;
+        top: 9100px;
+        left: 599px;
+    }
+    .figura3d img{
+        width: 667px;
+        height: 973px;
+    }
+
 }
