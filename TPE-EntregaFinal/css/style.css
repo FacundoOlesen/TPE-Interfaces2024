@@ -27,7 +27,7 @@ html, body {
     }
 
     /*/////////////////////////// COMIENZO LOADER ///////////////////////////*/
-    
+
     /* Estilos para el Loader */
     #loader {
         position: fixed;
@@ -62,7 +62,7 @@ html, body {
     }
 
     .loader-text-numero{
-        transform: translate(-50%, -100%); 
+        transform: translate(-50%, -100%);
         font-size: 50px;
         font-weight: bolder;
     }
@@ -132,7 +132,7 @@ html, body {
 
     /* Clase para aplicar la transformación */
     .transformed #span1 {
-        transform: translatey(99%) rotate(40deg); 
+        transform: translatey(99%) rotate(40deg);
     }
 
     .transformed #span2 {
@@ -143,6 +143,60 @@ html, body {
         transform: translatey(-99%) rotate(-40deg);
     }
 
+    ul{
+        display: flex;
+        flex-direction: column;
+        align-items: center;
+        position: absolute;
+        top: 70px;
+        left: -300px;
+        z-index: 10;
+        background: #83C252;
+        color: white;
+        width: 300px;
+        height: 105px;
+        transition: transform 0.7s ease;
+    }
+
+    nav.visible ul{
+        transform: translateX(100%);
+    }
+
+    header.visible{
+        z-index: 1000;
+        background: linear-gradient(180deg, #00d0d7 0%, #ffffff 100%);
+        position: relative;
+        width: 100vw;
+        left: -100px;
+        animation: backgroundAnimation 0.7s ease-in-out forwards;
+    }
+
+    @keyframes backgroundAnimation {
+        0% {
+            background: linear-gradient(180deg, rgba(0, 208, 215, 0) 0%, rgba(255, 255, 255, 0) 100%);
+        }
+        100% {
+            background: linear-gradient(180deg, #00d0d7 0%, #ffffff 100%);
+        }
+    }
+
+    header.visible .container-menu-hamburguesa{
+         margin-left: 100px;
+    }
+
+    header.visible .container-btn-comprar{
+        margin-right: 100px;
+   }
+
+    li{
+        height: 35px;
+        list-style: none;
+        padding-top: 7px;
+        border: 1px solid #fff;
+        width: 100%;
+        text-align: center;
+    }
+
     .container-logo{
         display: none;
     }
@@ -151,10 +205,10 @@ html, body {
         text-decoration: none;
         background-color: #83C252;
         color: white;
-        width: 210px;
-        height: 60px;
+        width: 180px;
+        height: 50px;
         border-radius: 30px;
-        border: solid white 7px;
+        border: solid white 5px;
         display: flex;
         align-items: center;
         justify-content: center;
@@ -165,6 +219,7 @@ html, body {
         line-height: 18.9px;
         text-underline-position: from-font;
         text-decoration-skip-ink: none;
+        margin-bottom: 10px;
 
     }
     /*/////////////////////////// FINALIZA HEADER ///////////////////////////*/
@@ -314,8 +369,8 @@ html, body {
         left: -100px;
         top: -71px;
         background-image: url('/img/fondo2.png');
-        
-        background-repeat: no-repeat; 
+
+        background-repeat: no-repeat;
     }
 
     h1{
