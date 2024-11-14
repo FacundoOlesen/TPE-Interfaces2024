@@ -656,6 +656,7 @@ html, body {
 
     /*Seccion 3d*/
     .seccion-3d{
+        position: relative;
         display: flex;
     }
     .text-3d{
@@ -672,11 +673,11 @@ html, body {
         height: 190px;
     }
     .figura3d{
-        position: absolute;
-        top: 9100px;
-        left: 599px;
+        position: relative;
+        top: 510px;
+        left: -259px;
     }
-    .figura3d img{
+    .seccion-3d img{
         width: 667px;
         height: 973px;
     }
