@@ -621,4 +621,39 @@ html, body {
         height: 167px;
     }
 
+    /*Seccion de videos*/
+    .seccion-video{
+        position: relative;
+        top: 562.17px;
+        width: 100vw;
+        left: -100px;
+        background-image: url('/img/fondo3.png');
+        background-size: cover;
+        background-repeat: no-repeat;
+        height: 1443.83px;
+    }
+    .seccion-video h2{
+        position: relative;
+        font-size: 60px;
+        top: 308.83px;
+        left: 100px;
+        width: 802px;
+        color: white;
+    }
+    .seccion-video img{
+        position: relative;
+        top: 354.83px;
+        width: 804px;
+        left: 100px;
+    }
+    .figura3-video{
+        position: absolute;
+        top: 170px;
+        left: 731px;
+    }
+    .figura3-video img{
+        width: 400px;
+        height: 700px;
+    }
+
 }
