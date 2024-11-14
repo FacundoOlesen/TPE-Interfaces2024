@@ -592,5 +592,33 @@ html, body {
         position: relative;
         /* top: 941px; */
     }
+    .seccion-modos h2{
+        position: relative;
+        top: 174px;
+        font-size: 60px;
+    }
+    .art-modos{
+        display: flex;
+    }
+    .art-modos img{
+        position: relative;
+        top: 182px;
+        width: 291px;
+        height: 436px;
+    }
+    .text-modo h3{
+        font-size: 40px;
+    }
+    .text-modo p{
+        font-size: 20px;
+    }
+    .text-modo{
+        position: relative;
+        left: 246px;
+        top: 276px;
+        display: block;
+        width: 467px;
+        height: 167px;
+    }
 
 }
