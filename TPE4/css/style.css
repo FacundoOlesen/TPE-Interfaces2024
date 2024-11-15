@@ -939,7 +939,6 @@ body {
         position: relative;
         left: 265px;
         top: -60px
-
     }
 
     .gifs {
@@ -949,15 +948,31 @@ body {
         padding-top: 130px;
     }
 
-    .background-piso {
-        padding-top: 382px;
-        height: 100px;
-        width: 300px;
+    .bg-piso {
+        margin-top: -347px;
+        margin-left: -100px;
+        z-index: 0;
     }
 
-    .bg-piso {
-        padding-top: 382px;
-        margin-left: -100px;
+    .gifs img{
+        z-index: 1;
+    }
+
+    .gif-3{
+        position: absolute;
+        margin-left: 350px;
+    }
+
+    .gif-7{
+        position: absolute;
+        height: 850px;
+        margin-left: 700px;
+        margin-top: -300px;
+    }
+
+    .gifs{
+       margin-top: 120px;
+       margin-left: -80px;
     }
 
     /* Footer */
