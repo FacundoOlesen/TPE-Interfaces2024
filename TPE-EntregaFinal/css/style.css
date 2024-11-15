@@ -747,4 +747,45 @@ html, body {
     .cuadro-figura10{
         background-color: white;
     }
+
+    /* Footer */
+    footer {
+        position: relative;
+        top: 800px;
+        background-color: #5E5E5D;
+        width: 100vw;
+        height: 515px;
+        left: -100px;
+    }
+
+    .plataformas {
+        position: relative;
+        background-color: #242424;
+        width: 100vw;
+        display: flex;
+        justify-content: center;
+    }
+
+    .plataformas img {
+        width: 1080px;
+        height: auto;
+    }
+    footer p{
+        position: relative;
+        top: 20px;
+        width: 880px;
+        height: 361;
+        font-size: 20px;
+        left: 100px;
+        color: white;
+    }
+    .footer p span{
+        text-decoration: underline;
+    }
+    .redes{
+        position: relative;
+        top: 45px;
+        left: 100px;
+        width: 212px;
+    }
 }
