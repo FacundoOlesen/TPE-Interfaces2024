@@ -23,6 +23,9 @@ const blockRojo1 = document.getElementById("block-rojo-1");
 const blockNaranja2 = document.getElementById("block-naranja-2");
 const blockAmarillo3 = document.getElementById("block-amarillo-3");
 
+const seccionFigura5 = document.getElementById("seccion-figura5");
+const seccionFigura4 = document.getElementById("seccion-figura4");
+
 containerMain.onscroll = function () {
   let y = containerMain.scrollTop;
   arbusto1.style.left = 200 + y * 0.05 + "px";
@@ -44,4 +47,9 @@ containerMain.onscroll = function () {
 
   elipse2.style.bottom = 176 - y * 0.05 + "px";
   elipse3.style.right = 380 - y * 0.2 + "px";
+
+  seccionFigura5.style.right = -79 + y * 0.02 + "px";
+  seccionFigura5.style.top = -85 - y * 0.05 + "px";
+
+  seccionFigura4.style.left = 48 + y * 0.06 + "px";
 };
