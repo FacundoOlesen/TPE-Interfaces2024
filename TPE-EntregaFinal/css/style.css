@@ -751,21 +751,28 @@ body {
         height: 729px;
         left: -100px;
         top: 676px;
+    
+        /* Dos gradientes superpuestos */
         background-image: 
             linear-gradient(to right, 
-                red 0%, orange 20%, 
-                yellow 40%, green 60%, 
-                lightskyblue 80%),
+                red 0%, orange 38%, 
+                yellow 41%, green 50%, 
+                lightskyblue 80%),  /* Primer gradiente */
             
             linear-gradient(to right, 
-                rgb(119, 0, 255) 0%, lightskyblue 20%, 
-                rgb(255, 0, 157) 40%, gray 60%, 
-                white 80%);
+                rgb(119, 0, 255) 0%, lightskyblue 30%, 
+                rgb(255, 0, 157) 50%, gray 68%, 
+                white 90%);  /* Segundo gradiente */
     
         background-size: 100% 50%;
         background-position: top, bottom;
+    
+        /* Controla la mezcla de los gradientes */
+        background-blend-mode:overlay; /* Esto permite que se mezclen los colores */
+        
         background-repeat: no-repeat;
     }
+    
     
     .seccion-figuras>div {
         position: relative;
