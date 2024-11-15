@@ -832,27 +832,124 @@ body {
         background-color: white;
     }
 
-    /*Seccion correo*/
+    /* Sección correo */
     .seccion-correo {
         position: relative;
         height: 1570px;
         top: 676px;
         left: -100px;
         width: 120.415%;
-        background: linear-gradient(180deg, #E0D299 0%, #ADF8FD 47.09%, #EDFDFF 88.29%, #FFFFFF 107.02%);
     }
 
-    .seccion-correo .title{
+    .backg-part {
+        height: 1296px;
+        background: linear-gradient(0deg, #E0D299 0%, #ADF8FD 47.09%, #EDFDFF 88.29%, #FFFFFF 107.02%);
+    }
+
+    .no-backgr-part {
+        height: 274px;
+        background-color: white;
+    }
+
+    .seccion-correo div {
+        padding-left: 80px;
+    }
+
+    .seccion-correo .title {
         width: 816px;
         height: 171px;
-        margin-left: 80px;
-        padding-top: 200px;
+        padding-top: 180px;
     }
 
-    .seccion-correo h3{
+    .seccion-correo h3 {
         font-size: 60px;
         font-weight: 600;
         line-height: 56.7px;
+    }
+
+    .input-correo {
+        display: flex;
+        padding-top: 100px;
+    }
+
+    .input-correo input {
+        width: 562px;
+        height: 82px;
+        background-color: #ECECEC;
+        border-radius: 45px 0 0 45px;
+        border: 9px solid white;
+    }
+
+    .input-correo input::placeholder {
+        font-size: 20px;
+        color: #00000063;
+        letter-spacing: 1.5px;
+        font-family: 'Lato', sans-serif;
+        padding-left: 30px;
+    }
+
+
+    .input-correo button {
+        width: 218px;
+        height: 100px;
+        background-color: #83C252;
+        border-color: #FFFFFF;
+        color: #FFFFFF;
+        font-weight: 800;
+        font-size: 20px;
+        line-height: 18.9px;
+        text-transform: uppercase;
+        font-family: 'Lato', sans-serif;
+        border-radius: 0 45px 45px 0;
+        border: 9px solid white;
+        border-left: none;
+
+    }
+
+    .seccion-correo h6 {
+        font-size: 20px;
+        width: 580px;
+        padding-top: 40px;
+        font-weight: normal;
+
+    }
+
+    .seccion-correo .ersb {
+        padding-left: 80px;
+        padding-top: 40px;
+
+    }
+
+
+    .small-cloud{
+        position: relative;
+        left: 460px;
+        top: -185px;
+    }
+
+    .big-cloud{
+        position: relative;
+        left: 265px;
+        top: -60px
+
+    }
+
+    .gifs {
+        display: flex;
+        flex-direction: row;
+        margin-left: -220px;
+        padding-top: 130px;
+    }
+
+    .background-piso {
+        padding-top: 382px;
+        height: 100px;
+        width: 300px;
+    }
+
+    .bg-piso {
+        padding-top: 382px;
+        margin-left: -100px;
     }
 
     /* Footer */
