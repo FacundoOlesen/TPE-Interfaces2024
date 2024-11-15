@@ -503,6 +503,14 @@ body {
     .card-galeria {
         margin: 0;
         width: 303px;
+        opacity: 0;
+        transform: translateY(50px);
+        transition: opacity 1s ease, transform 1s ease;
+        will-change: opacity, transform;
+    }
+    .card-galeria.visible {
+        opacity: 1;
+        transform: translateY(0);
     }
 
     .card-galeria img {
