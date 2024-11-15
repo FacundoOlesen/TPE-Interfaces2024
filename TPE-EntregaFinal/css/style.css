@@ -746,15 +746,27 @@ body {
         display: flex;
         flex-wrap: wrap;
         justify-content: flex-start;
-        gap: 25px;
+        gap: 31px;
         width: 100vw;
         height: 729px;
         left: -100px;
         top: 676px;
-        background-color: blue;
-        overflow: hidden;
+        background-image: 
+            linear-gradient(to right, 
+                red 0%, orange 20%, 
+                yellow 40%, green 60%, 
+                lightskyblue 80%),
+            
+            linear-gradient(to right, 
+                rgb(119, 0, 255) 0%, lightskyblue 20%, 
+                rgb(255, 0, 157) 40%, gray 60%, 
+                white 80%);
+    
+        background-size: 100% 50%;
+        background-position: top, bottom;
+        background-repeat: no-repeat;
     }
-
+    
     .seccion-figuras>div {
         position: relative;
         width: 225px;
@@ -771,27 +783,27 @@ body {
     }
 
     .cuadro-figura1 {
-        background-color: rgb(148, 5, 5);
+        background-color: red;
     }
 
     .cuadro-figura2 {
-        background-color: rgb(196, 136, 24);
+        background-color: orange;
     }
 
     .cuadro-figura3 {
-        background-color: rgb(184, 184, 28);
+        background-color: yellow;
     }
 
     .cuadro-figura4 {
-        background-color: rgb(11, 139, 11);
+        background-color: green;
     }
 
     .cuadro-figura5 {
-        background-color: rgb(32, 147, 185);
+        background-color: lightskyblue;
     }
 
     .cuadro-figura6 {
-        background-color: rgb(107, 31, 107);
+        background-color: rgb(119, 0, 255);
     }
 
     .cuadro-figura7 {
@@ -804,7 +816,7 @@ body {
     }
 
     .cuadro-figura8 {
-        background-color: rgb(199, 44, 139);
+        background-color: rgb(255, 0, 157);
     }
 
     .cuadro-figura9 {
@@ -815,6 +827,7 @@ body {
         background-color: white;
     }
 
+    /*Seccion correo*/
     .seccion-correo {
         position: relative;
         height: 1570px;
