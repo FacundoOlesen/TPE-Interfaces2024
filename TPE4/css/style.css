@@ -280,7 +280,7 @@ body {
         width: 100vw;
         left: -100px;
         top: -70px;
-        background-image: url('/img/fondo.png');
+        background-image: url('../img/fondo.png');
         background-size: cover;
         background-repeat: no-repeat;
     }
@@ -414,7 +414,7 @@ body {
         width: 100vw;
         left: -100px;
         top: -71px;
-        background-image: url('/img/fondo2.png');
+        background-image: url('../img/fondo2.png');
 
         background-repeat: no-repeat;
     }
@@ -522,7 +522,7 @@ body {
         width: 100vw;
         left: -100px;
         /* top: 874px; */
-        background-image: url('/img/fondoSeccionDescarga.png');
+        background-image: url('../img/fondoSeccionDescarga.png');
         background-size: cover;
         background-repeat: no-repeat;
         display: flex;
@@ -674,7 +674,7 @@ body {
         top: 562.17px;
         width: 100vw;
         left: -100px;
-        background-image: url('/img/fondo3.png');
+        background-image: url('../img/fondo3.png');
         background-size: cover;
         background-repeat: no-repeat;
         height: 1443.83px;
