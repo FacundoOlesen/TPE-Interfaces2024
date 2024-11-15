@@ -5,7 +5,8 @@
     padding: 0px;
 }
 
-html, body {
+html,
+body {
     width: 100%;
     font-family: 'Lato', sans-serif;
 }
@@ -20,9 +21,9 @@ html, body {
         justify-content: center;
     }
 
-    .container-main{
+    .container-main {
         width: 1080px;
-        overflow-x : hidden;
+        overflow-x: hidden;
         padding: 0px 100px;
     }
 
@@ -35,19 +36,22 @@ html, body {
         left: 0;
         width: 100%;
         height: 100%;
-        background: linear-gradient(180deg, #88DE7F,#A8EBEC);
+        background: linear-gradient(180deg, #88DE7F, #A8EBEC);
         display: flex;
         align-items: center;
         justify-content: center;
-        z-index: 1000; /* Asegura que el loader esté al frente */
+        z-index: 1000;
+        /* Asegura que el loader esté al frente */
     }
 
     .loader-circle {
         width: 200px;
         height: 200px;
         border-radius: 50%;
-        border: 20px solid #83C252; /* Color de borde verde */
-        border-top: 20px solid #1B428F; /* Color azul en la parte superior */
+        border: 20px solid #83C252;
+        /* Color de borde verde */
+        border-top: 20px solid #1B428F;
+        /* Color azul en la parte superior */
         animation: spin 15s cubic-bezier(0.25, 1, 0.5, 1) infinite;
     }
 
@@ -58,16 +62,17 @@ html, body {
         font-family: 'Lato', sans-serif;
         color: #1B428F;
         animation: fadeIn 1.2s ease-in-out infinite alternate;
-        will-change: opacity;  /* Mejora el rendimiento de la animación */
+        will-change: opacity;
+        /* Mejora el rendimiento de la animación */
     }
 
-    .loader-text-numero{
+    .loader-text-numero {
         transform: translate(-50%, -100%);
         font-size: 50px;
         font-weight: bolder;
     }
 
-    .loader-text-cargando{
+    .loader-text-cargando {
         transform: translate(-50%, 0%);
         font-size: 30px;
         font-weight: bold;
@@ -75,31 +80,42 @@ html, body {
 
     /* Animación de rotación */
     @keyframes spin {
-        0% { transform: rotate(0deg); }
-        100% { transform: rotate(2520deg); }
+        0% {
+            transform: rotate(0deg);
+        }
+
+        100% {
+            transform: rotate(2520deg);
+        }
     }
 
     /* Animación de parpadeo */
     @keyframes fadeIn {
-        0% { opacity: 0.3; }
-        100% { opacity: 1; }
+        0% {
+            opacity: 0.3;
+        }
+
+        100% {
+            opacity: 1;
+        }
     }
 
     /*/////////////////////////// FINALIZO LOADER ///////////////////////////*/
 
     /*/////////////////////////// COMIENZO HEADER ///////////////////////////*/
 
-    header{
+    header {
         display: flex;
         justify-content: space-between;
     }
 
-    .container-menu-hamburguesa , .container-btn-comprar{
+    .container-menu-hamburguesa,
+    .container-btn-comprar {
         margin: 10px 0px 0px 0px;
         z-index: 2;
     }
 
-    .container-menu-hamburguesa img{
+    .container-menu-hamburguesa img {
         width: 40px;
         height: 30px;
     }
@@ -125,7 +141,8 @@ html, body {
         transition: transform 0.7s ease;
     }
 
-    .transformed #span1,.transformed #span3 {
+    .transformed #span1,
+    .transformed #span3 {
         border-radius: 0px;
         box-shadow: none;
     }
@@ -136,14 +153,15 @@ html, body {
     }
 
     .transformed #span2 {
-        opacity: 0; /* Oculta la línea central */
+        opacity: 0;
+        /* Oculta la línea central */
     }
 
     .transformed #span3 {
         transform: translatey(-99%) rotate(-40deg);
     }
 
-    ul{
+    ul {
         display: flex;
         flex-direction: column;
         align-items: center;
@@ -155,36 +173,39 @@ html, body {
         height: 105px;
     }
 
-     nav.visible ul li{
+    nav.visible ul li {
         animation: slideIn 0.7s ease forwards;
         opacity: 0;
         background: #83C252;
         color: white;
-    } 
+    }
 
     nav.visible ul li:nth-child(1) {
         animation-delay: 0.2s;
     }
+
     nav.visible ul li:nth-child(2) {
         animation-delay: 0.4s;
     }
+
     nav.visible ul li:nth-child(3) {
         animation-delay: 0.6s;
     }
 
     /* Define la animación que hace que los elementos se deslicen desde la izquierda */
-@keyframes slideIn {
-    0% {
-        transform: translateX(0);
-        opacity: 0;
-    }
-    100% {
-        transform: translateX(100%);
-        opacity: 1;
-    }
-}
+    @keyframes slideIn {
+        0% {
+            transform: translateX(0);
+            opacity: 0;
+        }
 
-    header.visible{
+        100% {
+            transform: translateX(100%);
+            opacity: 1;
+        }
+    }
+
+    header.visible {
         z-index: 1000;
         background: linear-gradient(180deg, #00d0d7 0%, #ffffff 100%);
         position: relative;
@@ -197,20 +218,21 @@ html, body {
         0% {
             background: linear-gradient(180deg, rgba(0, 208, 215, 0) 0%, rgba(255, 255, 255, 0) 100%);
         }
+
         100% {
             background: linear-gradient(180deg, #00d0d7 0%, #ffffff 100%);
         }
     }
 
-    header.visible .container-menu-hamburguesa{
-         margin-left: 100px;
+    header.visible .container-menu-hamburguesa {
+        margin-left: 100px;
     }
 
-    header.visible .container-btn-comprar{
+    header.visible .container-btn-comprar {
         margin-right: 100px;
-   }
+    }
 
-    li{
+    li {
         height: 35px;
         list-style: none;
         padding-top: 7px;
@@ -219,7 +241,7 @@ html, body {
         text-align: center;
     }
 
-    .container-logo{
+    .container-logo {
         display: none;
     }
 
@@ -235,7 +257,8 @@ html, body {
         align-items: center;
         justify-content: center;
         text-align: center;
-        box-shadow: 3px 4px 0px #02187E; /* Sombra azul debajo del botón */
+        box-shadow: 3px 4px 0px #02187E;
+        /* Sombra azul debajo del botón */
         font-size: 20px;
         font-weight: 900;
         line-height: 18.9px;
@@ -244,11 +267,12 @@ html, body {
         margin-bottom: 10px;
 
     }
+
     /*/////////////////////////// FINALIZA HEADER ///////////////////////////*/
 
     /*/////////////////////////// COMIENZO PRIMERA SECCIÓN PORTADA ///////////////////////////*/
 
-     .seccion-inicio{
+    .seccion-inicio {
         height: 959px;
         display: flex;
         justify-content: center;
@@ -261,119 +285,119 @@ html, body {
         background-repeat: no-repeat;
     }
 
-    .seccion-arbol-izq{
+    .seccion-arbol-izq {
         position: absolute;
         top: -10px;
         left: 0px;
         z-index: 1;
     }
 
-    .seccion-arbol-der{
+    .seccion-arbol-der {
         position: absolute;
         top: 90px;
         right: 0px;
         z-index: 3;
     }
 
-    .seccion-arbol-der-chico{
+    .seccion-arbol-der-chico {
         position: absolute;
         top: 278.38px;
         right: 0px;
         z-index: 1;
     }
 
-    .arbusto1{
+    .arbusto1 {
         position: absolute;
         bottom: 50px;
         left: 200px;
         z-index: 3;
     }
 
-    .arbusto2{
+    .arbusto2 {
         position: absolute;
         bottom: 140px;
         left: 160px;
         z-index: 0;
     }
 
-    .piedra1{
+    .piedra1 {
         position: absolute;
         bottom: 100px;
         left: 130px;
         z-index: 2;
     }
 
-    .arbusto3{
+    .arbusto3 {
         position: absolute;
         bottom: 200px;
         right: 0px;
         z-index: 2;
     }
 
-    .arbusto4{
+    .arbusto4 {
         position: absolute;
         bottom: 275px;
         right: 60px;
         z-index: 0;
     }
 
-    .piedra2{
+    .piedra2 {
         position: absolute;
         bottom: 160px;
         right: 170px;
         z-index: 6;
     }
 
-    .piedra3{
+    .piedra3 {
         position: absolute;
         bottom: 170px;
         right: 90px;
         z-index: 5;
     }
 
-    .piedra4{
+    .piedra4 {
         position: absolute;
         bottom: 180px;
         right: 170px;
         z-index: 4;
     }
 
-    .block-rojo-1{
+    .block-rojo-1 {
         position: absolute;
         bottom: 130px;
         right: 580px;
         z-index: 6;
     }
 
-    .block-naranja-2{
+    .block-naranja-2 {
         position: absolute;
         bottom: 275px;
         right: 500px;
         z-index: 5;
     }
 
-    .block-amarillo-3{
+    .block-amarillo-3 {
         position: absolute;
-        top:323px;
+        top: 323px;
         left: 710.25px;
         z-index: 4;
     }
 
-    .elipse1{
+    .elipse1 {
         position: absolute;
         bottom: 150px;
         right: 600px;
         z-index: 3;
     }
 
-    .elipse2{
+    .elipse2 {
         position: absolute;
         bottom: 176px;
         right: 490px;
         z-index: 2;
     }
 
-    .elipse3{
+    .elipse3 {
         position: absolute;
         bottom: 208px;
         right: 380px;
@@ -384,7 +408,7 @@ html, body {
 
     /*Seccion de presentacion*/
 
-    .seccion-presentacion{
+    .seccion-presentacion {
         height: 1200px;
         position: relative;
         width: 100vw;
@@ -395,7 +419,7 @@ html, body {
         background-repeat: no-repeat;
     }
 
-    h1{
+    h1 {
         position: relative;
         max-width: 508px;
         height: 132px;
@@ -408,7 +432,7 @@ html, body {
         line-height: 44.41px;
     }
 
-    .seccion-presentacion p{
+    .seccion-presentacion p {
         position: relative;
         max-width: 694px;
         max-height: 154px;
@@ -421,7 +445,8 @@ html, body {
         size: 20px;
         line-height: 24px;
     }
-    .video-trailer{
+
+    .video-trailer {
         position: relative;
         width: 576.38px;
         height: 324.35px;
@@ -430,35 +455,39 @@ html, body {
         /* border-radius: 77px;
         border: solid #1B5F99 29px; */
     }
-    .video{
+
+    .video {
         width: 100%;
         height: 100%;
-        border-radius:47px ;
+        border-radius: 47px;
     }
-    .seccion-figura5{
+
+    .seccion-figura5 {
         position: absolute;
         top: -85px;
         right: -79px;
 
     }
-     .seccion-figura5 img{
+
+    .seccion-figura5 img {
         width: 572px;
         height: 1259px;
     }
 
-    .seccion-figura4{
+    .seccion-figura4 {
         position: absolute;
         top: 560px;
         left: 48px;
         z-index: 1;
     }
-    .seccion-figura4 img{
+
+    .seccion-figura4 img {
         width: 601.64px;
         height: 543.24px;
     }
 
     /*Seccion galeria horizontal*/
-    .seccion-galeria{
+    .seccion-galeria {
         position: relative;
         display: flex;
         top: 683px;
@@ -471,19 +500,22 @@ html, body {
         top: -71px;
     }
 
-    .card-galeria{
+    .card-galeria {
         margin: 0;
         width: 303px;
     }
-    .card-galeria img{
+
+    .card-galeria img {
         width: 300px;
         height: 252.69px;
     }
-    .card-galeria .p-card{
+
+    .card-galeria .p-card {
         width: 300px;
         color: black;
         margin: 0;
     }
+
     /*Seccion de compra*/
     .seccion-descarga {
         position: relative;
@@ -500,7 +532,7 @@ html, body {
         overflow: hidden;
     }
 
-    .figuras-descarga img{
+    .figuras-descarga img {
         position: relative;
         top: 215px;
         width: 1260px;
@@ -531,86 +563,103 @@ html, body {
         color: #fff;
         border-radius: 111px;
     }
+
     /*A consultar, supongo que van las img individuales
     de cada figura, hay que consultar porque no son las mismas*/
-    .figura1-descarga{
+    .figura1-descarga {
         position: absolute;
         bottom: -170px;
         left: 52px;
         rotate: 8deg;
         z-index: 1;
     }
-    .figura1-descarga img{
+
+    .figura1-descarga img {
         width: 420px;
         height: 509px;
     }
-    .figura3-descarga{
+
+    .figura3-descarga {
         position: absolute;
         left: -185px;
         rotate: 74deg;
         top: 235px;
     }
-    .figura5-descarga{
+
+    .figura5-descarga {
         position: absolute;
         bottom: 10px;
         left: 350px;
         z-index: 0;
     }
-    .figura5-descarga img{
+
+    .figura5-descarga img {
         width: 261px;
         height: 470px;
     }
-    .figura9-descarga{
+
+    .figura9-descarga {
         position: absolute;
         left: 500px;
         bottom: 0px;
     }
-    .figura9-descarga img{
+
+    .figura9-descarga img {
         width: 325px;
         height: 375px;
     }
-    .figura2-descarga{
+
+    .figura2-descarga {
         position: absolute;
         bottom: -495px;
         rotate: -9deg;
         left: 820px;
     }
-    .figura4-descarga{
+
+    .figura4-descarga {
         position: absolute;
         right: -150px;
         top: 320px;
         rotate: -70deg;
     }
-    .figura4-descarga img{
+
+    .figura4-descarga img {
         width: 400px;
         height: 700px;
     }
+
     /*Seccion modos de juegos*/
-    .seccion-modos{
+    .seccion-modos {
         position: relative;
         /* top: 941px; */
     }
-    .seccion-modos h2{
+
+    .seccion-modos h2 {
         position: relative;
         top: 174px;
         font-size: 60px;
     }
-    .art-modos{
+
+    .art-modos {
         display: flex;
     }
-    .art-modos img{
+
+    .art-modos img {
         position: relative;
         top: 182px;
         width: 291px;
         height: 436px;
     }
-    .text-modo h3{
+
+    .text-modo h3 {
         font-size: 40px;
     }
-    .text-modo p{
+
+    .text-modo p {
         font-size: 20px;
     }
-    .text-modo{
+
+    .text-modo {
         position: relative;
         left: 246px;
         top: 276px;
@@ -620,7 +669,7 @@ html, body {
     }
 
     /*Seccion de videos*/
-    .seccion-video{
+    .seccion-video {
         position: relative;
         top: 562.17px;
         width: 100vw;
@@ -630,7 +679,8 @@ html, body {
         background-repeat: no-repeat;
         height: 1443.83px;
     }
-    .seccion-video h2{
+
+    .seccion-video h2 {
         position: relative;
         font-size: 60px;
         top: 308.83px;
@@ -638,46 +688,54 @@ html, body {
         width: 802px;
         color: white;
     }
-    .seccion-video img{
+
+    .seccion-video img {
         position: relative;
         top: 354.83px;
         width: 804px;
         left: 100px;
     }
-    .figura3-video{
+
+    .figura3-video {
         position: absolute;
         top: 170px;
         left: 731px;
     }
-    .figura3-video img{
+
+    .figura3-video img {
         width: 400px;
         height: 700px;
     }
 
     /*Seccion 3d*/
-    .seccion-3d{
+    .seccion-3d {
         position: relative;
         display: flex;
     }
-    .text-3d{
+
+    .text-3d {
         display: block;
         position: relative;
         top: 667px;
     }
-    .text-3d h2{
+
+    .text-3d h2 {
         font-size: 60px;
         width: 746px;
     }
-    .text-3d p{
+
+    .text-3d p {
         width: 467px;
         height: 190px;
     }
-    .figura3d{
+
+    .figura3d {
         position: relative;
         top: 510px;
         left: -259px;
     }
-    .seccion-3d img{
+
+    .seccion-3d img {
         width: 667px;
         height: 973px;
     }
@@ -697,7 +755,7 @@ html, body {
         overflow: hidden;
     }
 
-    .seccion-figuras > div {
+    .seccion-figuras>div {
         position: relative;
         width: 225px;
         height: 355px;
@@ -706,56 +764,87 @@ html, body {
         overflow: hidden;
     }
 
-    .seccion-figuras > div img {
+    .seccion-figuras>div img {
         max-width: 100%;
         max-height: 100%;
         object-fit: contain;
     }
-    .cuadro-figura1{
+
+    .cuadro-figura1 {
         background-color: rgb(148, 5, 5);
     }
-    .cuadro-figura2{
+
+    .cuadro-figura2 {
         background-color: rgb(196, 136, 24);
     }
-    .cuadro-figura3{
+
+    .cuadro-figura3 {
         background-color: rgb(184, 184, 28);
     }
-    .cuadro-figura4{
+
+    .cuadro-figura4 {
         background-color: rgb(11, 139, 11);
     }
-    .cuadro-figura5{
+
+    .cuadro-figura5 {
         background-color: rgb(32, 147, 185);
     }
-    .cuadro-figura6{
+
+    .cuadro-figura6 {
         background-color: rgb(107, 31, 107);
     }
+
     .cuadro-figura7 {
-        background: linear-gradient(
-            to bottom,
-            red 20%,
-            orange 20% 40%,
-            yellow 40% 60%,
-            green 60% 80%,
-            rgb(37, 193, 245) 80%  100% );
+        background: linear-gradient(to bottom,
+                red 20%,
+                orange 20% 40%,
+                yellow 40% 60%,
+                green 60% 80%,
+                rgb(37, 193, 245) 80% 100%);
     }
-    .cuadro-figura8{
+
+    .cuadro-figura8 {
         background-color: rgb(199, 44, 139);
     }
-    .cuadro-figura9{
+
+    .cuadro-figura9 {
         background-color: gray;
     }
-    .cuadro-figura10{
+
+    .cuadro-figura10 {
         background-color: white;
+    }
+
+    .seccion-correo {
+        position: relative;
+        height: 1570px;
+        top: 676px;
+        left: -100px;
+        width: 120.415%;
+        background: linear-gradient(180deg, #E0D299 0%, #ADF8FD 47.09%, #EDFDFF 88.29%, #FFFFFF 107.02%);
+    }
+
+    .seccion-correo .title{
+        width: 816px;
+        height: 171px;
+        margin-left: 80px;
+        padding-top: 200px;
+    }
+
+    .seccion-correo h3{
+        font-size: 60px;
+        font-weight: 600;
+        line-height: 56.7px;
     }
 
     /* Footer */
     footer {
         position: relative;
-        top: 800px;
         background-color: #5E5E5D;
         width: 100vw;
         height: 515px;
         left: -100px;
+        top: 676px;
     }
 
     .plataformas {
@@ -770,7 +859,8 @@ html, body {
         width: 1080px;
         height: auto;
     }
-    footer p{
+
+    footer p {
         position: relative;
         top: 20px;
         width: 880px;
@@ -779,10 +869,12 @@ html, body {
         left: 100px;
         color: white;
     }
-    .footer p span{
+
+    .footer p span {
         text-decoration: underline;
     }
-    .redes{
+
+    .redes {
         position: relative;
         top: 45px;
         left: 100px;
