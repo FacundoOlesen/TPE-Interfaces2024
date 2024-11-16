@@ -265,8 +265,24 @@ body {
         text-underline-position: from-font;
         text-decoration-skip-ink: none;
         margin-bottom: 10px;
-
+        animation:sombra-flotante 1.5s ease infinite;
     }
+    .btn-comprar:hover{
+        background-color: #4e8b20;
+        cursor: pointer;
+    }
+    @keyframes sombra-flotante {
+        0% {
+            box-shadow: 3px 4px 0px #02187E;
+        }
+        50% {
+            box-shadow: 5px 6px 15px rgba(0, 0, 0, 0.2);
+        }
+        100% {
+            box-shadow: 3px 4px 0px #02187E;
+        }
+    }
+
 
     /*/////////////////////////// FINALIZA HEADER ///////////////////////////*/
 
