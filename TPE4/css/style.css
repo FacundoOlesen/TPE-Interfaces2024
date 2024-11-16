@@ -639,7 +639,6 @@ body {
     /*Seccion modos de juegos*/
     .seccion-modos {
         position: relative;
-        height: 4469px;
     }
     .numero-modos{
         position: absolute;
@@ -794,26 +793,32 @@ body {
 
     .cuadro-figura1 {
         background-color: red;
+        box-shadow: inset 10px 10px 100px black ;
     }
 
     .cuadro-figura2 {
         background-color: orange;
+        box-shadow: inset 10px 10px 100px black ;
     }
 
     .cuadro-figura3 {
         background-color: yellow;
+        box-shadow: inset 10px 10px 100px black ;
     }
 
     .cuadro-figura4 {
         background-color: green;
+        box-shadow: inset 10px 10px 100px black ;
     }
 
     .cuadro-figura5 {
         background-color: lightskyblue;
+        box-shadow: inset 10px 10px 100px black ;
     }
 
     .cuadro-figura6 {
         background-color: rgb(119, 0, 255);
+        box-shadow: inset 10px 10px 100px black ;
     }
 
     .cuadro-figura7 {
@@ -827,16 +832,23 @@ body {
 
     .cuadro-figura8 {
         background-color: rgb(255, 0, 157);
+        box-shadow: inset 10px 10px 100px black ;
     }
 
     .cuadro-figura9 {
         background-color: gray;
+        box-shadow: inset 10px 10px 100px black ;
     }
 
     .cuadro-figura10 {
         background-color: white;
     }
-
+    .seccion-figuras>div img:hover{
+        transform: scale(1.01);
+    }
+    .seccion-figuras>div:hover img{
+        filter: brightness(1.2);
+    }
     /* Sección correo */
     .seccion-correo {
         position: relative;
