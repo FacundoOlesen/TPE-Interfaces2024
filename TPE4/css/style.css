@@ -639,26 +639,22 @@ body {
     /*Seccion modos de juegos*/
     .seccion-modos {
         position: relative;
-        /* top: 941px; */
+        height: 4469px;
     }
-
+    .numero-modos{
+        position: absolute;
+        top: 287px;
+        left: 143px;
+    }
+    .numero-modos img{
+        top: 50px;
+        width: 291px;
+    }
     .seccion-modos h2 {
         position: relative;
         top: 174px;
         font-size: 60px;
     }
-
-    .art-modos {
-        display: flex;
-    }
-
-    .art-modos img {
-        position: relative;
-        top: 182px;
-        width: 291px;
-        height: 436px;
-    }
-
     .text-modo h3 {
         font-size: 40px;
     }
@@ -669,12 +665,13 @@ body {
 
     .text-modo {
         position: relative;
-        left: 246px;
-        top: 276px;
+        left: 613px;
+        margin-top: 296px;
         display: block;
         width: 467px;
         height: 167px;
     }
+    
 
     /*Seccion de videos*/
     .seccion-video {
