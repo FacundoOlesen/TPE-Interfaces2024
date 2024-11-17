@@ -28,22 +28,22 @@ const seccionFigura4 = document.getElementById("seccion-figura4");
 
 containerMain.onscroll = function () {
   let y = containerMain.scrollTop;
-  arbusto1.style.left = 200 + y * 0.05 + "px";
-  arbusto2.style.left = 120 + y * 0.05 + "px";
-  arbusto3.style.right = 0 - y * 0.05 + "px";
-  arbusto4.style.right = 60 - y * 0.05 + "px";
-  piedra1.style.left = 130 + y * 0.05 + "px";
-  piedra2.style.right = 170 - y * 0.05 + "px";
-  piedra3.style.right = 90 - y * 0.05 + "px";
-  piedra4.style.right = 170 - y * 0.05 + "px";
-  seccionArbolIzq.style.left = 0 + y * 0.05 + "px";
-  seccionArbolDer.style.right = 0 - y * 0.05 + "px";
-  seccionArbolDerChico.style.right = 0 - y * 0.05 + "px";
+  arbusto1.style.left = 200 - y * 0.2 + "px";
+  arbusto2.style.left = 120 - y * 0.2 + "px";
+  arbusto3.style.right = 0 - y * 0.2 + "px";
+  arbusto4.style.right = 60 - y * 0.2 + "px";
+  piedra1.style.left = 130 - y * 0.2 + "px";
+  piedra2.style.right = 170 - y * 0.2 + "px";
+  piedra3.style.right = 90 - y * 0.2 + "px";
+  piedra4.style.right = 170 - y * 0.2 + "px";
+  seccionArbolIzq.style.left = 0 - y * 0.2 + "px";
+  seccionArbolDer.style.right = 0 - y * 0.20 + "px";
+  seccionArbolDerChico.style.right = 0 - y * 0.20 + "px";
 
-  blockRojo1.style.bottom = 130 + y * 0.2 + "px";
-  blockNaranja2.style.bottom = 275 - y * 0.2 + "px";
-  blockAmarillo3.style.top = 323 - y * 0.2 + "px";
-  blockAmarillo3.style.left = 710.25 + y * 0.2 + "px";
+  blockRojo1.style.bottom = 130 + y * 0.4 + "px";
+  blockNaranja2.style.bottom = 275 - y * 0.25 + "px";
+  blockAmarillo3.style.top = 323 - y * 0.3 + "px";
+  blockAmarillo3.style.left = 710.25 + y * 0.15 + "px";
 
   elipse2.style.bottom = 176 - y * 0.05 + "px";
   elipse3.style.right = 380 - y * 0.2 + "px";
@@ -53,3 +53,38 @@ containerMain.onscroll = function () {
 
   seccionFigura4.style.left = 48 + y * 0.06 + "px";
 };
+const elementos = [
+  seccionArbolIzq,
+  seccionArbolDer,
+  seccionArbolDerChico,
+  arbusto1,
+  arbusto2,
+  arbusto3,
+  arbusto4,
+  piedra1,
+  piedra2,
+  piedra3,
+  piedra4,
+  elipse1,
+  elipse2,
+  elipse3,
+  blockRojo1,
+  blockNaranja2,
+  blockAmarillo3,
+  seccionFigura5,
+  seccionFigura4
+];
+
+const observer = new IntersectionObserver((entries, observer) => {
+  entries.forEach(entry => {
+    if (entry.isIntersecting) {
+      entry.target.classList.add('animado');
+      observer.unobserve(entry.target);
+    }
+  });
+}, { threshold: 0.5 });
+
+elementos.forEach(elemento => {
+  observer.observe(elemento);
+});
+
