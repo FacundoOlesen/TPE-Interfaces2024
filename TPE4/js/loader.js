@@ -1,42 +1,49 @@
-
-// Selecciona el elemento donde se mostrará el número
 const loaderText = document.getElementById("loaderText");
+const loaderCirculo = document.querySelector(".loader-circle");
+const duracionAnimacion = 12;
+const intervalTime = 100; 
+const numeroMaximo = 100;
 
-// Duración de la animación en segundos
-const animationDuration = 12;
+const figuras = [
+  "./img/figura0.png",
+  "./img/figura1.png",
+  "./img/figura2.png",
+  "./img/figura3.png",
+  "./img/figura4.png",
+  "./img/figura5.png",
+  "./img/figura6.png",
+  "./img/figura7.png",
+  "./img/figura8.png",
+  "./img/figura9.png",
+];
 
-// Establece el intervalo de tiempo en milisegundos para incrementar el número
-const intervalTime = 100;  // Cada 100 ms
-
-// Número máximo a alcanzar
-const maxNumber = 100;
-
-// Función para actualizar el número
 function updateLoaderText() {
-    let startTime = Date.now();  // Hora en que comienza la animación
-    let interval = setInterval(function () {
-        let elapsedTime = (Date.now() - startTime) / 1000;  // Tiempo transcurrido en segundos
-        let progress = Math.min(elapsedTime / animationDuration, 1);  // Progreso de 0 a 1
+  let tiempoInicial = Date.now();
+  let interval = setInterval(function () {
+    let tiempoTranscurrido = (Date.now() - tiempoInicial) / 1000;
+    let progreso = Math.min(tiempoTranscurrido / duracionAnimacion, 1);
+    let numeroActual = Math.floor(progreso * numeroMaximo);
 
-        // Calcula el número basado en el progreso
-        let currentNumber = Math.floor(progress * maxNumber);
+    if (numeroActual % 10 === 0) {
+      let imageIndex = Math.floor(numeroActual / 10);
+      loaderCirculo.style.backgroundImage = `url(${figuras[imageIndex]})`;
+      loaderCirculo.style.backgroundSize = "contain";
+      loaderCirculo.style.backgroundPosition = "center";
+      loaderCirculo.style.filter = "brightness(1.1)";
+    }
 
-        // Actualiza el texto en el loader
-        loaderText.textContent = currentNumber;
+    loaderText.textContent = numeroActual + "%";
 
-        // Si se ha alcanzado el número máximo, detiene la animación
-        if (currentNumber >= maxNumber) {
-            clearInterval(interval);
-        }
-    }, intervalTime);
+    if (numeroActual >= numeroMaximo) {
+      clearInterval(interval);
+    }
+  }, intervalTime);
 }
 
-
 document.addEventListener("DOMContentLoaded", function () {
-    // Iniciar temporizador inmediatamente después de que el DOM esté listo
-    updateLoaderText();
+  updateLoaderText();
 
-    setTimeout(function () {
-        document.getElementById("loader").style.display = "none";
-    }, 13000); 
+  setTimeout(function () {
+    document.getElementById("loader").style.display = "none";
+  }, duracionAnimacion * 1000 + 1000);
 });

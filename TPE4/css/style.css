@@ -29,76 +29,64 @@ body {
 
     /*/////////////////////////// COMIENZO LOADER ///////////////////////////*/
 
-    /* Estilos para el Loader */
     #loader {
         position: fixed;
         top: 0;
         left: 0;
         width: 100%;
         height: 100%;
-        background: linear-gradient(180deg, #88DE7F, #A8EBEC);
+        background: linear-gradient(180deg, #5acc4e, #7ccbcc);
         display: flex;
         align-items: center;
         justify-content: center;
         z-index: 1000;
-        /* Asegura que el loader esté al frente */
-    }
-
-    .loader-circle {
+      }
+    
+      .loader-circle {
         width: 200px;
         height: 200px;
         border-radius: 50%;
-        border: 20px solid #83C252;
-        /* Color de borde verde */
-        border-top: 20px solid #1B428F;
-        /* Color azul en la parte superior */
-        animation: spin 15s cubic-bezier(0.25, 1, 0.5, 1) infinite;
-    }
-
-    .loader-text {
+        border: 5px solid #000000;
+        box-shadow: inset 5px 6px 15px rgba(37, 124, 255, 0.5);
+        background-repeat: no-repeat;
+        background-color: #00000027;
+        animation: rotate 2s linear infinite; /* Animación de rotación */
+        transition: background-image 0.3s ease-in-out; /* Transición suave en imágenes */
+      }
+    
+      .loader-text {
         position: absolute;
-        top: 50%;
+        top: 80%;
         left: 50%;
         font-family: 'Lato', sans-serif;
-        color: #1B428F;
-        animation: fadeIn 1.2s ease-in-out infinite alternate;
+        color: #000000;
+        animation: fadeIn 1.1s ease-in-out infinite alternate;
         will-change: opacity;
-        /* Mejora el rendimiento de la animación */
-    }
-
-    .loader-text-numero {
+      }
+    
+      .loader-text-numero {
         transform: translate(-50%, -100%);
         font-size: 50px;
         font-weight: bolder;
-    }
-
-    .loader-text-cargando {
-        transform: translate(-50%, 0%);
-        font-size: 30px;
-        font-weight: bold;
-    }
-
-    /* Animación de rotación */
-    @keyframes spin {
+      }
+    
+      @keyframes fadeIn {
         0% {
-            transform: rotate(0deg);
+          opacity: 0.3;
         }
-
         100% {
-            transform: rotate(2520deg);
+          opacity: 1;
         }
-    }
-
-    /* Animación de parpadeo */
-    @keyframes fadeIn {
+      }
+    
+      @keyframes rotate {
         0% {
-            opacity: 0.3;
+          transform: rotate(0deg);
         }
-
         100% {
-            opacity: 1;
+          transform: rotate(360deg);
         }
-    }
+      }
 
     /*/////////////////////////// FINALIZO LOADER ///////////////////////////*/
 
