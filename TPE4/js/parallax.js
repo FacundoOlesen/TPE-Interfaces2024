@@ -75,16 +75,3 @@ const elementos = [
   seccionFigura4
 ];
 
-const observer = new IntersectionObserver((entries, observer) => {
-  entries.forEach(entry => {
-    if (entry.isIntersecting) {
-      entry.target.classList.add('animado');
-      observer.unobserve(entry.target);
-    }
-  });
-}, { threshold: 0.5 });
-
-elementos.forEach(elemento => {
-  observer.observe(elemento);
-});
-
