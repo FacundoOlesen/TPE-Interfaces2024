@@ -543,13 +543,14 @@ body {
         height: 1157px;
         overflow: hidden;
     }
-
+    
     .figuras-descarga img {
         position: relative;
         top: 215px;
-        width: 1260px;
+        width: 1280px;
         height: 767px;
         object-fit: cover;
+        transition: transform 0.2s ease-out;
     }
 
     .seccion-descarga h2 {

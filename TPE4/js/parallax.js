@@ -28,8 +28,8 @@ const seccionFigura4 = document.getElementById("seccion-figura4");
 
 containerMain.onscroll = function () {
   let y = containerMain.scrollTop;
-  arbusto1.style.left = 200 - y * 0.2 + "px";
-  arbusto2.style.left = 120 - y * 0.2 + "px";
+  arbusto1.style.left = 200 - y * 0.4 + "px";
+  arbusto2.style.left = 120 - y * 0.3 + "px";
   arbusto3.style.right = 0 - y * 0.2 + "px";
   arbusto4.style.right = 60 - y * 0.2 + "px";
   piedra1.style.left = 130 - y * 0.2 + "px";
@@ -49,7 +49,7 @@ containerMain.onscroll = function () {
   elipse3.style.right = 380 - y * 0.2 + "px";
 
   seccionFigura5.style.right = -79 + y * 0.02 + "px";
-  seccionFigura5.style.top = -85 - y * 0.05 + "px";
+  seccionFigura5.style.top = -100 - y * 0.05 + "px";
 
   seccionFigura4.style.left = 48 + y * 0.06 + "px";
 };
