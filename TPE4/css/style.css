@@ -725,7 +725,7 @@ body {
         background-repeat: no-repeat;
         height: 1443.83px;
     }
-
+    
     .seccion-video h2 {
         position: relative;
         font-size: 60px;
@@ -733,25 +733,49 @@ body {
         left: 100px;
         width: 802px;
         color: white;
+        z-index: 2;
     }
-
-    .seccion-video img {
+    
+    .video-container {
         position: relative;
         top: 354.83px;
-        width: 804px;
         left: 100px;
+        width: 804px;
+        z-index: 2;
     }
-
+    
+    .video-container iframe {
+        width: 804px;
+        height: 450px;
+        border-radius: 45px;
+        border: 20px solid white;
+    }
+    
     .figura3-video {
         position: absolute;
-        top: 170px;
-        left: 731px;
+        top: 400px;
+        left: 831px;
+        z-index: 3;
+        animation: flotante 10s ease-in-out infinite;
     }
-
+    
     .figura3-video img {
         width: auto;
         height: 700px;
     }
+    
+    @keyframes flotante {
+        0% {
+            transform: translateY(0);
+        }
+        50% {
+            transform: translateY(50px);
+        }
+        100% {
+            transform: translateY(0);
+        }
+    }
+    
 
     /*Seccion 3d*/
     .seccion-3d {
