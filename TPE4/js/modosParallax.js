@@ -11,18 +11,20 @@ const imagenes = [
     "./img/figura6.png",
     "./img/figura7.png",
     "./img/figura8.png",
+    "./img/figura9.png",
+    "./img/figura10.png",
 ];
 
 window.addEventListener("scroll", function () {
     const scrollY = window.scrollY;
 
-    if (scrollY >= 3950 && scrollY <= 7200) {
+    if (scrollY >= 3950 && scrollY <= 8800) {
         img.classList.add("stickyModo");
         img.classList.remove("sticky-final", "sticky-inicial");
-        const index = Math.floor((scrollY - 3950) / 400) % imagenes.length;
+        const index = Math.floor((scrollY - 3950) / 450) % imagenes.length;
         img.src = imagenes[index];
 
-    } else if (scrollY > 7200) {
+    } else if (scrollY > 8800) {
         img.classList.add("sticky-final");
         img.classList.remove("stickyModo", "sticky-inicial");
     } else {

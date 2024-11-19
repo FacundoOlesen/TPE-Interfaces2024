@@ -656,69 +656,63 @@ body {
         height: 700px;
     }
 
-    /*Seccion modos de juegos*/
-    .seccion-modos {
-        position: relative;
-    }
-    
-    .numero-modos {
-        position: absolute;
-        top: 0;
-        left: 0;
-        transition: top 0.3s ease-out, left 0.3s ease-out;
-    }
-    
-    .stickyModo {
-        position: fixed;
-        top: 0;
-        left: 243px;
-        transition: top 0.3s ease, left 0.3s ease;
-    }
-    
-    .sticky-final {
-        position: absolute;
-        top: 3922px;
-        left: 143px;
-        transition: top 0.3s ease, left 0.3s ease;
-    }
-    
-    .sticky-inicial {
-        position: absolute;
-        top: 287px;
-        left: 143px;
-        transition: top 0.3s ease, left 0.3s ease;
-    }
-    
-    .numero-modos img {
-        width: 291px;
-        height: auto;
-        transition: opacity 0.3s ease; 
-    }
-    
-    .seccion-modos h2 {
-        position: relative;
-        top: 174px;
-        font-size: 60px;
-    }
-    
-    .text-modo h3 {
-        font-size: 40px;
-    }
-    
-    .text-modo p {
-        font-size: 20px;
-    }
-    
-    .text-modo {
-        position: relative;
-        left: 613px;
-        margin-top: 296px;
-        display: block;
-        width: 467px;
-        height: 167px;
-    }
-    
-    
+    /* Sección modos de juegos */
+.seccion-modos {
+    position: relative;
+}
+
+.numero-modos {
+    position: absolute;
+    top: 0;
+    left: 0;
+}
+
+.stickyModo {
+    position: fixed;
+    top: 0;
+    left: 243px;
+}
+
+.sticky-final {
+    position: absolute;
+    top: 3922px;
+    left: 143px;
+}
+
+.sticky-inicial {
+    position: absolute;
+    top: 287px;
+    left: 143px;
+}
+
+.numero-modos img {
+    width: auto;
+    height: 400px;
+}
+
+.seccion-modos h2 {
+    position: relative;
+    top: 174px;
+    font-size: 60px;
+}
+
+.text-modo h3 {
+    font-size: 40px;
+}
+
+.text-modo p {
+    font-size: 20px;
+}
+
+.text-modo {
+    position: relative;
+    left: 613px;
+    margin-top: 296px;
+    display: block;
+    width: 467px;
+    height: 167px;
+}
+
 
     /*Seccion de videos*/
     .seccion-video {
@@ -755,7 +749,7 @@ body {
     }
 
     .figura3-video img {
-        width: 400px;
+        width: auto;
         height: 700px;
     }
 
