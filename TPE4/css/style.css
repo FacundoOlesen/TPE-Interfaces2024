@@ -434,7 +434,6 @@ body {
         left: -100px;
         top: -71px;
         background-image: url('../img/fondo2.png');
-
         background-repeat: no-repeat;
     }
 
@@ -465,22 +464,51 @@ body {
         line-height: 24px;
     }
 
-    .video-trailer {
+    .contenedor-imagenes {
         position: relative;
         width: 576.38px;
         height: 324.35px;
         left: 206px;
         top: 102px;
-        /* border-radius: 77px;
-        border: solid #1B5F99 29px; */
+        border-radius: 77px;
+        border: solid #1B5F99 29px;
+        overflow: hidden; /* Asegura que las imágenes no salgan del contenedor */
     }
-
-    .video {
+    
+    .contenedor-imagenes img {
+        position: absolute;
+        top: 0;
+        left: 0;
         width: 100%;
         height: 100%;
-        border-radius: 47px;
+        opacity: 0;
+        animation: cambioImagenes 9s infinite;
     }
-
+    
+    .contenedor-imagenes img:nth-child(1) {
+        animation-delay: 0s;
+    }
+    
+    .contenedor-imagenes img:nth-child(2) {
+        animation-delay: 3s;
+    }
+    
+    .contenedor-imagenes img:nth-child(3) {
+        animation-delay: 6s; 
+    }
+    
+    @keyframes cambioImagenes {
+        0% {
+            opacity: 0;
+        }
+        
+        30% {
+            opacity: 1;
+        }
+        100% {
+            opacity: 0;
+        }
+    }
     .seccion-figura5 {
         position: absolute;
         top: -85px;
@@ -495,7 +523,7 @@ body {
 
     .seccion-figura4 {
         position: absolute;
-        top: 560px;
+        top: 580px;
         left: 48px;
         z-index: 1;
     }
