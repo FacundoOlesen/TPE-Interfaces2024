@@ -672,7 +672,7 @@ body {
         position: fixed;
         top: 0;
         left: 243px;
-        transition: top 0.3s ease, left 0.3s ease; /* Asegurando transición de ambos ejes */
+        transition: top 0.3s ease, left 0.3s ease;
     }
     
     .sticky-final {
@@ -692,7 +692,7 @@ body {
     .numero-modos img {
         width: 291px;
         height: auto;
-        transition: opacity 0.3s ease; /* Añadido para hacer transiciones más suaves cuando la imagen cambie */
+        transition: opacity 0.3s ease; 
     }
     
     .seccion-modos h2 {
