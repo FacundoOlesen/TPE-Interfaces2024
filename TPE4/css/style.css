@@ -24,7 +24,8 @@ body {
 
     .container-main {
         width: 1080px;
-        overflow-x: hidden;
+        height: 14890px;
+        overflow: hidden;
         padding: 0px 100px;
     }
 
@@ -697,7 +698,7 @@ body {
 
 .stickyModo {
     position: fixed;
-    top: 0;
+    top: 100px;
     left: 243px;
 }
 
@@ -872,7 +873,7 @@ body {
     
     .seccion-figuras>div {
         position: relative;
-        width: 225px;
+        width: 230px;
         height: 355px;
         display: flex;
         justify-content: center;
@@ -938,7 +939,8 @@ body {
         background-color: white;
     }
     .seccion-figuras>div img:hover{
-        transform: scale(1.01);
+        transform: scale(1.05);
+        transition: 1s ease-out;
     }
     .seccion-figuras>div:hover img{
         filter: brightness(1.2);

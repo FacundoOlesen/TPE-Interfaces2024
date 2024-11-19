@@ -1,5 +1,6 @@
 
-const containerMain = document.getElementById("container-main");
+const containerMain = document.querySelector(".seccion-inicio");
+console.log(containerMain)
 
 const seccionArbolIzq = document.getElementById("seccion-arbol-izq");
 const seccionArbolDer = document.getElementById("seccion-arbol-der");
@@ -26,8 +27,9 @@ const blockAmarillo3 = document.getElementById("block-amarillo-3");
 const seccionFigura5 = document.getElementById("seccion-figura5");
 const seccionFigura4 = document.getElementById("seccion-figura4");
 
-containerMain.onscroll = function () {
-  let y = containerMain.scrollTop;
+window.addEventListener("scroll", function () {
+  console.log("aaa");
+  let y = window.scrollY;
   arbusto1.style.left = 200 - y * 0.4 + "px";
   arbusto2.style.left = 120 - y * 0.3 + "px";
   arbusto3.style.right = 0 - y * 0.2 + "px";
@@ -52,6 +54,6 @@ containerMain.onscroll = function () {
   seccionFigura5.style.top = -100 - y * 0.05 + "px";
 
   seccionFigura4.style.left = 48 + y * 0.06 + "px";
-};
+});
 
 
