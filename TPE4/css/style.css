@@ -191,6 +191,10 @@ body {
         animation-delay: 0.6s;
     }
 
+    .hide{
+        opacity: 0;
+    }
+
     /* Define la animación que hace que los elementos se deslicen desde la izquierda */
     @keyframes slideIn {
         0% {
