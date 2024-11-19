@@ -12,6 +12,6 @@ document.addEventListener("mousemove", (event) => {
     const xOffset = (mouseX / seccionWidth) * 2; 
     const yOffset = (mouseY / seccionHeight) * 2;
 
-    const maxMovement = 30;
-    figurasDescarga.style.transform = `translate(${xOffset * -maxMovement}px, ${yOffset * -maxMovement}px)`;
+    const movimientoMaximo = 30;
+    figurasDescarga.style.transform = `translate(${xOffset * -movimientoMaximo}px, ${yOffset * -movimientoMaximo}px)`;
 });
