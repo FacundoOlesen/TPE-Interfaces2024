@@ -53,25 +53,5 @@ containerMain.onscroll = function () {
 
   seccionFigura4.style.left = 48 + y * 0.06 + "px";
 };
-const elementos = [
-  seccionArbolIzq,
-  seccionArbolDer,
-  seccionArbolDerChico,
-  arbusto1,
-  arbusto2,
-  arbusto3,
-  arbusto4,
-  piedra1,
-  piedra2,
-  piedra3,
-  piedra4,
-  elipse1,
-  elipse2,
-  elipse3,
-  blockRojo1,
-  blockNaranja2,
-  blockAmarillo3,
-  seccionFigura5,
-  seccionFigura4
-];
+
 
