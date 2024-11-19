@@ -660,28 +660,55 @@ body {
     .seccion-modos {
         position: relative;
     }
-    .numero-modos{
+    
+    .numero-modos {
+        position: absolute;
+        top: 0;
+        left: 0;
+        transition: top 0.3s ease-out, left 0.3s ease-out;
+    }
+    
+    .stickyModo {
+        position: fixed;
+        top: 0;
+        left: 243px;
+        transition: top 0.3s ease, left 0.3s ease; /* Asegurando transición de ambos ejes */
+    }
+    
+    .sticky-final {
+        position: absolute;
+        top: 3922px;
+        left: 143px;
+        transition: top 0.3s ease, left 0.3s ease;
+    }
+    
+    .sticky-inicial {
         position: absolute;
         top: 287px;
         left: 143px;
+        transition: top 0.3s ease, left 0.3s ease;
     }
-    .numero-modos img{
-        top: 50px;
+    
+    .numero-modos img {
         width: 291px;
+        height: auto;
+        transition: opacity 0.3s ease; /* Añadido para hacer transiciones más suaves cuando la imagen cambie */
     }
+    
     .seccion-modos h2 {
         position: relative;
         top: 174px;
         font-size: 60px;
     }
+    
     .text-modo h3 {
         font-size: 40px;
     }
-
+    
     .text-modo p {
         font-size: 20px;
     }
-
+    
     .text-modo {
         position: relative;
         left: 613px;
@@ -690,6 +717,7 @@ body {
         width: 467px;
         height: 167px;
     }
+    
     
 
     /*Seccion de videos*/
