@@ -815,7 +815,7 @@ body {
         top: 550px;
         left: 831px;
         z-index: 3;
-        animation: flotante 10s ease-in-out infinite;
+        animation: flotante 5s ease-in-out infinite;
     }
 
     .figura3-video img {
@@ -972,7 +972,7 @@ body {
     }
 
     .seccion-figuras>div img:hover {
-        transform: scale(1.05);
+        transform: scale(1.08);
         transition: 1s ease-out;
     }
 
