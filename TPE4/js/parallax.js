@@ -42,6 +42,7 @@ window.addEventListener("scroll", function () {
 
   blockRojo1.style.bottom = 130 + y * 0.4 + "px";
   blockNaranja2.style.bottom = 275 - y * 0.25 + "px";
+  blockNaranja2.style.removeProperty("top");
   blockAmarillo3.style.top = 323 - y * 0.3 + "px";
   blockAmarillo3.style.left = 710.25 + y * 0.15 + "px";
 
