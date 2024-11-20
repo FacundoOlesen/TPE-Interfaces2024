@@ -1,6 +1,6 @@
 const hamburgerButton = document.getElementById("hamburger-button");
 const barraDeNav = document.getElementById("nav");
-const header = document.getElementById("header");
+const headerSt = document.getElementById("header");
 
 hamburgerButton.addEventListener("click", function () {
     hamburgerButton.classList.toggle("transformed");

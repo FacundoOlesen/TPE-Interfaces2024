@@ -23,11 +23,6 @@ window.addEventListener("scroll", () => {
         logo.style.width = 131.5 + "px";
         logo.style.height = 105.75 + "px";
         logo.style.marginTop = -5 + "px";
-
     }
 });
-
-window.addEventListener("click",(e) =>{
-    console.log(e.offsetX)
-})
 

@@ -1,6 +1,5 @@
 
 const containerMain = document.querySelector(".seccion-inicio");
-console.log(containerMain)
 
 const seccionArbolIzq = document.getElementById("seccion-arbol-izq");
 const seccionArbolDer = document.getElementById("seccion-arbol-der");
