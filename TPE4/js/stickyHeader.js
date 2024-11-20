@@ -18,5 +18,11 @@ window.addEventListener("scroll", () => {
 
         window.scrollY >= 847 ? logo.classList.add("fixed") : logo.classList.remove("fixed")
     }
+    else{
+        logo.classList.add("fixed")
+        logo.style.width = 131.5 + "px";
+        logo.style.height = 105.75 + "px";
+        logo.style.marginTop = 874 +"px";
+    }
 });
 
