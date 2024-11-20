@@ -740,11 +740,14 @@ body {
         max-height: 400px;
         object-fit: contain;
         opacity: 1;
-        transition: opacity 0.5s ease;
+        transition: opacity 0.5s ease, transform 0.5s ease;
     }
     
     .numero-modos img.desvanecer {
         opacity: 0;
+    }
+    .numero-modos img.zoom{
+        transform:scale(1.1);
     }
     
     .seccion-modos h2 {

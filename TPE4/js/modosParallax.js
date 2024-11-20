@@ -33,6 +33,8 @@ window.addEventListener("scroll", function () {
             setTimeout(() => {
                 img.src = imagenes[imagenActual];
                 img.classList.remove("desvanecer");
+                img.classList.add("zoom");
+                setTimeout(() => img.classList.remove("zoom"), 500);
             }, 500);
         }
     } else if (scrollY > 8800) {
