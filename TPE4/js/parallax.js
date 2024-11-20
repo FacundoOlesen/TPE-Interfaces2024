@@ -28,7 +28,6 @@ const seccionFigura5 = document.getElementById("seccion-figura5");
 const seccionFigura4 = document.getElementById("seccion-figura4");
 
 window.addEventListener("scroll", function () {
-  console.log("aaa");
   let y = window.scrollY;
   arbusto1.style.left = 200 - y * 0.4 + "px";
   arbusto2.style.left = 120 - y * 0.3 + "px";
