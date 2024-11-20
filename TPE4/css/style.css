@@ -686,63 +686,77 @@ body {
     }
 
     /* Sección modos de juegos */
-.seccion-modos {
-    position: relative;
-}
-
-.numero-modos {
-    position: absolute;
-    top: 0;
-    left: 0;
-}
-
-.stickyModo {
-    position: fixed;
-    top: 100px;
-    left: 243px;
-}
-
-.sticky-final {
-    position: absolute;
-    top: 3922px;
-    left: 143px;
-}
-
-.sticky-inicial {
-    position: absolute;
-    top: 287px;
-    left: 143px;
-}
-
-.numero-modos img {
-    width: auto;
-    height: 400px;
-}
-
-.seccion-modos h2 {
-    position: relative;
-    top: 174px;
-    font-size: 60px;
-}
-
-.text-modo h3 {
-    font-size: 40px;
-}
-
-.text-modo p {
-    font-size: 20px;
-}
-
-.text-modo {
-    position: relative;
-    left: 613px;
-    margin-top: 296px;
-    display: block;
-    width: 467px;
-    height: 167px;
-}
-
-
+    .seccion-modos {
+        position: relative;
+    }
+    
+    .numero-modos {
+        position: absolute;
+        top: 0;
+        left: 0;
+        display: flex;
+        justify-content: center;
+        align-items: center;
+    }
+    
+    .stickyModo {
+        position: fixed;
+        width: auto;
+        height:400px ;
+        top: 100px;
+        left: 243px;
+        display: flex;
+        justify-content: center;
+        align-items: center;
+    }
+    
+    .sticky-final {
+        position: absolute;
+        top: 3922px;
+        left: 243px;
+    }
+    
+    .sticky-inicial {
+        position: absolute;
+        top: 287px;
+        left: 243px;
+    }
+    
+    .numero-modos img {
+        max-width: 100%;
+        max-height: 400px;
+        object-fit: contain;
+        opacity: 1;
+        transition: opacity 0.5s ease;
+    }
+    
+    .numero-modos img.desvanecer {
+        opacity: 0;
+    }
+    
+    .seccion-modos h2 {
+        position: relative;
+        top: 174px;
+        font-size: 60px;
+    }
+    
+    .text-modo h3 {
+        font-size: 40px;
+    }
+    
+    .text-modo p {
+        font-size: 20px;
+    }
+    
+    .text-modo {
+        position: relative;
+        left: 613px;
+        margin-top: 296px;
+        display: block;
+        width: 467px;
+        height: 167px;
+    }
+    
     /*Seccion de videos*/
     .seccion-video {
         position: relative;

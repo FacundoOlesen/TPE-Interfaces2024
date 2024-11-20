@@ -15,15 +15,26 @@ const imagenes = [
     "./img/figura10.png",
 ];
 
+let imagenActual = -1;
+
 window.addEventListener("scroll", function () {
     const scrollY = window.scrollY;
 
     if (scrollY >= 3950 && scrollY <= 8800) {
         img.classList.add("stickyModo");
         img.classList.remove("sticky-final", "sticky-inicial");
-        const index = Math.floor((scrollY - 3950) / 450) % imagenes.length;
-        img.src = imagenes[index];
 
+        const nuevaImg = Math.floor((scrollY - 3950) / 450) % imagenes.length;
+
+        if (nuevaImg !== imagenActual) {
+            imagenActual = nuevaImg;
+
+            img.classList.add("desvanecer");
+            setTimeout(() => {
+                img.src = imagenes[imagenActual];
+                img.classList.remove("desvanecer");
+            }, 500);
+        }
     } else if (scrollY > 8800) {
         img.classList.add("sticky-final");
         img.classList.remove("stickyModo", "sticky-inicial");
