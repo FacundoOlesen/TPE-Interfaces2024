@@ -809,7 +809,7 @@ body {
 
     .figura3-video {
         position: absolute;
-        top: 400px;
+        top: 550px;
         left: 831px;
         z-index: 3;
         animation: flotante 10s ease-in-out infinite;
