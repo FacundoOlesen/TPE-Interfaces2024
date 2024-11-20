@@ -19,13 +19,13 @@ body {
         top: 0;
         display: flex;
         justify-content: center;
-
+        overflow-x: hidden;
     }
 
     .container-main {
         width: 1080px;
         height: 14890px;
-        overflow: hidden;
+        overflow-x: clip;
         padding: 0px 100px;
     }
 
@@ -42,9 +42,9 @@ body {
         align-items: center;
         justify-content: center;
         z-index: 1000;
-      }
-    
-      .loader-circle {
+    }
+
+    .loader-circle {
         width: 200px;
         height: 200px;
         border-radius: 50%;
@@ -52,11 +52,13 @@ body {
         box-shadow: inset 5px 6px 15px rgba(37, 124, 255, 0.5);
         background-repeat: no-repeat;
         background-color: #00000027;
-        animation: rotate 2s linear infinite; /* Animación de rotación */
-        transition: background-image 0.3s ease-in-out; /* Transición suave en imágenes */
-      }
-    
-      .loader-text {
+        animation: rotate 2s linear infinite;
+        /* Animación de rotación */
+        transition: background-image 0.3s ease-in-out;
+        /* Transición suave en imágenes */
+    }
+
+    .loader-text {
         position: absolute;
         top: 80%;
         left: 50%;
@@ -64,50 +66,46 @@ body {
         color: #000000;
         animation: fadeIn 1.1s ease-in-out infinite alternate;
         will-change: opacity;
-      }
-    
-      .loader-text-numero {
+    }
+
+    .loader-text-numero {
         transform: translate(-50%, -100%);
         font-size: 50px;
         font-weight: bolder;
-      }
-    
-      @keyframes fadeIn {
+    }
+
+    @keyframes fadeIn {
         0% {
-          opacity: 0.3;
+            opacity: 0.3;
         }
+
         100% {
-          opacity: 1;
+            opacity: 1;
         }
-      }
-    
-      @keyframes rotate {
+    }
+
+    @keyframes rotate {
         0% {
-          transform: rotate(0deg);
+            transform: rotate(0deg);
         }
+
         100% {
-          transform: rotate(360deg);
+            transform: rotate(360deg);
         }
-      }
+    }
 
     /*/////////////////////////// FINALIZO LOADER ///////////////////////////*/
 
     /*/////////////////////////// COMIENZO HEADER ///////////////////////////*/
 
     header {
+        position: sticky;
         display: flex;
+        top: 0;
         justify-content: space-between;
+        z-index: 1000;
     }
 
-    .sticky{
-        transition: 2s;
-        position: fixed;
-        z-index: 111;
-        display: flex;
-        flex-direction: row;
-        justify-content: space-between;
-        width: 1046px;
-    }
 
     .container-menu-hamburguesa,
     .container-btn-comprar {
@@ -173,6 +171,15 @@ body {
         height: 105px;
     }
 
+    nav{
+       display: none;
+    }
+
+    .block{
+        display: block;
+    }
+
+
     nav.visible ul li {
         animation: slideIn 0.7s ease forwards;
         opacity: 0;
@@ -192,9 +199,7 @@ body {
         animation-delay: 0.6s;
     }
 
-    .hide{
-        opacity: 0;
-    }
+
 
     /* Define la animación que hace que los elementos se deslicen desde la izquierda */
     @keyframes slideIn {
@@ -269,19 +274,23 @@ body {
         text-underline-position: from-font;
         text-decoration-skip-ink: none;
         margin-bottom: 10px;
-        animation:sombra-flotante 1.5s ease infinite;
+        animation: sombra-flotante 1.5s ease infinite;
     }
-    .btn-comprar:hover{
+
+    .btn-comprar:hover {
         background-color: #4e8b20;
         cursor: pointer;
     }
+
     @keyframes sombra-flotante {
         0% {
             box-shadow: 3px 4px 0px #02187E;
         }
+
         50% {
             box-shadow: 5px 6px 15px rgba(0, 0, 0, 0.2);
         }
+
         100% {
             box-shadow: 3px 4px 0px #02187E;
         }
@@ -473,9 +482,10 @@ body {
         top: 102px;
         border-radius: 77px;
         border: solid #1B5F99 29px;
-        overflow: hidden; /* Asegura que las imágenes no salgan del contenedor */
+        overflow: hidden;
+        /* Asegura que las imágenes no salgan del contenedor */
     }
-    
+
     .contenedor-imagenes img {
         position: absolute;
         top: 0;
@@ -485,31 +495,33 @@ body {
         opacity: 0;
         animation: cambioImagenes 9s infinite;
     }
-    
+
     .contenedor-imagenes img:nth-child(1) {
         animation-delay: 0s;
     }
-    
+
     .contenedor-imagenes img:nth-child(2) {
         animation-delay: 3s;
     }
-    
+
     .contenedor-imagenes img:nth-child(3) {
-        animation-delay: 6s; 
+        animation-delay: 6s;
     }
-    
+
     @keyframes cambioImagenes {
         0% {
             opacity: 0;
         }
-        
+
         30% {
             opacity: 1;
         }
+
         100% {
             opacity: 0;
         }
     }
+
     .seccion-figura5 {
         position: absolute;
         top: -85px;
@@ -556,6 +568,7 @@ body {
         transition: opacity 1s ease, transform 1s ease;
         will-change: opacity, transform;
     }
+
     .card-galeria.visible {
         opacity: 1;
         transform: translateY(0);
@@ -575,8 +588,8 @@ body {
     /*Seccion de compra*/
     .seccion-descarga {
         position: relative;
-        width: 100vw;
-        left: -100px;
+        width: 105vw;
+        left: -110px;
         /* top: 874px; */
         background-image: url('../img/fondoSeccionDescarga.png');
         background-size: cover;
@@ -587,7 +600,7 @@ body {
         height: 1157px;
         overflow: hidden;
     }
-    
+
     .figuras-descarga img {
         position: relative;
         top: 215px;
@@ -768,7 +781,7 @@ body {
         background-repeat: no-repeat;
         height: 1443.83px;
     }
-    
+
     .seccion-video h2 {
         position: relative;
         font-size: 60px;
@@ -778,7 +791,7 @@ body {
         color: white;
         z-index: 2;
     }
-    
+
     .video-container {
         position: relative;
         top: 354.83px;
@@ -786,14 +799,14 @@ body {
         width: 804px;
         z-index: 2;
     }
-    
+
     .video-container iframe {
         width: 804px;
         height: 450px;
         border-radius: 45px;
         border: 20px solid white;
     }
-    
+
     .figura3-video {
         position: absolute;
         top: 400px;
@@ -801,24 +814,26 @@ body {
         z-index: 3;
         animation: flotante 10s ease-in-out infinite;
     }
-    
+
     .figura3-video img {
         width: auto;
         height: 700px;
     }
-    
+
     @keyframes flotante {
         0% {
             transform: translateY(0);
         }
+
         50% {
             transform: translateY(50px);
         }
+
         100% {
             transform: translateY(0);
         }
     }
-    
+
 
     /*Seccion 3d*/
     .seccion-3d {
@@ -865,26 +880,26 @@ body {
         left: -100px;
         top: 676px;
 
-        background-image: 
-            linear-gradient(to right, 
-                red 0%, orange 38%, 
-                yellow 41%, green 50%, 
+        background-image:
+            linear-gradient(to right,
+                red 0%, orange 38%,
+                yellow 41%, green 50%,
                 lightskyblue 80%),
-            
-            linear-gradient(to right, 
-                rgb(119, 0, 255) 0%, lightskyblue 30%, 
-                rgb(255, 0, 157) 50%, gray 68%, 
+
+            linear-gradient(to right,
+                rgb(119, 0, 255) 0%, lightskyblue 30%,
+                rgb(255, 0, 157) 50%, gray 68%,
                 white 90%);
-    
+
         background-size: 100% 50%;
         background-position: top, bottom;
-    
-        background-blend-mode:overlay;
-        
+
+        background-blend-mode: overlay;
+
         background-repeat: no-repeat;
     }
-    
-    
+
+
     .seccion-figuras>div {
         position: relative;
         width: 230px;
@@ -902,32 +917,32 @@ body {
 
     .cuadro-figura1 {
         background-color: red;
-        box-shadow: inset 10px 10px 100px black ;
+        box-shadow: inset 10px 10px 100px black;
     }
 
     .cuadro-figura2 {
         background-color: orange;
-        box-shadow: inset 10px 10px 100px black ;
+        box-shadow: inset 10px 10px 100px black;
     }
 
     .cuadro-figura3 {
         background-color: yellow;
-        box-shadow: inset 10px 10px 100px black ;
+        box-shadow: inset 10px 10px 100px black;
     }
 
     .cuadro-figura4 {
         background-color: green;
-        box-shadow: inset 10px 10px 100px black ;
+        box-shadow: inset 10px 10px 100px black;
     }
 
     .cuadro-figura5 {
         background-color: lightskyblue;
-        box-shadow: inset 10px 10px 100px black ;
+        box-shadow: inset 10px 10px 100px black;
     }
 
     .cuadro-figura6 {
         background-color: rgb(119, 0, 255);
-        box-shadow: inset 10px 10px 100px black ;
+        box-shadow: inset 10px 10px 100px black;
     }
 
     .cuadro-figura7 {
@@ -941,24 +956,27 @@ body {
 
     .cuadro-figura8 {
         background-color: rgb(255, 0, 157);
-        box-shadow: inset 10px 10px 100px black ;
+        box-shadow: inset 10px 10px 100px black;
     }
 
     .cuadro-figura9 {
         background-color: gray;
-        box-shadow: inset 10px 10px 100px black ;
+        box-shadow: inset 10px 10px 100px black;
     }
 
     .cuadro-figura10 {
         background-color: white;
     }
-    .seccion-figuras>div img:hover{
+
+    .seccion-figuras>div img:hover {
         transform: scale(1.05);
         transition: 1s ease-out;
     }
-    .seccion-figuras>div:hover img{
+
+    .seccion-figuras>div:hover img {
         filter: brightness(1.2);
     }
+
     /* Sección correo */
     .seccion-correo {
         position: relative;
@@ -1047,15 +1065,15 @@ body {
     }
 
 
-    .small-cloud{
+    .small-cloud {
         position: relative;
         left: 460px;
-        top: -185px;
+        top: -195px;
     }
 
-    .big-cloud{
+    .big-cloud {
         position: relative;
-        left: 265px;
+        left: 290px;
         top: -60px
     }
 
@@ -1068,29 +1086,29 @@ body {
 
     .bg-piso {
         margin-top: -347px;
-        margin-left: -100px;
+        margin-left: -89px;
         z-index: 0;
     }
 
-    .gifs img{
+    .gifs img {
         z-index: 1;
     }
 
-    .gif-3{
+    .gif-3 {
         position: absolute;
         left: 420px;
     }
 
-    .gif-7{
+    .gif-7 {
         position: absolute;
         height: 850px;
         left: 790px;
         top: 750px;
     }
 
-    .gifs{
-       margin-top: 120px;
-       margin-left: -80px;
+    .gifs {
+        margin-top: 120px;
+        margin-left: -80px;
     }
 
     /* Footer */
