@@ -19,13 +19,13 @@ body {
         top: 0;
         display: flex;
         justify-content: center;
-
+        overflow-x: hidden;
     }
 
     .container-main {
         width: 1080px;
         height: 14890px;
-        overflow: hidden;
+        overflow-x: clip;
         padding: 0px 100px;
     }
 
@@ -95,19 +95,13 @@ body {
     /*/////////////////////////// COMIENZO HEADER ///////////////////////////*/
 
     header {
+        position: sticky;
         display: flex;
+        top: 0;
         justify-content: space-between;
+        z-index: 1000;
     }
 
-    .sticky{
-        transition: 2s;
-        position: fixed;
-        z-index: 111;
-        display: flex;
-        flex-direction: row;
-        justify-content: space-between;
-        width: 1046px;
-    }
 
     .container-menu-hamburguesa,
     .container-btn-comprar {
@@ -575,8 +569,8 @@ body {
     /*Seccion de compra*/
     .seccion-descarga {
         position: relative;
-        width: 100vw;
-        left: -100px;
+        width: 105vw;
+        left: -110px;
         /* top: 874px; */
         background-image: url('../img/fondoSeccionDescarga.png');
         background-size: cover;
@@ -1036,12 +1030,12 @@ body {
     .small-cloud{
         position: relative;
         left: 460px;
-        top: -185px;
+        top: -195px;
     }
 
     .big-cloud{
         position: relative;
-        left: 265px;
+        left: 290px;
         top: -60px
     }
 
@@ -1054,7 +1048,7 @@ body {
 
     .bg-piso {
         margin-top: -347px;
-        margin-left: -100px;
+        margin-left: -89px;
         z-index: 0;
     }
 
