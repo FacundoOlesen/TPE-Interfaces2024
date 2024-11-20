@@ -110,7 +110,7 @@ body {
 
     /*/////////////////////////// COMIENZO HEADER ///////////////////////////*/
 
-    header {
+    .sticky-header {
         position: sticky;
         display: flex;
         top: 8px;

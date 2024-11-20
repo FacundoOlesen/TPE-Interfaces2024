@@ -3,6 +3,7 @@ const loaderCirculo = document.querySelector(".loader-circle");
 const duracionAnimacion = 12;
 const intervalTime = 100; 
 const numeroMaximo = 100;
+const header = document.querySelector("#header")
 
 const figuras = [
   "./img/figura0.png",
@@ -36,6 +37,9 @@ function updateLoaderText() {
 
     if (numeroActual >= numeroMaximo) {
       clearInterval(interval);
+      setInterval(() => {
+        header.classList.add("sticky-header")
+      }, 1000);
     }
   }, intervalTime);
 }
