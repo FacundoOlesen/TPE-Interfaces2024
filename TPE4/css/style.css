@@ -312,7 +312,6 @@ body {
         justify-content: center;
         text-align: center;
         box-shadow: 3px 4px 0px #02187E;
-        /* Sombra azul debajo del botón */
         font-size: 20px;
         font-weight: 900;
         line-height: 18.9px;
@@ -631,6 +630,7 @@ body {
         width: 300px;
         color: black;
         margin: 0;
+        margin-top: 10px;
     }
 
     /*Seccion de compra*/
@@ -673,13 +673,15 @@ body {
         width: 540px;
         height: 66px;
         position: relative;
-        top: 290px;
-        font-size: 16px;
+        top: 230px;
+        font-size: 31.14px;
         cursor: pointer;
         border: solid white 8px;
-        background-color: #88DE7F;
+        background-color: #83C252;
         color: #fff;
         border-radius: 111px;
+        font-family: 'Lato', sans-serif;
+        font-weight: 400;
     }
 
     /*A consultar, supongo que van las img individuales
@@ -866,6 +868,10 @@ body {
         z-index: 3;
         animation: flotante 5s ease-in-out infinite;
     }
+
+    .matem{
+        font-style:  italic   ;
+     }
 
     .figura3-video img {
         width: auto;
@@ -1147,7 +1153,7 @@ body {
 
     .bg-piso {
         margin-top: -347px;
-        margin-left: -89px;
+        margin-left: -84px;
         z-index: 0;
     }
 
