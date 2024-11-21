@@ -135,9 +135,6 @@ body {
         justify-content: space-between;
         z-index: 1000;
     }
-
-
-
     .container-menu-hamburguesa,
     .container-btn-comprar {
         margin: 10px 0px 0px 0px;
@@ -216,7 +213,13 @@ body {
         animation: slideIn 0.7s ease forwards;
         opacity: 0;
         background: #83C252;
+        border-radius: 0 25px 25px 0;
+        font-weight: bold;
         color: white;
+    }
+    nav.visible ul li:hover{
+        cursor: pointer;
+        background: #4e8b20;
     }
 
     nav.visible ul li:nth-child(1) {
@@ -247,7 +250,6 @@ body {
     }
 
     header.visible {
-        background: linear-gradient(180deg, #00d0d7 0%, #ffffff 100%);
         position: sticky;
         width: 1280px;
         margin-left: -100px;
@@ -261,7 +263,7 @@ body {
         }
 
         100% {
-            background: linear-gradient(180deg, #00d0d7 0%, #ffffff 100%);
+            background: linear-gradient(180deg, #00d0d7 0%, #ffffff00 100%);
         }
     }
 
