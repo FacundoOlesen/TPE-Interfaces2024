@@ -6,6 +6,8 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <link rel="stylesheet" href="css/style.css">
     <link rel="icon" href="img/figura4.png" type="image/png">
+    <script type="module" src="https://unpkg.com/@google/model-viewer/dist/model-viewer.min.js"></script>
+
     <title>Number Blocks</title>
 </head>
 
@@ -286,10 +288,16 @@
                     emocionante. ¡Cada sesión de juego se convierte en una experiencia inolvidable llena de color y
                     diversión!</p>
             </div>
-            <div class="figura3d">
-                <img src="img/figura13d.png" alt="">
-            </div>
+            <model-viewer 
+                id="modelViewer"
+                src="./img/muñeco3d.glb"
+                alt="efecto 3d"
+                poster=".\img\figura13d.png"
+                loading="eager"
+                auto-rotate
+            ></model-viewer>
         </section>
+        
         <section class="seccion-figuras">
             <div class="cuadro-figura1">
                 <img src="img/figura1.png" alt="">
