@@ -1136,18 +1136,29 @@ body {
         position: relative;
         left: 460px;
         top: -195px;
+        animation: mover-nubes 10s linear infinite;
     }
 
     .big-cloud {
         position: relative;
         left: 290px;
-        top: -60px
+        top: -60px;
+        animation: mover-nubes 10s linear infinite;
     }
 
     .left-cloud{
         position: relative;
         left: -70px;
         top: 20px;
+        animation: mover-nubes 10s linear infinite;
+    }
+    @keyframes mover-nubes{
+        0% {
+            transform: translateX(0);
+        }
+        100% {
+            transform: translateX(100vw);
+        }
     }
 
     .gifs {
