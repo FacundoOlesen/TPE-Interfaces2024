@@ -16,20 +16,22 @@ body {
 
 @media (max-width: 1280px) {
     ::-webkit-scrollbar {
-        width: 10px;
-      }
-      
-      ::-webkit-scrollbar-track {
-        background: #a1cbdf;
-      }
-      
-      ::-webkit-scrollbar-thumb {
-        background: rgb(11, 124, 177)
-      }
-      
-      ::-webkit-scrollbar-thumb:hover {
-        background: rgb(8, 164, 236)
-      }
+        width: 10px; 
+    }
+    
+    ::-webkit-scrollbar-track {
+        background: #b3f3f4; 
+    }
+    
+    ::-webkit-scrollbar-thumb {
+        background: #005a5c; 
+        border-radius: 5px; 
+    }
+    
+    ::-webkit-scrollbar-thumb:hover {
+        background: #00a6a8; 
+    }
+    
 
     body {
         position: absolute;
@@ -1060,14 +1062,20 @@ body {
         background-color: #ECECEC;
         border-radius: 45px 0 0 45px;
         border: 9px solid white;
+        font-family: 'Lato', sans-serif;
+        font-size: 20px;
+        color: black;
+        padding-left: 30px;
+        outline: none;
     }
+
+   
 
     .input-correo input::placeholder {
         font-size: 20px;
         color: #00000063;
         letter-spacing: 1.5px;
         font-family: 'Lato', sans-serif;
-        padding-left: 30px;
     }
 
 
