@@ -1255,7 +1255,7 @@ body {
         width: 48px; 
         height: 63px; 
         background-image: url(../img/skullSprite.png);
-        animation: run 1.2s steps(9) infinite, posY 1.6s steps(4) infinite;    
+        animation: run 2.2s steps(9) infinite, posY 2.5s steps(4) infinite;    
     }
     
     @keyframes run {
