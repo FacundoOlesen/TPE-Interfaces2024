@@ -1254,8 +1254,8 @@ body {
         z-index: 400;
         width: 48px; 
         height: 63px; 
-        background: url(../img/skullSprite.png) no-repeat;
-        animation: run 3.2s steps(9) infinite, posY 3.2s steps(4) infinite;    
+        background-image: url(../img/skullSprite.png);
+        animation: run 1.2s steps(9) infinite, posY 1.6s steps(4) infinite;    
     }
     
     @keyframes run {
@@ -1282,7 +1282,7 @@ body {
         z-index: 400;
         width: 68px; 
         height: 73px;
-        background: url(../img/birdsSprites.png) no-repeat;
+        background-image: url(../img/birdsSprites.png);
         animation: fly 0.5s steps(5) infinite, flyY 0.5s steps(3) infinite;    
         margin-top: -400px;
     }
@@ -1309,7 +1309,7 @@ body {
         z-index: 400;
         width: 85px; 
         height: 100px; 
-        background: url(../img/waveSprite.png) no-repeat;
+        background-image: url(../img/waveSprite.png);
         animation: wave 0.7s steps(5) infinite;    
         margin-top: -200px;
     }
