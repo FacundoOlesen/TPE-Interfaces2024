@@ -1144,15 +1144,21 @@ body {
         top: -60px
     }
 
+    .left-cloud{
+        position: relative;
+        left: -70px;
+        top: 20px;
+    }
+
     .gifs {
         display: flex;
         flex-direction: row;
         margin-left: -220px;
-        padding-top: 130px;
+        padding-top: -410px;
     }
 
     .bg-piso {
-        margin-top: -347px;
+        margin-top: -351px;
         margin-left: -84px;
         z-index: 0;
     }
@@ -1161,9 +1167,14 @@ body {
         z-index: 1;
     }
 
+    .gif-2{
+        margin-top: -50px;
+    }
+
     .gif-3 {
         position: absolute;
         left: 420px;
+        top: 1045px;
     }
 
     .gif-7 {

@@ -1,8 +1,8 @@
 const loaderText = document.getElementById("loaderText");
 const loaderCirculo = document.querySelector(".loader-circle");
-const duracionAnimacion = 12; 
-const intervalTime = 100; 
-const numeroMaximo = 100;
+const duracionAnimacion = 1 
+const intervalTime = 1; 
+const numeroMaximo = 1;
 const header = document.querySelector("#header")
 const html = document.querySelector("html")
 
