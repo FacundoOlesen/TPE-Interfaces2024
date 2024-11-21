@@ -1142,7 +1142,7 @@ body {
     .big-cloud {
         position: relative;
         left: 290px;
-        top: -60px;
+        top: -10px;
         animation: mover-nubes 10s linear infinite;
     }
 
@@ -1154,7 +1154,7 @@ body {
     }
     @keyframes mover-nubes{
         0% {
-            transform: translateX(0);
+            transform: translateX(-100vw);
         }
         100% {
             transform: translateX(100vw);
