@@ -4,6 +4,7 @@ const duracionAnimacion = 12;
 const intervalTime = 100; 
 const numeroMaximo = 100;
 const header = document.querySelector("#header")
+const html = document.querySelector("html")
 
 const figuras = [
   "./img/figura0.png",
@@ -19,6 +20,7 @@ const figuras = [
 ];
 
 function updateLoaderText() {
+  html.classList.add("hide-over")
   let tiempoInicial = Date.now();
   let interval = setInterval(function () {
     let tiempoTranscurrido = (Date.now() - tiempoInicial) / 1000;
@@ -39,6 +41,7 @@ function updateLoaderText() {
       clearInterval(interval);
       setInterval(() => {
         header.classList.add("sticky-header")
+        html.classList.remove("hide-over")
       }, 1000);
     }
   }, intervalTime);

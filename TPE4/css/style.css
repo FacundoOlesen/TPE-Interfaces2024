@@ -16,22 +16,26 @@ body {
 
 @media (max-width: 1280px) {
     ::-webkit-scrollbar {
-        width: 10px; 
+        width: 10px;
     }
-    
+
     ::-webkit-scrollbar-track {
-        background: #b3f3f4; 
+        background: #b3f3f4;
     }
-    
+
     ::-webkit-scrollbar-thumb {
-        background: #005a5c; 
-        border-radius: 5px; 
+        background: #00fbff;
+        border-radius: 5px;
     }
-    
+
     ::-webkit-scrollbar-thumb:hover {
-        background: #00a6a8; 
+        background: #00a6a8;
     }
-    
+
+    .hide-over {
+        overflow: hidden;
+    }
+
 
     body {
         position: absolute;
@@ -48,17 +52,18 @@ body {
         padding: 0px 100px;
     }
 
-    .logo-inicio{
+    .logo-inicio {
         width: 560px;
         height: 320px;
         margin-top: 0;
     }
 
-    .fixed{
+    .fixed {
         z-index: 1000;
         position: fixed;
         right: 575px;
     }
+
     /*/////////////////////////// COMIENZO LOADER ///////////////////////////*/
 
     #loader {
@@ -128,7 +133,7 @@ body {
 
     /*/////////////////////////// COMIENZO HEADER ///////////////////////////*/
 
-    header {
+    .sticky-header {
         position: sticky;
         display: flex;
         top: 0px;
@@ -138,6 +143,7 @@ body {
         background: linear-gradient(180deg, #00d0d7 0%, #ffffff00 100%);
         z-index: 1000;
     }
+
     .container-menu-hamburguesa,
     .container-btn-comprar {
         margin: 10px 100px 0px 100px;
@@ -202,11 +208,11 @@ body {
         height: 105px;
     }
 
-    nav{
-       display: none;
+    nav {
+        display: none;
     }
 
-    .block{
+    .block {
         display: block;
     }
 
@@ -220,7 +226,8 @@ body {
         font-weight: bold;
         color: white;
     }
-    nav.visible ul li:hover{
+
+    nav.visible ul li:hover {
         cursor: pointer;
         background: #4e8b20;
     }
@@ -612,8 +619,8 @@ body {
         transform: translateY(0);
     }
 
- 
-    
+
+
 
     .card-galeria img {
         width: 300px;
@@ -743,7 +750,7 @@ body {
     .seccion-modos {
         position: relative;
     }
-    
+
     .numero-modos {
         position: absolute;
         top: 0;
@@ -752,30 +759,30 @@ body {
         justify-content: center;
         align-items: center;
     }
-    
+
     .stickyModo {
         position: fixed;
         width: auto;
-        height:400px ;
+        height: 400px;
         top: 100px;
         left: 243px;
         display: flex;
         justify-content: center;
         align-items: center;
     }
-    
+
     .sticky-final {
         position: absolute;
         top: 3922px;
         left: 243px;
     }
-    
+
     .sticky-inicial {
         position: absolute;
         top: 287px;
         left: 243px;
     }
-    
+
     .numero-modos img {
         max-width: 100%;
         max-height: 400px;
@@ -783,28 +790,29 @@ body {
         opacity: 1;
         transition: opacity 0.5s ease, transform 0.5s ease;
     }
-    
+
     .numero-modos img.desvanecer {
         opacity: 0;
     }
-    .numero-modos img.zoom{
-        transform:scale(1.1);
+
+    .numero-modos img.zoom {
+        transform: scale(1.1);
     }
-    
+
     .seccion-modos h2 {
         position: relative;
         top: 174px;
         font-size: 60px;
     }
-    
+
     .text-modo h3 {
         font-size: 40px;
     }
-    
+
     .text-modo p {
         font-size: 20px;
     }
-    
+
     .text-modo {
         position: relative;
         left: 613px;
@@ -813,7 +821,7 @@ body {
         width: 467px;
         height: 167px;
     }
-    
+
     /*Seccion de videos*/
     .seccion-video {
         position: relative;
@@ -883,8 +891,10 @@ body {
     .seccion-3d {
         position: relative;
         display: flex;
-        align-items: flex-start; /* Asegura que los elementos se alineen correctamente */
-        flex-wrap: wrap; /* Permite que los elementos se ajusten si es necesario */
+        align-items: flex-start;
+        /* Asegura que los elementos se alineen correctamente */
+        flex-wrap: wrap;
+        /* Permite que los elementos se ajusten si es necesario */
     }
 
     .text-3d {
@@ -902,10 +912,13 @@ body {
         width: 467px;
         height: 190px;
     }
+
     #modelViewer {
         position: relative;
-        top: 200px; /* Ajusta según necesites */
-        left: 450px; /* Ajusta según necesites */
+        top: 200px;
+        /* Ajusta según necesites */
+        left: 450px;
+        /* Ajusta según necesites */
         width: 667px;
         height: 673px;
     }
@@ -1072,7 +1085,7 @@ body {
         outline: none;
     }
 
-   
+
 
     .input-correo input::placeholder {
         font-size: 20px;
