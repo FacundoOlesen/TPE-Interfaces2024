@@ -128,16 +128,19 @@ body {
 
     /*/////////////////////////// COMIENZO HEADER ///////////////////////////*/
 
-    .sticky-header {
+    header {
         position: sticky;
         display: flex;
-        top: 8px;
+        top: 0px;
+        margin-left: -100px;
+        margin-right: -100px;
         justify-content: space-between;
+        background: linear-gradient(180deg, #00d0d7 0%, #ffffff00 100%);
         z-index: 1000;
     }
     .container-menu-hamburguesa,
     .container-btn-comprar {
-        margin: 10px 0px 0px 0px;
+        margin: 10px 100px 0px 100px;
         z-index: 2;
     }
 
