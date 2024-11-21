@@ -1281,7 +1281,7 @@ body {
         margin-left: -130px;
         z-index: 400;
         width: 68px; 
-        height: 73px;
+        height: 66px;
         background-image: url(../img/birdsSprites.png);
         animation: fly 0.5s steps(5) infinite, flyY 0.5s steps(3) infinite;    
         margin-top: -400px;
