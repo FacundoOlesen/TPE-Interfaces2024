@@ -18,11 +18,11 @@ window.addEventListener("scroll", () => {
 
         window.scrollY >= 179 ? logo.classList.add("fixed") : logo.classList.remove("fixed")
     }
-     if (window.scrollY >= 179) {
+    if (window.scrollY >= 179) {
         logo.classList.add("fixed")
         logo.style.width = 151.5 + "px";
-        logo.style.height = 105.75 + "px";
-        logo.style.marginTop = -15 + "px";
+        logo.style.height = 85.75 + "px";
+        logo.style.marginTop = -5 + "px";
     }
 });
 
