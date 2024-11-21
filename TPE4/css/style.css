@@ -616,9 +616,8 @@ body {
     .card-galeria.visible {
         opacity: 1;
         transform: translateY(0);
+        max-height: 398.69px;
     }
-
-
 
 
     .card-galeria img {
