@@ -869,9 +869,9 @@ body {
         animation: flotante 5s ease-in-out infinite;
     }
 
-    .matem{
-        font-style:  italic   ;
-     }
+    .matem {
+        font-style: italic;
+    }
 
     .figura3-video img {
         width: auto;
@@ -1057,7 +1057,7 @@ body {
         background-color: white;
     }
 
-    .seccion-correo div {
+    .seccion-correo .no-backgr-part, .seccion-correo .title,  .seccion-correo .input-correo,.seccion-correo .backg-part, .seccion-correo .texto , .seccion-correo .gifs {
         padding-left: 80px;
     }
 
@@ -1065,6 +1065,7 @@ body {
         width: 816px;
         height: 171px;
         padding-top: 180px;
+
     }
 
     .seccion-correo h3 {
@@ -1146,16 +1147,18 @@ body {
         animation: mover-nubes 10s linear infinite;
     }
 
-    .left-cloud{
+    .left-cloud {
         position: relative;
         left: -70px;
         top: 20px;
         animation: mover-nubes 10s linear infinite;
     }
-    @keyframes mover-nubes{
+
+    @keyframes mover-nubes {
         0% {
             transform: translateX(-100vw);
         }
+
         100% {
             transform: translateX(100vw);
         }
@@ -1178,8 +1181,9 @@ body {
         z-index: 1;
     }
 
-    .gif-2{
-        margin-top: -50px;
+    .gif-2 {
+        top: -50px;
+        position: relative;
     }
 
     .gif-3 {
@@ -1243,4 +1247,82 @@ body {
         left: 100px;
         width: 212px;
     }
+
+    .skullSprite {
+        margin-left: -130px;
+        margin-top: 405px;
+        z-index: 400;
+        width: 48px; 
+        height: 63px; 
+        background: url(../img/skullSprite.png) no-repeat;
+        animation: run 3.2s steps(9) infinite, posY 3.2s steps(4) infinite;    
+    }
+    
+    @keyframes run {
+        0% {
+            background-position-x: 0px; 
+        }
+        100% {
+            background-position-x: -576px ; 
+        }
+    }
+
+    @keyframes posY {
+        0% {
+            background-position-y: 0px; 
+        }
+        100% {
+            background-position-y: -260px ; 
+        }
+    }
+    
+
+    .birdsSprite {
+        margin-left: -130px;
+        z-index: 400;
+        width: 68px; 
+        height: 73px;
+        background: url(../img/birdsSprites.png) no-repeat;
+        animation: fly 0.5s steps(5) infinite, flyY 0.5s steps(3) infinite;    
+        margin-top: -400px;
+    }
+    
+    @keyframes fly  {
+        0% {
+            background-position-x: 0px; 
+        }
+        100% {
+            background-position-x: -360px ; 
+        }
+    }
+
+    @keyframes flyY {
+        0% {
+            background-position-y: 0px; 
+        }
+        100% {
+            background-position-y: -210px ; 
+        }
+    }
+
+    .waveSprite {
+        z-index: 400;
+        width: 85px; 
+        height: 100px; 
+        background: url(../img/waveSprite.png) no-repeat;
+        animation: wave 0.7s steps(5) infinite;    
+        margin-top: -200px;
+    }
+    
+    @keyframes wave  {
+        0% {
+            background-position-x: 0px; 
+        }
+        100% {
+            background-position-x: -501px ; 
+        }
+    }
+
+ 
+
 }
